@@ -1,15 +1,9 @@
-var click = false;
-var pTag = document.createElement("p");
-var element = document.getElementById("div1");
-var text = document.createTextNode("You Press The Button!");
-
-pTag.appendChild(text);
+document.getElementById("btn1").addEventListener("click", onMouseDown);
 
 function onMouseDown() {
-	click = true;
-	element.appendChild(pTag);
+	document.getElementById("p1").innerHTML = "Button DOWN";
 }
 
 function onMouseUp() {
-	click = false;
+	document.getElementById("p1").innerHTML = "Button UP";
 }
