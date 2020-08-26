@@ -1,27 +1,27 @@
-document.getElementById("btn1").onmousedown = function () {onMouseDown()};
-document.getElementById("btn1").onmouseup = function () {onMouseUp()};
-document.getElementById("btn1").onclick = function () {onClickCounter()};
-document.getElementById("btn1").onmouseover = function () {onMouseOver()};
-document.getElementById("btn1").onmouseleave = function () {onMouseLive()};
+document.getElementById("btn1").onmousedown = function () {buttonDown()};
+document.getElementById("btn1").onmouseup = function () {buttonUp()};
+document.getElementById("btn1").onclick = function () {clickCounter()};
+document.getElementById("btn1").onmouseover = function () {mouseOver()};
+document.getElementById("btn1").onmouseleave = function () {mouseLeave()};
 
-var i = 1;
+var count = 1;
 
-function onMouseOver() {
-	document.getElementById("p3").innerHTML = "Mouse Over"
+function mouseOver() {
+	document.getElementById("p3").innerHTML = "On Button"
 }
 
-function onMouseLive() {
-	document.getElementById("p3").innerHTML = "Mouse Live"
+function mouseLeave() {
+	document.getElementById("p3").innerHTML = "Not on Button"
 }
 
-function onClickCounter() {
-	document.getElementById("p2").innerHTML = `Click count: ${i++}`;
+function clickCounter() {
+	document.getElementById("p2").innerHTML = `Click count: ${count++}`;
 }
 
-function onMouseDown() {
+function buttonDown() {
 	document.getElementById("p1").innerHTML = "Button: DOWN";
 }
 
-function onMouseUp() {
+function buttonUp() {
 	document.getElementById("p1").innerHTML = "Button: UP";
 } 
