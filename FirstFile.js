@@ -3,7 +3,8 @@ document.getElementById("btn1").onmouseup = function () {buttonUp()};
 document.getElementById("btn1").onclick = function () {clickCounter()};
 document.getElementById("btn1").onmouseover = function () {mouseOver()};
 document.getElementById("btn1").onmouseleave = function () {mouseLeave()};
-document.getElementById("btn2").onclick = function () {changeColor()}
+document.getElementById("btn2").onclick = function () {changeColor()};
+let temp = document.querySelector(".temp");
 
 window.addEventListener("load", ()=> {
 	if(navigator.geolocation) {
@@ -19,8 +20,10 @@ window.addEventListener("load", ()=> {
 				})
 				.then(data => {
 					console.log(data);
+					const {temperature} = data.currently;
+					temp.textContent = temperature
 				})
-		})
+		})	
 	}
 });
 
