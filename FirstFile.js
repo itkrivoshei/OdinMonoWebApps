@@ -68,4 +68,8 @@ function buttonDown() {
 
 function buttonUp() {
 	document.getElementById("p1").innerHTML = "Button: UP";
+<<<<<<< HEAD
 } 
+=======
+} 
+>>>>>>> cdd51a8fbf02866e98638cbadb0ae390d6dc1e49
