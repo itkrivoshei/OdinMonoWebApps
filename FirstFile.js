@@ -11,7 +11,7 @@ window.addEventListener("load", ()=> {
 		navigator.geolocation.getCurrentPosition(position => {
 			let lon = position.coords.longitude;
 			let lat = position.coords.latitude;
-			let key = "3f3b294c97be06883c4957818ca70c8f";
+			let key = config.myKey;
 			const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily&appid=${key}`;
 
 			fetch(api)
