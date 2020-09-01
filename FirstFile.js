@@ -54,7 +54,7 @@ function changeColor() {
 	hex = rgbToHex(r, g, b);
 	document.getElementById(
 		"p4"
-	).innerHTML = `Color is: rgb(${r}, ${g}, ${b}) or hex ${hex}`;
+	).innerHTML = `rgb(${r}, ${g}, ${b}) ${hex}`;
 	document.body.style.background = `rgb(${r}, ${g}, ${b})`;
 }
 
