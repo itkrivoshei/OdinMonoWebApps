@@ -1,31 +1,22 @@
-"use strict";
-
 document.getElementById("btn1").onmousedown = function () {
 	buttonDown();
 };
-
 document.getElementById("btn1").onmouseup = function () {
 	buttonUp();
 };
-
 document.getElementById("btn1").onclick = function () {
 	clickCounter();
 };
-
 document.getElementById("btn1").onmouseover = function () {
 	mouseOver();
 };
-
 document.getElementById("btn1").onmouseleave = function () {
 	mouseLeave();
 };
-
 document.getElementById("btn2").onclick = function () {
 	changeColor();
 };
-
-var temp = document.querySelector(".temp");
-
+let temp = document.querySelector(".temp");
 // window.addEventListener("load", ()=> {
 // 	if(navigator.geolocation) {
 // 		navigator.geolocation.getCurrentPosition(position => {
@@ -45,11 +36,10 @@ var temp = document.querySelector(".temp");
 // 		})
 // 	}
 // });
-
 // Change Color Button
 
 function componentToHex(num) {
-	var hex = num.toString(16);
+	let hex = num.toString(16);
 	return hex.length == 1 ? "0" + hex : hex;
 }
 
@@ -58,19 +48,14 @@ function rgbToHex(r, g, b) {
 }
 
 function changeColor() {
-	var r = Math.floor(Math.random() * 256);
-	var g = Math.floor(Math.random() * 256);
-	var b = Math.floor(Math.random() * 256);
+	let r = Math.floor(Math.random() * 256);
+	let g = Math.floor(Math.random() * 256);
+	let b = Math.floor(Math.random() * 256);
 	hex = rgbToHex(r, g, b);
-	document.getElementById("p4").innerHTML = "rgb("
-		.concat(r, ", ")
-		.concat(g, ", ")
-		.concat(b, ") ")
-		.concat(hex);
-	document.body.style.background = "rgb("
-		.concat(r, ", ")
-		.concat(g, ", ")
-		.concat(b, ")");
+	document.getElementById(
+		"p4"
+	).innerHTML = `Color is: rgb(${r}, ${g}, ${b}) or hex ${hex}`;
+	document.body.style.background = `rgb(${r}, ${g}, ${b})`;
 }
 
 // Info Button
