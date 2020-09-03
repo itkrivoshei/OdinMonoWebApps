@@ -16,26 +16,7 @@ document.getElementById("btn1").onmouseleave = function () {
 document.getElementById("btn2").onclick = function () {
   changeColor();
 };
-let temp = document.querySelector(".temp");
-// window.addEventListener("load", ()=> {
-// 	if(navigator.geolocation) {
-// 		navigator.geolocation.getCurrentPosition(position => {
-// 			let lon = position.coords.longitude;
-// 			let lat = position.coords.latitude;
-// 			let key = config.myKey;
-// 			const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly,daily&appid=${key}`;
-// 			fetch(api)
-// 				.then(response => {
-// 					return response.json();
-// 				})
-// 				.then(data => {
-// 					console.log(data);
-// 					const {temperature} = data.currently;
-// 					temp.textContent = temperature
-// 				})
-// 		})
-// 	}
-// });
+
 // Change Color Button
 
 function componentToHex(num) {
