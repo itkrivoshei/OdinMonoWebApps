@@ -1,66 +1,66 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 .buttonInfo {
-	width: 20vh;
-	height: 15vh;
-	display: flex;
-	text-align: center;
-	justify-items: center;
-	justify-content: space-evenly;
-	flex-direction: column;
+  width: 20vh;
+  height: 15vh;
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .buttonColor {
-	width: 30vh;
-	height: 10vh;
-	display: flex;
-	text-align: center;
-	justify-items: center;
-	justify-content: space-evenly;
-	flex-direction: column;
+  width: 30vh;
+  height: 10vh;
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 #btn1 {
-	background-color: #a55ab8;
-	font-size: medium;
-	padding: 5px;
-	border-radius: 8px;
-	color: white;
-	border: none;
-	transition: all 0.2s;
-	border: 1px solid white;
+  background-color: #a55ab8;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  transition: all 0.2s;
+  border: 1px solid white;
 }
 
 #btn2 {
-	background-color: #a55ab8;
-	font-size: medium;
-	padding: 5px;
-	border-radius: 8px;
-	color: white;
-	border: none;
-	transition: all 0.2s;
-	border: 1px solid white;
+  background-color: #a55ab8;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  transition: all 0.2s;
+  border: 1px solid white;
 }
 
 #btn1:hover,
 #btn2:hover {
-	background-color: #c280d3;
+  background-color: #c280d3;
 }
 
 #btn1:active,
 #btn2:active {
-	background-color: #da47ff;
+  background-color: #da47ff;
 }

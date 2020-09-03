@@ -1,20 +1,20 @@
 document.getElementById("btn1").onmousedown = function () {
-	buttonDown();
+  buttonDown();
 };
 document.getElementById("btn1").onmouseup = function () {
-	buttonUp();
+  buttonUp();
 };
 document.getElementById("btn1").onclick = function () {
-	clickCounter();
+  clickCounter();
 };
 document.getElementById("btn1").onmouseover = function () {
-	mouseOver();
+  mouseOver();
 };
 document.getElementById("btn1").onmouseleave = function () {
-	mouseLeave();
+  mouseLeave();
 };
 document.getElementById("btn2").onclick = function () {
-	changeColor();
+  changeColor();
 };
 let temp = document.querySelector(".temp");
 // window.addEventListener("load", ()=> {
@@ -39,23 +39,21 @@ let temp = document.querySelector(".temp");
 // Change Color Button
 
 function componentToHex(num) {
-	let hex = num.toString(16);
-	return hex.length == 1 ? "0" + hex : hex;
+  let hex = num.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
 }
 
 function rgbToHex(r, g, b) {
-	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 function changeColor() {
-	let r = Math.floor(Math.random() * 256);
-	let g = Math.floor(Math.random() * 256);
-	let b = Math.floor(Math.random() * 256);
-	hex = rgbToHex(r, g, b);
-	document.getElementById(
-		"p4"
-	).innerHTML = `rgb(${r}, ${g}, ${b}) ${hex}`;
-	document.body.style.background = `rgb(${r}, ${g}, ${b})`;
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  hex = rgbToHex(r, g, b);
+  document.getElementById("p4").innerHTML = `rgb(${r}, ${g}, ${b}) ${hex}`;
+  document.body.style.background = `rgb(${r}, ${g}, ${b})`;
 }
 
 // Info Button
@@ -63,21 +61,21 @@ function changeColor() {
 var count = 1;
 
 function clickCounter() {
-	document.getElementById("p2").innerHTML = "Click count: ".concat(count++);
+  document.getElementById("p2").innerHTML = "Click count: ".concat(count++);
 }
 
 function mouseOver() {
-	document.getElementById("p3").innerHTML = "On Button";
+  document.getElementById("p3").innerHTML = "On Button";
 }
 
 function mouseLeave() {
-	document.getElementById("p3").innerHTML = "Not on Button";
+  document.getElementById("p3").innerHTML = "Not on Button";
 }
 
 function buttonDown() {
-	document.getElementById("p1").innerHTML = "Button: DOWN";
+  document.getElementById("p1").innerHTML = "Button: DOWN";
 }
 
 function buttonUp() {
-	document.getElementById("p1").innerHTML = "Button: UP";
+  document.getElementById("p1").innerHTML = "Button: UP";
 }
