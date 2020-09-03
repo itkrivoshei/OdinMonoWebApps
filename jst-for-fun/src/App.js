@@ -28,7 +28,6 @@ function App() {
   }
 
   // Change Color Button
-  
   function rgbToHex(r, g, b) {
     //"#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
