@@ -6,22 +6,6 @@ function App() {
 
   const [count, setCount] = useState(0);
 
-  function mouseOver() {
-    document.getElementById("p3").innerHTML = "On Button";
-  }
-
-  function mouseLeave() {
-    document.getElementById("p3").innerHTML = "Not on Button";
-  }
-
-  function buttonDown() {
-    document.getElementById("p1").innerHTML = "Button: DOWN";
-  }
-
-  function buttonUp() {
-    document.getElementById("p1").innerHTML = "Button: UP";
-  }
-
   function componentToHex(num) {
     let hex = num.toString(16);
     //hex.length === 1 ? "0" + hex : hex;
@@ -45,7 +29,7 @@ function App() {
   return (
     <div className="buttonInfo">
       <button onClick={() => setCount(count + 1)}>Down-Up-Click</button>
-      <p>Button UP</p>
+      <p onMouseDown={() => }>Button UP</p>
       <p>Click count: {count}</p>
       <p className="p3">Not on Button</p>
       <buttonColor />
