@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import buttonColor from "./buttonColor";
 
 function App() {
   // Info Button
 
   const [count, setCount] = useState(0);
+  const [btnUpDown, setBtnUpDown] = useState("UP");
+  const [btnOnOut, setBtnOnOut] = useState("OUT");
 
   function componentToHex(num) {
     let hex = num.toString(16);
@@ -12,7 +14,7 @@ function App() {
   }
 
   // Change Color Button
-  
+
   function rgbToHex(r, g, b) {
     //"#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
@@ -28,10 +30,18 @@ function App() {
 
   return (
     <div className="buttonInfo">
-      <button onClick={() => setCount(count + 1)}>Down-Up-Click</button>
-      <p onMouseDown={() => }>Button UP</p>
+      <button
+        onClick={() => setCount(count + 1)}
+        onMouseDown={() => setBtnUpDown("DOWN")}
+        onMouseUp={() => setBtnUpDown("UP")}
+        onMouseOver={() => setBtnOnOut("ON")}
+        onMouseOut={() => setBtnOnOut("OUT")}
+      >
+        Down-Up-Click
+      </button>
+      <p>{btnOnOut} Button</p>
+      <p>Button {btnUpDown}</p>
       <p>Click count: {count}</p>
-      <p className="p3">Not on Button</p>
       <buttonColor />
     </div>
   );
