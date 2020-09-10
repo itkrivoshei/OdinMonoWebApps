@@ -27,7 +27,9 @@ function ColorButton() {
 
   return (
     <div className="colorButton">
-      <button onClick={() => setRgbAndHex(changeColor())}>Change Color</button>
+      <button className="btn2" onClick={() => setRgbAndHex(changeColor())}>
+        Change Color
+      </button>
       <p>{rgbAndHex}</p>
     </div>
   );

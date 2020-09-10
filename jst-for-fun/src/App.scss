@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
+.app {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,7 +7,7 @@ body {
   font-family: sans-serif;
 }
 
-.buttonInfo {
+.infoButton {
   width: 20vh;
   height: 15vh;
   display: flex;
@@ -23,7 +17,7 @@ body {
   flex-direction: column;
 }
 
-.buttonColor {
+.colorButton {
   width: 30vh;
   height: 10vh;
   display: flex;
@@ -33,7 +27,7 @@ body {
   flex-direction: column;
 }
 
-#btn1 {
+.btn1 {
   background-color: rgb(165, 90, 184);
   font-size: medium;
   padding: 5px;
@@ -44,7 +38,7 @@ body {
   border: 1px solid white;
 }
 
-#btn2 {
+.btn2 {
   background-color: rgb(165, 90, 184);
   font-size: medium;
   padding: 5px;
@@ -55,12 +49,12 @@ body {
   border: 1px solid white;
 }
 
-#btn1:hover,
-#btn2:hover {
+.btn1:hover,
+.btn2:hover {
   background-color: rgb(194, 128, 211);
 }
 
-#btn1:active,
-#btn2:active {
+.btn1:active,
+.btn2:active {
   background-color: rgb(218, 71, 255);
 }

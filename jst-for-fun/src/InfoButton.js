@@ -6,8 +6,9 @@ function InfoButton() {
   const [btnOnOut, setBtnOnOut] = useState("OUT");
 
   return (
-    <div className="InfoButton">
+    <div className="infoButton">
       <button
+        className="btn2"
         onClick={() => setCount(count + 1)}
         onMouseDown={() => setBtnUpDown("DOWN")}
         onMouseUp={() => setBtnUpDown("UP")}
