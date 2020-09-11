@@ -8,7 +8,7 @@ function InfoButton() {
   return (
     <div className="infoButton">
       <button
-        className="btn2"
+        className="btn1"
         onClick={() => setCount(count + 1)}
         onMouseDown={() => setBtnUpDown("DOWN")}
         onMouseUp={() => setBtnUpDown("UP")}

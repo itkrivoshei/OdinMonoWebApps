@@ -1,4 +1,5 @@
 .app {
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,8 +9,7 @@
 }
 
 .infoButton {
-  width: 20vh;
-  height: 15vh;
+  height: 120px;
   display: flex;
   text-align: center;
   justify-items: center;
@@ -18,26 +18,16 @@
 }
 
 .colorButton {
-  width: 30vh;
-  height: 10vh;
+  align-items: center;
+  height: 80px;
+  width: 200px;
   display: flex;
   text-align: center;
-  justify-items: center;
   justify-content: space-evenly;
   flex-direction: column;
 }
 
-.btn1 {
-  background-color: #a55ab8;
-  font-size: medium;
-  padding: 5px;
-  border-radius: 8px;
-  color: white;
-  border: none;
-  transition: all 0.2s;
-  border: 1px solid white;
-}
-
+.btn1,
 .btn2 {
   background-color: #a55ab8;
   font-size: medium;
@@ -57,4 +47,8 @@
 .btn1:active,
 .btn2:active {
   background-color: #da47ff;
+}
+
+.btn2 {
+  width: 150px;
 }
