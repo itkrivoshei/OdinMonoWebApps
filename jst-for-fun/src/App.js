@@ -11,6 +11,19 @@ function App() {
     else console.log(false);
   }
 
+  //palindrome("car"); // return -> falce
+  //palindrome("racecar"); // return -> true
+
+  function repeatify(str, times) {
+    let newstr = "";
+    for (let i = 0; i < times; i++) {
+      newstr += str;
+    }
+    console.log(newstr);
+  }
+
+  //  repeatify("hello", 3)
+
   return (
     <div className="app">
       <InfoButton />
