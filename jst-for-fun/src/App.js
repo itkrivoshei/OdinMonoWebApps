@@ -11,8 +11,8 @@ function App() {
     else console.log(false);
   }
 
-  //palindrome("car"); // return -> falce
-  //palindrome("racecar"); // return -> true
+  //palindrome("car"); // console -> falce
+  //palindrome("racecar"); // console -> true
 
   function repeatify(str, times) {
     let newstr = "";
@@ -22,7 +22,18 @@ function App() {
     console.log(newstr);
   }
 
-  //  repeatify("hello", 3)
+  //  repeatify("hello", 3); // console -> hellohellohello
+
+  function fizzbuzz(num) {
+    if (num % 3 === 0 && num % 5 === 0) console.log("FizzBuzz");
+    else if (num % 3 === 0) console.log("Fizz");
+    else if (num % 5 === 0) console.log("Buzz");
+    else console.log(num);
+  }
+
+  // for(let i = 0; i < 100; i++)
+  //   fizzbuzz(i);
+  // console -> from 1 to 100 fizz or buzz or fizzbuzz or num
 
   return (
     <div className="app">
