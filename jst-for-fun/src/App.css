@@ -28,7 +28,9 @@
 }
 
 .btn1,
-.btn2 {
+.btn2,
+.btn3,
+.btn4 {
   background-color: #a55ab8;
   font-size: medium;
   padding: 5px;

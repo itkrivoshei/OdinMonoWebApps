@@ -1,6 +1,8 @@
 import React from "react";
 import ColorButton from "./ColorButton";
 import InfoButton from "./InfoButton";
+import NameButton from "./NameButton";
+import SummButton from "./SummButton";
 import "./App.css";
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
   return (
     <div className="app">
       <InfoButton />
+      <NameButton />
+      <SummButton />
       <ColorButton />
     </div>
   );
