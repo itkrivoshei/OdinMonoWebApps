@@ -74,7 +74,6 @@ function ifElseTests() {
   }
 }
 
-
 function IfElseButton() {
   return (
     <div className="IfElseButton">
