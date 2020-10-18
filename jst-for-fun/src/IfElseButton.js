@@ -1,15 +1,13 @@
 import React from "react";
 
 function ifElseTrain() {
-  let x = 1;
-  while (x === 1) {
+  while (true) {
     let ex = prompt("На выбор 1-4 задачи", "1");
     // EX1
     if (ex === "1") {
       let ex1 = prompt("Какое «официальное» название JavaScript?");
       if (ex1 === "ECMAScript"){
         alert("Верно!");
-        x = 0;
         break;
       }
       else
@@ -17,7 +15,27 @@ function ifElseTrain() {
     }
     // EX2
     else if (ex === "2") {
-      let ex2 = 
+      let ex2 = prompt("Напишите число больше, меньше, либо равное 0", "0");
+      if (+ex2 < 0) {
+        alert("Число меньше чем 0");
+        break;
+      } else if (+ex > 0) {
+        alert("Число больше чем 0");
+        break;
+      } else if (+ex === 0) {
+        alert("Число равно 0");
+        break;
+      } else {
+        alert("Это не число");
+        break;
+      }
+    }
+    // EX3
+    else if (ex === "3") {
+      let ex3a = prompt("a + b < 4 - Задайте a и b | a =", "0");
+      let ex3b = prompt("a + b < 4 - Задайте a и b | b =", "0");
+      let result = (ex3a + ex3b >= 4) ? (ex3a + ex3b == 4) ? "Равно" : "Много" : "Мало";
+      alert(result);
     }
     // ELSE
     else
