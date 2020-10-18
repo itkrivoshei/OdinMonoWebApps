@@ -2,7 +2,8 @@ import React from "react";
 
 function askNameTell() {
   let name = prompt("What is your name");
-  alert("Your name is: " + name);
+  if (name !== "")
+    alert("Your name is: " + name);
 }
 
 function NameButton() {
