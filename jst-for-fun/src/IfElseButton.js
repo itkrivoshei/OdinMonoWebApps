@@ -28,9 +28,10 @@ function ifElseTests() {
     else if (ex === "3") {
       var ex3a = prompt("a + b < 4 - Задайте a и b | a =", "0");
       var ex3b = prompt("a + b < 4 - Задайте a и b | b =", "0");
-      var result = (ex3a + ex3b >= 4) ?
-      (ex3a + ex3b == 4) ? "Равно" : "Много"
-      : "Мало";
+      var result = ((ex3a && ex3b) == Number) ? (ex3a + ex3b >= 4) ?
+      (ex3a + ex3b == 4) ? "Не верно" : "Не верно"
+      : "Верно"
+      : "Это не число";
       alert(result);
     }
     // EX4
