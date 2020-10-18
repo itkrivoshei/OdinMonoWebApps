@@ -37,6 +37,10 @@ function ifElseTrain() {
       let result = (ex3a + ex3b >= 4) ? (ex3a + ex3b == 4) ? "Равно" : "Много" : "Мало";
       alert(result);
     }
+    // EX4
+    else if (ex === "4") {
+      let ex4 = prompt("Введите логин: Сотрудник или Директор")
+    }
     // ELSE
     else
       let ex = prompt("Сделай выбор 1, 2, 3, или 4", "1");
