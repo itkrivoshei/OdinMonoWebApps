@@ -3,6 +3,7 @@ import ColorButton from "./ColorButton";
 import InfoButton from "./InfoButton";
 import NameButton from "./NameButton";
 import SummButton from "./SummButton";
+import IfElseButton from "./IfElseButton";
 import "./App.css";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <InfoButton />
       <NameButton />
       <SummButton />
+      <IfElseButton />
       <ColorButton />
     </div>
   );
