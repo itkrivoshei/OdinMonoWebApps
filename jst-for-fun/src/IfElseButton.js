@@ -46,7 +46,7 @@ function ifElseTests() {
       alert(message);
     }
     // EXIT
-    else if (ex === "5") break;
+    else if (ex === "9") break;
     // ELSE
     else var ex = prompt("Сделай выбор 1, 2, 3, 4, для выхода 5", "1");
   }
