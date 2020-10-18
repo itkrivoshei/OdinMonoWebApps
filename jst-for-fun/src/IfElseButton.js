@@ -26,12 +26,12 @@ function ifElseTests() {
     }
     // EX3
     else if (ex === "3") {
-      var ex3a = prompt("a + b < 4 - Задайте a и b | a =", "0");
-      var ex3b = prompt("a + b < 4 - Задайте a и b | b =", "0");
-      var result = ((ex3a && ex3b) == Number) ? (ex3a + ex3b >= 4) ?
-      (ex3a + ex3b == 4) ? "Не верно" : "Не верно"
+      var ex3a = prompt("a + b < 100 - Задайте a и b | a =", "0");
+      var ex3b = prompt("a + b < 100 - Задайте a и b | b =", "0");
+      var result = ((ex3a && ex3b) == Number) ? (ex3a + ex3b >= 100) ?
+      (ex3a + ex3b == 100) ? "Не верно" : "Не верно"
       : "Верно"
-      : "Это не число";
+      : "Введи только положительные числа";
       alert(result);
     }
     // EX4
