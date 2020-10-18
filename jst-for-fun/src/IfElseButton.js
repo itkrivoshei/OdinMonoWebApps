@@ -19,10 +19,10 @@ function ifElseTrain() {
       if (+ex2 < 0) {
         alert("Число меньше чем 0");
         break;
-      } else if (+ex > 0) {
+      } else if (+ex2 > 0) {
         alert("Число больше чем 0");
         break;
-      } else if (+ex === 0) {
+      } else if (+ex2 === 0) {
         alert("Число равно 0");
         break;
       } else {
@@ -34,12 +34,18 @@ function ifElseTrain() {
     else if (ex === "3") {
       let ex3a = prompt("a + b < 4 - Задайте a и b | a =", "0");
       let ex3b = prompt("a + b < 4 - Задайте a и b | b =", "0");
-      let result = (ex3a + ex3b >= 4) ? (ex3a + ex3b == 4) ? "Равно" : "Много" : "Мало";
+      let result = (ex3a + ex3b >= 4) ?
+      (ex3a + ex3b == 4) ? "Равно" : "Много"
+      : "Мало";
       alert(result);
     }
     // EX4
     else if (ex === "4") {
       let ex4 = prompt("Введите логин: Сотрудник или Директор")
+      let message = ex4 === "Сотрудник" ? "Привет" :
+      ex4 === "Директор" ? "Здравствуйте" :
+      ex4 === "" ? "Нет Логина" : "";
+      alert(message);
     }
     // ELSE
     else
