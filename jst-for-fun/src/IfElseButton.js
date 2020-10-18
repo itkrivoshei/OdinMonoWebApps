@@ -2,13 +2,12 @@ import React from "react";
 
 function ifElseTests() {
   while (true) {
-    var ex = prompt("На выбор 1-4 задачи", "1");
+    var ex = prompt("На выбор 1-4 задачи, для выхода 5", "1");
     // EX1
     if (ex === "1") {
       var ex1 = prompt("Какое «официальное» название JavaScript?");
       if (ex1 === "ECMAScript"){
         alert("Верно!");
-        break;
       }
       else
         alert("Не знаете? ECMAScript!");
@@ -16,19 +15,14 @@ function ifElseTests() {
     // EX2
     else if (ex === "2") {
       var ex2 = prompt("Напишите число больше, меньше, либо равное 0", "0");
-      if (+ex2 < 0) {
+      if (+ex2 < 0)
         alert("Число меньше чем 0");
-        break;
-      } else if (+ex2 > 0) {
+      else if (+ex2 > 0)
         alert("Число больше чем 0");
-        break;
-      } else if (+ex2 === 0) {
+      else if (+ex2 === 0)
         alert("Число равно 0");
-        break;
-      } else {
+      else
         alert("Это не число");
-        break;
-      }
     }
     // EX3
     else if (ex === "3") {
@@ -47,9 +41,12 @@ function ifElseTests() {
       ex4 === "" ? "Нет Логина" : "";
       alert(message);
     }
+    // EXIT
+    else if (ex === "5")
+      break;
     // ELSE
     else
-      var ex = prompt("Сделай выбор 1, 2, 3, или 4", "1");
+      var ex = prompt("Сделай выбор 1, 2, 3, 4, для выхода 5", "1");
     }
 
 }
