@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
   while (true) {
-    var ex = prompt("На выбор 1-... задачи, для выхода 9", "1");
+    var ex = prompt("На выбор 1-6 задачи, для выхода 9", "1");
     // EX1
     if (ex === "1") {
       var ex1 = prompt("Какое «официальное» название JavaScript?");
@@ -56,10 +56,21 @@ function ifElseTests() {
       else if (ex5 > 90) alert("Ты находишься в диапазоне больше 90");
       else alert("Нужно число");
     }
+    // EX6
+    else if (ex === "6") {
+      var ex6 = prompt("Введите имя пользователя (подсказка: Админ)");
+      if (ex6 === "Админ") {
+        var ex6one = prompt("Пароль Админа (подсказка: 123)");
+        if (ex6one === "123") alert("Здравствуйте");
+        else if (!ex6one) alert("Отменено");
+        else alert("Неверный пароль");
+      } else if (!ex6) alert("Отменено");
+      else alert("Неверное имя пользователя");
+    }
     // EXIT
     else if (ex === "9") break;
     // ELSE
-    else var ex = prompt("Сделай выбор 1, 2, 3 ,... для выхода 9", "1");
+    else var ex = prompt("Сделай выбор 1-6 для выхода 9", "1");
   }
 }
 
