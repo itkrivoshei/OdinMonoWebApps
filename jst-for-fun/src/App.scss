@@ -27,10 +27,7 @@
   flex-direction: column;
 }
 
-.btn1,
-.btn2,
-.btn3,
-.btn4 {
+.btn {
   background-color: rgb(165, 90, 184);
   font-size: medium;
   padding: 5px;
@@ -41,16 +38,15 @@
   border: 1px solid white;
 }
 
-.btn1:hover,
-.btn2:hover {
+.btn:hover{
   background-color: rgb(194, 128, 211);
 }
 
-.btn1:active,
-.btn2:active {
+.btn:active {
   background-color: rgb(218, 71, 255);
 }
 
-.btn2 {
+.btn {
   width: 150px;
+  margin: 5px;
 }
