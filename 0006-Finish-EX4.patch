@@ -1,0 +1,49 @@
+From af530cd5eb55c688e6b2d6ab5044d9138c88d154 Mon Sep 17 00:00:00 2001
+From: Joyce Staunton <jstaunto@ga-k5.msk.21-school.ru>
+Date: Sun, 18 Oct 2020 14:25:55 +0300
+Subject: [PATCH 06/18] Finish EX4
+
+---
+ jst-for-fun/src/IfElseButton.js | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/jst-for-fun/src/IfElseButton.js b/jst-for-fun/src/IfElseButton.js
+index cddeac2..3346799 100644
+--- a/jst-for-fun/src/IfElseButton.js
++++ b/jst-for-fun/src/IfElseButton.js
+@@ -19,10 +19,10 @@ function ifElseTrain() {
+       if (+ex2 < 0) {
+         alert("Число меньше чем 0");
+         break;
+-      } else if (+ex > 0) {
++      } else if (+ex2 > 0) {
+         alert("Число больше чем 0");
+         break;
+-      } else if (+ex === 0) {
++      } else if (+ex2 === 0) {
+         alert("Число равно 0");
+         break;
+       } else {
+@@ -34,12 +34,18 @@ function ifElseTrain() {
+     else if (ex === "3") {
+       let ex3a = prompt("a + b < 4 - Задайте a и b | a =", "0");
+       let ex3b = prompt("a + b < 4 - Задайте a и b | b =", "0");
+-      let result = (ex3a + ex3b >= 4) ? (ex3a + ex3b == 4) ? "Равно" : "Много" : "Мало";
++      let result = (ex3a + ex3b >= 4) ?
++      (ex3a + ex3b == 4) ? "Равно" : "Много"
++      : "Мало";
+       alert(result);
+     }
+     // EX4
+     else if (ex === "4") {
+       let ex4 = prompt("Введите логин: Сотрудник или Директор")
++      let message = ex4 === "Сотрудник" ? "Привет" :
++      ex4 === "Директор" ? "Здравствуйте" :
++      ex4 === "" ? "Нет Логина" : "";
++      alert(message);
+     }
+     // ELSE
+     else
+-- 
+2.21.1 (Apple Git-122.3)
+

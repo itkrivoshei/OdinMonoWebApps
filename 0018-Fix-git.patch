@@ -1,0 +1,24 @@
+From 00bddf26c1f0e932acf501800d7996f072431db1 Mon Sep 17 00:00:00 2001
+From: IT-Krivoshey <krivoshey.nikita1998@gmail.com>
+Date: Sun, 18 Oct 2020 17:19:12 +0300
+Subject: [PATCH 18/18] Fix git
+
+---
+ jst-for-fun/src/IfElseButton.js | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/jst-for-fun/src/IfElseButton.js b/jst-for-fun/src/IfElseButton.js
+index e4c4392..be8ceba 100644
+--- a/jst-for-fun/src/IfElseButton.js
++++ b/jst-for-fun/src/IfElseButton.js
+@@ -74,7 +74,6 @@ function ifElseTests() {
+   }
+ }
+ 
+-
+ function IfElseButton() {
+   return (
+     <div className="IfElseButton">
+-- 
+2.21.1 (Apple Git-122.3)
+
