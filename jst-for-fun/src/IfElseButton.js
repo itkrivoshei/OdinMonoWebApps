@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
   while (true) {
-    var ex = prompt("На выбор 1-7 задачи, для выхода 9", "1");
+    var ex = prompt("На выбор 1-7 задачи, для выхода 0", "1");
     // EX1
     if (ex === "1") {
       var ex1 = prompt("Какое «официальное» название JavaScript?");
@@ -81,9 +81,9 @@ function ifElseTests() {
       }
     }
     // EXIT
-    else if (ex === "9") break;
+    else if (ex === "0") break;
     // ELSE
-    else ex = prompt("Сделай выбор 1-7 для выхода 9", "1");
+    else ex = prompt("Сделай выбор 1-7 для выхода 0", "1");
   }
 }
 
