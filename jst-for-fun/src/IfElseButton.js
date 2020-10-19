@@ -13,7 +13,7 @@ function ifElseTests() {
     // EX2
     else if (ex === "2") {
       var ex2 = prompt("Напишите число больше, меньше, либо равное 0", "0");
-      if (ex2[0] == "-" && ex2 < 0) alert(`Число ${ex2} меньше чем 0`);
+      if (ex2[0]==="-" && ex2 < 0) alert(`Число ${ex2} меньше чем 0`);
       else if (+ex2 > 0) alert(`Число ${+ex2} больше чем 0`);
       else if (+ex2 === 0) alert("Число ваше число 0");
       else alert(`${ex2} это не число`);
@@ -23,9 +23,9 @@ function ifElseTests() {
       var ex3a = prompt("a + b < 100 - Задайте a и b | a =", "0");
       var ex3b = prompt("a + b < 100 - Задайте a и b | b =", "0");
       var result =
-        (ex3a && ex3b) == Number
+        (ex3a && ex3b)===Number
           ? ex3a + ex3b >= 100
-            ? ex3a + ex3b == 100
+            ? ex3a + ex3b===100
               ? "Не верно"
               : "Не верно"
             : "Верно"
@@ -70,7 +70,7 @@ function ifElseTests() {
     // EXIT
     else if (ex === "9") break;
     // ELSE
-    else var ex = prompt("Сделай выбор 1-6 для выхода 9", "1");
+    else ex = prompt("Сделай выбор 1-6 для выхода 9", "1");
   }
 }
 
