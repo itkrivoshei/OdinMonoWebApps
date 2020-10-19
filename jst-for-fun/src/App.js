@@ -39,13 +39,13 @@ function App() {
   // console -> from 1 to 100 fizz or buzz or fizzbuzz or num
 
   function evenNums(num) {
-    for(let i = 0; i >= num; i++) {
+    for(let i = 1; i <= num; i++) {
       if (i % 2 !== 0) continue;
       console.log(i);
     }
   }
 
-  evenNums(100);
+  // evenNums(100);
 
   return (
     <div className="app">
