@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
   while (true) {
-    var ex = prompt("На выбор 1-6 задачи, для выхода 9", "1");
+    var ex = prompt("На выбор 1-7 задачи, для выхода 9", "1");
     // EX1
     if (ex === "1") {
       var ex1 = prompt("Какое «официальное» название JavaScript?");
@@ -13,7 +13,7 @@ function ifElseTests() {
     // EX2
     else if (ex === "2") {
       var ex2 = prompt("Напишите число больше, меньше, либо равное 0", "0");
-      if (ex2[0]==="-" && ex2 < 0) alert(`Число ${ex2} меньше чем 0`);
+      if (ex2[0] === "-" && ex2 < 0) alert(`Число ${ex2} меньше чем 0`);
       else if (+ex2 > 0) alert(`Число ${+ex2} больше чем 0`);
       else if (+ex2 === 0) alert("Число ваше число 0");
       else alert(`${ex2} это не число`);
@@ -23,9 +23,9 @@ function ifElseTests() {
       var ex3a = prompt("a + b < 100 - Задайте a и b | a =", "0");
       var ex3b = prompt("a + b < 100 - Задайте a и b | b =", "0");
       var result =
-        (ex3a && ex3b)===Number
+        (ex3a && ex3b) === Number
           ? ex3a + ex3b >= 100
-            ? ex3a + ex3b===100
+            ? ex3a + ex3b === 100
               ? "Не верно"
               : "Не верно"
             : "Верно"
@@ -67,10 +67,23 @@ function ifElseTests() {
       } else if (!ex6) alert("Отменено");
       else alert("Неверное имя пользователя");
     }
+    // EX7
+    else if (ex === "7") {
+      for (;;) {
+        var ex7 = prompt("Введите число больше 100");
+        if (+ex7 > 100) {
+          alert("Наканецто!");
+          break;
+        } else if (!ex7) {
+          alert("Ок пока");
+          break;
+        }
+      }
+    }
     // EXIT
     else if (ex === "9") break;
     // ELSE
-    else ex = prompt("Сделай выбор 1-6 для выхода 9", "1");
+    else ex = prompt("Сделай выбор 1-7 для выхода 9", "1");
   }
 }
 
