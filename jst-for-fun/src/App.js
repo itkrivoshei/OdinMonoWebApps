@@ -57,7 +57,7 @@ function App() {
   // primeNums(100);
 
   function min(a, b) {
-    return(a < b ? a : b);
+    return a < b ? a : b;
   }
   // console.log(min(3, -3));
 
