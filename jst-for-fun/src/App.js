@@ -13,7 +13,6 @@ function App() {
     if (orig === rev) console.log(true);
     else console.log(false);
   }
-
   //palindrome("car"); // console -> falce
   //palindrome("racecar"); // console -> true
 
@@ -24,7 +23,6 @@ function App() {
     }
     console.log(newstr);
   }
-
   //  repeatify("hello", 3); // console -> hellohellohello
 
   function fizzbuzz(num) {
@@ -33,18 +31,16 @@ function App() {
     else if (num % 5 === 0) console.log("Buzz");
     else console.log(num);
   }
-
   // for(let i = 0; i < 100; i++)
   //   fizzbuzz(i);
   // console -> from 1 to 100 fizz or buzz or fizzbuzz or num
 
   function evenNums(num) {
-    for(let i = 1; i <= num; i++) {
+    for (let i = 1; i <= num; i++) {
       if (i % 2 !== 0) continue;
       console.log(i);
     }
   }
-
   // evenNums(100);
 
   return (
