@@ -48,7 +48,7 @@ function App() {
     // Main
     outer: for (i = 0; i <= num; i++) {
       // If prime <= i
-      for (let j = i - 1; j != 1; j--)
+      for (let j = i - 1; j !== 1; j--)
         // If NO prime break for
         if (i % j === 0) continue outer;
       console.log(i);
