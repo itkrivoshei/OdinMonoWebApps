@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
   main: while (true) {
-    var ex = prompt("На выбор 1-8 задачи, для выхода 0", "1");
+    var ex = prompt("На выбор 1-8 задачи, для выхода 0", "0");
     switch (ex) {
       // EX1
       case "1":
@@ -94,7 +94,7 @@ function ifElseTests() {
         break main;
       // ELSE
       default:
-        ex = prompt("Сделай выбор 1-8 для выхода 0", "1");
+        ex = prompt("Сделай выбор 1-8 для выхода 0", "0");
     }
   }
 }
