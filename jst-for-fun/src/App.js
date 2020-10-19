@@ -61,6 +61,13 @@ function App() {
   }
   // console.log(min(3, -3));
 
+  function pow(x, n) {
+    let sum = 1;
+    for (let i = 0; i < n; i++) sum *= x;
+    return sum;
+  }
+  // console.log(pow(6, 6));
+
   return (
     <div className="app">
       <InfoButton />
