@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
   main: while (true) {
-    var ex = prompt("На выбор 1-7 задачи, для выхода 0", "1");
+    var ex = prompt("На выбор 1-8 задачи, для выхода 0", "1");
     switch (ex) {
       // EX1
       case "1":
@@ -81,12 +81,17 @@ function ifElseTests() {
           }
         }
         break;
+      case "8":
+        let ex8 = prompt("Вам больше или меньше 18? (Больше - Меньше)");
+        let x = ex8 === "Больше" ? "Ок" : ex8 === "Меньше" ? "Не ок" : "Ввод не верен";
+        alert(x);
+        break;
       // EXIT
       case "0":
         break main;
       // ELSE
       default:
-        ex = prompt("Сделай выбор 1-7 для выхода 0", "1");
+        ex = prompt("Сделай выбор 1-8 для выхода 0", "1");
     }
   }
 }
