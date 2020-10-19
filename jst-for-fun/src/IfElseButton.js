@@ -83,8 +83,11 @@ function ifElseTests() {
         break;
       case "8":
         let ex8 = prompt("Вам больше или меньше 18? (Больше - Меньше)");
-        let x = ex8 === "Больше" ? "Ок" : ex8 === "Меньше" ? "Не ок" : "Ввод не верен";
-        alert(x);
+        // let x = ex8 === "Больше" ? "Ок" : ex8 === "Меньше" ? "Не ок" : "Ввод не верен";
+        if (ex8 === "Больше") alert("Ок");
+        else if (ex8 === "Меньше") alert("Не Ок");
+        else alert("Ввод не верен");
+        // alert(x);
         break;
       // EXIT
       case "0":
