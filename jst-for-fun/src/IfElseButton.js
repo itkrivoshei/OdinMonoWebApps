@@ -89,6 +89,18 @@ function ifElseTests() {
         else alert("Ввод не верен");
         // alert(x);
         break;
+      // EX9
+      case "9":
+        let ex9 = (question, yes, no) => {
+          return window.confirm(question) ? yes() : no();
+        };
+      
+        ex9(
+          "Вы согласны?",
+          () => alert("Вы согласились"),
+          () => alert("Вы отменили выполнение.")
+        );
+        break;
       // EXIT
       case "0":
         break main;
