@@ -67,6 +67,9 @@ function App() {
     return sum;
   }
   // console.log(pow(6, 6));
+  
+  let copyPow = pow;
+  // console.log(copyPow(6, 6));
 
   return (
     <div className="app">
