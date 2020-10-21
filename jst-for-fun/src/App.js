@@ -67,9 +67,18 @@ function App() {
     return sum;
   }
   // console.log(pow(6, 6));
-  
+
   let copyPow = pow;
   // console.log(copyPow(6, 6));
+
+  function isEmpty(obj) {
+    for (let prop in obj) return false;
+    return true;
+  }
+  // let ob = {};
+  // alert(isEmpty(ob));
+  // ob.x = "y";
+  // alert(isEmpty(ob));
 
   return (
     <div className="app">
