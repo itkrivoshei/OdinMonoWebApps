@@ -9,7 +9,7 @@ function sumNums() {
 function SummButton() {
   return(
     <div className="summButton">
-      <button className="btn4" onClick={() => sumNums()}>Summ two num</button>
+      <button className="btn" onClick={() => sumNums()}>Summ two num</button>
     </div>
   );
 }

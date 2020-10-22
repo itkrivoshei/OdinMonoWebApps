@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 function askNameTell() {
   let name = prompt("What is your name");
-  alert("Your name is: " + name);
+  if (name !== "")
+    alert("Your name is: " + name);
 }
 
 function NameButton() {
   return (
     <div className="nameButton">
-      <button className="btn3" onClick={() => askNameTell()}>
+      <button className="btn" onClick={() => askNameTell()}>
         Your Name
       </button>
     </div>
