@@ -32,8 +32,7 @@
   font-size: medium;
   padding: 5px;
   border-radius: 8px;
-  color: white;
-  border: none;
+  color: #ffffff;
   transition: all 0.2s;
   border: 1px solid white;
 }
