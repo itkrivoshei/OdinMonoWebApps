@@ -121,6 +121,19 @@ function App() {
   // alert(calculator.sum());
   // alert(calculator.mul());
 
+  function Calc() {
+    this.read = () => {
+      this.a = +prompt("a =", "0");
+      this.b = +prompt("b =", "0");
+    };
+    this.sum = () => this.a + this.b;
+    this.mul = () => this.a * this.b;
+  }
+  // let calc = new Calc();
+  // calc.read();
+  // alert("Sum = " + calc.sum());
+  // alert("Mul = " + calc.mul());
+
   return (
     <div className="app">
       <InfoButton />
