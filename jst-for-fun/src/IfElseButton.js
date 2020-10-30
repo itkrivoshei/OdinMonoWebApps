@@ -2,7 +2,7 @@ import React from "react";
 
 function ifElseTests() {
     main: while (true) {
-        var ex = prompt("На выбор 1-10 задачи, для выхода 0", "0");
+        var ex = prompt("На выбор 1-11 задачи, для выхода 0", "0");
         switch (ex) {
             // EX1
             case "1":
@@ -100,17 +100,25 @@ function ifElseTests() {
                     () => alert("Вы отменили выполнение.")
                 );
                 break;
+            // EX10
             case "10":
                 let ex10a = +prompt("Введите первое число", "0");
                 let ex10b = +prompt("Введите второе чило", "0");
                 alert(ex10a + ex10b);
+                break;
+            // EX11
+            case "11":
+                let ex11;
+                do {
+                    ex11 = prompt("Вводеите только цифры бесконечно", "0");
+                } while (isFinite(ex11));
                 break;
             // EXIT
             case "0":
                 break main;
             // ELSE
             default:
-                ex = prompt("Сделай выбор 1-10 для выхода 0", "0");
+                ex = prompt("Сделай выбор 1-11 для выхода 0", "0");
         }
     }
 }
