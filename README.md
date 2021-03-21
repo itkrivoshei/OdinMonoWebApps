@@ -1,5 +1,5 @@
 # JSt-For-Fun
-This project was created to practice in JS, React, SCSS and more.
+This project was created to practice in JavaScript, React, SCSS and more.
 ## Browse
 You can check this project in Web here: [JSt-For-Fun](https://it-krivoshey.github.io/JSt-For-Fun/)
 ## License
