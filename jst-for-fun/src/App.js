@@ -156,6 +156,12 @@ function App() {
     // accumulator.read(); // прибавит ввод prompt к текущему значению
     // alert(accumulator.value); // выведет сумму этих значений
 
+    function randomInteger(min, max) {
+        return ((min + Math.random() * (max - min)).toFixed(0));
+    }
+
+    // alert(randomInteger(1, 10));
+
     return (
         <div className="app">
             <InfoButton/>
