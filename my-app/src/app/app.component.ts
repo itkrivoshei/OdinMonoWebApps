@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+
+  public createCookie5Sec() {
+    document.cookie = "test";
+  }
+
+  public showCookie() {
+    alert(document.cookie);
+  }
 }
