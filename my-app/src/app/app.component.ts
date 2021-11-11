@@ -31,4 +31,10 @@ export class AppComponent {
   // .zindex {
   //   z-index: 2;
   // }
+
+  // Для деплоя в Github Pages и Angular
+  // npm i angular-cli-ghpages --save-dev \ Установка
+  // ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/" \ Билд
+  // npx angular-cli-ghpages --dir=dist/Project-name \ Деплой
+  //
 }
