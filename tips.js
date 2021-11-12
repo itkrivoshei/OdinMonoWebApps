@@ -20,3 +20,6 @@
 // ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/" \ Билд
 // npx angular-cli-ghpages --dir=dist/Project-name \ Деплой
 //
+
+// Для добавления элементов в dom
+// document.querySelector('.какойтСтиль').insertAdjacentHTML('beforeend', '<img src='images/pic1.jpg'>')
