@@ -27,6 +27,10 @@ clip-path: polygon(0 0, 0 100%, 100% 100%, 53% 86%, 24% 73%, 11% 41%);
 document.querySelector('.какойтСтиль').insertAdjacentHTML('beforeend', '<img src='images/pic1.jpg'>')
 */
 
+/* Для добавления атрибутов к элементу
+document.querySelector('.какойтСтиль').setAttribute('src', 'images/pic' + i + '.jpg');
+*/
+
 /* Для сравнения дат
 let timeout = new Date(2021, 10, 15, 23, 59, 0); // (Месяц на 1 меньше)
 let now = new Date();
