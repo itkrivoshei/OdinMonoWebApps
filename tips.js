@@ -26,3 +26,8 @@ clip-path: polygon(0 0, 0 100%, 100% 100%, 53% 86%, 24% 73%, 11% 41%);
 /* Для добавления элементов в dom
 document.querySelector('.какойтСтиль').insertAdjacentHTML('beforeend', '<img src='images/pic1.jpg'>')
 */
+
+/* Для сравнения дат
+let timeout = new Date(2021, 10, 15, 23, 59, 0); // (Месяц на 1 меньше)
+let now = new Date();
+ */
