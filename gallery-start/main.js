@@ -35,3 +35,47 @@ const person = {
 let myDataName = 'height';
 let myDataValue = '1.75m';
 person[myDataName] = myDataValue;
+
+// function createNewPerson(name) {
+//     const obj = {};
+//     obj.name = name;
+//     obj.greeting = function() {
+//         alert('Hi! I\'m ' + this.name + '.');
+//     };
+//     return obj;
+// }
+// const pers1 = createNewPerson('lol');
+
+// function Person(name) {
+//     this.name = name;
+//     this.greeting = function() {
+//         alert('Hi! I\'m ' + this.name + '.');
+//     };
+// }
+// const pers1 = new Person('lol');
+
+function Person(first, last, age, gender, interests) {
+    this.name = {
+        first : first,
+        last: last
+    };
+    this.age = age;
+    this.gender = gender;
+    this.interests = interests;
+    this.bio = function() {
+        let interestsInText = function() {
+            let text = '';
+            for(let i = 0; i < interests.length; i++) {
+                text += interests[i] + (interests.length - 1 === i ? '' : ' and ');
+            }
+            text += '.';
+            return text;
+        }
+        alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. ' + (this.gender === 'male' ? 'He' : 'She') +' likes ' + interestsInText());
+    };
+    this.greeting = function() {
+        alert('Hi! I\'m ' + this.name.first + '.');
+    };
+};
+
+let person1 = new Person('Bob', 'Smith', 32, 'kek', ['music', 'skiing', 'skiing', 'skiing', 'skiing', 'skiing']);
