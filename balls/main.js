@@ -22,13 +22,23 @@ function Shape(x, y, velX, velY, exist) {
 }
 
 function Ball(x, y, velX, velY, exist, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-    this.exist = exist;
+    Shape.call(this, x, y, velX, velY, exist);
     this.color = color;
     this.size = size;
+}
+
+function EvilCircle(x, y, velX, velY, exist, color, size) {
+    Shape.call(this, x, y, 20, 20, exist);
+    this.color = 'white';
+    this.size = 10;
+}
+
+EvilCircle.prototype.draw = function () {
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
 }
 
 Ball.prototype.draw = function() {
@@ -36,6 +46,24 @@ Ball.prototype.draw = function() {
     ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
+}
+
+EvilCircle.prototype.checkBounds = function() {
+    if ((this.x + this.size) >= width) {
+        this.velX = -(this.x);
+    }
+
+    if ((this.x - this.size) <= 0) {
+        this.velX = -(this.x);
+    }
+
+    if ((this.y + this.size) >= height) {
+        this.velY = -(this.y);
+    }
+
+    if ((this.y - this.size) <= 0) {
+        this.velY = -(this.y);
+    }
 }
 
 Ball.prototype.update = function() {
