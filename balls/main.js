@@ -66,6 +66,21 @@ EvilCircle.prototype.checkBounds = function() {
     }
 }
 
+EvilCircle.prototype.setControls = function () {
+    let _this = this;
+    window.onkeydown = function(e) {
+        if (e.key === 'a') {
+            _this.x -= _this.velX;
+        } else if (e.key === 'd') {
+            _this.x += _this.velX;
+        } else if (e.key === 'w') {
+            _this.y -= _this.velY;
+        } else if (e.key === 's') {
+            _this.y += _this.velY;
+        }
+    }
+}
+
 Ball.prototype.update = function() {
     if ((this.x + this.size) >= width) {
         this.velX = -(this.velX);
@@ -87,6 +102,20 @@ Ball.prototype.update = function() {
     this.y += this.velY;
 }
 
+EvilCircle.prototype.collisionDetect = function() {
+    for (let j = 0; j < balls.length; j++) {
+        if (!(this === balls[j])) {
+            const dx = this.x - balls[j].x;
+            const dy = this.y - balls[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.size + balls[j].size) {
+                balls[j].exist = false;
+            }
+        }
+    }
+}
+
 Ball.prototype.collisionDetect = function() {
     for (let j = 0; j < balls.length; j++) {
         if (!(this === balls[j]) && balls[j].exist) {
@@ -102,20 +131,34 @@ Ball.prototype.collisionDetect = function() {
 }
 
 let balls = [];
+let evils = [];
 
 while (balls.length < 25) {
-    let size = random(10,20);
+    let size = random(10, 20);
     let ball = new Ball(
         // ball position always drawn at least one ball width
         // away from the edge of the canvas, to avoid drawing errors
-        random(0 + size,width - size),
-        random(0 + size,height - size),
-        random(-7,7),
-        random(-7,7),
+        random(0 + size, width - size),
+        random(0 + size, height - size),
+        random(-7, 7),
+        random(-7, 7),
         true,
-        'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
+        'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
         size
     );
+
+    if (balls.length === 0) {
+        let evil = new EvilCircle(
+            random(0 + size, width - size),
+            random(0 + size, height - size),
+            20,
+            20,
+            true,
+            'white',
+            10
+        );
+        evils.push(evil)
+    }
 
     balls.push(ball);
 }
@@ -125,13 +168,20 @@ function loop() {
     ctx.fillRect(0, 0, width, height);
 
     for (let i = 0; i < balls.length; i++) {
-        balls[i].draw();
-        balls[i].update();
-        balls[i].collisionDetect();
+        if (balls[i].exist) {
+            balls[i].draw();
+            balls[i].update();
+            balls[i].collisionDetect();
+            evils[0].draw();
+            evils[0].checkBounds();
+            evils[0].collisionDetect();
+        }
     }
 
     requestAnimationFrame(loop);
 }
+
+evils[0].setControls();
 
 loop();
 
