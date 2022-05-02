@@ -6,14 +6,16 @@ function sumHell(x = 322, y = 489) {
     let res = 0;
     let bag = 0;
 
-    console.log(copyX.length);
+    console.log(copyX[lastX] + copyY[lastY]);
 
     for (let i = 0; i < copyX.length; i++) {
-        if (bag === 0 && copyX[lastX] + copyY[lastY] > 10) {
-            bag = copyX[lastX];
-            res.push.getLast(copyX[lastX] + copyY[lastY]);
+        if (bag === 0 && +copyX[lastX] + +copyY[lastY] > 10) {
+            bag = getFirst(+copyX[lastX] + +copyY[lastY]);
+            res.push.getLast(+copyX[lastX] + +copyY[lastY]);
         } else {
-            res.push.getLast(copyX[lastX] + copyY[lastY]);
+            console.log(res);
+            res.push.getLast(+copyX[lastX] + +copyY[lastY]);
+            bag = 0;
         }
     }
     return res;
