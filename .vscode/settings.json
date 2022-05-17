@@ -1,0 +1,11 @@
+{
+    "gitlens.views.contributors.showStatistics": false,
+    "editor.renderWhitespace": "all",
+    "editor.useTabStops": true,
+    "editor.stickyTabStops": true,
+    "prettier.tabWidth": 4,
+    "editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true
+}
