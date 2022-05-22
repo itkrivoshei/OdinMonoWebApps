@@ -1,9 +1,23 @@
-let timeNow = new Date();
-let hours = timeNow.getHours();
 let idWeekDay = document.getElementById('weekDay');
 let idTime = document.getElementById('time');
 
+function addHtmlTime() {
+	let timeNow = new Date();
+
+	idTime.innerText =
+		'Current time is: ' +
+		takeTimeAmPm() +
+		' : ' +
+		timeNow.getMinutes() +
+		' : ' +
+		timeNow.getSeconds();
+	setTimeout(addHtmlTime, 1000);
+}
+
 function takeTimeAmPm() {
+	let timeNow = new Date();
+	let hours = timeNow.getHours();
+
 	if (hours > 12) {
 		hours = hours - 12;
 		return hours + ' PM';
@@ -12,17 +26,14 @@ function takeTimeAmPm() {
 	}
 }
 
-idWeekDay.insertAdjacentHTML(
-	'beforeend',
-	' ' + timeNow.toLocaleString('default', { weekday: 'long' })
-);
+function putHtmlWeekDay() {
+	let timeNow = new Date();
 
-idTime.insertAdjacentHTML(
-	'beforeend',
-	' ' +
-		takeTimeAmPm() +
-		' : ' +
-		timeNow.getMinutes() +
-		' : ' +
-		timeNow.getSeconds()
-);
+	idWeekDay.insertAdjacentHTML(
+		'beforeend',
+		'Today is: ' + timeNow.toLocaleString('default', { weekday: 'long' })
+	);
+}
+
+addHtmlTime();
+putHtmlWeekDay();
