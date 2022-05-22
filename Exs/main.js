@@ -1,3 +1,5 @@
+// Ex 1
+
 let idWeekDay = document.getElementById('weekDay');
 let idTime = document.getElementById('time');
 
@@ -37,3 +39,6 @@ function putHtmlWeekDay() {
 
 addHtmlTime();
 putHtmlWeekDay();
+
+// Ex 2
+
