@@ -42,3 +42,6 @@ putHtmlWeekDay();
 
 // Ex 2
 
+function printPage() {
+	window.print();
+}
