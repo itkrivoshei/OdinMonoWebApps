@@ -45,3 +45,18 @@ putHtmlWeekDay();
 function printPage() {
 	window.print();
 }
+
+// Ex 3 mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy
+
+let ex3 = document.getElementById('ex3');
+
+function putDateMask() {
+	let timeNow = new Date();
+
+	ex3.innerHTML = `
+	${timeNow.getMonth() + 1}-${timeNow.getDate()}-${timeNow.getFullYear()}, 
+	${timeNow.getMonth() + 1}/${timeNow.getDate()}/${timeNow.getFullYear()} 
+	and so on`;
+}
+
+putDateMask();
