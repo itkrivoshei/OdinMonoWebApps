@@ -27,3 +27,13 @@ Shell profile
 	Import-Module PSReadLine
 	Set-PSReadLineOption -PredictionSource History
 	Set-PSReadLineOption -PredictionViewStyle ListView
+
+Links Reddit
+	Learn Programming
+	https://www.reddit.com/r/learnprogramming
+
+	Running
+	https://www.reddit.com/r/running/
+
+	Web Dev
+	https://www.reddit.com/r/webdev/
