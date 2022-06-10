@@ -1,3 +1,6 @@
 [submodule "Practice/css-exercises"]
 	path = Practice/css-exercises
 	url = https://github.com/itkrivoshei/css-exercises.git
+[submodule "Practice/css-exercises-odin"]
+	path = Practice/css-exercises-odin
+	url = https://github.com/TheOdinProject/css-exercises.git
