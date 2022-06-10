@@ -1,0 +1,3 @@
+[submodule "Practice/css-exercises"]
+	path = Practice/css-exercises
+	url = https://github.com/itkrivoshei/css-exercises.git
