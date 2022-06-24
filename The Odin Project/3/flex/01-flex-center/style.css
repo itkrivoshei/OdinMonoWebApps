@@ -4,11 +4,12 @@
 	width: 400px;
 	height: 300px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	margin: 0 auto;
 }
 
 .box {
+	margin: 0 auto;
 	background: palevioletred;
 	font-weight: bold;
 	text-align: center;
