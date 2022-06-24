@@ -17,6 +17,7 @@
 	color: tomato;
 	background: white;
 	padding: 4px 32px;
+	margin: 10px auto;
 }
 
 ul {
@@ -38,7 +39,6 @@ a {
 }
 
 .left-links ul li,
-.right-links ul li,
-.logo {
+.right-links ul li {
 	margin: 10px;
 }
