@@ -6,9 +6,72 @@
 }
 
 body {
-	width: 1500px;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.header {
+	background-color: #1f2937;
+	width: 100%;
+}
+
+.header-tabs {
+	display: flex;
+	align-items: center;
+}
+
+.header-tabs li {
+	padding: 10px;
+}
+
+.header-tabs .logo-text {
+	margin-right: auto;
+}
+
+.header-width {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.plain-text {
+	color: #e5e7eb;
+	font-size: 18px;
+}
+
+.big-text,
+.logo-text {
+	color: #f9faf8;
+}
+
+.logo-text {
+	font-size: 24px;
+}
+
+.big-text {
+	font-size: 48px;
+}
+
+.blue-background {
+	background-color: #3882f6;
+}
+
+.header-text,
+.quote-text {
+	color: #1f2937;
+	font-size: 36px;
+}
+
+.header-text {
+	font-weight: bolder;
+}
+
+.quote-text {
+	font-style: light italic;
+}
+
+.button {
+	color: #3882f6;
 }
