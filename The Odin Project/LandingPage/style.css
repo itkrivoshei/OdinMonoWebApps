@@ -26,10 +26,6 @@ body {
 	width: 100%;
 }
 
-.blue-background {
-	background-color: #3882f6;
-}
-
 .bg-full-gray {
 	background-color: #e5e7eb;
 }
@@ -66,6 +62,13 @@ body {
 	font-size: 18px;
 }
 
+.quote-text {
+	color: #474d55;
+}
+.quote-text-ps {
+	color: #1f2937;
+}
+
 .logo-text,
 .header-white-text {
 	color: #f9faf8;
@@ -89,7 +92,7 @@ body {
 }
 
 .quote-text {
-	font-style: light italic;
+	font-style: italic;
 }
 
 /* First main block */
@@ -111,6 +114,12 @@ body {
 
 .first-main img {
 	flex: auto;
+}
+
+.quote-text-ps {
+	padding-top: 8px;
+	font-size: 24px;
+	text-align: right;
 }
 
 /* Second main block */
@@ -146,5 +155,29 @@ body {
 
 .gray-block {
 	padding: 64px;
-	max-width: 600px;
+	max-width: 900px;
+}
+
+/* Blue block */
+
+.blue-block {
+	border-radius: 20px;
+	padding: 40px 120px;
+	margin: 64px;
+	background-color: #3882f6;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.button-blue {
+	background-color: #3882f6;
+	border: 2px solid white;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+.footer {
+	padding: 25px;
+	text-align: center;
 }
