@@ -25,13 +25,6 @@ For Math
 https://www.khanacademy.org
 https://www.mathsisfun.com
 
-Documentation
-https://code.visualstudio.com/docs
-https://reactjs.org/docs/getting-started.html
-
-HTML/CSS
-https://www.internetingishard.com
-
 MOOC
 https://www.udacity.com
 https://www.coursera.org
