@@ -34,16 +34,16 @@ document.getElementById('first').addEventListener('click', function (e) {
 // }
 // info();
 
-const obj = {
-	name: 'max',
-	things: {
-		pen: 1,
-		laptop: 3,
-	},
-};
+// const obj = {
+// 	name: 'max',
+// 	things: {
+// 		pen: 1,
+// 		laptop: 3,
+// 	},
+// };
 
-const copy = JSON.parse(JSON.stringify(obj));
+// const copy = JSON.parse(JSON.stringify(obj));
 
-copy.things.pen += 4;
+// copy.things.pen += 4;
 
-console.log(obj, copy);
+// console.log(obj, copy);
