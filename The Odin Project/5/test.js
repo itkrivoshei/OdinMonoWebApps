@@ -2,48 +2,136 @@ document.getElementById('first').addEventListener('click', function (e) {
 	console.log(e.target.nodeName);
 });
 
-// const mas = [2, 3, 5, 7, 8, '', '22', '0', 1, 21, 43, 0, 54, 21, 122, 1, 56];
-//let copy = [];
-// mas.forEach((elem, index, number) => copy.push(elem * 2));
-// let num = mas.reduce((acum, el) => acum + el, 5);
-// const multiply = (el) => el * 3;
-// let num = mas.map(multiply);
-// copy.push(mas.filter((el) => (el > 22 ? true : false)));
-//let max = mas.reduce((acc, el) => (el > acc ? el : acc));
-//mas.forEach((el) => copy.unshift(el));
-//let copy = mas.filter((el) => (!!el ? el : 0));
-//let copy = [...mas.reverse()] + [...mas];
+// This - context operator
 
-// const pers = {
-// 	name: 'Dima',
-// 	age: 24,
-// };
-// const { name, age } = pers;
-// console.log(name, age);
+// ES Diff
+// __proto__, rest, distructurisation, classes, asyn, await, spred, promise, =>, let, const
 
-// slice(start, end) & substring(start, length)
+// Proto every obj have it we can add something to it
 
+// Async => single threaded => Event loop => Call stack => Web API => Callback Queue => Micro Macro tasks
+
+// arrow func => diff context & no hosting
+
+// New - in function constructor for creating objects
+// function Employee(name, position, yearHired) {
+// 	this.name = name;
+// 	this.position = position;
+// 	this.yearHired = yearHired;
+// }
+// const emp = new Employee('Marko Polo', 'Software Development', 2017);
+
+// Arrays
+// FILTER   mas.filter((element, index, array) => {});
+// MAP      mas.map((el) => el * 3);
+// REDUCE   mas.reduce((acc, el) => (el > acc ? el : acc));
+// PUSH     mas.push(mas.filter((el) => (el > 22 ? true : false)));
+// FOREACH  mas.forEach((el) => copy.unshift(el));
+// ISARRAY
+
+// Get from link
 // fetch('https://jsonplaceholder.typicode.com/posts/1').then((resp) =>
-// 	resp.json().then((json) => console.log(json))
+// 	resp.json().then((result) => console.log(result))
 // );
-
-// async function info() {
+// Or + IIFE
+// (async function () {
 // 	let data = await fetch('https://jsonplaceholder.typicode.com/posts/1');
 // 	let json = await data.json();
 // 	console.log(json);
-// }
-// info();
+// })();
 
-// const obj = {
-// 	name: 'max',
-// 	things: {
-// 		pen: 1,
-// 		laptop: 3,
-// 	},
+// Copy obj & mas
+// const copy = [...objOrMas];
+// const objFullCopy = JSON.parse(JSON.stringify(obj));
+
+// Closures
+// const globalVar = 'abc';
+// function a() {
+// 	console.log(globalVar);
+// }
+// a();
+
+//-------------------------------------------------
+
+// FizzBuzz
+// for (var i = 1; i < 101; i++) {
+// 	if (i % 15 == 0) console.log('FizzBuzz');
+// 	else if (i % 3 == 0) console.log('Fizz');
+// 	else if (i % 5 == 0) console.log('Buzz');
+// 	else console.log(i);
+// }
+
+// const isPalindrome = str => str === str.split('').reverse().join('');
+
+// const fibonacci = (num) => {
+// 	console.log(num);
+// 	if (num < 2) return num;
+// 	return fibonacci(num - 1) + fibonacci(num - 2);
 // };
 
-// const copy = JSON.parse(JSON.stringify(obj));
+// function flatten(array) {
+// 	const res = [];
+// 	for (let i = 0; i < array.length; i++) {
+// 		if (Array.isArray(array[i])) {
+// 			const flat = flatten(array[i]);
+// 			for (let j = 0; j < flat.length; j++) {
+// 				res.push(flat[j]);
+// 			}
+// 		} else {
+// 			res.push(array[i]);
+// 		}
+// 	}
+// 	return res;
+// }
 
-// copy.things.pen += 4;
+// const isUnique = (str) => new Set(str).size === str.length;
 
-// console.log(obj, copy);
+// const removeDupes = (str) => Array.from(new Set(str)).join('');
+
+// function isStringRotated(source, test) {
+// 	return source.length === test.length && (source + source).includes(test);
+// }
+
+// Sort mass
+// const arr = ['g', 'h', 'h', 'm', 'o', 'g', 'g', 'l', 'l', 'l'];
+// let ob = arr.reduce((acc, el) => {
+// 	acc[el] = (acc[el] || 0) + 1;
+// 	return acc;
+// }, {});
+// let final = Object.keys(ob);
+// key.sort((a, b) => {
+// 	return ob[b] - ob[a];
+// });
+
+// function arraySubset(source, subset) {
+// 	if (source.length < subset.length) {
+// 		return false;
+// 	}
+// 	for (let i = 0; i < subset.length; i++) {
+// 		const index = source.indexOf(subset[i]);
+// 		if (index === -1) {
+// 			return false;
+// 		}
+// 		delete source[index];
+// 	}
+// 	return true;
+// }
+
+// Valid Parentheses
+// const isValid = (s) => {
+// 	if (s.length % 2 !== 0) return false;
+// 	const stack = [];
+// 	const map = new Map([
+// 		['(', ')'],
+// 		['[', ']'],
+// 		['{', '}'],
+// 	]);
+// 	for (let i = 0; i < s.length; i += 1) {
+// 		if (map.has(s[i])) {
+// 			stack.push(map.get(s[i]));
+// 		} else if (s[i] !== stack.pop()) {
+// 			return false;
+// 		}
+// 	}
+// 	return stack.length === 0;
+// };
