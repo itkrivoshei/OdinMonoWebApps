@@ -3,6 +3,18 @@ document.getElementById('first').addEventListener('click', function (e) {
 });
 
 // This - context operator
+// Return the object which in now moment work and can change himself depends on place and context
+
+// null = nothing, undef = not yet nothing, NaN
+// null == undef == NaN = true
+// HOW TO CALL
+// undef - if create create and not assign anything / or ask none exist parameter in obj
+// null - almost only to assign to variable
+// NaN 10 / 0 OR 10 * 'sfasf'
+
+// Scope - space where we have access to some variables
+// Types - global, functional, block
+// Scope Chain rules for searching variables
 
 // ES Diff
 // __proto__, rest, distructurisation, classes, asyn, await, spred, promise, =>, let, const
