@@ -16,8 +16,7 @@ Terminal
 
 Apps
 	GitHub/Node JS/VS Code/
-	Chrome/QBittorrent/Telegram/Skype/Zoom/Acrobat/
-	ZoomIt
+	Chrome/QBittorrent/Telegram/Skype/Zoom/Acrobat
 
 Win Shell profile
 	oh-my-posh init pwsh --config C:\Users\Niko\AppData\Local\Programs\oh-my-posh\themes/negligible.omp.json | Invoke-Expression
