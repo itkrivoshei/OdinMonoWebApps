@@ -1,4 +1,4 @@
-// Map, Set, WeakMap, WeakSet
+// =========== Map, Set, WeakMap, WeakSet
 
 const personObj1 = {
 	name: 'Niko',
@@ -37,4 +37,24 @@ const objFormObj = {};
 
 objFormObj[+personObj] = 'Loll';
 
-console.log(objFormObj);
+// ============== Obj methods
+
+const oj = Object.assign({
+	name: 'Niko',
+	age: 24,
+	gender: 'M',
+});
+
+const ojAdd = Object.assign({}, oj, {
+	add: 'Addition'
+})
+
+const ojSpread = {
+	...oj,
+	...ojAdd,
+}
+
+Object.seal(ojSpread)
+
+console.log(ojSpread.height = 'Lol');
+console.log(ojSpread);
