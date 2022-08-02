@@ -56,5 +56,7 @@ const ojSpread = {
 
 Object.seal(ojSpread)
 
-console.log(ojSpread.height = 'Lol');
-console.log(ojSpread);
+// == Iteration
+
+// Object.entries(ojSpread).forEach(([key, value], i, ob) => console.log(`${key} : ${value}`, i, Object.fromEntries(ob).name));
+
