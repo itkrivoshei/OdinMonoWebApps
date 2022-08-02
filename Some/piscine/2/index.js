@@ -60,3 +60,6 @@ Object.seal(ojSpread)
 
 // Object.entries(ojSpread).forEach(([key, value], i, ob) => console.log(`${key} : ${value}`, i, Object.fromEntries(ob).name));
 
+// == Destr
+
+const {name, age, gender} = oj;
