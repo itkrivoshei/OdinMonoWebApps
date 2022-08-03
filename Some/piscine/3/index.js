@@ -91,12 +91,11 @@ function sendRequestFetch(method, url, body = null) {
 		method: method,
 		body: JSON.stringify(body),
 		headers: {
-			'Content-Type': 'application/json'
-		}
-	})
-		.then(response => {
-			return response.json();
-		})
+			'Content-Type': 'application/json',
+		},
+	}).then((response) => {
+		return response.json();
+	});
 }
 
 // sendRequestFetch('POST', URL, person)
@@ -104,9 +103,43 @@ function sendRequestFetch(method, url, body = null) {
 // 	.catch((error) => console.error(error));
 
 async function asyncGetData(url) {
-	let data = await fetch(url) ;
+	let data = await fetch(url);
 	let parData = await data.json();
 	console.log(parData);
 }
 
-asyncGetData(URL);
+// asyncGetData(URL);
+
+// ============= Promises
+
+setTimeout(() => {
+	// console.log('Request data...');
+
+	const data = {
+		port: 4040,
+		status: 'working',
+	};
+
+	setTimeout(() => {
+		data.status = 'ok';
+		// console.log(data);
+	}, 0);
+}, 0);
+
+const servData = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		console.log('Data preparing...');
+		const data = {
+			port: 4040,
+			status: 'working',
+		};
+
+		setTimeout(() => {
+			data.status = 'ok';
+			console.log('Data is ready!');
+			resolve(data);
+		}, 2000)
+	}, 2000)
+})
+
+servData.then((data) => console.log(data))
