@@ -56,12 +56,12 @@ person.addName = 'NoName';
 
 // ========= AJAX
 
-// ========= XMLHttpRequest
-
 const URL = 'https://jsonplaceholder.typicode.com/users';
 
-function sendRequest(method, url, body = null) {
-	console.log(body);
+// ========= XMLHttpRequest
+
+function sendRequestXML(method, url, body = null) {
+	// console.log(body);
 	return new Promise((resolve, reject) => {
 		const xhr = new XMLHttpRequest();
 		xhr.open(method, url);
@@ -80,6 +80,33 @@ function sendRequest(method, url, body = null) {
 	});
 }
 
-sendRequest('POST', URL, person)
-	.then((data) => console.log(data))
-	.catch((error) => console.error(error));
+// sendRequestXML('POST', URL, person)
+// 	.then((data) => console.log(data))
+// 	.catch((error) => console.error(error));
+
+// ========= fetch
+
+function sendRequestFetch(method, url, body = null) {
+	return fetch(url, {
+		method: method,
+		body: JSON.stringify(body),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+		.then(response => {
+			return response.json();
+		})
+}
+
+// sendRequestFetch('POST', URL, person)
+// 	.then((data) => console.log(data))
+// 	.catch((error) => console.error(error));
+
+async function asyncGetData(url) {
+	let data = await fetch(url) ;
+	let parData = await data.json();
+	console.log(parData);
+}
+
+asyncGetData(URL);
