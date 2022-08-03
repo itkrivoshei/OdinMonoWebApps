@@ -3,9 +3,9 @@ const person = {
 	name: 'Niko',
 	age: 24,
 	gender: 'M',
-	toString() {
-		return this.name;
-	},
+	// toString() {
+	// 	return this.name;
+	// },
 	inObj: {
 		inName: 'InNiko',
 	},
@@ -46,8 +46,6 @@ Object.defineProperty(person, 'addName', {
 
 person.addName = 'NoName';
 
-console.log(person);
-
 // console.log(Object.getOwnPropertyDescriptors(person));
 
 // Object.defineProperty(obj, propertyName, descriptor);
@@ -55,3 +53,33 @@ console.log(person);
 
 // Object.getOwnPropertyDescriptor(obj, propertyName);
 // Object.getOwnPropertyDescriptors;
+
+// ========= AJAX
+
+// ========= XMLHttpRequest
+
+const URL = 'https://jsonplaceholder.typicode.com/users';
+
+function sendRequest(method, url, body = null) {
+	console.log(body);
+	return new Promise((resolve, reject) => {
+		const xhr = new XMLHttpRequest();
+		xhr.open(method, url);
+		xhr.responseType = 'json';
+		xhr.setRequestHeader('Content-Type', 'application/json');
+
+		xhr.onload = () => {
+			if (xhr.status >= 400) {
+				reject(xhr.response);
+			}
+
+			resolve(xhr.response);
+		};
+
+		xhr.send(JSON.stringify(body));
+	});
+}
+
+sendRequest('POST', URL, person)
+	.then((data) => console.log(data))
+	.catch((error) => console.error(error));
