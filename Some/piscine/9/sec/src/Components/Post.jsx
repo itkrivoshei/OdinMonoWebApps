@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Post = ({ postInfo }) => {
-  console.log(postInfo);
   return (
     <div className='post'>
       <div className='post__text'>
