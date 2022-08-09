@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Counter from './Components/Counter.jsx';
-import Input from './Components/Input.jsx'
+import Input from './Components/Input.jsx';
 
 function App() {
 	return (
 		<div className='App'>
 			<Counter />
-      <Input />
+			<Input />
 		</div>
 	);
 }
