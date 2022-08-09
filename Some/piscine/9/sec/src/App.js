@@ -24,23 +24,23 @@ function App() {
       text: 'Do esse magna irure ex fugiat culpa.',
     },
   ]);
-  const [postsList2, setPostsList2] = useState([
-    {
-      id: 1,
-      title: 'dddddddddddddddddddd',
-      text: 'Do esse magna irure ex fugiat culpa.',
-    },
-    {
-      id: 2,
-      title: 'Pis',
-      text: 'Do esse magna irure ex fugiat culpa.',
-    },
-    {
-      id: 3,
-      title: 'Lis',
-      text: 'Do esse magna irure ex fugiat culpa.',
-    },
-  ]);
+  // const [postsList2, setPostsList2] = useState([
+  //   {
+  //     id: 1,
+  //     title: 'dddddddddddddddddddd',
+  //     text: 'Do esse magna irure ex fugiat culpa.',
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Pis',
+  //     text: 'Do esse magna irure ex fugiat culpa.',
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Lis',
+  //     text: 'Do esse magna irure ex fugiat culpa.',
+  //   },
+  // ]);
 
   return (
     <div className='App'>
@@ -48,7 +48,7 @@ function App() {
       <Input />
       <ClassCounter />
       <PostsList postsList={postsList} title='Post list 1' />
-      <PostsList postsList={postsList2} title='Post list 1' />
+      {/* <PostsList postsList={postsList2} title='Post list 1' /> */}
     </div>
   );
 }
