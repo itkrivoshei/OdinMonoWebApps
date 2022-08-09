@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Post = () => {
+const Post = ({ postInfo }) => {
+  console.log(postInfo);
   return (
     <div className='post'>
       <div className='post__text'>
-        <h2>Post title</h2>
-        <p>
-          Ea sunt veniam minim in consectetur adipisicing nisi quis labore
-          cupidatat culpa officia culpa sit.
-        </p>
+        <h2>
+          {postInfo.id}. {postInfo.title}
+        </h2>
+        <p>{postInfo.text}</p>
       </div>
       <button>Button</button>
     </div>
