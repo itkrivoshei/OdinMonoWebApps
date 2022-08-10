@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Counter from './Components/Counter.jsx';
 import Input from './Components/Input.jsx';
 import ClassCounter from './Components/ClassCounter.jsx';
 import './styles/App.css';
-import Post from './Components/Post.jsx';
+// import Post from './Components/Post.jsx';
 import PostsList from './Components/PostsList.jsx';
 import MyButton from './UI/button/MyButton.jsx';
 import MyInput from './UI/input/MyInput.jsx';
@@ -44,6 +44,22 @@ function App() {
   //   },
   // ]);
 
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  // const titleInputRef = useRef();
+
+  const addNewPost = (e) => {
+    e.preventDefault();
+    // console.log(titleInputRef.current.value);
+    const newPost = {
+      id: Date.now(),
+      title: title,
+      text: body,
+    };
+    setPostsList([...postsList, newPost]);
+    console.log();
+  };
+
   return (
     <div className='App'>
       <Counter />
@@ -51,9 +67,24 @@ function App() {
       <ClassCounter />
       <PostsList postsList={postsList} title='Post list 1' />
       {/* <PostsList postsList={postsList2} title='Post list 1' /> */}
-      <MyInput type='text' placeholder='Header' />
-      <MyInput type='text' placeholder='Text' />
-      <MyButton disabled>Text</MyButton>
+      <form>
+        {/* Control */}
+        <MyInput
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          type='text'
+          placeholder='Header'
+        />
+        {/* No Control */}
+        {/* <MyInput ref={(e) => titleInputRef} type='text' placeholder='Header' /> */}
+        <MyInput
+          onChange={(e) => setBody(e.target.value)}
+          value={body}
+          type='text'
+          placeholder='Text'
+        />
+        <MyButton onClick={addNewPost}>Push</MyButton>
+      </form>
     </div>
   );
 }
