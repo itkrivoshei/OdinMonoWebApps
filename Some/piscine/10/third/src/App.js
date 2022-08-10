@@ -44,21 +44,14 @@ function App() {
   //   },
   // ]);
 
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [post, setPost] = useState({ title: '', text: '' });
   // const titleInputRef = useRef();
 
   const addNewPost = (e) => {
     e.preventDefault();
     // console.log(titleInputRef.current.value);
-    const newPost = {
-      id: Date.now(),
-      title: title,
-      text: body,
-    };
-    setPostsList([...postsList, newPost]);
-    setTitle('');
-    setBody('');
+    setPostsList([...postsList, { ...post, id: Date.now() }]);
+    setPost({ title: '', text: '' });
   };
 
   return (
@@ -71,16 +64,16 @@ function App() {
       <form>
         {/* Control */}
         <MyInput
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
+          value={post.title}
           type='text'
           placeholder='Header'
         />
         {/* No Control */}
         {/* <MyInput ref={(e) => titleInputRef} type='text' placeholder='Header' /> */}
         <MyInput
-          onChange={(e) => setBody(e.target.value)}
-          value={body}
+          onChange={(e) => setPost({ ...post, text: e.target.value })}
+          value={post.text}
           type='text'
           placeholder='Text'
         />
