@@ -42,11 +42,16 @@ function App() {
       <Input />
       <ClassCounter /> */}
       <PostForm postCreate={createPost} />
-      <PostsList
-        postDelete={deletePost}
-        postsList={postsList}
-        title='Post list 1'
-      />
+      <hr style={{ margin: '15px 0' }} />
+      {postsList.length ? (
+        <PostsList
+          postDelete={deletePost}
+          postsList={postsList}
+          title='Post list'
+        />
+      ) : (
+        <h1 style={{ textAlign: 'center' }}>No posts</h1>
+      )}
     </div>
   );
 }
