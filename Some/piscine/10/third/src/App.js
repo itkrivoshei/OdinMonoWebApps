@@ -57,7 +57,8 @@ function App() {
       text: body,
     };
     setPostsList([...postsList, newPost]);
-    console.log();
+    setTitle('');
+    setBody('');
   };
 
   return (
