@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
-import Counter from './Components/Counter.jsx';
-import Input from './Components/Input.jsx';
-import ClassCounter from './Components/ClassCounter.jsx';
 import './styles/App.css';
-// import Post from './Components/Post.jsx';
 import PostsList from './Components/PostsList.jsx';
+import PostForm from './Components/PostForm.jsx';
+// import Counter from './Components/Counter.jsx';
+// import Input from './Components/Input.jsx';
+// import ClassCounter from './Components/ClassCounter.jsx';
+// import Post from './Components/Post.jsx';
 // import MyButton from './UI/button/MyButton.jsx';
 // import MyInput from './UI/input/MyInput.jsx';
-import PostForm from './Components/PostForm.jsx';
 
 function App() {
   const [postsList, setPostsList] = useState([
@@ -28,17 +28,25 @@ function App() {
     },
   ]);
 
-  const postUpd = (newPost) => {
-     setPostsList([...postsList, newPost])
-  }
+  const createPost = (newPost) => {
+    setPostsList([...postsList, newPost]);
+  };
+
+  const deletePost = (post) => {
+    setPostsList(postsList.filter((pst) => pst.id !== post.id));
+  };
 
   return (
     <div className='App'>
-      <Counter />
+      {/* <Counter />
       <Input />
-      <ClassCounter />
-      <PostsList postsList={postsList} title='Post list 1' />
-      <PostForm postCreate={postUpd} />
+      <ClassCounter /> */}
+      <PostForm postCreate={createPost} />
+      <PostsList
+        postDelete={deletePost}
+        postsList={postsList}
+        title='Post list 1'
+      />
     </div>
   );
 }
