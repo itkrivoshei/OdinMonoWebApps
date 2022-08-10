@@ -6,6 +6,7 @@ import './styles/App.css';
 import Post from './Components/Post.jsx';
 import PostsList from './Components/PostsList.jsx';
 import MyButton from './UI/button/MyButton.jsx';
+import MyInput from './UI/input/MyInput.jsx';
 
 function App() {
   const [postsList, setPostsList] = useState([
@@ -50,6 +51,8 @@ function App() {
       <ClassCounter />
       <PostsList postsList={postsList} title='Post list 1' />
       {/* <PostsList postsList={postsList2} title='Post list 1' /> */}
+      <MyInput type='text' placeholder='Header' />
+      <MyInput type='text' placeholder='Text' />
       <MyButton disabled>Text</MyButton>
     </div>
   );
