@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MyButton from '../UI/button/MyButton.jsx';
 import MyInput from '../UI/input/MyInput.jsx';
 
-const PostForm = ({ postCreate }) => {
+const PostForm = ({ postCreate, postDelete }) => {
   const [post, setPost] = useState({ title: '', text: '' });
 
   const addNewPost = (e) => {
