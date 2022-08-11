@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './styles/App.css';
 import PostsList from './Components/PostsList.jsx';
 import PostForm from './Components/PostForm.jsx';
 import MySelect from './UI/select/MySelect.jsx';
+import MyInput from './UI/input/MyInput.jsx';
 // import Counter from './Components/Counter.jsx';
 // import Input from './Components/Input.jsx';
 // import ClassCounter from './Components/ClassCounter.jsx';
 // import Post from './Components/Post.jsx';
 // import MyButton from './UI/button/MyButton.jsx';
-// import MyInput from './UI/input/MyInput.jsx';
 
 function App() {
   const [postsList, setPostsList] = useState([
@@ -30,6 +30,7 @@ function App() {
   ]);
 
   const [selectedSort, setSelectedSort] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const createPost = (newPost) => {
     setPostsList([...postsList, newPost]);
@@ -41,8 +42,15 @@ function App() {
 
   const sortPosts = (sort) => {
     setSelectedSort(sort);
-    setPostsList([...postsList].sort((a, b) => a[sort].localeCompare(b[sort])));
   };
+
+  const sortedPost = useMemo(() => {
+    if (selectedSort) {
+      return [...postsList].sort((a, b) =>
+        a[selectedSort].localeCompare(b[selectedSort])
+      );
+    } else return postsList;
+  }, [selectedSort, postsList]);
 
   return (
     <div className='App'>
@@ -63,10 +71,15 @@ function App() {
           },
         ]}
       />
+      <MyInput
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder='search'
+      />
       {postsList.length ? (
         <PostsList
           postDelete={deletePost}
-          postsList={postsList}
+          postsList={sortedPost}
           title='Post list'
         />
       ) : (
