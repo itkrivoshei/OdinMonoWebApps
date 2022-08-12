@@ -44,13 +44,19 @@ function App() {
     setSelectedSort(sort);
   };
 
-  const sortedPost = useMemo(() => {
+  const sortedPosts = useMemo(() => {
     if (selectedSort) {
       return [...postsList].sort((a, b) =>
         a[selectedSort].localeCompare(b[selectedSort])
       );
     } else return postsList;
   }, [selectedSort, postsList]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery, sortedPosts]);
 
   return (
     <div className='App'>
@@ -59,6 +65,11 @@ function App() {
       <ClassCounter /> */}
       <PostForm postCreate={createPost} />
       <hr style={{ margin: '15px 0' }} />
+      <MyInput
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder='search'
+      />
       <MySelect
         value={selectedSort}
         onChange={sortPosts}
@@ -71,15 +82,10 @@ function App() {
           },
         ]}
       />
-      <MyInput
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder='search'
-      />
-      {postsList.length ? (
+      {sortedAndSearchedPosts.length ? (
         <PostsList
           postDelete={deletePost}
-          postsList={sortedPost}
+          postsList={sortedAndSearchedPosts}
           title='Post list'
         />
       ) : (
