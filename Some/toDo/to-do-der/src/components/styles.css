@@ -2,7 +2,6 @@
   font-size: 36px;
   margin: 26px 0;
   color: white;
-  z-index: 1;
 }
 
 @media (max-width: 800px) {
@@ -68,17 +67,49 @@
 
 .todos__single {
   display: flex;
-  background-color: white;
   padding: 18px 24px;
   margin-top: 24px;
   justify-content: space-between;
   align-items: center;
+  transition: 0.2s;
 }
 
 .icon {
   margin-left: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: hotpink !important;
+}
+
+.global-class-name:active {
+  transform: scale(0.8);
+  transition: 0.2s;
+}
+
+.todos__single--text--done {
+  text-decoration: line-through;
+  transform: scale(0.8);
+  color: white;
+  transition: 0.2s;
+}
+
+.todo__input {
+  border: none;
+  transition: 0.2s;
+  font-size: 16px;
+  font-family: 'Press Start 2P';
+  background-color: transparent;
+  padding: 0;
+}
+
+
+.todo__input:focus {
+  outline: none;
 }
 
 .todos__single--text {
-  
+  transition: 0.2s;
 }
