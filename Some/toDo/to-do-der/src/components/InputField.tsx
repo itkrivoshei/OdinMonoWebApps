@@ -14,7 +14,7 @@ const InputField: React.FC<Props> = ({ toDo, setToDo, handleAdd }) => {
         type='input'
         value={toDo}
         onChange={(el) => setToDo(el.target.value)}
-        placeholder='Type To-Do'
+        placeholder='Add To-Do'
         className='input__box'
       />
       <button type='submit' className='input_submit'>

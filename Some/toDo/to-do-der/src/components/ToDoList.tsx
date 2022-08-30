@@ -2,6 +2,7 @@ import React from 'react';
 import { ToDo } from '../model';
 import SingleToDo from './SingleToDo';
 import './styles.css';
+import { Droppable } from 'react-beautiful-dnd';
 
 interface Props {
   toDos: ToDo[];
@@ -10,16 +11,25 @@ interface Props {
 
 const ToDoList: React.FC<Props> = ({ toDos, setToDos }) => {
   return (
-    <div className='todos'>
-      {toDos.map((toDo) => (
-        <SingleToDo
-          toDo={toDo}
-          key={toDo.id}
-          toDos={toDos}
-          setToDos={setToDos}
-        />
-      ))}
-    </div>
+    <Droppable droppableId='toDosList'>
+      {(provided) => (
+        <div
+          className='todos'
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+        >
+          {toDos.map((toDo, index) => (
+            <SingleToDo
+              index={index}
+              toDo={toDo}
+              key={toDo.id}
+              toDos={toDos}
+              setToDos={setToDos}
+            />
+          ))}
+        </div>
+      )}
+    </Droppable>
   );
 };
 
