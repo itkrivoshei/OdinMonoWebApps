@@ -27,6 +27,7 @@ const ToDoList: React.FC<Props> = ({ toDos, setToDos }) => {
               setToDos={setToDos}
             />
           ))}
+          {provided.placeholder}
         </div>
       )}
     </Droppable>
