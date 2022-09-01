@@ -84,7 +84,14 @@
 .todos__single--text--done {
   text-decoration: line-through;
   color: white;
+  cursor: pointer;
   transition: 0.2s;
+  word-break: break-all;
+}
+
+.todos__single--text {
+  cursor: pointer;
+  word-break: break-all;
 }
 
 .todo__input {
