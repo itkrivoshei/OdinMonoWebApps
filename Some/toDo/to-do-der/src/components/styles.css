@@ -64,7 +64,6 @@
   margin-bottom: 24px;
   justify-content: space-between;
   align-items: center;
-  transition: 0.2s;
 }
 
 .icon {
@@ -101,10 +100,6 @@
 
 .todo__input:focus {
   outline: none;
-  transition: 0.2s;
-}
-
-.todos__single--text {
   transition: 0.2s;
 }
 

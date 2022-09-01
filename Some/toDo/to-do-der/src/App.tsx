@@ -13,32 +13,28 @@ const App: React.FC = () => {
     e.preventDefault();
 
     if (toDo) {
-      setToDos([...toDos, { id: Date.now(), toDo, isDone: false }]);
+      setToDos([{ id: Date.now(), toDo, isDone: false }, ...toDos]);
       setToDo('');
     }
-
-    setToDos((toDos) => (toDos = toDos.sort((a) => (a.isDone ? 1 : -1))));
   };
 
   const dragHandle = (e: DropResult) => {
-    // console.log(e);
-    // if (
-    //   !e.destination ||
-    //   e.destination.droppableId === e.source.droppableId ||
-    //   e.destination.index === e.source.index
-    // )
-    // return;
+    let add,
+      active = toDos;
 
-    // let add,
-    //   active = toDos;
+    if (
+      e.source &&
+      e.source.droppableId === 'toDosList' &&
+      e.destination &&
+      e.destination.droppableId === 'toDosList' &&
+      !active[e.source.index].isDone
+    ) {
+      add = active[e.source.index];
+      active.splice(e.source.index, 1);
+      active.splice(e.destination.index, 0, add);
+    }
 
-    // if (e.destination && e.destination.droppableId === 'ToDoList') {
-    //   add = active[e.source.index];
-    //   active.splice(e.source.index, 1);
-    //   console.log(active);
-    // }
-    // setToDos(active);
-    // console.log(toDos);
+    setToDos(active);
   };
 
   return (
