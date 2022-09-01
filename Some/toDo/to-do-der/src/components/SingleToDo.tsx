@@ -66,7 +66,6 @@ const SingleToDo: React.FC<Props> = ({ index, toDo, toDos, setToDos }) => {
               className='todos__single'
               style={{ backgroundColor: toDo.isDone ? 'black' : 'white' }}
               onSubmit={(e) => handleEdit(e, toDo.id)}
-              onClick={editOn}
             >
               {edit ? (
                 <input
@@ -74,6 +73,7 @@ const SingleToDo: React.FC<Props> = ({ index, toDo, toDos, setToDos }) => {
                   ref={toDoInput}
                   onBlur={(e) => handleEdit(e, toDo.id)}
                   className='todo__input'
+                  onClick={editOn}
                   style={{
                     textDecoration: toDo.isDone ? 'line-through' : 'none',
                   }}
