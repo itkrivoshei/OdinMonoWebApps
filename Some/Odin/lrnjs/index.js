@@ -18,3 +18,15 @@ function getConsoleNumbers(from, to) {
     i++;
   }
 } // getConsoleNumbers(0, 10);
+
+function getPromptBiggerThan100() {
+  while (true) {
+    let userAnswer = prompt('Type Number bigger than 100');
+
+    if (userAnswer === null) break;
+    else if (userAnswer > 100) {
+      alert('Good job!');
+      break;
+    }
+  }
+} // getPromptBiggerThan100();
