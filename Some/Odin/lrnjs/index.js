@@ -6,6 +6,14 @@ function getEvenNumbers(from, to) {
   }
 } // getEvenNumbers(2, 10);
 
+function getPrimeNumbers(from, to) {
+  for (let i = from; i <= to; i++) {
+    if (i % 2 !== 0) {
+      console.log(i);
+    }
+  }
+} // getPrimeNumbers(0, 100);
+
 function getConsoleNumbers(from, to) {
   // for (let i = from; i <= to; i++) {
   //   console.log(`number ${i}!`);
