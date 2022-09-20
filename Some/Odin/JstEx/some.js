@@ -1,5 +1,3 @@
-console.log(lastLetter('hilo'));
-
 function add7(num) {
   return (num += 7);
 }
