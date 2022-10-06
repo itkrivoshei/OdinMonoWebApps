@@ -39,3 +39,30 @@ let htmlBody = document.querySelector('body');
     htmlBody.appendChild(divPink);
   })();
 })();
+
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert('Hello World');
+
+function alertFunction() {
+  alert('YAY! YOU DID IT!');
+}
+
+// METHOD 2
+// btn.onclick = alertFunction;
+
+// METHOD 3
+// btn.addEventListener('click', alertFunction);
+
+btn.addEventListener('click', function (e) {
+  console.log(e);
+  console.log(e.target);
+  e.target.style.background = 'chocolate';
+});
+
+const buttons = document.querySelectorAll('.bom');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    alert(button.textContent);
+  });
+});
