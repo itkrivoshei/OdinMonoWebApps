@@ -1,0 +1,10 @@
+.work-space {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.boxi {
+  width: 30px;
+  height: 30px;
+  background-color: aqua;
+}
