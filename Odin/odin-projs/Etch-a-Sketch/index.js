@@ -28,7 +28,10 @@ function drawDivBox(divToPut, size, boxColor) {
 function addHoverEffect(parentDiv, color) {
 	parentDiv.addEventListener('mouseover', (e) => {
 		if (e.target.parentNode.parentNode === parentDiv) {
-			e.target.style.backgroundColor = color;
+			if (color === 'rainbow') {
+				e.target.style.backgroundColor =
+					'#' + Math.floor(Math.random() * 16777215).toString(16);
+			} else e.target.style.backgroundColor = color;
 		}
 	});
 }
