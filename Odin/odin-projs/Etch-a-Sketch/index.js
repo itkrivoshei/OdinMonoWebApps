@@ -65,3 +65,18 @@ function changeColorToRainbow() {
 	addHoverEffect(document.querySelector('.work-space'), 'rainbow');
 	pixelColor.value = 'rainbow';
 }
+
+function toBlackMod(parentDiv) {
+	parentDiv.addEventListener('mouseover', (e) => {
+		if (e.target.parentNode.parentNode === parentDiv) {
+			if (e.target.style.filter === 'brightness(0.0)') {
+			} else if (!e.target.style.filter) {
+				e.target.style.filter = 'brightness(0.9)';
+			} else if (e.target.style.filter) {
+				e.target.style.filter = `brightness(0.${
+					+e.target.style.filter[13] - 1
+				})`;
+			}
+		}
+	});
+}
