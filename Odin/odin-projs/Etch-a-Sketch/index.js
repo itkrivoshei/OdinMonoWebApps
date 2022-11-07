@@ -58,3 +58,10 @@ function setNewBoard() {
 	);
 	addHoverEffect(document.querySelector('.work-space'), pixelColor.value);
 }
+
+function changeColorToRainbow() {
+	let pixelColor = document.querySelector('#pixel-color');
+
+	addHoverEffect(document.querySelector('.work-space'), 'rainbow');
+	pixelColor.value = 'rainbow';
+}
