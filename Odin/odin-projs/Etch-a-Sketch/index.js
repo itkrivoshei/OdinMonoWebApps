@@ -1,25 +1,33 @@
-function drawDivBox(divToPut, size, boxColor, partSize) {
+function drawDivBox(divToPut, size, boxColor) {
 	let pixel = document.createElement('div');
-	let breakBox = document.createElement('div');
 
 	divToPut.style.display = 'flex';
-	divToPut.style.flexWrap = 'wrap';
-	breakBox.style.flexBasis = '100%';
+	divToPut.style.flexWrap = 'nowrap';
+	divToPut.style.flexDirection = 'column';
+	divToPut.style.width = '600px';
+	divToPut.style.height = '600px';
+
 	pixel.style.backgroundColor = boxColor;
-	pixel.style.width = partSize + 'px';
-	pixel.style.height = partSize + 'px';
+	pixel.style.width = '100%';
+	pixel.style.height = 'auto';
 
 	for (let i = 0; i < size; i++) {
+		let rowDiv = document.createElement('div');
+
+		divToPut.appendChild(rowDiv);
+		rowDiv.style.display = 'flex';
+		rowDiv.style.width = '100%';
+		rowDiv.style.height = '100%';
+
 		for (let i = 0; i < size; i++) {
-			divToPut.appendChild(pixel.cloneNode(true));
+			rowDiv.appendChild(pixel.cloneNode(true));
 		}
-		divToPut.appendChild(breakBox.cloneNode(true));
 	}
 }
 
 function addHoverEffect(parentDiv, color) {
 	parentDiv.addEventListener('mouseover', (e) => {
-		if (e.target.parentNode === parentDiv) {
+		if (e.target.parentNode.parentNode === parentDiv) {
 			e.target.style.backgroundColor = color;
 		}
 	});
@@ -34,20 +42,16 @@ function setNewBoard() {
 
 	let boardSize = document.querySelector('#board-size');
 	let boardColor = document.querySelector('#board-color');
-	let pixelSize = document.querySelector('#pixel-size');
 	let pixelColor = document.querySelector('#pixel-color');
 	if (!boardSize.value || isNaN(boardSize.value) || boardSize.value > 100)
 		boardSize.value = 16;
-	if (!pixelSize.value || isNaN(pixelSize.value) || pixelSize.value > 100)
-		pixelSize.value = 30;
 	if (!boardColor.value) boardColor.value = 'pink';
 	if (!pixelColor.value) pixelColor.value = 'blue';
 
 	drawDivBox(
 		document.querySelector('.work-space'),
 		boardSize.value,
-		boardColor.value,
-		pixelSize.value
+		boardColor.value
 	);
 	addHoverEffect(document.querySelector('.work-space'), pixelColor.value);
 }
