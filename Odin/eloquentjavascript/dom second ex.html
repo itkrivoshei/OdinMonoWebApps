@@ -1,26 +1,9 @@
 <style>
-  body {
-    min-height: 200px;
-  }
+	body {
+		min-height: 200px;
+	}
 </style>
 <img src="img/dog.png" width="400px" id="dog" style="position: absolute" />
 <img src="img/hat.png" width="200px" id="hat" style="position: absolute" />
 
-<script>
-  let dog = document.querySelector('#dog');
-  let hat = document.querySelector('#hat');
-
-  let angle = 0;
-  let lastTime = null;
-  function animate(time) {
-    if (lastTime != null) angle += (time - lastTime) * 0.001;
-    lastTime = time;
-    dog.style.top = Math.sin(angle) * 40 + 40 + 'px';
-    dog.style.left = Math.cos(angle) * 200 + 230 + 'px';
-
-    // Your extensions here.
-
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-</script>
+<script src="dom_second_ex.js" defer></script>
