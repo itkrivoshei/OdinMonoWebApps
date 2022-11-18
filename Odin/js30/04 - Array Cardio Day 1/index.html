@@ -153,22 +153,30 @@
 			// 8. Reduce Exercise
 			// Sum up the instances of each of these
 
-			const data = [
-				'car',
-				'car',
-				'truck',
-				'truck',
-				'bike',
-				'walk',
-				'car',
-				'van',
-				'bike',
-				'walk',
-				'car',
-				'van',
-				'car',
-				'truck',
-			];
+			console.log(
+				[
+					'car',
+					'car',
+					'truck',
+					'truck',
+					'bike',
+					'walk',
+					'car',
+					'van',
+					'bike',
+					'walk',
+					'car',
+					'van',
+					'car',
+					'truck',
+				].reduce((acc, e) => {
+					if (e in acc) {
+						acc[e]++;
+					} else acc[e] = 1;
+
+					return acc;
+				}, {})
+			);
 		</script>
 	</body>
 </html>
