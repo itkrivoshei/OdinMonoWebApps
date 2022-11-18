@@ -1,0 +1,23 @@
+{
+	"devDependencies": {
+		"prettier": "^2.7.1"
+	},
+	"name": "jst-for-fun",
+	"description": "This repository has little meaning, I just do something 🥴 ## License This project is licensed under the LGPLv3 - see the [LICENSE](https://github.com/IT-Krivoshey/JSt-For-Fun/blob/master/LICENSE) file for details.",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"pretty": "prettier --write \"./**/*\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itkrivoshei/JSt-For-Fun.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/itkrivoshei/JSt-For-Fun/issues"
+	},
+	"homepage": "https://github.com/itkrivoshei/JSt-For-Fun#readme"
+}
