@@ -114,7 +114,7 @@ console.log(
 );
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Pari
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 // document
 // 	.querySelector('.mw-category')
@@ -128,7 +128,11 @@ console.log(
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 
-console.log(people.map((e) => e.slice(e.indexOf(' ') + 1)).sort());
+console.log(
+	people.sort((a, b) =>
+		a.slice(a.indexOf(' ') + 1).localeCompare(b.slice(b.indexOf(' ') + 1))
+	)
+);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
