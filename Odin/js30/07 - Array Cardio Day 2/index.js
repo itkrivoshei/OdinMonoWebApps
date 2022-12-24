@@ -46,7 +46,7 @@ function findCommentByID(ID, comments) {
 
 function deleteCommentByID(ID, comments) {
 	comments.splice(
-		index,
-		comments.findIndex((comment) => comment.id === ID)
+		comments.findIndex((comment) => comment.id === ID),
+		1
 	);
 }
