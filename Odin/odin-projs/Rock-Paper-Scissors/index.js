@@ -110,28 +110,17 @@ function game() {
 
 	function gameCenter(weapon) {
 		let roundResultText = playOneRound(weapon);
-		let roundCode = getGameCode(
-			5,
-			computerScore,
-			playerScore,
-			roundResultText
-		);
+		let roundCode = getGameCode(5, computerScore, playerScore, roundResultText);
 
 		if (roundCode === 1) {
 			playerScore++;
-			if (
-				getGameCode(5, computerScore, playerScore, roundResultText) ===
-				2
-			) {
+			if (getGameCode(5, computerScore, playerScore, roundResultText) === 2) {
 				getFinalMessage(body, computerScore, playerScore);
 				cleanGame(body, rock, paper, scissors);
 			}
 		} else if (roundCode === 0) {
 			computerScore++;
-			if (
-				getGameCode(5, computerScore, playerScore, roundResultText) ===
-				2
-			) {
+			if (getGameCode(5, computerScore, playerScore, roundResultText) === 2) {
 				getFinalMessage(body, computerScore, playerScore);
 				cleanGame(body, rock, paper, scissors);
 			}

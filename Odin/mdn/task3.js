@@ -16,10 +16,7 @@ for (i = 500; i >= 2; i--) {
 		para.textContent += `${i}, `;
 	}
 	if (i === 2) {
-		para.textContent = para.textContent.slice(
-			0,
-			para.textContent.length - 2
-		);
+		para.textContent = para.textContent.slice(0, para.textContent.length - 2);
 	}
 }
 
