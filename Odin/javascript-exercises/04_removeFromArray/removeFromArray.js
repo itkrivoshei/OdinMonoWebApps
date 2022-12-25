@@ -9,7 +9,5 @@ const removeFromArray = function (arr, ...del) {
 	return arr;
 };
 
-removeFromArray([1, 2, 3, 4], '1', 3, 2);
-
 // Do not edit below this line
 module.exports = removeFromArray;
