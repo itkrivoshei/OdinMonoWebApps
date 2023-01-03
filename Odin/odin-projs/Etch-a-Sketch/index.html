@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Etch-a-Sketch</title>
+		<script src="index.js" defer></script>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<button onclick="setNewBoard()">Set board</button>
+		<p>Board</p>
+		<span>Size:</span>
+		<input id="board-size" type="text" placeholder="16" />
+		<span>Color:</span>
+		<input id="board-color" type="text" placeholder="pink" />
+		<p>Pixel</p>
+		<span>Color:</span>
+		<input id="pixel-color" type="text" placeholder="blue" />
+		<button onclick="changeColorToRainbow()">Rainbow color</button>
+		<button onclick="toBlackMod(document.querySelector('.work-space'))">
+			To Black Mod
+		</button>
+		<div class="work-space"></div>
+	</body>
+</html>
