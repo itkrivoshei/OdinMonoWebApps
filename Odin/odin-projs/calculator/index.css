@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.calc {
+	display: grid;
+	grid-template-rows: auto;
+	gap: 0 5px;
+	place-content: center;
+	justify-content: stretch;
+	width: 400px;
+	grid-template-areas:
+		'ac c vol git'
+		'numLock divide multiply minus'
+		'seven eight nine plus'
+		'four five six plus'
+		'one two three enter'
+		'zero zero dot enter';
+}
+.calc * {
+	height: 100%;
+	width: 100%;
+}
+.calc *:active {
+	transform: scale(0.99, 0.99) translate(0, 1px);
+	transition: 50ms;
+}
+.calc div *:active {
+	filter: brightness(0.98) sepia(0) hue-rotate(0deg) saturate(1);
+	transition: 50ms;
+}
+.one {
+	grid-area: one;
+}
+.two {
+	grid-area: two;
+}
+.three {
+	grid-area: three;
+}
+.four {
+	grid-area: four;
+}
+.five {
+	grid-area: five;
+}
+.six {
+	grid-area: six;
+}
+.seven {
+	grid-area: seven;
+}
+.eight {
+	grid-area: eight;
+}
+.nine {
+	grid-area: nine;
+}
+.zero {
+	grid-area: zero;
+}
+.plus {
+	grid-area: plus;
+}
+.minus {
+	grid-area: minus;
+}
+.enter {
+	grid-area: enter;
+}
+.ac {
+	grid-area: ac;
+}
+.c {
+	grid-area: c;
+}
+.dot {
+	grid-area: dot;
+}
+.enter {
+	grid-area: enter;
+}
+.git {
+	grid-area: git;
+}
+.vol {
+	grid-area: vol;
+}
+.divide {
+	grid-area: divide;
+}
+.numLock {
+	grid-area: numLock;
+}
+.multiply {
+	grid-area: multiply;
+}
+.vol {
+	grid-area: vol;
+}

@@ -2,7 +2,71 @@
 <html lang="en-us">
 	<head>
 		<script src="index.js" defer></script>
+		<link rel="stylesheet" href="index.css" />
 		<meta charset="utf-8" />
 	</head>
-	<body></body>
+	<body>
+		<div id="display"></div>
+		<div class="calc">
+			<div onclick="tapToDisplay(1)" class="one">
+				<img src="./svg/one.svg" />
+			</div>
+			<div onclick="tapToDisplay(2)" class="two">
+				<img src="./svg/two.svg" />
+			</div>
+			<div onclick="tapToDisplay(3)" class="three">
+				<img src="./svg/three.svg" />
+			</div>
+			<div onclick="tapToDisplay(4)" class="four">
+				<img src="./svg/four.svg" />
+			</div>
+			<div onclick="tapToDisplay(5)" class="five">
+				<img src="./svg/five.svg" />
+			</div>
+			<div onclick="tapToDisplay(6)" class="six">
+				<img src="./svg/six.svg" />
+			</div>
+			<div onclick="tapToDisplay(7)" class="seven">
+				<img src="./svg/seven.svg" />
+			</div>
+			<div onclick="tapToDisplay(8)" class="eight">
+				<img src="./svg/eight.svg" />
+			</div>
+			<div onclick="tapToDisplay(9)" class="nine">
+				<img src="./svg/nine.svg" />
+			</div>
+			<div onclick="tapToDisplay(0)" class="zero long_key">
+				<img src="./svg/zero.svg" />
+			</div>
+			<div onclick="tapToDisplay('.')" class="dot">
+				<img src="./svg/dot.svg" />
+			</div>
+			<div onclick="tapToDisplay('enter')" class="enter long_key">
+				<img src="./svg/enter.svg" />
+			</div>
+			<div onclick="tapToDisplay('/')" class="divide">
+				<img src="./svg/divide.svg" />
+			</div>
+			<div onclick="tapToDisplay('*')" class="multiply">
+				<img src="./svg/multiply.svg" />
+			</div>
+			<div onclick="tapToDisplay('-')" class="minus">
+				<img src="./svg/minus.svg" />
+			</div>
+			<div onclick="tapToDisplay('+')" class="plus long_key">
+				<img src="./svg/plus.svg" />
+			</div>
+			<!-- <div onclick="tapToDisplay('numLock')" class="numLock"><img src="./svg/numLock.svg" /></div> -->
+			<div onclick="tapToDisplay('ac')" class="ac">
+				<img src="./svg/ac.svg" />
+			</div>
+			<div onclick="tapToDisplay('c')" class="c"><img src="./svg/c.svg" /></div>
+			<!-- <div onclick="tapToDisplay('vol')" class="vol"><img src="./svg/vol.svg" /></div>
+			<div onclick="tapToDisplay('git')" class="git"><img src="./svg/git.svg" /></div> -->
+		</div>
+		<!-- <audio id="pressGeneric" src="audio/press_generic.mp3"></audio>
+		<audio id="releaseGeneric" src="audio/release_generic.mp3"></audio>
+		<audio id="pressLongKey" src="audio/press_long_key.mp3"></audio>
+		<audio id="releaseLongKey" src="audio/release_long_key.mp3"></audio> -->
+	</body>
 </html>
