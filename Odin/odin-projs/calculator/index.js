@@ -22,25 +22,16 @@ function operate(x, y, operator) {
 }
 
 function tapToDisplay(symbol) {
-	const display = document.getElementById('display');
-	if (typeof symbol === 'number') display.innerText += symbol;
-	else if (typeof symbol === 'string' && symbol != 'enter') {
-		display.innerText += '\n' + symbol + '\n';
-	} else if (symbol === 'enter') {
-		let firstNum = +display.innerText.substring(
-			0,
-			display.innerText.indexOf('\n')
-		);
-		let secondNum = +display.innerText.substring(
-			display.innerText.indexOf('\n') + 3,
-			display.innerText.length
-		);
-		let operator = display.innerText.substring(
-			display.innerText.indexOf('\n') + 1,
-			display.innerText.indexOf('\n') + 2
-		);
+	const displayText = document.getElementById('display').innerText;
 
-		display.innerText = operate(firstNum, secondNum, operator);
+	if (typeof symbol === 'number') {
+		displayText += symbol;
+	} else if (typeof symbol === 'string' && symbol != 'enter') {
+	} else if (symbol === 'enter') {
+		saver(symbol);
+		let firstNum = +displayText.substring(0, display.displayText('\n'));
+
+		displayText = operate(firstNum, secondNum, operator);
 	}
 }
 
