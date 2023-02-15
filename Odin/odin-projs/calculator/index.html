@@ -1,68 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
-		<script src="index.js" defer></script>
+		<script src="calculator.js" defer></script>
 		<link rel="stylesheet" href="index.css" />
 		<meta charset="utf-8" />
 	</head>
 	<body>
-		<div id="display"></div>
-		<div class="calc">
-			<div onclick="tapToDisplay(1)" class="one">
-				<img src="./svg/one.svg" />
+		<div class="calculator">
+			<div class="display"></div>
+			<div class="buttons">
+				<button id="ac" data-value="ac"><img src="./svg/ac.svg" /></button>
+				<button id="c" data-value="c"><img src="./svg/c.svg" /></button>
+				<button id="divide" data-value="/">
+					<img src="./svg/divide.svg" />
+				</button>
+				<button id="multiply" data-value="*">
+					<img src="./svg/multiply.svg" />
+				</button>
+				<button id="subtract" data-value="-">
+					<img src="./svg/minus.svg" />
+				</button>
+				<button id="add" class="long_key" data-value="+">
+					<img src="./svg/plus.svg" />
+				</button>
+				<button id="dot" data-value="."><img src="./svg/dot.svg" /></button>
+				<button id="enter" class="long_key" data-value="=">
+					<img src="./svg/enter.svg" />
+				</button>
+				<button id="numLock" data-value="numLock">
+					<img src="./svg/numLock.svg" />
+				</button>
+				<button id="git" data-value="git"><img src="./svg/git.svg" /></button>
+				<button id="vol" data-value="vol"><img src="./svg/vol.svg" /></button>
+				<button id="one" data-value="1"><img src="./svg/one.svg" /></button>
+				<button id="two" data-value="2"><img src="./svg/two.svg" /></button>
+				<button id="three" data-value="3"><img src="./svg/three.svg" /></button>
+				<button id="four" data-value="4"><img src="./svg/four.svg" /></button>
+				<button id="five" data-value="5"><img src="./svg/five.svg" /></button>
+				<button id="six" data-value="6"><img src="./svg/six.svg" /></button>
+				<button id="seven" data-value="7"><img src="./svg/seven.svg" /></button>
+				<button id="eight" data-value="8"><img src="./svg/eight.svg" /></button>
+				<button id="nine" data-value="9"><img src="./svg/nine.svg" /></button>
+				<button id="zero" class="long_key" data-value="0">
+					<img src="./svg/zero.svg" />
+				</button>
 			</div>
-			<div onclick="tapToDisplay(2)" class="two">
-				<img src="./svg/two.svg" />
-			</div>
-			<div onclick="tapToDisplay(3)" class="three">
-				<img src="./svg/three.svg" />
-			</div>
-			<div onclick="tapToDisplay(4)" class="four">
-				<img src="./svg/four.svg" />
-			</div>
-			<div onclick="tapToDisplay(5)" class="five">
-				<img src="./svg/five.svg" />
-			</div>
-			<div onclick="tapToDisplay(6)" class="six">
-				<img src="./svg/six.svg" />
-			</div>
-			<div onclick="tapToDisplay(7)" class="seven">
-				<img src="./svg/seven.svg" />
-			</div>
-			<div onclick="tapToDisplay(8)" class="eight">
-				<img src="./svg/eight.svg" />
-			</div>
-			<div onclick="tapToDisplay(9)" class="nine">
-				<img src="./svg/nine.svg" />
-			</div>
-			<div onclick="tapToDisplay(0)" class="zero long_key">
-				<img src="./svg/zero.svg" />
-			</div>
-			<div onclick="tapToDisplay('.')" class="dot">
-				<img src="./svg/dot.svg" />
-			</div>
-			<div onclick="tapToDisplay('enter')" class="enter long_key">
-				<img src="./svg/enter.svg" />
-			</div>
-			<div onclick="tapToDisplay('/')" class="divide">
-				<img src="./svg/divide.svg" />
-			</div>
-			<div onclick="tapToDisplay('*')" class="multiply">
-				<img src="./svg/multiply.svg" />
-			</div>
-			<div onclick="tapToDisplay('-')" class="minus">
-				<img src="./svg/minus.svg" />
-			</div>
-			<div onclick="tapToDisplay('+')" class="plus long_key">
-				<img src="./svg/plus.svg" />
-			</div>
-			<!-- <div onclick="tapToDisplay('numLock')" class="numLock"><img src="./svg/numLock.svg" /></div> -->
-			<div onclick="tapToDisplay('ac')" class="ac">
-				<img src="./svg/ac.svg" />
-			</div>
-			<div onclick="tapToDisplay('c')" class="c"><img src="./svg/c.svg" /></div>
-			<!-- <div onclick="tapToDisplay('vol')" class="vol"><img src="./svg/vol.svg" /></div>
-			<div onclick="tapToDisplay('git')" class="git"><img src="./svg/git.svg" /></div> -->
 		</div>
 		<!-- <audio id="pressGeneric" src="audio/press_generic.mp3"></audio>
 		<audio id="releaseGeneric" src="audio/release_generic.mp3"></audio>
