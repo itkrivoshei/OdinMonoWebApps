@@ -4,7 +4,8 @@ const buttons = calculator.querySelector('.buttons');
 
 let currentVal = '';
 let previousVal = '';
-let operator = '';
+let currentOperator = '';
+let isNewCalculation = false;
 
 buttons.addEventListener('click', handleClick);
 
@@ -12,10 +13,9 @@ function handleClick(e) {
 	const value = e.target.parentNode.getAttribute('data-value');
 
 	if (value === 'c') {
-		currentVal = currentVal.slice(0, -1);
-		updateDisplay();
+		clearCurrent();
 	} else if (value === 'ac') {
-		clearDisplay();
+		clearAll();
 	} else if (isOperator(value)) {
 		handleOperator(value);
 	} else if (value === '=') {
@@ -29,17 +29,27 @@ function isOperator(value) {
 	return ['+', '-', '*', '/'].includes(value);
 }
 
-function clearDisplay() {
+function clearCurrent() {
+	currentVal = '';
+	updateDisplay();
+}
+
+function clearAll() {
 	currentVal = '';
 	previousVal = '';
-	operator = '';
+	currentOperator = '';
+	isNewCalculation = false;
 	updateDisplay();
 }
 
 function handleOperator(value) {
+	if (currentOperator && !isNewCalculation) {
+		calculate();
+	}
+	currentOperator = value;
 	previousVal = currentVal;
 	currentVal = '';
-	operator = value;
+	isNewCalculation = false;
 }
 
 function appendValue(value) {
@@ -48,30 +58,38 @@ function appendValue(value) {
 }
 
 function updateDisplay() {
-	display.textContent = currentVal;
+	display.textContent = currentVal || '0';
 }
 
 function calculate() {
 	const current = parseFloat(currentVal);
 	const previous = parseFloat(previousVal);
 
-	switch (operator) {
+	if (Number.isNaN(previous) || Number.isNaN(current)) {
+		return;
+	}
+
+	switch (currentOperator) {
 		case '+':
-			currentVal = previous + current;
+			previousVal = previous + current;
 			break;
 		case '-':
-			currentVal = previous - current;
+			previousVal = previous - current;
 			break;
 		case '*':
-			currentVal = previous * current;
+			previousVal = previous * current;
 			break;
 		case '/':
-			currentVal = previous / current;
+			if (current === 0) {
+				previousVal = NaN;
+			} else {
+				previousVal = previous / current;
+			}
 			break;
 	}
 
-	previousVal = '';
-	operator = '';
+	currentVal = '';
+	currentOperator = '';
 	updateDisplay();
 }
 
