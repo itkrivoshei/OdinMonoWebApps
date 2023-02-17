@@ -21,7 +21,7 @@ function handleClick(e) {
 	} else if (value === '=') {
 		calculate();
 	} else {
-		appendValue(value);
+		appendCurrentValue(value);
 	}
 }
 
@@ -30,8 +30,8 @@ function isOperator(value) {
 }
 
 function clearCurrent() {
-	currentVal = '';
-	updateDisplay();
+	currentVal = currentVal.slice(0, -1);
+	updateDisplay(currentVal);
 }
 
 function clearAll() {
@@ -39,11 +39,11 @@ function clearAll() {
 	previousVal = '';
 	currentOperator = '';
 	isNewCalculation = false;
-	updateDisplay();
+	updateDisplay('');
 }
 
 function handleOperator(value) {
-	if (currentOperator && !isNewCalculation) {
+	if (currentOperator) {
 		calculate();
 	}
 	currentOperator = value;
@@ -52,13 +52,13 @@ function handleOperator(value) {
 	isNewCalculation = false;
 }
 
-function appendValue(value) {
+function appendCurrentValue(value) {
 	currentVal += value;
-	updateDisplay();
+	updateDisplay(currentVal);
 }
 
-function updateDisplay() {
-	display.textContent = currentVal || '0';
+function updateDisplay(value) {
+	display.textContent = value;
 }
 
 function calculate() {
@@ -66,31 +66,32 @@ function calculate() {
 	const previous = parseFloat(previousVal);
 
 	if (Number.isNaN(previous) || Number.isNaN(current)) {
+		console.log('NAN');
 		return;
 	}
 
 	switch (currentOperator) {
 		case '+':
-			previousVal = previous + current;
+			currentVal = previous + current;
 			break;
 		case '-':
-			previousVal = previous - current;
+			currentVal = previous - current;
 			break;
 		case '*':
-			previousVal = previous * current;
+			currentVal = previous * current;
 			break;
 		case '/':
 			if (current === 0) {
-				previousVal = NaN;
+				currentVal = NaN;
 			} else {
-				previousVal = previous / current;
+				currentVal = previous / current;
 			}
 			break;
 	}
 
 	currentVal = '';
 	currentOperator = '';
-	updateDisplay();
+	updateDisplay(currentVal);
 }
 
 // function playSound(pressAudio, releaseAudio, status, e) {
