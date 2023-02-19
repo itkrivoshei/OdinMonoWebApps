@@ -1,21 +1,21 @@
 .para,
 .small-para {
-	color: hsl(0, 100%, 50%);
+  color: hsl(0, 100%, 50%);
 }
 
 .para {
-	font-size: 22px;
+  font-size: 22px;
 }
 
 .button {
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
-	font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
 }
 
 div.text {
-	color: green;
-	font-size: 22px;
+  color: green;
+  font-size: 22px;
 }
 
 /* SOLUTION */
@@ -37,7 +37,7 @@ div.text {
 */
 
 .small-para {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 /* 
@@ -61,9 +61,9 @@ div.text {
 */
 
 #confirm-button {
-	background: green;
-	color: white;
-	font-weight: bold;
+  background: green;
+  color: white;
+  font-weight: bold;
 }
 
 /*
@@ -86,6 +86,6 @@ div.text {
 */
 
 div .child {
-	color: red;
-	font-size: 14px;
+  color: red;
+  font-size: 14px;
 }

@@ -1,22 +1,22 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-	text-align: center;
+  text-align: center;
 }
 
 .container div {
-	padding: 15px;
-	font-size: 32px;
-	font-family: Helvetica;
-	font-weight: bold;
-	color: white;
+  padding: 15px;
+  font-size: 32px;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: white;
 }
 
 .header {
-	background-color: #393f4d;
+  background-color: #393f4d;
 }
 
 .logo {
@@ -30,76 +30,76 @@
 
 .menu ul,
 .menu li {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .sidebar {
-	background-color: #ff7755;
+  background-color: #ff7755;
 }
 
 .sidebar .photo {
-	background-color: white;
-	color: black;
-	font-size: 12px;
-	font-weight: normal;
-	border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+  border-radius: 10px;
 }
 
 .photo {
 }
 
 .sidebar .side-content {
-	background-color: white;
-	color: black;
-	font-size: 16px;
-	font-weight: normal;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .nav {
-	background-color: #ff7755;
+  background-color: #ff7755;
 }
 
 .nav ul {
 }
 
 .nav ul li {
-	font-size: 16px;
-	text-transform: uppercase;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .article {
-	background-color: #bccbde;
+  background-color: #bccbde;
 }
 
 .article p {
-	font-size: 18px;
-	font-family: sans-serif;
-	color: white;
-	text-align: left;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  text-align: left;
 }
 
 .article .card {
-	background-color: #ffffff;
-	color: black;
-	text-align: center;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
 }
 
 .card p {
-	color: black;
-	font-weight: normal;
-	font-size: 14px;
+  color: black;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .card .title {
-	font-size: 18px;
-	text-align: center;
+  font-size: 18px;
+  text-align: center;
 }
 
 .footer {
-	background-color: #393f4d;
+  background-color: #393f4d;
 }
 
 .footer p {
-	font-size: 13px;
-	font-weight: normal;
+  font-size: 13px;
+  font-weight: normal;
 }

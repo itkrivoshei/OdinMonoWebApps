@@ -15,9 +15,9 @@ Let's look at the spec file first:
 const helloWorld = require('./helloWorld');
 
 describe('Hello World', function () {
-	test('says "Hello, World!"', function () {
-		expect(helloWorld()).toEqual('Hello, World!');
-	});
+  test('says "Hello, World!"', function () {
+    expect(helloWorld()).toEqual('Hello, World!');
+  });
 });
 ```
 
@@ -31,7 +31,7 @@ so let's look at the javascript file:
 
 ```javascript
 const helloWorld = function () {
-	return '';
+  return '';
 };
 
 module.exports = helloWorld;
@@ -47,7 +47,7 @@ This is what the final function should look like:
 
 ```javascript
 const helloWorld = function () {
-	return 'Hello, World!';
+  return 'Hello, World!';
 };
 
 module.exports = helloWorld;

@@ -1,8 +1,8 @@
 const getTheTitles = function (books) {
-	return books.reduce(function (acc, book) {
-		acc.push(book.title);
-		return acc;
-	}, []);
+  return books.reduce(function (acc, book) {
+    acc.push(book.title);
+    return acc;
+  }, []);
 };
 
 // Do not edit below this line

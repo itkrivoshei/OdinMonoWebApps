@@ -1,123 +1,123 @@
 .header {
-	font-size: 36px;
-	margin: 26px 0;
-	color: white;
+  font-size: 36px;
+  margin: 26px 0;
+  color: white;
 }
 
 .input {
-	display: flex;
-	width: 50%;
-	position: relative;
-	align-items: center;
-	margin-bottom: 46px;
+  display: flex;
+  width: 50%;
+  position: relative;
+  align-items: center;
+  margin-bottom: 46px;
 }
 
 .input__box {
-	width: 100%;
-	padding: 12px 16px;
-	font-size: 18px;
-	border: none;
-	transition: 0.2s;
-	color: black;
-	font-family: 'Press Start 2P';
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 18px;
+  border: none;
+  transition: 0.2s;
+  color: black;
+  font-family: 'Press Start 2P';
 }
 
 .input__box::placeholder {
-	color: plum;
+  color: plum;
 }
 
 .input_submit {
-	position: absolute;
-	right: 0;
-	height: 100%;
-	width: 50px;
-	color: white;
-	background-color: black;
-	border: none;
-	font-size: 15px;
-	transition: 0.2s;
-	cursor: pointer;
-	font-family: 'Press Start 2P';
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 15px;
+  transition: 0.2s;
+  cursor: pointer;
+  font-family: 'Press Start 2P';
 }
 
 .input_submit:hover {
-	background-color: hotpink;
+  background-color: hotpink;
 }
 
 .input_submit:active {
-	transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .input__box:focus {
-	outline: none;
+  outline: none;
 }
 
 .todos {
-	display: flex;
-	flex-direction: column;
-	width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .todos__single {
-	display: flex;
-	padding: 18px 24px;
-	margin-bottom: 24px;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .icon {
-	margin-left: 8px;
-	transition: 0.2s;
-	cursor: pointer;
+  margin-left: 8px;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .icon:hover {
-	color: hotpink !important;
+  color: hotpink !important;
 }
 
 .global-class-name:active {
-	transform: scale(0.8);
-	transition: 0.2s;
+  transform: scale(0.8);
+  transition: 0.2s;
 }
 
 .todos__single--text--done {
-	text-decoration: line-through;
-	color: white;
-	cursor: pointer;
-	transition: 0.2s;
-	word-break: break-all;
+  text-decoration: line-through;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  word-break: break-all;
 }
 
 .todos__single--text {
-	cursor: pointer;
-	word-break: break-all;
+  cursor: pointer;
+  word-break: break-all;
 }
 
 .todo__input {
-	font-size: 16px;
-	border: none;
-	transition: 0.2s;
-	font-family: 'Press Start 2P';
-	background-color: transparent;
-	padding: 0;
-	color: hotpink;
-	width: 100%;
+  font-size: 16px;
+  border: none;
+  transition: 0.2s;
+  font-family: 'Press Start 2P';
+  background-color: transparent;
+  padding: 0;
+  color: hotpink;
+  width: 100%;
 }
 
 .todo__input:focus {
-	outline: none;
-	transition: 0.2s;
+  outline: none;
+  transition: 0.2s;
 }
 
 @media (max-width: 800px) {
-	.header {
-		font-size: 34px;
-		margin: 24px 0;
-	}
+  .header {
+    font-size: 34px;
+    margin: 24px 0;
+  }
 
-	.input,
-	.todos {
-		width: 96%;
-	}
+  .input,
+  .todos {
+    width: 96%;
+  }
 }

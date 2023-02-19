@@ -1,17 +1,17 @@
 .container {
-	background: dodgerblue;
-	border: 4px solid midnightblue;
-	width: 400px;
-	height: 300px;
+  background: dodgerblue;
+  border: 4px solid midnightblue;
+  width: 400px;
+  height: 300px;
 }
 
 .box {
-	background: palevioletred;
-	font-weight: bold;
-	text-align: center;
-	border: 6px solid maroon;
-	width: 80px;
-	height: 80px;
+  background: palevioletred;
+  font-weight: bold;
+  text-align: center;
+  border: 6px solid maroon;
+  width: 80px;
+  height: 80px;
 }
 
 /* SOLUTION */
@@ -23,7 +23,7 @@ which _is_ the best practice.
 We separated it out here to make it extra clear what has changed. */
 
 .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

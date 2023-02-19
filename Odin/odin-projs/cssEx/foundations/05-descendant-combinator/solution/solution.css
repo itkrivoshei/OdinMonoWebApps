@@ -1,8 +1,8 @@
 .container .text {
-	background-color: yellow;
-	color: red;
-	font-size: 20px;
-	text-align: center;
+  background-color: yellow;
+  color: red;
+  font-size: 20px;
+  text-align: center;
 }
 
 /* Below are some other possible descendant combinators:

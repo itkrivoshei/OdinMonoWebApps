@@ -4,94 +4,95 @@ const buttons = calculator.querySelector('.buttons');
 
 let currentVal = '';
 let previousVal = '';
-let currentOperator = '';
-let isNewCalculation = false;
+let operator = '';
 
 buttons.addEventListener('click', handleClick);
 
 function handleClick(e) {
-	const value = e.target.parentNode.getAttribute('data-value');
+  const value = e.target.parentNode.getAttribute('data-value');
 
-	if (value === 'c') {
-		clearCurrent();
-	} else if (value === 'ac') {
-		clearAll();
-	} else if (isOperator(value)) {
-		handleOperator(value);
-	} else if (value === '=') {
-		calculate();
-	} else {
-		appendCurrentValue(value);
-	}
-}
-
-function isOperator(value) {
-	return ['+', '-', '*', '/'].includes(value);
-}
-
-function clearCurrent() {
-	currentVal = currentVal.slice(0, -1);
-	updateDisplay(currentVal);
-}
-
-function clearAll() {
-	currentVal = '';
-	previousVal = '';
-	currentOperator = '';
-	isNewCalculation = false;
-	updateDisplay('');
+  if (value === 'c') {
+    clearCurrent();
+  } else if (value === 'ac') {
+    clearAll();
+  } else if (isOperator(value)) {
+    handleOperator(value);
+  } else {
+    appendCurrentValue(value);
+  }
 }
 
 function handleOperator(value) {
-	if (currentOperator) {
-		calculate();
-	}
-	currentOperator = value;
-	previousVal = currentVal;
-	currentVal = '';
-	isNewCalculation = false;
+  if (value === '=') {
+    updateDisplay(calculate());
+    previousVal = calculate();
+    return;
+  } else if (operator && currentVal) {
+    updateDisplay(calculate());
+    previousVal = calculate();
+    currentVal = '';
+    operator = value;
+    return;
+  }
+
+  operator = value;
+  previousVal = currentVal;
+  currentVal = '';
+}
+
+function isOperator(value) {
+  return ['+', '-', '*', '/', '='].includes(value);
+}
+
+function clearCurrent() {
+  currentVal = currentVal.slice(0, -1);
+  updateDisplay(currentVal);
+}
+
+function clearAll() {
+  currentVal = '';
+  previousVal = '';
+  operator = '';
+  updateDisplay('');
 }
 
 function appendCurrentValue(value) {
-	currentVal += value;
-	updateDisplay(currentVal);
+  if (value === '.' && currentVal.toString().indexOf('.') !== -1) return;
+
+  currentVal += value;
+  updateDisplay(currentVal);
 }
 
 function updateDisplay(value) {
-	display.textContent = value;
+  display.textContent = value || '';
 }
 
 function calculate() {
-	const current = parseFloat(currentVal);
-	const previous = parseFloat(previousVal);
+  const current = parseFloat(currentVal);
+  const previous = parseFloat(previousVal);
+  let res = 0;
 
-	if (Number.isNaN(previous) || Number.isNaN(current)) {
-		console.log('NAN');
-		return;
-	}
+  switch (operator) {
+    case '+':
+      res = previous + current;
+      break;
+    case '-':
+      res = previous - current;
+      break;
+    case '*':
+      res = previous * current;
+      break;
+    case '/':
+      if (current === 0) {
+        res = 'NaNi';
+        window.open('https://www.youtube.com/watch?v=NKmGVE85GUU', '_blank');
+      } else {
+        res = previous / current;
+      }
+      break;
+  }
 
-	switch (currentOperator) {
-		case '+':
-			currentVal = previous + current;
-			break;
-		case '-':
-			currentVal = previous - current;
-			break;
-		case '*':
-			currentVal = previous * current;
-			break;
-		case '/':
-			if (current === 0) {
-				currentVal = NaN;
-			} else {
-				currentVal = previous / current;
-			}
-			break;
-	}
-
-	currentVal = '';
-	currentOperator = '';
-	updateDisplay(currentVal);
+  return res;
 }
 
 // function playSound(pressAudio, releaseAudio, status, e) {

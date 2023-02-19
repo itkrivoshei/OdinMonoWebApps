@@ -1,44 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-	padding: 0;
-	margin: 0;
-	text-decoration: none;
-	list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 body {
-	height: 100vh;
-	margin: 0;
-	overflow: hidden;
-	font-family: Roboto, sans-serif;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
-	width: 600px;
+  width: 600px;
 }
 
 button {
-	font-family: Roboto, sans-serif;
-	border: none;
-	border-radius: 8px;
-	background: #eee;
-	padding: 10px;
+  font-family: Roboto, sans-serif;
+  border: none;
+  border-radius: 8px;
+  background: #eee;
+  padding: 10px;
 }
 
 input {
-	border: 1px solid #ddd;
-	border-radius: 16px;
-	padding: 8px 24px;
-	width: 400px;
-	margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 8px 24px;
+  width: 400px;
+  margin-bottom: 16px;
 }
 
 a {
-	color: gray;
+  color: gray;
 }
 
 .header,
@@ -47,20 +47,20 @@ a {
 .header .right-links,
 .footer .left-links,
 .footer .right-links {
-	display: flex;
-	justify-content: space-between;
-	gap: 15px;
-	padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px;
 }
 
 .content {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
-	background-color: #eeeeee;
+  background-color: #eeeeee;
 }
