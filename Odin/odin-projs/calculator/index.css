@@ -5,26 +5,40 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background: linear-gradient(to right, #B9B090, #DFDCD4, #D0CDBD);
+}
+
 button {
   all: unset;
 }
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
 .display {
+  max-width: 400px;
   width: 100%;
   height: 50px;
+  margin: 32px 0;
   border: 1px solid black;
-  margin-bottom: 10px;
-  text-align: right;
   font-size: 24px;
   padding: 5px;
-  box-sizing: border-box;
+  text-align: right;
 }
+
 .buttons {
+  max-width: 400px;
+  width: 100%;
+  border: 10px solid #36352e;
+  border-radius: 10px;
   display: grid;
-  grid-template-rows: auto;
   gap: 0 5px;
-  place-content: center;
-  justify-content: stretch;
-  width: 400px;
+  place-items: center;
   grid-template-areas:
     'ac c vol git'
     'numLock divide multiply subtract'
@@ -32,7 +46,9 @@ button {
     'four five six add'
     'one two three enter'
     'zero zero dot enter';
+  background: #36352e;
 }
+
 .buttons * {
   height: 100%;
   width: 100%;

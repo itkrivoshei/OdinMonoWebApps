@@ -7,17 +7,30 @@ let previousVal = '';
 let operator = '';
 
 buttons.addEventListener('click', handleClick);
+document.addEventListener('keydown', handleKeyboardInput);
 
 function handleClick(e) {
   const value = e.target.parentNode.getAttribute('data-value');
+  handleInput(value);
+}
 
-  if (value === 'c') {
+function handleKeyboardInput(e) {
+  const value = e.key;
+  handleInput(value);
+}
+
+function handleInput(value) {
+  if (value === 'c' || value === 'Backspace') {
     clearCurrent();
-  } else if (value === 'ac') {
+  } else if (value === 'ac' || value === 'Escape') {
     clearAll();
   } else if (isOperator(value)) {
+    if (value === 'Enter') {
+      value = '=';
+    }
     handleOperator(value);
-  } else {
+  } else if (parseInt(value) || parseInt(value) === 0) {
+    console.log(parseInt(value));
     appendCurrentValue(value);
   }
 }
@@ -41,7 +54,7 @@ function handleOperator(value) {
 }
 
 function isOperator(value) {
-  return ['+', '-', '*', '/', '='].includes(value);
+  return ['+', '-', '*', '/', '=', 'Enter'].includes(value);
 }
 
 function clearCurrent() {
@@ -84,8 +97,8 @@ function calculate() {
       break;
     case '/':
       if (current === 0) {
-        res = 'NaNi';
-        window.open('https://www.youtube.com/watch?v=NKmGVE85GUU', '_blank');
+        clearAll();
+        window.open('https://www.youtube.com/watch?v=NKmGVE85GUU');
       } else {
         res = previous / current;
       }
