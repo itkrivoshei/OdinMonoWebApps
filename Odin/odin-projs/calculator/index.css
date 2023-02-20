@@ -53,14 +53,13 @@ button {
   height: 100%;
   width: 100%;
 }
-.buttons *:active {
+
+.active, button:active {
   transform: scale(0.99, 0.99) translate(0, 1px);
-  transition: 50ms;
-}
-.buttons button *:active {
   filter: brightness(0.98) sepia(0) hue-rotate(0deg) saturate(1);
   transition: 50ms;
 }
+
 #one {
   grid-area: one;
 }

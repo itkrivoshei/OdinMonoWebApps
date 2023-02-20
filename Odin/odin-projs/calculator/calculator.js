@@ -7,30 +7,85 @@ let previousVal = '';
 let operator = '';
 
 buttons.addEventListener('click', handleClick);
-document.addEventListener('keydown', handleKeyboardInput);
+window.addEventListener('keydown', handleKeyDown);
+window.addEventListener('keyup', handleKeyUp);
+
+const keys = [
+  '+',
+  '-',
+  '*',
+  '/',
+  '=',
+  '.',
+  'g',
+  'v',
+  'n',
+  'c',
+  'Enter',
+  'Escape',
+  'Backspace',
+  'Delete',
+  'g',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '0',
+];
 
 function handleClick(e) {
+  // if (!isClickValid(e.key)) return;
   const value = e.target.parentNode.getAttribute('data-value');
   handleInput(value);
 }
 
-function handleKeyboardInput(e) {
-  const value = e.key;
-  handleInput(value);
+function handleKeyDown(e) {
+  if (!isClickValid(e.key)) return;
+  const finalKey = handleMultiKeys(e.key);
+  const button = document.querySelector(`[data-value='${finalKey}']`);
+  button.classList.add('active');
+  handleInput(finalKey);
+}
+
+function handleMultiKeys(key) {
+  if (['c', 'Backspace', 'Delete'].includes(key)) {
+    return 'clear';
+  } else if (['=', 'Enter'].includes(key)) {
+    return '=';
+  } else if (['Delete', 'Escape'].includes(key)) {
+    return 'delete';
+  } else return key;
+}
+
+function handleKeyUp(e) {
+  if (!isClickValid(e.key)) return;
+  const button = document.querySelector(
+    `[data-value='${handleMultiKeys(e.key)}']`
+  );
+  button.classList.remove('active');
+}
+
+function isClickValid(value) {
+  return keys.includes(value);
 }
 
 function handleInput(value) {
-  if (value === 'c' || value === 'Backspace') {
+  if (value === 'clear') {
     clearCurrent();
-  } else if (value === 'ac' || value === 'Escape') {
+  } else if (value === 'delete') {
     clearAll();
+  } else if (value === 'g') {
+    window.open(
+      'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
+    );
   } else if (isOperator(value)) {
-    if (value === 'Enter') {
-      value = '=';
-    }
     handleOperator(value);
   } else if (parseInt(value) || parseInt(value) === 0) {
-    console.log(parseInt(value));
     appendCurrentValue(value);
   }
 }
@@ -47,7 +102,6 @@ function handleOperator(value) {
     operator = value;
     return;
   }
-
   operator = value;
   previousVal = currentVal;
   currentVal = '';
@@ -71,7 +125,6 @@ function clearAll() {
 
 function appendCurrentValue(value) {
   if (value === '.' && currentVal.toString().indexOf('.') !== -1) return;
-
   currentVal += value;
   updateDisplay(currentVal);
 }
