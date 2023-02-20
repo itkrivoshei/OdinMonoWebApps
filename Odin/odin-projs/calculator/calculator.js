@@ -1,6 +1,8 @@
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const buttons = calculator.querySelector('.buttons');
+const pGenericButton = new Audio('./audio/press_generic.mp3');
+const rGenericButton = new Audio('./audio/release_generic.mp3');
 
 let currentVal = '';
 let previousVal = '';
@@ -39,7 +41,6 @@ const keys = [
 ];
 
 function handleClick(e) {
-  // if (!isClickValid(e.key)) return;
   const value = e.target.parentNode.getAttribute('data-value');
   handleInput(value);
 }
@@ -48,6 +49,8 @@ function handleKeyDown(e) {
   if (!isClickValid(e.key)) return;
   const finalKey = handleMultiKeys(e.key);
   const button = document.querySelector(`[data-value='${finalKey}']`);
+  pGenericButton.play();
+  rGenericButton.currentTime = 0;
   button.classList.add('active');
   handleInput(finalKey);
 }
@@ -67,6 +70,8 @@ function handleKeyUp(e) {
   const button = document.querySelector(
     `[data-value='${handleMultiKeys(e.key)}']`
   );
+  rGenericButton.play();
+  rGenericButton.currentTime = 0;
   button.classList.remove('active');
 }
 
@@ -160,35 +165,3 @@ function calculate() {
 
   return res;
 }
-
-// function playSound(pressAudio, releaseAudio, status, e) {
-// 	pressAudio.currentTime = 0;
-// 	if (status === 'press') {
-// 		pressAudio.play();
-// 	} else if (status === 'release') {
-// 		console.log('hi');
-// 		releaseAudio.play();
-// 	}
-// 	e.removeEventListener('mouseup', () => {
-// 		playSound(pressAudio, releaseAudio, 'release');
-// 	});
-// }
-
-// window.addEventListener('mousedown', (e) => {
-// 	const pressAudio = e.target.parentElement.classList.contains('long_key')
-// 		? document.getElementById('pressLongKey')
-// 		: document.getElementById('pressGeneric');
-
-// 	const releaseAudio = e.target.parentElement.classList.contains('long_key')
-// 		? document.getElementById('releaseLongKey')
-// 		: document.getElementById('releaseGeneric');
-
-// 	if (!releaseAudio || !pressAudio) return;
-// 	console.log(releaseAudio, pressAudio);
-
-// 	playSound(pressAudio, releaseAudio, 'press', e.target);
-
-// 	e.target.addEventListener('mouseup', () => {
-// 		playSound(pressAudio, releaseAudio, 'release', e.target);
-// 	});
-// });
