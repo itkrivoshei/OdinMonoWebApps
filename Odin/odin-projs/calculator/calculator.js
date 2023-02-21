@@ -1,12 +1,23 @@
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const buttons = calculator.querySelector('.buttons');
-const pGenericButton = new Audio('./audio/press_generic.mp3');
-const rGenericButton = new Audio('./audio/release_generic.mp3');
+const pGenericButton = new Howl({
+  src: ['./audio/press_generic.mp3'],
+});
+const rGenericButton = new Howl({
+  src: ['./audio/release_generic.mp3'],
+});
+const pLongButton = new Howl({
+  src: ['./audio/press_long_key.mp3'],
+});
+const rLongButton = new Howl({
+  src: ['./audio/release_long_key.mp3'],
+});
 
 let currentVal = '';
 let previousVal = '';
 let operator = '';
+let isKeyDown = false;
 
 buttons.addEventListener('click', handleClick);
 window.addEventListener('keydown', handleKeyDown);
@@ -49,8 +60,7 @@ function handleKeyDown(e) {
   if (!isClickValid(e.key)) return;
   const finalKey = handleMultiKeys(e.key);
   const button = document.querySelector(`[data-value='${finalKey}']`);
-  pGenericButton.play();
-  rGenericButton.currentTime = 0;
+  handleSound(e.key, 'down');
   button.classList.add('active');
   handleInput(finalKey);
 }
@@ -70,9 +80,26 @@ function handleKeyUp(e) {
   const button = document.querySelector(
     `[data-value='${handleMultiKeys(e.key)}']`
   );
-  rGenericButton.play();
-  rGenericButton.currentTime = 0;
+  handleSound(e.key, 'up');
   button.classList.remove('active');
+}
+
+function handleSound(key, direction) {
+  if (direction === 'down' && !isKeyDown) {
+    if (['0', '+', 'Enter'].includes(key)) {
+      pLongButton.play();
+    } else {
+      pGenericButton.play();
+    }
+    isKeyDown = !isKeyDown;
+  } else if (direction === 'up') {
+    if (['0', '+', 'Enter'].includes(key)) {
+      rLongButton.play();
+    } else {
+      rGenericButton.play();
+    }
+    isKeyDown = !isKeyDown;
+  }
 }
 
 function isClickValid(value) {
