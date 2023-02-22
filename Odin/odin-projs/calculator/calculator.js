@@ -18,8 +18,10 @@ let currentVal = '';
 let previousVal = '';
 let operator = '';
 let isKeyDown = false;
+let sound = true;
 
-buttons.addEventListener('click', handleClick);
+buttons.addEventListener('mousedown', handleMouseDown);
+buttons.addEventListener('mouseup', handleMouseUp);
 window.addEventListener('keydown', handleKeyDown);
 window.addEventListener('keyup', handleKeyUp);
 
@@ -51,18 +53,33 @@ const keys = [
   '0',
 ];
 
-function handleClick(e) {
+function handleMouseDown(e) {
   const value = e.target.parentNode.getAttribute('data-value');
+  if (sound) handleSound(value, 'down');
   handleInput(value);
+}
+
+function handleMouseUp(e) {
+  const value = e.target.parentNode.getAttribute('data-value');
+  if (sound) handleSound(value, 'up');
 }
 
 function handleKeyDown(e) {
   if (!isClickValid(e.key)) return;
   const finalKey = handleMultiKeys(e.key);
   const button = document.querySelector(`[data-value='${finalKey}']`);
-  handleSound(e.key, 'down');
+  if (sound) handleSound(e.key, 'down');
   button.classList.add('active');
   handleInput(finalKey);
+}
+
+function handleKeyUp(e) {
+  if (!isClickValid(e.key)) return;
+  const button = document.querySelector(
+    `[data-value='${handleMultiKeys(e.key)}']`
+  );
+  if (sound) handleSound(e.key, 'up');
+  button.classList.remove('active');
 }
 
 function handleMultiKeys(key) {
@@ -75,18 +92,9 @@ function handleMultiKeys(key) {
   } else return key;
 }
 
-function handleKeyUp(e) {
-  if (!isClickValid(e.key)) return;
-  const button = document.querySelector(
-    `[data-value='${handleMultiKeys(e.key)}']`
-  );
-  handleSound(e.key, 'up');
-  button.classList.remove('active');
-}
-
 function handleSound(key, direction) {
   if (direction === 'down' && !isKeyDown) {
-    if (['0', '+', 'Enter'].includes(key)) {
+    if (['0', '+', 'Enter', '='].includes(key)) {
       pLongButton.play();
     } else {
       pGenericButton.play();
@@ -115,6 +123,8 @@ function handleInput(value) {
     window.open(
       'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
     );
+  } else if (value === 'v') {
+    sound = !sound;
   } else if (isOperator(value)) {
     handleOperator(value);
   } else if (parseInt(value) || parseInt(value) === 0) {
