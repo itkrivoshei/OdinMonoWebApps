@@ -22,13 +22,21 @@ button {
 
 .display {
   max-width: 400px;
+  height: 60px;
   width: 100%;
-  height: 50px;
-  margin: 32px 0;
-  border: 1px solid black;
-  font-size: 24px;
-  padding: 5px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  overflow: hidden;
+  color: #22c722;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #292828;
+  padding: 10px;
+  border: 1px solid #222;
+  border-radius: 10px;
+  margin: 24px 24px;
 }
 
 .buttons {
