@@ -10,7 +10,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #B9B090, #DFDCD4, #D0CDBD);
+  background: linear-gradient(to right, #b9b090, #dfdcd4, #d0cdbd);
 }
 
 button {
@@ -30,9 +30,29 @@ button {
   width: 100%;
   height: 105px;
   max-width: 400px;
-  background-color: #A7957D;
-  border: 10px solid #36352e;
+  background-color: #a7957d;
   border-radius: 10px;
+}
+
+.light {
+  width: 17px;
+  height: 8px;
+  background-color: #3f3e36;
+}
+
+.statusPanel > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border: 10px solid #36352e;
+  width: 100%;
+  height: 100%;
+}
+
+.statusPanel :nth-child(1),
+.statusPanel :nth-child(2) {
+  border-right: 0;
 }
 
 .display {
@@ -76,7 +96,8 @@ button {
   width: 100%;
 }
 
-.active, button:active {
+.active,
+button:active {
   transform: scale(0.99, 0.99) translate(0, 1px);
   filter: brightness(0.98) sepia(0) hue-rotate(0deg) saturate(1);
   transition: 50ms;

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"
+      defer
+    ></script>
     <script src="calculator.js" defer></script>
     <link rel="stylesheet" href="index.css" />
     <meta charset="utf-8" />
@@ -9,14 +12,27 @@
   <body>
     <div class="calculator">
       <div class="statusPanel">
-        <div>Num<br>Lock</div>
-        <div>Volume</div>
-        <div>Git<br>Check</div>
+        <div>
+          Num<br />Lock
+          <div class="light"></div>
+        </div>
+        <div>
+          Volume
+          <div class="light"></div>
+        </div>
+        <div>
+          Git<br />Check
+          <div class="light"></div>
+        </div>
       </div>
       <div class="display"></div>
       <div class="buttons">
-        <button id="delete" data-value="delete"><img src="./svg/ac.svg" /></button>
-        <button id="calear" data-value="clear"><img src="./svg/c.svg" /></button>
+        <button id="delete" data-value="delete">
+          <img src="./svg/ac.svg" />
+        </button>
+        <button id="calear" data-value="clear">
+          <img src="./svg/c.svg" />
+        </button>
         <button id="divide" data-value="/">
           <img src="./svg/divide.svg" />
         </button>
