@@ -10,7 +10,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #b9b090, #dfdcd4, #d0cdbd);
+  background: linear-gradient(to right, #b5a28a, #e2d1ba, #c9b8a3);
 }
 
 button {
@@ -30,14 +30,21 @@ button {
   width: 100%;
   height: 105px;
   max-width: 400px;
-  background-color: #a7957d;
+  margin-top: 10px;
+  background-color: #b7a081;
+  color: #2e2d28;
   border-radius: 10px;
 }
 
 .light {
   width: 17px;
   height: 8px;
-  background-color: #3f3e36;
+  background: #3f3e36;
+  border-radius: 1px;
+}
+
+.light.flash {
+  background: linear-gradient(to right, #00a524, #10de3c, #00a524);
 }
 
 .statusPanel > * {
