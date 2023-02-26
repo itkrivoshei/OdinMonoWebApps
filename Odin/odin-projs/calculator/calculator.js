@@ -19,6 +19,7 @@ let previousVal = '';
 let operator = '';
 let isKeyDown = false;
 let sound = true;
+let power = true;
 
 buttons.addEventListener('mousedown', handleMouseDown);
 buttons.addEventListener('mouseup', handleMouseUp);
@@ -40,6 +41,7 @@ const keys = [
   'Escape',
   'Backspace',
   'Delete',
+  'NumLock',
   'g',
   '1',
   '2',
@@ -115,9 +117,9 @@ function isClickValid(value) {
 }
 
 function handleInput(value) {
-  if (value === 'clear') {
+  if (value === 'clear' && power) {
     clearCurrent();
-  } else if (value === 'delete') {
+  } else if (value === 'delete' && power) {
     clearAll();
   } else if (value === 'g') {
     window.open(
@@ -125,9 +127,11 @@ function handleInput(value) {
     );
   } else if (value === 'v') {
     sound = !sound;
-  } else if (isOperator(value)) {
+  } else if (value === 'NumLock') {
+    power = !power;
+  } else if (isOperator(value) && power) {
     handleOperator(value);
-  } else if (parseInt(value) || parseInt(value) === 0) {
+  } else if ((parseInt(value) || parseInt(value) === 0) && power) {
     appendCurrentValue(value);
   }
 }
