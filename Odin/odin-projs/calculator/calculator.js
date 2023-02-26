@@ -1,3 +1,4 @@
+document.getElementsByClassName('light')[0].className = 'light flash';
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const buttons = calculator.querySelector('.buttons');
@@ -129,6 +130,12 @@ function handleInput(value) {
     sound = !sound;
   } else if (value === 'NumLock') {
     power = !power;
+    if (!power) {
+      document.getElementsByClassName('light')[0].className = 'light';
+    }
+    if (power) {
+      document.getElementsByClassName('light')[0].className = 'light flash';
+    }
   } else if (isOperator(value) && power) {
     handleOperator(value);
   } else if ((parseInt(value) || parseInt(value) === 0) && power) {
