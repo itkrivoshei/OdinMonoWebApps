@@ -1,4 +1,5 @@
 document.getElementsByClassName('light')[0].className = 'light flash';
+document.getElementsByClassName('light')[1].className = 'light flash';
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const buttons = calculator.querySelector('.buttons');
@@ -19,6 +20,7 @@ let currentVal = '';
 let previousVal = '';
 let operator = '';
 let isKeyDown = false;
+let git = false;
 let sound = true;
 let power = true;
 
@@ -58,22 +60,52 @@ const keys = [
 
 function handleMouseDown(e) {
   const value = e.target.parentNode.getAttribute('data-value');
-  if (sound) handleSound(value, 'down');
+  if (sound || value === 'v') handleSound(value, 'down');
   handleInput(value);
 }
 
 function handleMouseUp(e) {
   const value = e.target.parentNode.getAttribute('data-value');
-  if (sound) handleSound(value, 'up');
+  if (sound || value === 'v') handleSound(value, 'up');
+  if (value === 'g' || value === 'NumLock' || value === 'v')
+    handleCommandButtons(value);
 }
 
 function handleKeyDown(e) {
   if (!isClickValid(e.key)) return;
   const finalKey = handleMultiKeys(e.key);
   const button = document.querySelector(`[data-value='${finalKey}']`);
-  if (sound) handleSound(e.key, 'down');
+  if (sound || value === 'v') handleSound(e.key, 'down');
   button.classList.add('active');
   handleInput(finalKey);
+  if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v')
+    handleCommandButtons(finalKey);
+}
+
+function handleCommandButtons(value) {
+  if (value === 'g') {
+    git = !git;
+    if (git) {
+      document.getElementsByClassName('light')[2].className = 'light flash';
+    }
+    window.open(
+      'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
+    );
+  } else if (value === 'v') {
+    sound = !sound;
+    if (!sound) {
+      document.getElementsByClassName('light')[1].className = 'light';
+    } else if (sound) {
+      document.getElementsByClassName('light')[1].className = 'light flash';
+    }
+  } else if (value === 'NumLock') {
+    power = !power;
+    if (!power) {
+      document.getElementsByClassName('light')[0].className = 'light';
+    } else if (power) {
+      document.getElementsByClassName('light')[0].className = 'light flash';
+    }
+  }
 }
 
 function handleKeyUp(e) {
@@ -82,6 +114,7 @@ function handleKeyUp(e) {
     `[data-value='${handleMultiKeys(e.key)}']`
   );
   if (sound) handleSound(e.key, 'up');
+
   button.classList.remove('active');
 }
 
@@ -92,6 +125,8 @@ function handleMultiKeys(key) {
     return '=';
   } else if (['Delete', 'Escape'].includes(key)) {
     return 'delete';
+  } else if (['NumLock', 'n'].includes(key)) {
+    return 'NumLock';
   } else return key;
 }
 
@@ -118,28 +153,20 @@ function isClickValid(value) {
 }
 
 function handleInput(value) {
-  if (value === 'clear' && power) {
-    clearCurrent();
-  } else if (value === 'delete' && power) {
-    clearAll();
-  } else if (value === 'g') {
-    window.open(
-      'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
-    );
-  } else if (value === 'v') {
-    sound = !sound;
-  } else if (value === 'NumLock') {
-    power = !power;
-    if (!power) {
-      document.getElementsByClassName('light')[0].className = 'light';
-    }
-    if (power) {
-      document.getElementsByClassName('light')[0].className = 'light flash';
-    }
-  } else if (isOperator(value) && power) {
-    handleOperator(value);
-  } else if ((parseInt(value) || parseInt(value) === 0) && power) {
-    appendCurrentValue(value);
+  switch (value) {
+    case 'clear':
+      if (power) clearCurrent();
+      break;
+    case 'delete':
+      if (power) clearAll();
+      break;
+    default:
+      if (isOperator(value) && power) {
+        handleOperator(value);
+      } else if ((parseInt(value) || parseInt(value) === 0) && power) {
+        appendCurrentValue(value);
+      }
+      break;
   }
 }
 
