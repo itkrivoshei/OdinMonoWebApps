@@ -33,7 +33,14 @@ button {
   margin-top: 10px;
   background-color: #b7a081;
   color: #2e2d28;
-  border-radius: 10px;
+}
+
+.statusPanel :nth-child(3) {
+  border-radius: 0px 3px 3px 0px;
+}
+
+.statusPanel :nth-child(1) {
+  border-radius: 3px 0px 0px 3px;
 }
 
 .light {
