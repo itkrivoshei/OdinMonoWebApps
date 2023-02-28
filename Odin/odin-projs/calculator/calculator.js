@@ -36,6 +36,7 @@ const keys = [
   '/',
   '=',
   '.',
+  'dot',
   'g',
   'v',
   'n',
@@ -163,7 +164,10 @@ function handleInput(value) {
     default:
       if (isOperator(value) && power) {
         handleOperator(value);
-      } else if ((parseInt(value) || parseInt(value) === 0) && power) {
+      } else if (
+        (parseInt(value) || parseInt(value) === 0 || value === '.') &&
+        power
+      ) {
         appendCurrentValue(value);
       }
       break;
@@ -238,5 +242,5 @@ function calculate() {
       break;
   }
 
-  return res;
+  return res.toFixed(2);
 }
