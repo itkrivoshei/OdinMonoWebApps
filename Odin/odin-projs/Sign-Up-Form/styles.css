@@ -22,3 +22,104 @@ p {
   line-height: 1.5;
   margin: 1rem 0;
 }
+
+/* styles */
+
+body {
+  font-family: 'VT323', monospace;
+  background-color: #040204;
+  color: #0f0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.left-side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60%;
+  z-index: 2;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+input {
+  padding: 8px;
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+}
+
+input:focus {
+  border-color: #00ff00;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #00ff00;
+}
+
+button:focus {
+  outline: none;
+}
+
+#password-error,
+#confirm-password-error {
+  font-size: 0.8rem;
+  color: #f00;
+}
