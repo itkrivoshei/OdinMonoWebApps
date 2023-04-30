@@ -4,13 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const passwordInput = document.getElementById('password');
   const confirmPasswordInput = document.getElementById('confirm_password');
   const passwordError = document.getElementById('password-error');
-  const confirmPasswordError = document.getElementById(
-    'confirm-password-error'
-  );
+  const confirmPasswordError = document.getElementById('confirm-password-error');
 
   const validatePassword = (password) => {
-    const regex =
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
     return regex.test(password);
   };
 

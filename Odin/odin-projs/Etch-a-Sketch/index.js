@@ -29,8 +29,7 @@ function addHoverEffect(parentDiv, color) {
   parentDiv.addEventListener('mouseover', (e) => {
     if (e.target.parentNode.parentNode === parentDiv) {
       if (color === 'rainbow') {
-        e.target.style.backgroundColor =
-          '#' + Math.floor(Math.random() * 16777215).toString(16);
+        e.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
       } else e.target.style.backgroundColor = color;
     }
   });
@@ -46,16 +45,11 @@ function setNewBoard() {
   let boardSize = document.querySelector('#board-size');
   let boardColor = document.querySelector('#board-color');
   let pixelColor = document.querySelector('#pixel-color');
-  if (!boardSize.value || isNaN(boardSize.value) || boardSize.value > 100)
-    boardSize.value = 16;
+  if (!boardSize.value || isNaN(boardSize.value) || boardSize.value > 100) boardSize.value = 16;
   if (!boardColor.value) boardColor.value = 'pink';
   if (!pixelColor.value) pixelColor.value = 'blue';
 
-  drawDivBox(
-    document.querySelector('.work-space'),
-    boardSize.value,
-    boardColor.value
-  );
+  drawDivBox(document.querySelector('.work-space'), boardSize.value, boardColor.value);
   addHoverEffect(document.querySelector('.work-space'), pixelColor.value);
 }
 
@@ -73,9 +67,7 @@ function toBlackMod(parentDiv) {
       } else if (!e.target.style.filter) {
         e.target.style.filter = 'brightness(0.9)';
       } else if (e.target.style.filter) {
-        e.target.style.filter = `brightness(0.${
-          +e.target.style.filter[13] - 1
-        })`;
+        e.target.style.filter = `brightness(0.${+e.target.style.filter[13] - 1})`;
       }
     }
   });
