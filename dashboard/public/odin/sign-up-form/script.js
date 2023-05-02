@@ -1,37 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registration-form');
-  const passwordInput = document.getElementById('password');
-  const confirmPasswordInput = document.getElementById('confirm_password');
-  const passwordError = document.getElementById('password-error');
-  const confirmPasswordError = document.getElementById('confirm-password-error');
 
   const validatePassword = (password) => {
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
     return regex.test(password);
   };
 
+  const showError = (input, message) => {
+    const errorElement = document.getElementById(`${input}-error`);
+    errorElement.textContent = message;
+  };
+
+  const validateForm = () => {
+    const inputs = ['first-name', 'last-name', 'email', 'phone-number', 'password', 'confirm-password'];
+    let valid = true;
+
+    inputs.forEach((input) => {
+      const inputElement = document.getElementById(input);
+      if (inputElement.value.trim() === '') {
+        showError(input, `${input.replace('-', ' ')} is required.`);
+        valid = false;
+      } else {
+        showError(input, '');
+      }
+    });
+
+    if (!validatePassword(document.getElementById('password').value)) {
+      showError(
+        'password',
+        'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.'
+      );
+      valid = false;
+    }
+
+    if (document.getElementById('password').value !== document.getElementById('confirm-password').value) {
+      showError('confirm-password', 'Passwords do not match.');
+      valid = false;
+    }
+
+    return valid;
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    let passwordValid = true;
-    let passwordsMatch = true;
-
-    if (!validatePassword(passwordInput.value)) {
-      passwordError.textContent =
-        'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.';
-      passwordValid = false;
-    } else {
-      passwordError.textContent = '';
-    }
-
-    if (passwordInput.value !== confirmPasswordInput.value) {
-      confirmPasswordError.textContent = 'Passwords do not match.';
-      passwordsMatch = false;
-    } else {
-      confirmPasswordError.textContent = '';
-    }
-
-    if (passwordValid && passwordsMatch) {
+    if (validateForm()) {
       form.submit();
     }
   });
@@ -70,4 +83,4 @@ function drawMatrix() {
   }
 }
 
-setInterval(drawMatrix, 40);
+setInterval(drawMatrix, 50);
