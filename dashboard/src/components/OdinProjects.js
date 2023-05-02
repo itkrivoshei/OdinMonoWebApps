@@ -12,10 +12,10 @@ const OdinProjects = () => {
               <a href="/JSt-For-Fun/odin/calculator/index.html">Calculator</a>
             </div>
             <div className="sub-project">
-              <a href="/JSt-For-Fun/odin/javascript-drum-kit/index-START.html">Etch a Sketch</a>
+              <a href="/JSt-For-Fun/odin/etch-a-sketch/index.html">Etch a Sketch</a>
             </div>
             <div className="sub-project">
-              <a href="/JSt-For-Fun/odin/drum-kit">Drum Kit</a>
+              <a href="/JSt-For-Fun/odin/javascript-drum-kit/index-START.html">Drum Kit</a>
             </div>
             <div className="sub-project">
               <a href="/JSt-For-Fun/odin/rock-paper-scissors/index.html">RPS</a>
