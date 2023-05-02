@@ -7,7 +7,7 @@
 body {
   background-color: black;
   color: #0f0;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   margin: 0;
   overflow: hidden;
 }
@@ -81,7 +81,7 @@ label {
 
 input {
   padding: 8px;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-size: 1rem;
   background-color: #000;
   color: #0f0;
@@ -95,7 +95,7 @@ input:focus {
 
 button {
   padding: 10px;
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   font-size: 1.2rem;
   background-color: #000;
   color: #0f0;
