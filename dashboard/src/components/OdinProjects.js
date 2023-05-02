@@ -9,6 +9,9 @@ const OdinProjects = () => {
         <div className="project-list">
           <div className="project">
             <div className="sub-project">
+              <a href="/JSt-For-Fun/odin/sign-up-form/index.html">Sign Up Form</a>
+            </div>
+            <div className="sub-project">
               <a href="/JSt-For-Fun/odin/calculator/index.html">Calculator</a>
             </div>
             <div className="sub-project">
