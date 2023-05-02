@@ -1,7 +1,7 @@
 # JSt-For-Fun
 
-This repository has little meaning, I just do something 🥴
+This repository is a collection of JavaScript and React projects that serve as a playground for exploring, learning, and practicing various concepts and exercises. Enjoy diving into the world of JavaScript and React!
 
 ## License
 
-This project is licensed under the LGPLv3 - see the [LICENSE](https://github.com/IT-Krivoshey/JSt-For-Fun/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
