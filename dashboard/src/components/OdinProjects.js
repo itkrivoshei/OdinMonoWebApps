@@ -9,22 +9,22 @@ const OdinProjects = () => {
         <div className="project-list">
           <div className="project">
             <div className="sub-project">
-              <a href="/odin/calculator">Calculator</a>
+              <a href="/JSt-For-Fun/odin/calculator/index.html">Calculator</a>
             </div>
             <div className="sub-project">
-              <a href="/odin/etch-a-sketch">Etch a Sketch</a>
+              <a href="/JSt-For-Fun/odin/javascript-drum-kit/index-START.html">Etch a Sketch</a>
             </div>
             <div className="sub-project">
-              <a href="/odin/drum-kit">Drum Kit</a>
+              <a href="/JSt-For-Fun/odin/drum-kit">Drum Kit</a>
             </div>
             <div className="sub-project">
-              <a href="/odin/rock-paper-scissors">RPS</a>
+              <a href="/JSt-For-Fun/odin/rock-paper-scissors/index.html">RPS</a>
             </div>
             <div className="sub-project">
-              <a href="/odin/recipes">Recipes</a>
+              <a href="/JSt-For-Fun/odin/odin-recipes/index.html">Recipes</a>
             </div>
             <div className="sub-project">
-              <a href="/odin/landing-ex">Landing</a>
+              <a href="/JSt-For-Fun/odin/landing-ex/index.html">Landing</a>
             </div>
           </div>
         </div>
