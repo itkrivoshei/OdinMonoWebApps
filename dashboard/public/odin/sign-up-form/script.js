@@ -70,45 +70,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputElement = document.getElementById(inputId);
     const value = inputElement.value.trim();
 
+    let valid = true;
+
     if (value === '') {
       showError(inputId, `${inputId.replace('-', ' ')} is required.`);
-      return false;
-    }
-
-    if (inputId === 'email') {
+      valid = false;
+    } else if (inputId === 'email') {
       const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
       if (!emailRegex.test(value)) {
         showError(inputId, 'Please enter a valid email address.');
-        return false;
+        valid = false;
       }
-    }
-
-    if (inputId === 'phone-number') {
+    } else if (inputId === 'phone-number') {
       const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
       if (!phoneRegex.test(value)) {
         showError(inputId, 'Please enter a valid phone number (xxx-xxx-xxxx).');
-        return false;
+        valid = false;
       }
-    }
-
-    if (inputId === 'password' && !isPasswordValid(value)) {
+    } else if (inputId === 'password' && !isPasswordValid(value)) {
       showError(
         'password',
         'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.'
       );
-      return false;
-    }
-
-    if (
+      valid = false;
+    } else if (
       inputId === 'confirm-password' &&
       value !== document.getElementById('password').value
     ) {
       showError('confirm-password', 'Passwords do not match.');
-      return false;
+      valid = false;
     }
 
-    showError(inputId, '');
-    return true;
+    if (valid) {
+      inputElement.classList.add('valid');
+      inputElement.classList.remove('invalid');
+      showError(inputId, '');
+    } else {
+      inputElement.classList.remove('valid');
+      inputElement.classList.add('invalid');
+    }
+
+    return valid;
   };
 
   form.addEventListener('submit', (e) => {

@@ -12,6 +12,15 @@ body {
   overflow: hidden;
 }
 
+input.valid {
+  background-color: rgba(0, 255, 0, 0.05);
+}
+
+input.invalid {
+  background-color: rgba(255, 0, 0, 0.05);
+  border-color: red;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
