@@ -55,6 +55,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const validateInput = (input) => {
     const inputElement = document.getElementById(input);
+
+    // Validate email format
+    if (input === 'email') {
+      const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+      if (!emailRegex.test(inputElement.value)) {
+        showError(input, 'Please enter a valid email address.');
+        return false;
+      }
+    }
+
+    // Validate phone format
+    if (input === 'phone-number') {
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(inputElement.value)) {
+        showError(input, 'Please enter a valid phone number (10 digits).');
+        return false;
+      }
+    }
+
+    // Validate password format and confirm password
+    if (input === 'password' || input === 'confirm-password') {
+      if (input === 'password' && !validatePassword(inputElement.value)) {
+        showError(
+          'password',
+          'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.'
+        );
+        return false;
+      }
+      if (
+        input === 'confirm-password' &&
+        document.getElementById('password').value !== inputElement.value
+      ) {
+        showError('confirm-password', 'Passwords do not match.');
+        return false;
+      }
+    }
+
     if (inputElement.value.trim() === '') {
       showError(input, `${input.replace('-', ' ')} is required.`);
       return false;
