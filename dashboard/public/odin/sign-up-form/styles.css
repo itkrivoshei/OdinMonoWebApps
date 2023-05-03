@@ -123,4 +123,5 @@ button:focus {
 .error {
   color: #f00;
   font-size: 1rem;
+  margin-bottom: 12px;
 }
