@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const inputs = [
+    'first-name',
+    'last-name',
+    'email',
+    'phone-number',
+    'password',
+    'confirm-password',
+  ];
   const form = document.getElementById('registration-form');
 
   // Validation Functions
@@ -14,14 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const validateForm = () => {
-    const inputs = [
-      'first-name',
-      'last-name',
-      'email',
-      'phone-number',
-      'password',
-      'confirm-password',
-    ];
     let valid = true;
 
     inputs.forEach((input) => {
@@ -53,13 +53,31 @@ document.addEventListener('DOMContentLoaded', () => {
     return valid;
   };
 
-  // Form Event Listener
+  const validateInput = (input) => {
+    const inputElement = document.getElementById(input);
+    if (inputElement.value.trim() === '') {
+      showError(input, `${input.replace('-', ' ')} is required.`);
+      return false;
+    } else {
+      showError(input, '');
+      return true;
+    }
+  };
+
+  // Event Listeners
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (validateForm()) {
       form.submit();
     }
+  });
+
+  inputs.forEach((input) => {
+    const inputElement = document.getElementById(input);
+    inputElement.addEventListener('blur', () => {
+      validateInput(input);
+    });
   });
 
   // Matrix Background
