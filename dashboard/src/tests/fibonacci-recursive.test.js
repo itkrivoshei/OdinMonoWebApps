@@ -1,4 +1,4 @@
-const fibonacciRecursive = require('../fibonacci-recursive');
+const fibonacciRecursive = require('../../public/exs/fibonacci-recursive');
 
 test('Recursive Fibonacci sequence', () => {
   expect(fibonacciRecursive(0)).toBe(0);
