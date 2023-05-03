@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   const form = document.getElementById('registration-form');
 
+  // Phone number mask
+  const formatPhoneNumber = (phoneNumber) => {
+    // Strip all non-numeric characters
+    const cleaned = ('' + phoneNumber).replace(/\D/g, '').slice(0, 10);
+    const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
+
+    // Format the cleaned phone number
+    if (match) {
+      return (
+        match[1] +
+        (match[2] ? '-' + match[2] : '') +
+        (match[3] ? '-' + match[3] : '')
+      );
+    }
+    return '';
+  };
+
   // Validation Functions
   const validatePassword = (password) => {
     const regex =
@@ -65,11 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Validate phone format
     if (input === 'phone-number') {
-      const phoneRegex = /^\d{10}$/;
+      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
       if (!phoneRegex.test(inputElement.value)) {
-        showError(input, 'Please enter a valid phone number (10 digits).');
+        showError(input, 'Please enter a valid phone number (xxx-xxx-xxxx).');
         return false;
       }
     }
@@ -108,6 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validateForm()) {
       form.submit();
     }
+  });
+
+  // Add an input event listener to the phone-number input
+  const phoneNumberInput = document.getElementById('phone-number');
+  phoneNumberInput.addEventListener('input', (e) => {
+    e.target.value = formatPhoneNumber(e.target.value);
   });
 
   inputs.forEach((input) => {
