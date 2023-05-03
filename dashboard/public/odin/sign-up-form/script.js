@@ -137,6 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
     inputElement.addEventListener('blur', () => {
       validateInput(input);
     });
+    inputElement.addEventListener('focus', () => {
+      showError(input, '');
+    });
   });
 
   // Matrix Background
