@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Validation Functions
   const validatePassword = (password) => {
-    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+    const regex =
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
     return regex.test(password);
   };
 
@@ -13,7 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const validateForm = () => {
-    const inputs = ['first-name', 'last-name', 'email', 'phone-number', 'password', 'confirm-password'];
+    const inputs = [
+      'first-name',
+      'last-name',
+      'email',
+      'phone-number',
+      'password',
+      'confirm-password',
+    ];
     let valid = true;
 
     inputs.forEach((input) => {
@@ -34,7 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
       valid = false;
     }
 
-    if (document.getElementById('password').value !== document.getElementById('confirm-password').value) {
+    if (
+      document.getElementById('password').value !==
+      document.getElementById('confirm-password').value
+    ) {
       showError('confirm-password', 'Passwords do not match.');
       valid = false;
     }
@@ -58,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()<>/|';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()<>/|';
   const fontSize = 14;
   const columns = canvas.width / fontSize;
   const drops = [];
@@ -75,7 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.font = fontSize + "px 'VT323', monospace";
 
     for (let i = 0; i < drops.length; i++) {
-      const text = characters.charAt(Math.floor(Math.random() * characters.length));
+      const text = characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
       if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {

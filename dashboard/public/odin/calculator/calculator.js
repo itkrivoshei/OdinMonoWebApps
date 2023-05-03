@@ -68,7 +68,8 @@ function handleMouseDown(e) {
 function handleMouseUp(e) {
   const value = e.target.parentNode.getAttribute('data-value');
   if (sound || value === 'v') handleSound(value, 'up');
-  if (value === 'g' || value === 'NumLock' || value === 'v') handleCommandButtons(value);
+  if (value === 'g' || value === 'NumLock' || value === 'v')
+    handleCommandButtons(value);
 }
 
 function handleKeyDown(e) {
@@ -78,7 +79,8 @@ function handleKeyDown(e) {
   if (sound || value === 'v') handleSound(e.key, 'down');
   button.classList.add('active');
   handleInput(finalKey);
-  if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v') handleCommandButtons(finalKey);
+  if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v')
+    handleCommandButtons(finalKey);
 }
 
 function handleCommandButtons(value) {
@@ -87,7 +89,9 @@ function handleCommandButtons(value) {
     if (git) {
       document.getElementsByClassName('light')[2].className = 'light flash';
     }
-    window.open('https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator');
+    window.open(
+      'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
+    );
   } else if (value === 'v') {
     sound = !sound;
     if (!sound) {
@@ -107,7 +111,9 @@ function handleCommandButtons(value) {
 
 function handleKeyUp(e) {
   if (!isClickValid(e.key)) return;
-  const button = document.querySelector(`[data-value='${handleMultiKeys(e.key)}']`);
+  const button = document.querySelector(
+    `[data-value='${handleMultiKeys(e.key)}']`
+  );
   if (sound) handleSound(e.key, 'up');
 
   button.classList.remove('active');
@@ -158,7 +164,10 @@ function handleInput(value) {
     default:
       if (isOperator(value) && power) {
         handleOperator(value);
-      } else if ((parseInt(value) || parseInt(value) === 0 || value === '.') && power) {
+      } else if (
+        (parseInt(value) || parseInt(value) === 0 || value === '.') &&
+        power
+      ) {
         appendCurrentValue(value);
       }
       break;

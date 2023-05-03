@@ -5,8 +5,8 @@ import OdinProjects from './components/OdinProjects';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className='App'>
+      <header className='App-header'>
         {/* <ExerciseList /> */}
         <OdinProjects />
       </header>

@@ -14,7 +14,11 @@ function playOneRound(weapon) {
   const computerSelection = getComputerChoice();
   const playerSelection = weapon.toUpperCase();
 
-  if (playerSelection !== 'ROCK' && playerSelection !== 'PAPER' && playerSelection !== 'SCISSORS') {
+  if (
+    playerSelection !== 'ROCK' &&
+    playerSelection !== 'PAPER' &&
+    playerSelection !== 'SCISSORS'
+  ) {
     return console.warn('You should type: Rock, Paper or Scissors');
   }
 
@@ -31,7 +35,14 @@ function playOneRound(weapon) {
   }
 }
 
-function showStat(statDiv, roundResultText, gamesScore, computerScore, playerScore, ties) {
+function showStat(
+  statDiv,
+  roundResultText,
+  gamesScore,
+  computerScore,
+  playerScore,
+  ties
+) {
   statDiv.innerText = `${roundResultText}
 
   Game played: ${gamesScore}
@@ -49,7 +60,8 @@ function getGameCode(gameLength, computerScore, playerScore, roundResultText) {
     } else if (roundResultText.includes('TIE')) {
       return 3;
     }
-  } else if (playerScore === gameLength || computerScore === gameLength) return 2;
+  } else if (playerScore === gameLength || computerScore === gameLength)
+    return 2;
 }
 
 function getFinalMessage(body, computerScore, playerScore) {
@@ -117,7 +129,14 @@ function game() {
     }
 
     gamesScore++;
-    showStat(statDiv, roundResultText, gamesScore, computerScore, playerScore, ties);
+    showStat(
+      statDiv,
+      roundResultText,
+      gamesScore,
+      computerScore,
+      playerScore,
+      ties
+    );
   }
 }
 
