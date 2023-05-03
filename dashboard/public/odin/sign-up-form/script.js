@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (allInputsValid) {
+    if (isFormValid()) {
       form.submit();
     }
   });
