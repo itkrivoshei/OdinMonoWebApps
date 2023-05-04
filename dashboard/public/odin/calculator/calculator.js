@@ -89,9 +89,7 @@ function handleCommandButtons(value) {
     if (git) {
       document.getElementsByClassName('light')[2].className = 'light flash';
     }
-    window.open(
-      'https://github.com/itkrivoshei/JSt-For-Fun/tree/main/Odin/odin-projs/calculator'
-    );
+    window.open('https://github.com/itkrivoshei');
   } else if (value === 'v') {
     sound = !sound;
     if (!sound) {
