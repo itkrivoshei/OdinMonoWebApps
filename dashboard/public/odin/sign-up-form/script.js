@@ -116,11 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    let allInputsValid = true;
     inputIds.forEach((input) => {
-      if (!isInputValid(input)) {
-        allInputsValid = false;
-      }
+      isInputValid(input);
     });
 
     if (isFormValid()) {
