@@ -78,13 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (inputId === 'email') {
       const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
       if (!emailRegex.test(value)) {
-        showError(inputId, 'Please enter a valid email address.');
+        showError('email', 'Please enter a valid email address.');
         valid = false;
       }
     } else if (inputId === 'phone-number') {
       const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
       if (!phoneRegex.test(value)) {
-        showError(inputId, 'Please enter a valid phone number (xxx-xxx-xxxx).');
+        showError(
+          'phone-number',
+          'Please enter a valid phone number (xxx-xxx-xxxx).'
+        );
         valid = false;
       }
     } else if (inputId === 'password' && !isPasswordValid(value)) {
