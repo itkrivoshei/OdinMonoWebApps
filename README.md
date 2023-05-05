@@ -1,6 +1,6 @@
 # JSt-For-Fun
 
-This repository is a collection of JavaScript and React projects that serve as a playground for exploring, learning, and practicing various concepts and exercises. Enjoy diving into the world of JavaScript and React!
+This repository is a collection of JavaScript and React projects that serve as a playground for exploring, learning, and practicing various concepts and exercises.
 
 ## License
 
