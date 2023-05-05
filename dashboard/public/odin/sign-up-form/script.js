@@ -35,37 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     errorElement.textContent = message;
   };
 
-  const isFormValid = () => {
-    let valid = true;
-
-    inputIds.forEach((inputId) => {
-      const inputElement = document.getElementById(inputId);
-      if (inputElement.value.trim() === '') {
-        showError(inputId, `${inputId.replace('-', ' ')} is required.`);
-        valid = false;
-      } else {
-        showError(inputId, '');
-      }
-    });
-
-    const passwordElement = document.getElementById('password');
-    if (!isPasswordValid(passwordElement.value)) {
-      showError(
-        'password',
-        'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.'
-      );
-      valid = false;
-    }
-
-    const confirmPasswordElement = document.getElementById('confirm-password');
-    if (passwordElement.value !== confirmPasswordElement.value) {
-      showError('confirm-password', 'Passwords do not match.');
-      valid = false;
-    }
-
-    return valid;
-  };
-
   const isInputValid = (inputId) => {
     const inputElement = document.getElementById(inputId);
     const value = inputElement.value.trim();
@@ -118,14 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let valid = true;
 
     inputIds.forEach((input) => {
-      isInputValid(input);
+      if (isInputValid(input) === false) valid = false;
     });
 
-    if (isFormValid()) {
-      form.submit();
-    }
+    if (valid === true) form.submit();
   });
 
   const phoneNumberInput = document.getElementById('phone-number');
