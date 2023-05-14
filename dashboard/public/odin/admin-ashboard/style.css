@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Fira Code', monospace;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+}
+
+.sidebar {
+  background: #282a36;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+  width: 50px;
+}
+
+.sidebar .nav,
+.sidebar .settings {
+  margin: 20px 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sidebar ul li .material-icons {
+  margin-right: 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.header {
+  background: #44475a;
+  padding: 20px;
+}
+
+.content {
+  background: #f8f8f2;
+  padding: 20px;
+}
