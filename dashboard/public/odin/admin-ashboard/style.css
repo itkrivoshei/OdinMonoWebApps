@@ -52,7 +52,101 @@
   padding: 20px;
 }
 
+.header .top-bar,
+.header .lower-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #6272a4;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar i {
+  margin-right: 10px;
+}
+
+.notifications,
+.user-info {
+  margin-left: 20px;
+}
+
+.avatar-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.lower-bar .user {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-large {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.greeting h2 {
+  margin: 0;
+}
+
+.btn {
+  background: #6272a4;
+  color: #f8f8f2;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
 .content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
   background: #f8f8f2;
   padding: 20px;
+}
+
+.my-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background: #44475a;
+  padding: 20px;
+}
+
+.card {
+  background: #f8f8f2;
+  padding: 20px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-sidebar {
+  background: #44475a;
+  padding: 20px;
+}
+
+.announcements,
+.statistics {
+  background: #f8f8f2;
+  padding: 20px;
+  margin-bottom: 20px;
 }
