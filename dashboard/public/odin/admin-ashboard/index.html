@@ -11,14 +11,16 @@
     <title>Dashboard</title>
   </head>
   <body>
+    <!-- Main Container -->
     <div class="container">
-      <div class="sidebar">
+      <!-- Sidebar -->
+      <aside class="sidebar">
         <div class="logo">
-          <img src="logo.png" alt="Logo" />
+          <i class="material-icons">dashboard</i>
           <h2>Dashboard</h2>
         </div>
 
-        <div class="nav">
+        <nav class="nav">
           <ul>
             <li><i class="material-icons">home</i> Home</li>
             <li><i class="material-icons">account_circle</i> Profile</li>
@@ -27,7 +29,7 @@
             <li><i class="material-icons">task</i> Tasks</li>
             <li><i class="material-icons">group</i> Communities</li>
           </ul>
-        </div>
+        </nav>
 
         <div class="settings">
           <ul>
@@ -36,27 +38,37 @@
             <li><i class="material-icons">privacy_tip</i> Privacy</li>
           </ul>
         </div>
-      </div>
-      <div class="main">
-        <div class="header">
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main">
+        <header class="header">
           <div class="top-bar">
             <div class="search-bar">
               <i class="material-icons">search</i>
-              <input type="text" placeholder="Search..." />
+              <input type="text" />
             </div>
             <div class="notifications">
               <i class="material-icons">notifications</i>
             </div>
             <div class="user-info">
-              <img src="avatar.png" alt="User Avatar" class="avatar-small" />
+              <img
+                src="https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem"
+                alt="User Avatar"
+                class="avatar-small"
+              />
               <span class="nickname">Username</span>
             </div>
           </div>
           <div class="lower-bar">
             <div class="user">
-              <img src="avatar.png" alt="User Avatar" class="avatar-large" />
+              <img
+                src="https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem"
+                alt="User Avatar"
+                class="avatar-large"
+              />
               <div class="greeting">
-                <h2>Hi there,</h2>
+                <h2>Hi there</h2>
                 <span class="nickname">Username</span>
               </div>
             </div>
@@ -67,86 +79,70 @@
               <button class="btn upload">
                 <i class="material-icons">file_upload</i> Upload
               </button>
-
+              <button class="btn share">
                 <i class="material-icons">share</i>
               </button>
             </div>
           </div>
-        </div>
+        </header>
 
-        <div class="content">
+        <section class="content">
           <div class="main-content">
             <h2>My Projects</h2>
             <div class="my-projects">
+              <!-- You might consider creating a loop here or extracting this card into a component if you're using a frontend framework. -->
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
               <div class="card">
                 <h3>Project Name</h3>
                 <div class="card-actions">
-
-                    <i class="material-icons">share</i>
-
-                    <i class="material-icons">visibility</i>
-
-                    <i class="material-icons">star</i>
+                  <i class="material-icons">share</i>
+                  <i class="material-icons">visibility</i>
+                  <i class="material-icons">star</i>
                 </div>
               </div>
+              <!-- Other cards... -->
             </div>
           </div>
-          <div class="right-sidebar">
+          <aside class="right-sidebar">
             <div class="announcements">
               <h3>Announcements</h3>
               <p>
@@ -173,9 +169,9 @@
                 Pellentesque malesuada dictum purus.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
+          </aside>
+        </section>
+      </main>
     </div>
   </body>
 </html>
