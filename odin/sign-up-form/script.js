@@ -35,37 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     errorElement.textContent = message;
   };
 
-  const isFormValid = () => {
-    let valid = true;
-
-    inputIds.forEach((inputId) => {
-      const inputElement = document.getElementById(inputId);
-      if (inputElement.value.trim() === '') {
-        showError(inputId, `${inputId.replace('-', ' ')} is required.`);
-        valid = false;
-      } else {
-        showError(inputId, '');
-      }
-    });
-
-    const passwordElement = document.getElementById('password');
-    if (!isPasswordValid(passwordElement.value)) {
-      showError(
-        'password',
-        'Password must have at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.'
-      );
-      valid = false;
-    }
-
-    const confirmPasswordElement = document.getElementById('confirm-password');
-    if (passwordElement.value !== confirmPasswordElement.value) {
-      showError('confirm-password', 'Passwords do not match.');
-      valid = false;
-    }
-
-    return valid;
-  };
-
   const isInputValid = (inputId) => {
     const inputElement = document.getElementById(inputId);
     const value = inputElement.value.trim();
@@ -78,13 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (inputId === 'email') {
       const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
       if (!emailRegex.test(value)) {
-        showError(inputId, 'Please enter a valid email address.');
+        showError('email', 'Please enter a valid email address.');
         valid = false;
       }
     } else if (inputId === 'phone-number') {
       const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
       if (!phoneRegex.test(value)) {
-        showError(inputId, 'Please enter a valid phone number (xxx-xxx-xxxx).');
+        showError(
+          'phone-number',
+          'Please enter a valid phone number (xxx-xxx-xxxx).'
+        );
         valid = false;
       }
     } else if (inputId === 'password' && !isPasswordValid(value)) {
@@ -115,17 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let valid = true;
 
-    let allInputsValid = true;
     inputIds.forEach((input) => {
-      if (!isInputValid(input)) {
-        allInputsValid = false;
-      }
+      if (isInputValid(input) === false) valid = false;
     });
 
-    if (isFormValid()) {
-      form.submit();
-    }
+    if (valid === true) form.submit();
   });
 
   const phoneNumberInput = document.getElementById('phone-number');
