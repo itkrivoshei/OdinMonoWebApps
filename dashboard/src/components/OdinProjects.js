@@ -14,6 +14,11 @@ const OdinProjects = () => {
               </a>
             </div>
             <div className='sub-project'>
+              <a href='/JSt-For-Fun/odin/admin-dashboard/index.html'>
+                Dash Board Landing
+              </a>
+            </div>
+            <div className='sub-project'>
               <a href='/JSt-For-Fun/odin/calculator/index.html'>Calculator</a>
             </div>
             <div className='sub-project'>
