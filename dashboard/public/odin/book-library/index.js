@@ -45,7 +45,7 @@ function displayBooks() {
   myLibrary.forEach((book, index) => {
     const bookDiv = document.createElement('div');
     bookDiv.dataset.index = index;
-    bookDiv.classList.add('book');
+    // bookDiv.classList.add('book');
     bookDiv.innerHTML = `
       <h2 class="text-xl">${book.title}</h2>
       <p>${book.author}</p>
