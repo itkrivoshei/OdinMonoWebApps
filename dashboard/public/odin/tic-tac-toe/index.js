@@ -41,12 +41,29 @@ const DisplayController = (() => {
 
 // GameController Module
 const GameController = (() => {
-  const player1 = Player('Player 1', 'X');
-  const player2 = Player('Player 2', 'O');
+  let player1 = Player('Player 1', 'X');
+  let player2 = Player('Player 2', 'O');
   let currentPlayer = player1;
 
+  const startGame = (aiGame = false) => {
+    player1 = Player('Player 1', 'X');
+    player2 = aiGame ? Player('AI', 'O') : Player('Player 2', 'O');
+    currentPlayer = player1;
+    Gameboard.resetBoard();
+    DisplayController.render();
+    document.getElementById('gameboard').classList.add('visible');
+    document.getElementById('reset').classList.add('visible');
+    if (aiGame) {
+      document.getElementById('ai-game').classList.add('active-mod');
+      document.getElementById('player-game').classList.remove('active-mod');
+    } else {
+      document.getElementById('player-game').classList.add('active-mod');
+      document.getElementById('ai-game').classList.remove('active-mod');
+    }
+  };
+
   const playTurn = (index) => {
-    if (Gameboard.getBoard()[index] == null) {
+    if (Gameboard.getBoard()[index] === null) {
       Gameboard.setMark(index, currentPlayer.getMark());
       DisplayController.render();
       checkGameOver();
@@ -96,12 +113,17 @@ const GameController = (() => {
     // The game is not over.
   };
 
-  return { playTurn };
+  return { playTurn, startGame };
 })();
 
 // Initial render
 window.addEventListener('DOMContentLoaded', (event) => {
-  DisplayController.render();
+  document.getElementById('ai-game').addEventListener('click', () => {
+    GameController.startGame(true);
+  });
+  document.getElementById('player-game').addEventListener('click', () => {
+    GameController.startGame();
+  });
   document.querySelector('#reset').addEventListener('click', () => {
     Gameboard.resetBoard();
     DisplayController.render();
