@@ -9,6 +9,9 @@ const OdinProjects = () => {
         <div className='project-list'>
           <div className='project'>
             <div className='sub-project'>
+              <a href='/JSt-For-Fun/odin/tic-tac-toe/index.html'>Tic Tac Toe</a>
+            </div>
+            <div className='sub-project'>
               <a href='/JSt-For-Fun/odin/book-library/index.html'>
                 Book Library
               </a>
