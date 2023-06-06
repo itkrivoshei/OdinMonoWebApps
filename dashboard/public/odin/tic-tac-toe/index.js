@@ -44,14 +44,16 @@ const GameController = (() => {
   let player1 = Player('Player 1', 'X');
   let player2 = Player('Player 2', 'O');
   let currentPlayer = player1;
+  let aiGame = false;
 
-  const startGame = (aiGame = false) => {
+  const startGame = (isAiGame = false) => {
     player1 = Player('Player 1', 'X');
-    player2 = aiGame ? Player('AI', 'O') : Player('Player 2', 'O');
+    player2 = isAiGame ? Player('AI', 'O') : Player('Player 2', 'O');
     currentPlayer = player1;
+    aiGame = isAiGame;
     Gameboard.resetBoard();
     DisplayController.render();
-    document.getElementById('gameboard').classList.add('visible');
+    document.querySelector('#gameboard').classList.add('visible');
     document.getElementById('reset').classList.add('visible');
     if (aiGame) {
       document.getElementById('ai-game').classList.add('active-mod');
@@ -67,7 +69,28 @@ const GameController = (() => {
       Gameboard.setMark(index, currentPlayer.getMark());
       DisplayController.render();
       checkGameOver();
+      if (aiGame) {
+        playAiTurn();
+      }
       switchPlayer();
+    }
+  };
+
+  const playAiTurn = () => {
+    let emptyCells = [];
+    Gameboard.getBoard().forEach((cell, index) => {
+      if (cell === null) {
+        emptyCells.push(index);
+      }
+    });
+    switchPlayer();
+
+    if (emptyCells.length > 0) {
+      const randomIndex =
+        emptyCells[Math.floor(Math.random() * emptyCells.length)];
+      Gameboard.setMark(randomIndex, currentPlayer.getMark());
+      DisplayController.render();
+      checkGameOver();
     }
   };
 
