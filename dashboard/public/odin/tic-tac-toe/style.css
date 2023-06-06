@@ -72,3 +72,11 @@ h1 {
   display: flex;
   gap: 20px;
 }
+
+#gameboard div.winner {
+  color: #50fa7b;
+}
+
+#gameboard div.tie {
+  color: #ffb86c;
+}

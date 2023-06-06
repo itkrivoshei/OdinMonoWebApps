@@ -31,12 +31,27 @@ const DisplayController = (() => {
     Gameboard.getBoard().forEach((cell, index) => {
       const cellDiv = document.createElement('div');
       cellDiv.textContent = cell || '';
+      cellDiv.dataset.index = index;
       cellDiv.addEventListener('click', () => GameController.playTurn(index));
       gameboardDiv.appendChild(cellDiv);
     });
   };
 
-  return { render };
+  const highlightWinningCells = (combination) => {
+    combination.forEach((index) => {
+      document
+        .querySelector(`div[data-index="${index}"]`)
+        .classList.add('winner');
+    });
+  };
+
+  const highlightTieCells = () => {
+    Array.from(document.querySelectorAll('#gameboard div')).forEach((cell) => {
+      cell.classList.add('tie');
+    });
+  };
+
+  return { render, highlightWinningCells, highlightTieCells };
 })();
 
 // GameController Module
@@ -118,18 +133,14 @@ const GameController = (() => {
         board[combination[1]] === board[combination[2]]
       ) {
         // A player has won.
-        alert(`Player with mark ${board[combination[0]]} has won!`);
-        Gameboard.resetBoard();
-        DisplayController.render();
+        DisplayController.highlightWinningCells(combination);
         return;
       }
     }
 
     if (board.every((cell) => cell !== null)) {
       // The game is a tie.
-      alert('The game is a tie!');
-      Gameboard.resetBoard();
-      DisplayController.render();
+      DisplayController.highlightTieCells();
       return;
     }
 
