@@ -57,7 +57,13 @@ button:active {
 }
 
 h1 {
-  color: #bd93f9;
+  background: linear-gradient(to right, #ff79c6, #bd93f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1:hover {
+  filter: contrast(1.5);
 }
 
 #reset {
