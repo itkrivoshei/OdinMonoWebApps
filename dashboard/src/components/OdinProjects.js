@@ -33,7 +33,7 @@ const OdinProjects = () => {
               <a href='/JSt-For-Fun/odin/odin-recipes/index.html'>Recipes</a>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/landing-ex/index.html'>
+              <a href='/JSt-For-Fun/odin/restaurant-landing/index.html'>
                 Restaurant Landing
               </a>
             </div>
