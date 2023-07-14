@@ -1,9 +1,10 @@
 import React from 'react';
+import './Contact.scss';
 
 const Contact = () => {
   return (
     <div>
-      <h1>Contact Us</h1>
+      <h1 className='contact-info'>Contact Us</h1>
       <p>Phone: 123-456-7890</p>
       <p>Email: restaurant@food.com</p>
     </div>

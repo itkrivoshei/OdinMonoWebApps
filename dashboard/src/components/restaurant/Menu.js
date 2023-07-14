@@ -1,10 +1,10 @@
 import React from 'react';
+import './Menu.scss';
 
 const Menu = () => {
   return (
-    <div>
-      <h1>Our Menu</h1>
-      <p>Delicious dishes waiting for you!</p>
+    <div className='menu-container'>
+      <h1 className='menu-header'>Our Menu</h1>
     </div>
   );
 };

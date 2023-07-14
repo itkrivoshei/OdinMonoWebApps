@@ -1,10 +1,13 @@
 import React from 'react';
+import './Home.scss';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to our restaurant!</h1>
-      <p>Best food in town!</p>
+    <div className='home-container'>
+      <h1 className='home-header'>Welcome to our Restaurant!</h1>
+      <p className='home-description'>
+        Enjoy our delicious food and cozy atmosphere.
+      </p>
     </div>
   );
 };

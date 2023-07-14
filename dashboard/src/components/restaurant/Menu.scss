@@ -1,0 +1,18 @@
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .menu-header {
+    color: darkorange;
+    text-align: center;
+  }
+
+  .menu-item {
+    flex-basis: 45%;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}

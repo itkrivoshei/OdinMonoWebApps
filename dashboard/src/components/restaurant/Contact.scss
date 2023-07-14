@@ -1,0 +1,9 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .contact-info {
+    margin: 10px 0;
+  }
+}
