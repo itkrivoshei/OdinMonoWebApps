@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './OdinProjects.css';
 
 const OdinProjects = () => {
@@ -46,9 +47,7 @@ const OdinProjects = () => {
               <a href='/JSt-For-Fun/odin/odin-recipes/index.html'>Recipes</a>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/restaurant-landing/index.html'>
-                Restaurant Landing
-              </a>
+              <Link to='/restaurant'>Restaurant Landing React Rout</Link>
             </div>
             <div className='sub-project'>
               <a href='/JSt-For-Fun/odin/landing-ex/index.html'>Landing</a>
