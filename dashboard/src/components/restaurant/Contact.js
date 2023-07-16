@@ -4,9 +4,11 @@ import './Contact.scss';
 const Contact = () => {
   return (
     <div className='contact-container'>
-      <h1 className='contact-info'>Contact Us</h1>
-      <p>Phone: 123-456-7890</p>
-      <p>Email: restaurant@food.com</p>
+      <div className='contact-item'>
+        <h1 className='contact-header'>Contact Us</h1>
+        <p>Phone: 123-456-7890</p>
+        <p>Email: restaurant@food.com</p>
+      </div>
     </div>
   );
 };

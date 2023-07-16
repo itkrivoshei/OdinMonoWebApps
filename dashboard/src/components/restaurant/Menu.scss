@@ -1,18 +1,33 @@
 .menu-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  .menu-header {
-    color: darkorange;
-    text-align: center;
-  }
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
 
   .menu-item {
-    flex-basis: 45%;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #e6e6fa;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+
+    .menu-item-name {
+      color: blueviolet;
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .menu-item-description {
+      color: #333;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .menu-item-price {
+      color: blueviolet;
+      font-size: 1.2em;
+    }
   }
 }

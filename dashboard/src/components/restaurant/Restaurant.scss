@@ -1,24 +1,48 @@
-.main-container {
+.restaurant-main {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  padding: 2em;
+  font-family: 'Pacifico', cursive;
 
-.button-container {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
+  .tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
 
-.nav-button {
-  background-color: blueviolet;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    .tab-button {
+      background: none;
+      color: #e6e6fa;
+      border: none;
+      font-size: 1.3em;
+      font-family: 'Pacifico', cursive;
+      cursor: pointer;
+      margin: 0 1em;
+      padding-bottom: 0.5em;
+      position: relative;
+      outline: none;
 
-  &:hover {
-    background-color: darkorchid;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: blueviolet;
+        transition: width 0.3s;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.active:after {
+        width: 100%;
+      }
+    }
+  }
+
+  .content {
+    width: 90%;
+    max-width: 800px;
   }
 }

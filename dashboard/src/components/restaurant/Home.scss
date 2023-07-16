@@ -1,11 +1,31 @@
 .home-container {
-  .home-header {
-    color: darkorange;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #e6e6fa;
+  border-radius: 10px;
+  color: blueviolet;
+  text-align: center;
+
+  .home-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
   }
 
-  .home-description {
-    color: gray;
-    text-align: center;
+  .home-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .home-img-container {
+    width: 100%;
+    max-width: 600px;
+
+    .home-img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
