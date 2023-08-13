@@ -3,6 +3,7 @@ import {
   DELETE_TODO,
   FETCH_TODOS,
   SET_ACTIVE_PROJECT,
+  ADD_PROJECT,
 } from './actionTypes';
 
 // Initial state structure for the Redux store.
@@ -19,8 +20,8 @@ export const initialState = {
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Handles the addition of a todo item to the active project.
     case ADD_TODO:
-      // Map through projects and add todo to the active project's todos array.
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -36,8 +37,8 @@ const todoReducer = (state = initialState, action) => {
         ),
       };
 
+    // Handles the deletion of a todo item from the active project.
     case DELETE_TODO:
-      // Map through projects and remove todo from the active project's todos array.
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -52,8 +53,8 @@ const todoReducer = (state = initialState, action) => {
         ),
       };
 
+    // Handles fetching and integrating remote todos into a new project.
     case FETCH_TODOS:
-      // If fetched todos are valid, create a new project with fetched todos.
       if (Array.isArray(action.payload)) {
         return {
           ...state,
@@ -62,19 +63,28 @@ const todoReducer = (state = initialState, action) => {
             { id: Date.now(), title: 'Fetched Todos', todos: action.payload },
           ],
         };
-      } else {
-        return state;
       }
+      return state;
 
+    // Handles setting a project as the currently active project.
     case SET_ACTIVE_PROJECT:
-      // Update the active project in the state.
       return {
         ...state,
         activeProject: action.payload,
       };
 
+    // Handles the addition of a new project with a title.
+    case ADD_PROJECT:
+      return {
+        ...state,
+        projects: [
+          ...state.projects,
+          { id: Date.now(), title: action.payload, todos: [] },
+        ],
+      };
+
+    // Default case for any unrecognized action types.
     default:
-      // Return the existing state if the action type is not handled.
       return state;
   }
 };
