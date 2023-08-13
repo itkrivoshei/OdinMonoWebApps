@@ -97,3 +97,18 @@ export const editProject = (projectId, newName) => ({
     newName,
   },
 });
+
+/**
+ * Dispatch an action to edit an existing todo based on its ID.
+ *
+ * @param {number|string} id - The ID of the todo to edit.
+ * @param {string} newText - The updated text for the todo.
+ * @returns {object} Action object to dispatch.
+ */
+export const editTodo = (id, newText) => ({
+  type: 'EDIT_TODO',
+  payload: {
+    id,
+    newText,
+  },
+});
