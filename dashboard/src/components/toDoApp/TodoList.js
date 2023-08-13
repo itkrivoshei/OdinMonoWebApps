@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
+// Component to list out todos.
 function TodoList({ todos }) {
   return (
     <ul>
