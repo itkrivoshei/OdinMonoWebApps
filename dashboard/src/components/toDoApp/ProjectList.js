@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setActiveProject,
   deleteProject,
+  editProject,
 } from '../../redux/actions/todoActions';
 
 function ProjectList() {
+  // State variables for inline editing.
+  const [isEditing, setIsEditing] = useState(null);
+  const [newName, setNewName] = useState('');
+
   // Retrieve list of projects from the Redux state.
   const projects = useSelector((state) => state.todos.projects) || [];
   const dispatch = useDispatch();
@@ -20,18 +25,52 @@ function ProjectList() {
     dispatch(deleteProject(projectId));
   };
 
+  // Initiates the edit mode for a project name.
+  const handleEditClick = (projectId, currentName) => {
+    setIsEditing(projectId);
+    setNewName(currentName); // Pre-fill the input with the current project name.
+  };
+
+  // Handles changes in the input box during editing.
+  const handleNameChange = (e) => {
+    setNewName(e.target.value);
+  };
+
+  // Finalizes the editing process and updates the project name in the Redux state.
+  const handleSaveClick = (projectId) => {
+    if (newName.trim()) {
+      dispatch(editProject(projectId, newName));
+      setIsEditing(null);
+      setNewName('');
+    }
+  };
+
   return (
     <ul>
       {projects.map((project) => (
         <li key={project.id}>
-          <span onClick={() => handleProjectClick(project.id)}>
-            {project.title}
-          </span>
-          {/* Don't allow deletion of the default project */}
-          {project.id !== 'default' && (
-            <button onClick={() => handleProjectDelete(project.id)}>
-              Delete
-            </button>
+          {isEditing === project.id ? (
+            <>
+              <input value={newName} onChange={handleNameChange} />
+              <button onClick={() => handleSaveClick(project.id)}>Save</button>
+            </>
+          ) : (
+            <>
+              <span onClick={() => handleProjectClick(project.id)}>
+                {project.title}
+              </span>
+              <button
+                onClick={() => handleEditClick(project.id, project.title)}
+              >
+                Edit
+              </button>
+              {/* Don't allow deletion of the default project */}
+              {project.id !== 'default' && (
+                <button onClick={() => handleProjectDelete(project.id)}>
+                  Delete
+                </button>
+              )}
+            </>
           )}
         </li>
       ))}

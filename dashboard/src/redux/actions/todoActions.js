@@ -5,6 +5,7 @@ import {
   ADD_PROJECT,
   DELETE_PROJECT,
   SET_ACTIVE_PROJECT,
+  EDIT_PROJECT,
 } from '../reducers/actionTypes';
 
 // Action Creator: Add a new todo item
@@ -79,4 +80,20 @@ export const setActiveProject = (projectId) => ({
 export const deleteProject = (projectId) => ({
   type: DELETE_PROJECT,
   payload: projectId,
+});
+
+// Action Creator: Edit project name
+/**
+ * Dispatch an action to edit a project's name based on its ID.
+ *
+ * @param {number|string} projectId - The ID of the project to edit.
+ * @param {string} newName - The new name for the project.
+ * @returns {object} Action object to dispatch.
+ */
+export const editProject = (projectId, newName) => ({
+  type: EDIT_PROJECT,
+  payload: {
+    projectId,
+    newName,
+  },
 });

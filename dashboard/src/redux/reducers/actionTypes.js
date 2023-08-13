@@ -4,3 +4,4 @@ export const FETCH_TODOS = 'FETCH_TODOS';
 export const SET_ACTIVE_PROJECT = 'SET_ACTIVE_PROJECT';
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const DELETE_PROJECT = 'DELETE_PROJECT';
+export const EDIT_PROJECT = 'EDIT_PROJECT';

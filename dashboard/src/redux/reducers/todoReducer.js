@@ -5,6 +5,7 @@ import {
   SET_ACTIVE_PROJECT,
   ADD_PROJECT,
   DELETE_PROJECT,
+  EDIT_PROJECT,
 } from './actionTypes';
 
 // Initial state structure for the Redux store.
@@ -96,6 +97,19 @@ const todoReducer = (state = initialState, action) => {
           state.activeProject === action.payload
             ? 'default'
             : state.activeProject,
+      };
+
+    case EDIT_PROJECT:
+      return {
+        ...state,
+        projects: state.projects.map((project) =>
+          project.id === action.payload.projectId
+            ? {
+                ...project,
+                title: action.payload.newName,
+              }
+            : project
+        ),
       };
 
     // Default case for any unrecognized action types.
