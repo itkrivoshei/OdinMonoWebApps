@@ -12,7 +12,7 @@ import {
 } from '../../redux/actions/todoActions';
 
 class TodoApp extends React.Component {
-  // Fetch todos when component mounts.
+  // Lifecycle method to fetch todos once the component has mounted.
   componentDidMount() {
     this.props.fetchTodos();
   }
@@ -31,27 +31,18 @@ class TodoApp extends React.Component {
   }
 }
 
-// Map state to props to provide active project's todos to TodoList component.
+// Maps the Redux state to this component's props.
 const mapStateToProps = (state) => {
-  // Check if projects exist in state and if it's an array.
-  if (state.todos && Array.isArray(state.todos.projects)) {
-    // Find the active project.
-    const activeProject = state.todos.projects.find(
-      (project) => project.id === state.todos.activeProject
-    );
-    // Return active project's todos or an empty array if not found.
-    return {
-      todos: activeProject ? activeProject.todos : [],
-    };
-  } else {
-    // Return an empty array if projects is not defined or not an array.
-    return {
-      todos: [],
-    };
-  }
+  // Retrieves the todos of the currently active project.
+  const activeProject = state.todos.projects.find(
+    (project) => project.id === state.todos.activeProject
+  );
+  return {
+    todos: activeProject ? activeProject.todos : [],
+  };
 };
 
-// Map dispatch actions to props.
+// Maps the Redux dispatch actions to this component's props.
 const mapDispatchToProps = {
   addTodo,
   deleteTodo,
