@@ -63,7 +63,6 @@ const todoReducer = (state = initialState, action) => {
           ],
         };
       } else {
-        console.error('Invalid FETCH_TODOS payload:', action.payload);
         return state;
       }
 
