@@ -1,8 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { initialState } from './reducers/todoReducer';
 
-// Function to save state to local storage
+// Check if the loaded state is valid
+function isValidState(state) {
+  return state && state.todos && Array.isArray(state.todos.projects);
+}
+
+// Save the state to local storage
 function saveState(state) {
   try {
     const serializedState = JSON.stringify(state);
@@ -12,15 +18,18 @@ function saveState(state) {
   }
 }
 
-// Function to load state from local storage
+// Load the state from local storage
 function loadState() {
   try {
     const serializedState = localStorage.getItem('myState');
-    if (serializedState === null) return undefined;
-    return JSON.parse(serializedState);
+    if (serializedState === null) return initialState;
+
+    const parsedState = JSON.parse(serializedState);
+
+    return isValidState(parsedState) ? parsedState : initialState; // Validate the loaded state
   } catch (err) {
     console.error('Could not load state', err);
-    return undefined;
+    return initialState;
   }
 }
 
