@@ -3,6 +3,7 @@ import {
   DELETE_TODO,
   FETCH_TODOS,
   ADD_PROJECT,
+  DELETE_PROJECT,
   SET_ACTIVE_PROJECT,
 } from '../reducers/actionTypes';
 
@@ -65,5 +66,17 @@ export const addProject = (title) => ({
  */
 export const setActiveProject = (projectId) => ({
   type: SET_ACTIVE_PROJECT,
+  payload: projectId,
+});
+
+// Action Creator: Delete a project
+/**
+ * Dispatch an action to delete a project based on its ID.
+ *
+ * @param {number|string} projectId - The ID of the project to delete.
+ * @returns {object} Action object to dispatch.
+ */
+export const deleteProject = (projectId) => ({
+  type: DELETE_PROJECT,
   payload: projectId,
 });

@@ -4,6 +4,7 @@ import {
   FETCH_TODOS,
   SET_ACTIVE_PROJECT,
   ADD_PROJECT,
+  DELETE_PROJECT,
 } from './actionTypes';
 
 // Initial state structure for the Redux store.
@@ -81,6 +82,20 @@ const todoReducer = (state = initialState, action) => {
           ...state.projects,
           { id: Date.now(), title: action.payload, todos: [] },
         ],
+      };
+
+    // Handles the deletion of an entire project.
+    case DELETE_PROJECT:
+      return {
+        ...state,
+        projects: state.projects.filter(
+          (project) => project.id !== action.payload
+        ),
+        // If the active project is deleted, revert to the default project.
+        activeProject:
+          state.activeProject === action.payload
+            ? 'default'
+            : state.activeProject,
       };
 
     // Default case for any unrecognized action types.
