@@ -22,14 +22,16 @@ function saveState(state) {
 function loadState() {
   try {
     const serializedState = localStorage.getItem('myState');
-    if (serializedState === null) return initialState;
+    if (serializedState === null) return { todos: initialState };
 
     const parsedState = JSON.parse(serializedState);
 
-    return isValidState(parsedState) ? parsedState : initialState; // Validate the loaded state
+    return isValidState(parsedState)
+      ? { todos: parsedState }
+      : { todos: initialState }; // Validate the loaded state
   } catch (err) {
     console.error('Could not load state', err);
-    return initialState;
+    return { todos: initialState };
   }
 }
 
@@ -41,7 +43,7 @@ const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
 
 // Subscribe to store changes
 store.subscribe(() => {
-  saveState(store.getState());
+  saveState(store.getState().todos);
 });
 
 export default store;
