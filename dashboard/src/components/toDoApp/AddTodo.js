@@ -7,14 +7,12 @@ function AddTodo({ addTodo }) {
   // Handler for form submission
   const handleAddTodo = (event) => {
     event.preventDefault();
+    const trimmedInput = input.trim(); // Trim the input
 
-    // Trim the input to prevent adding whitespace-only todos
-    const trimmedInput = input.trim();
-
-    // Only dispatch the addTodo action if the trimmed input isn't empty
+    // Only add the todo if the trimmed input isn't empty
     if (trimmedInput) {
       addTodo(trimmedInput);
-      setInput(''); // Reset input field after adding
+      setInput(''); // Reset input field
     }
   };
 
@@ -23,9 +21,8 @@ function AddTodo({ addTodo }) {
       <input
         type='text'
         value={input}
-        // Update the input state on every input change
         onChange={(event) => setInput(event.target.value)}
-        placeholder='Enter todo...' // Added a placeholder for better user guidance
+        placeholder='Enter todo...'
       />
       <button type='submit'>Add Todo</button>
     </form>
