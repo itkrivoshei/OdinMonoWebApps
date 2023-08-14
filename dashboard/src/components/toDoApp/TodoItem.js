@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, editTodo } from '../../redux/actions/todoActions';
+import {
+  deleteTodo,
+  editTodo,
+  toggleTodo,
+} from '../../redux/actions/todoActions';
 
 function TodoItem({ todo }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [newName, setNewName] = useState(todo.text);
+  const [newName, setNewName] = useState(todo.text || '');
 
   const dispatch = useDispatch();
 
@@ -27,8 +31,18 @@ function TodoItem({ todo }) {
     setNewName(e.target.value);
   };
 
+  // Handle the toggle of the todo's completion state
+  const handleToggleCompletion = () => {
+    dispatch(toggleTodo(todo.id));
+  };
+
   return (
     <li>
+      <input
+        type='checkbox'
+        checked={!!todo.completed}
+        onChange={handleToggleCompletion}
+      />
       {isEditing ? (
         <>
           <input type='text' value={newName} onChange={handleChange} />
@@ -36,7 +50,11 @@ function TodoItem({ todo }) {
         </>
       ) : (
         <>
-          {todo.text}
+          <span
+            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+          >
+            {todo?.text}
+          </span>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
         </>
