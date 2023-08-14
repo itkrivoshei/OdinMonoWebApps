@@ -6,6 +6,8 @@ import {
   DELETE_PROJECT,
   SET_ACTIVE_PROJECT,
   EDIT_PROJECT,
+  TOGGLE_TODO_COMPLETION,
+  EDIT_TODO,
 } from '../reducers/actionTypes';
 
 // Action Creator: Add a new todo item
@@ -106,9 +108,20 @@ export const editProject = (projectId, newName) => ({
  * @returns {object} Action object to dispatch.
  */
 export const editTodo = (id, newText) => ({
-  type: 'EDIT_TODO',
+  type: EDIT_TODO,
   payload: {
     id,
     newText,
   },
+});
+
+/**
+ * Dispatch an action to toggle the completion status of a todo based on its ID.
+ *
+ * @param {number|string} id - The ID of the todo to toggle.
+ * @returns {object} Action object to dispatch.
+ */
+export const toggleTodo = (id) => ({
+  type: TOGGLE_TODO_COMPLETION,
+  payload: id,
 });

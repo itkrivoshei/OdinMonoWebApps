@@ -7,6 +7,7 @@ import {
   DELETE_PROJECT,
   EDIT_PROJECT,
   EDIT_TODO,
+  TOGGLE_TODO_COMPLETION,
 } from './actionTypes';
 
 // Initial state structure for the Redux store.
@@ -123,6 +124,23 @@ const todoReducer = (state = initialState, action) => {
                 todos: project.todos.map((todo) =>
                   todo.id === action.payload.id
                     ? { ...todo, text: action.payload.newText }
+                    : todo
+                ),
+              }
+            : project
+        ),
+      };
+
+    case TOGGLE_TODO_COMPLETION:
+      return {
+        ...state,
+        projects: state.projects.map((project) =>
+          project.id === state.activeProject
+            ? {
+                ...project,
+                todos: project.todos.map((todo) =>
+                  todo.id === action.payload
+                    ? { ...todo, completed: !todo.completed }
                     : todo
                 ),
               }
