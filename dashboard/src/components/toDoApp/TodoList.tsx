@@ -3,6 +3,8 @@ import TodoItem from './TodoItem';
 
 type Todo = {
   id: number;
+  text: string;
+  completed: boolean;
 };
 
 interface TodoListProps {

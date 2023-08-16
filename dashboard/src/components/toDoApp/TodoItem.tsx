@@ -6,7 +6,17 @@ import {
   toggleTodo,
 } from '../../redux/actions/todoActions';
 
-function TodoItem({ todo }) {
+type Todo = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+interface TodoItemProps {
+  todo: Todo;
+}
+
+function TodoItem({ todo }: TodoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(todo.text || '');
 
@@ -27,7 +37,7 @@ function TodoItem({ todo }) {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
   };
 
@@ -53,7 +63,7 @@ function TodoItem({ todo }) {
           <span
             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
           >
-            {todo?.text}
+            {todo.text}
           </span>
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleDelete}>Delete</button>

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 
-function AddTodo({ addTodo }) {
+interface AddTodoProps {
+  addTodo: (input: string) => void;
+}
+
+function AddTodo({ addTodo }: AddTodoProps) {
   // State to manage the input value
   const [input, setInput] = useState('');
 
   // Handler for form submission
-  const handleAddTodo = (event) => {
+  const handleAddTodo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmedInput = input.trim(); // Trim the input
 
