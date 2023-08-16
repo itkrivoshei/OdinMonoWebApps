@@ -3,13 +3,19 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { initialState } from './reducers/todoReducer';
 
+type StateType = {
+  todos?: {
+    projects?: any[];
+  };
+};
+
 // Check if the loaded state is valid
-function isValidState(state) {
-  return state && state.todos && Array.isArray(state.todos.projects);
+function isValidState(state: StateType): boolean {
+  return Boolean(state && state.todos && Array.isArray(state.todos.projects));
 }
 
 // Save the state to local storage
-function saveState(state) {
+function saveState(state: StateType): void {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('myState', serializedState);
@@ -43,7 +49,7 @@ const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
 
 // Subscribe to store changes
 store.subscribe(() => {
-  saveState(store.getState().todos);
+  saveState(store.getState());
 });
 
 export default store;

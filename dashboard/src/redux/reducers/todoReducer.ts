@@ -10,8 +10,31 @@ import {
   TOGGLE_TODO_COMPLETION,
 } from './actionTypes';
 
+// Type definitions
+interface Todo {
+  id: number;
+  text: string;
+  completed?: boolean;
+}
+
+interface Project {
+  id: number | string;
+  title: string;
+  todos: Todo[];
+}
+
+interface TodoState {
+  projects: Project[];
+  activeProject: string | number;
+}
+
+interface Action {
+  type: string;
+  payload?: any;
+}
+
 // Initial state structure for the Redux store.
-export const initialState = {
+export const initialState: TodoState = {
   projects: [
     {
       id: 'default',
@@ -22,7 +45,7 @@ export const initialState = {
   activeProject: 'default',
 };
 
-const todoReducer = (state = initialState, action) => {
+const todoReducer = (state = initialState, action: Action): TodoState => {
   switch (action.type) {
     // Handles the addition of a todo item to the active project.
     case ADD_TODO:
