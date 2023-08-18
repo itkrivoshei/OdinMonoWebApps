@@ -14,6 +14,7 @@ type Todo = {
 
 interface TodoItemProps {
   todo: Todo;
+  deleteTodo: (id: number) => void;
 }
 
 function TodoItem({ todo }: TodoItemProps) {

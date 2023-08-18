@@ -29,7 +29,12 @@ export const addTodo = (text: string) => ({
  * @param {number|string} id - The ID of the todo to delete.
  * @returns {object} Action object to dispatch.
  */
-export const deleteTodo = (id: number | string) => ({
+interface DeleteTodoAction {
+  type: typeof DELETE_TODO;
+  payload: number | string;
+}
+
+export const deleteTodo = (id: number | string): DeleteTodoAction => ({
   type: DELETE_TODO,
   payload: id,
 });

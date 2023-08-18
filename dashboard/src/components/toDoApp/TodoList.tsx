@@ -9,14 +9,15 @@ type Todo = {
 
 interface TodoListProps {
   todos: Todo[];
+  deleteTodo: (id: number) => void;
 }
 
 // Component to list out todos.
-function TodoList({ todos }: TodoListProps) {
+function TodoList({ todos, deleteTodo }: TodoListProps) {
   return (
     <ul>
       {todos.map((todo: Todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
       ))}
     </ul>
   );
