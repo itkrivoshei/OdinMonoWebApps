@@ -1,24 +1,30 @@
-let myLibrary = [];
+let myLibrary: Book[] = [];
 
 class Book {
-  constructor(title, author, pages, read) {
+  title: string;
+  author: string;
+  pages: number;
+  read: boolean;
+
+  constructor(title: string, author: string, pages: number, read: boolean) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
   }
-  toggleRead() {
+
+  toggleRead(): void {
     this.read = !this.read;
   }
 }
 
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary(title: string, author: string, pages: number, read: boolean): void {
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
 }
 
-const newBookButton = document.getElementById('newBook');
-const bookForm = document.getElementById('bookForm');
+const newBookButton = document.getElementById('newBook')!;
+const bookForm = document.getElementById('bookForm') as HTMLFormElement;
 
 newBookButton.addEventListener('click', () => {
   bookForm.classList.remove('hidden');
@@ -27,10 +33,10 @@ newBookButton.addEventListener('click', () => {
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read').checked;
+  const title = (document.getElementById('title') as HTMLInputElement).value;
+  const author = (document.getElementById('author') as HTMLInputElement).value;
+  const pages = parseInt((document.getElementById('pages') as HTMLInputElement).value, 10);
+  const read = (document.getElementById('read') as HTMLInputElement).checked;
 
   addBookToLibrary(title, author, pages, read);
   displayBooks();
@@ -38,13 +44,13 @@ bookForm.addEventListener('submit', (e) => {
   bookForm.classList.add('hidden');
 });
 
-function displayBooks() {
-  const libraryDiv = document.getElementById('library');
+function displayBooks(): void {
+  const libraryDiv = document.getElementById('library')!;
   libraryDiv.textContent = ''; // clear the div
 
   myLibrary.forEach((book, index) => {
     const bookDiv = document.createElement('div');
-    bookDiv.dataset.index = index;
+    bookDiv.dataset.index = index.toString();
     // bookDiv.classList.add('book');
     bookDiv.innerHTML = `
       <h2 class="text-xl">${book.title}</h2>
@@ -58,15 +64,19 @@ function displayBooks() {
     `;
 
     const readCheckbox = bookDiv.querySelector('input[type="checkbox"]');
-    readCheckbox.addEventListener('change', () => {
-      book.toggleRead();
-    });
+    if (readCheckbox) {
+        readCheckbox.addEventListener('change', () => {
+            book.toggleRead();
+        });
+    }
 
     const removeButton = bookDiv.querySelector('button');
-    removeButton.addEventListener('click', () => {
-      myLibrary.splice(index, 1);
-      displayBooks();
-    });
+    if (removeButton) {
+        removeButton.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
+    }
 
     libraryDiv.appendChild(bookDiv);
   });
