@@ -13,47 +13,37 @@ const OdinProjects = () => {
               <Link to='/toDoApp'>ToDo App</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/tic-tac-toe/index.html'>Tic Tac Toe</a>
+              <Link to='/ticTacToe'>Tic Tac Toe</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/book-library/index.html'>
-                Book Library
-              </a>
+              <Link to='/bookLibrary'>Book Library</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/sign-up-form/index.html'>
-                Sign Up Form
-              </a>
+              <Link to='/signUpForm'>Sign Up Form</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/admin-dashboard/index.html'>
-                Dash Board Landing
-              </a>
+              <Link to='/dashBoardLanding'>Dash Board Landing</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/calculator/index.html'>Calculator</a>
+              <Link to='/calculator'>Calculator</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/etch-a-sketch/index.html'>
-                Etch a Sketch
-              </a>
+              <Link to='/etchASketch'>Etch a Sketch</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/javascript-drum-kit/index-START.html'>
-                Drum Kit
-              </a>
+              <Link to='/drumKit'>Drum Kit</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/rock-paper-scissors/index.html'>RPS</a>
+              <Link to='/rockPaperScissors'>Rock Paper Scissors</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/odin-recipes/index.html'>Recipes</a>
+              <Link to='/recipes'>Recipes</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/restaurant'>Restaurant Landing React Rout</Link>
+              <Link to='/restaurant'>Restaurant Landing React Route</Link>
             </div>
             <div className='sub-project'>
-              <a href='/JSt-For-Fun/odin/landing-ex/index.html'>Landing</a>
+              <Link to='/landing'>Landing</Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TicTacToe.css';
+import './TicTacToe.scss';
 
 type Player = {
   name: string;
