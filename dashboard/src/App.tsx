@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OdinProjects from './components/OdinProjects';
 import Restaurant from './components/Restaurant/Restaurant';
-import TodoApp from './components/ToDoApp/TodoApp';
+import ToDoApp from './components/ToDoApp/ToDoApp';
 import TicTacToe from './components/TicTacToe/TicTacToe';
 import BookLibrary from './components/BookLibrary/BookLibrary';
 import SignUpForm from './components/SignUpForm/SignUpForm';
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<OdinProjects />} />
           <Route path='/Restaurant' element={<Restaurant />} />
-          <Route path='/ToDoApp' element={<TodoApp />} />
+          <Route path='/ToDoApp' element={<ToDoApp />} />
           <Route path='/TicTacToe' element={<TicTacToe />} />
           <Route path='/BookLibrary' element={<BookLibrary />} />
           <Route path='/SignUpForm' element={<SignUpForm />} />

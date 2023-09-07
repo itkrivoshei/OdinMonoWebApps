@@ -23,7 +23,7 @@ export interface Project {
   todos: Todo[];
 }
 
-interface TodoAppProps {
+interface ToDoAppProps {
   todos: Todo[];
   addTodo: (text: string) => void;
   deleteTodo: (id: number) => void;
@@ -38,7 +38,7 @@ export interface State {
   };
 }
 
-class TodoApp extends React.Component<TodoAppProps> {
+class ToDoApp extends React.Component<ToDoAppProps> {
   // Lifecycle method to fetch todos once the component has mounted.
   componentDidMount() {
     this.props.fetchTodos();
@@ -76,4 +76,4 @@ const mapDispatchToProps = {
   addProject,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoApp);
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoApp);

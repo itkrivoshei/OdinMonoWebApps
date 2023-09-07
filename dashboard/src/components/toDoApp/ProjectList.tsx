@@ -5,7 +5,7 @@ import {
   deleteProject,
   editProject,
 } from '../../redux/actions/todoActions';
-import { State, Project } from './TodoApp';
+import { State, Project } from './ToDoApp';
 
 function ProjectList() {
   // State variables for inline editing.
