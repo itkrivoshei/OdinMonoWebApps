@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './OdinProjects.scss';
+import './Dashboard.scss';
 
-const OdinProjects = () => {
+const Dashboard = () => {
   return (
     <main>
-      <section>
+      <section className='dashboard-container'>
         <h1>Odin Projects</h1>
         <div className='project-list'>
           <div className='project'>
@@ -52,4 +52,4 @@ const OdinProjects = () => {
   );
 };
 
-export default OdinProjects;
+export default Dashboard;

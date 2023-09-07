@@ -55,7 +55,7 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
 
 const DrumKit: React.FC = () => {
   return (
-    <div className="keys">
+    <div className="keys drum-kit-container">
       <DrumKey keyChar="A" soundName="clap" keyCode={65} />
       <DrumKey keyChar="S" soundName="hihat" keyCode={83} />
       <DrumKey keyChar="D" soundName="kick" keyCode={68} />

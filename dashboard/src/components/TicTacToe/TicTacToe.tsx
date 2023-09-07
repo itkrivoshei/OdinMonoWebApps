@@ -87,7 +87,7 @@ const TicTacToe: React.FC = () => {
   };
 
   return (
-    <div className="tic-tac-toe">
+    <div className="tic-tac-toe-container">
       <h1>Tic Tac Toe</h1>
       <div>
         <button onClick={() => startGame(true)}>Play against AI</button>

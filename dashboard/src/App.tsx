@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import OdinProjects from './components/OdinProjects';
+import Dashboard from './components/Dashboard';
 import Restaurant from './components/Restaurant/Restaurant';
 import ToDoApp from './components/ToDoApp/ToDoApp';
 import TicTacToe from './components/TicTacToe/TicTacToe';
@@ -19,7 +19,7 @@ function App() {
     <div className='App'>
       <Router basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path='/' element={<OdinProjects />} />
+          <Route path='/' element={<Dashboard />} />
           <Route path='/Restaurant' element={<Restaurant />} />
           <Route path='/ToDoApp' element={<ToDoApp />} />
           <Route path='/TicTacToe' element={<TicTacToe />} />
@@ -30,8 +30,7 @@ function App() {
           <Route path='/DrumKit' element={<DrumKit />} />
           <Route path='/Landing' element={<Landing />} />
           <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
-          {/* <Route path='/recipes' element={<Recipes />} />
-          <Route path='/landing' element={<Landing />} /> */}
+          {/* <Route path='/recipes' element={<Recipes />} /> */}
         </Routes>
       </Router>
     </div>

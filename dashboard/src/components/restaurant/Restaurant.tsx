@@ -8,7 +8,7 @@ const Restaurant = () => {
   const [activeTab, setActiveTab] = useState('Home');
 
   return (
-    <main className='restaurant-main'>
+    <main className='restaurant-container'>
       <div className='tab-container'>
         <button
           className={`tab-button ${activeTab === 'Home' ? 'active' : ''}`}

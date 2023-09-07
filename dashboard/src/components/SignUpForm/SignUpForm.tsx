@@ -107,7 +107,7 @@ const SignUpForm: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="sign-up-form-container">
       {/* Matrix background will go here if needed */}
       <div className="right-side">
         <form onSubmit={handleFormSubmit}>

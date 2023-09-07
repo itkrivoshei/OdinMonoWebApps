@@ -62,7 +62,7 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <div className='calculator'>
+    <div className='calculator calculator-container'>
       <div className='statusPanel'>
         <div>
           Num

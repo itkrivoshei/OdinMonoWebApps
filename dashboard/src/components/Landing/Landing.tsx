@@ -3,7 +3,7 @@ import './Landing.scss';
 
 const Landing = () => {
   return (
-    <div>
+    <div className="landing-container">
       <div className="bg-full-black">
         <div className="normal-width">
           <ul className="header-tabs">
