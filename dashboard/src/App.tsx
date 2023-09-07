@@ -11,7 +11,7 @@ import EtchASketch from './components/EtchASketch/EtchASketch';
 import DrumKit from './components/DrumKit/DrumKit';
 import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors';
 // import Recipes from './components/OdinRecipes';
-// import Landing from './components/Landing';
+import Landing from './components/Landing/Landing';
 
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
           <Route path='/Calculator' element={<Calculator />} />
           <Route path='/EtchASketch' element={<EtchASketch />} />
           <Route path='/DrumKit' element={<DrumKit />} />
+          <Route path='/Landing' element={<Landing />} />
           <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
           {/* <Route path='/recipes' element={<Recipes />} />
           <Route path='/landing' element={<Landing />} /> */}
