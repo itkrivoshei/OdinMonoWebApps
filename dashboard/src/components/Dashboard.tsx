@@ -10,40 +10,40 @@ const Dashboard = () => {
         <div className='project-list'>
           <div className='project'>
             <div className='sub-project'>
-              <Link to='/toDoApp'>ToDo App</Link>
+              <Link to='/ToDoApp'>To Do</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/ticTacToe'>Tic Tac Toe</Link>
+              <Link to='/TicTacToe'>Tic Tac Toe</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/bookLibrary'>Book Library</Link>
+              <Link to='/BookLibrary'>Book Library</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/signUpForm'>Sign Up Form</Link>
+              <Link to='/SignUpForm'>Sign Up Form</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/dashBoardLanding'>Dash Board Landing</Link>
+              <Link to='/Calculator'>Calculator</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/calculator'>Calculator</Link>
+              <Link to='/EtchASketch'>Etch a Sketch</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/etchASketch'>Etch a Sketch</Link>
+              <Link to='/DrumKit'>Drum Kit</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/drumKit'>Drum Kit</Link>
+              <Link to='/RockPaperScissors'>Rock Paper Scissors</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/rockPaperScissors'>Rock Paper Scissors</Link>
+              <Link to='/OdinRecipes'>Recipes</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/recipes'>Recipes</Link>
+              <Link to='/Restaurant'>Restaurant Landing</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/restaurant'>Restaurant Landing React Route</Link>
+              <Link to='/Landing'>Odin Landing</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/landing'>Landing</Link>
+              <Link to='/DashLanding'>Dashboard Landing</Link>
             </div>
           </div>
         </div>
