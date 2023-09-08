@@ -10,8 +10,9 @@ import Calculator from './components/Calculator/Calculator';
 import EtchASketch from './components/EtchASketch/EtchASketch';
 import DrumKit from './components/DrumKit/DrumKit';
 import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors';
-// import Recipes from './components/OdinRecipes';
+import OdinRecipes from './components/OdinRecipes/OdinRecipes';
 import Landing from './components/Landing/Landing';
+import DashLanding from './components/DashLanding/DashLanding';
 
 
 function App() {
@@ -29,8 +30,9 @@ function App() {
           <Route path='/EtchASketch' element={<EtchASketch />} />
           <Route path='/DrumKit' element={<DrumKit />} />
           <Route path='/Landing' element={<Landing />} />
+          <Route path='/DashLanding' element={<DashLanding />} />
           <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
-          {/* <Route path='/recipes' element={<Recipes />} /> */}
+          <Route path='/OdinRecipes' element={<OdinRecipes />} />
         </Routes>
       </Router>
     </div>
