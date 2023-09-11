@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
-// import './RecipeStyle.scss';
+import {
+  Button,
+  List,
+  ListItem,
+  Typography,
+  Container,
+  Card,
+  CardContent,
+  CardMedia,
+  Box,
+} from '@mui/material';
 
 function OdinRecipes() {
   const [selectedRecipe, setSelectedRecipe] = useState('');
+
+  const goBack = () => {
+    setSelectedRecipe('');
+  };
 
   const renderRecipe = () => {
     switch (selectedRecipe) {
@@ -13,168 +27,175 @@ function OdinRecipes() {
       case 'MicrowaveBakedPotato':
         return <MicrowaveBakedPotato />;
       default:
-        return <OdinRecipes />;
+        return <RecipeList />;
     }
   };
 
-  function OdinRecipes() {
+  function RecipeList() {
     return (
-      <div>
-        <h1>Odin Recipes</h1>
-        <ul>
-          <li>
-            <button onClick={() => setSelectedRecipe('HomemadeLasagna')}>
-              Homemade Lasagna
-            </button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedRecipe('AcornSquash')}>
-              Acorn Squash
-            </button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedRecipe('MicrowaveBakedPotato')}>
-              Microwave Baked Potato
-            </button>
-          </li>
-        </ul>
-      </div>
+      <Container>
+        <Typography variant='h4' component='div' gutterBottom>
+          Odin Recipes
+        </Typography>
+        <List>
+          <ListItem button onClick={() => setSelectedRecipe('HomemadeLasagna')}>
+            Homemade Lasagna
+          </ListItem>
+          <ListItem button onClick={() => setSelectedRecipe('AcornSquash')}>
+            Acorn Squash
+          </ListItem>
+          <ListItem
+            button
+            onClick={() => setSelectedRecipe('MicrowaveBakedPotato')}
+          >
+            Microwave Baked Potato
+          </ListItem>
+        </List>
+      </Container>
+    );
+  }
+
+  function BackButton() {
+    return (
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={goBack}
+        sx={{ mb: 2 }}
+      >
+        Back to Recipes
+      </Button>
+    );
+  }
+
+  interface RecipeCardProps {
+    title: string;
+    imageSrc: string;
+    description: string;
+    ingredients: string[];
+    steps: string[];
+  }
+  function RecipeCard({
+    title,
+    imageSrc,
+    description,
+    ingredients,
+    steps,
+  }: RecipeCardProps) {
+    return (
+      <Card sx={{ maxWidth: 900, m: 'auto', mt: 3 }}>
+        <CardMedia component='img' height='250' image={imageSrc} alt={title} />
+        <CardContent>
+          <Typography variant='h5' gutterBottom>
+            {title}
+          </Typography>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            {description}
+          </Typography>
+          <Typography variant='h6'>Ingredients</Typography>
+          <List>
+            {ingredients.map((ingredient, idx) => (
+              <ListItem key={idx}>{ingredient}</ListItem>
+            ))}
+          </List>
+          <Typography variant='h6'>Steps</Typography>
+          <List>
+            {steps.map((step, idx) => (
+              <ListItem key={idx}>
+                <Typography>{step}</Typography>
+              </ListItem>
+            ))}
+          </List>
+        </CardContent>
+      </Card>
     );
   }
 
   function AcornSquash() {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', width: '900px' }}>
-                <h1>Acorn Squash</h1>
-                <img
-                    src="https://www.allrecipes.com/thmb/gWKtlXa_borjWzer06AMsIllJOM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/16796-acorn-squash-1x1-76-a112f8ea8d90419ea1836dca402d9d8c.jpg"
-                    alt="Acorn Squash"
-                    style={{ width: '100%' }}
-                />
-                <p>
-                    Learn how to cook acorn squash using this quick and easy recipe. It's
-                    sweet and buttery — my family loves it!
-                </p>
-                <ul style={{ width: '100%' }}>
-                    <li>Ingredients</li>
-                    <ul>
-                        <li>1 medium acorn squash, halved and seeded</li>
-                        <li>2 tablespoons brown sugar</li>
-                        <li>1 tablespoon butter</li>
-                    </ul>
-                    <li>Steps</li>
-                    <ol>
-                        <li>Preheat the oven to 350 degrees F (175 degrees C).</li>
-                        <li>
-                            Place acorn squash halves cut-side down onto a cookie sheet. Bake in
-                            the preheated oven until flesh begins to soften, about 30 to 45
-                            minutes.
-                        </li>
-                        <li>
-                            Remove squash from the oven and transfer one squash half, cut-side up,
-                            to a deep baking dish. Spoon butter and brown sugar into the cavity.
-                            Place remaining squash half, cut-side down, over top to seal.
-                        </li>
-                        <li>
-                            Return to the oven and continue to bake until flesh is soft, 30
-                            minutes.
-                        </li>
-                    </ol>
-                </ul>
-            </div>
-        </div>
+      <Box>
+        <BackButton />
+        <RecipeCard
+          title='Acorn Squash'
+          imageSrc='https://www.allrecipes.com/thmb/gWKtlXa_borjWzer06AMsIllJOM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/16796-acorn-squash-1x1-76-a112f8ea8d90419ea1836dca402d9d8c.jpg'
+          description="Learn how to cook acorn squash using this quick and easy recipe. It's sweet and buttery — my family loves it!"
+          ingredients={[
+            '1 medium acorn squash, halved and seeded',
+            '2 tablespoons brown sugar',
+            '1 tablespoon butter',
+          ]}
+          steps={[
+            'Preheat the oven to 350 degrees F (175 degrees C).',
+            'Place acorn squash halves cut-side down onto a cookie sheet. Bake in the preheated oven until flesh begins to soften, about 30 to 45 minutes.',
+            'Remove squash from the oven and transfer one squash half, cut-side up, to a deep baking dish. Spoon butter and brown sugar into the cavity. Place remaining squash half, cut-side down, over top to seal.',
+            'Return to the oven and continue to bake until flesh is soft, 30 minutes.',
+          ]}
+        />
+      </Box>
     );
   }
 
   function HomemadeLasagna() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', width: '900px' }}>
-              <h1>Homemade Lasagna</h1>
-              <img
-                  src="https://www.allrecipes.com/thmb/zZCLBop9DmB05w3z1LtTtWUGjcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/19344_homemade-lasagna_Rita2-1x1-1-b4f53c3ba2f4475c97665908a6fd1783.jpg"
-                  alt="Homemade Lasagna"
-                  style={{ width: '100%' }}
-              />
-              <p>
-                  This is my mom's special homemade lasagna recipe with a meaty,
-                  made-from-scratch tomato sauce and a deliciously cheesy filling. A more
-                  traditional homemade lasagna filling would be made with ricotta but my
-                  mom's recipe calls for a blend of small-curd cottage cheese and Parmesan.
-                  I have found none better anywhere. Serve with a leafy green salad and
-                  crusty garlic bread.
-              </p>
-              <ul style={{ width: '100%' }}>
-                  <li>Ingredients</li>
-                  <ul>
-                      <li>Meat: This lasagna recipe starts with a pound of ground meat (½ pound ground pork, ½ pound lean ground beef).</li>
-                      <li>Onion: A diced onion is cooked until translucent with the ground meat.</li>
-                      <li>Canned tomatoes: You'll need a can of tomato sauce and a can of crushed tomatoes.</li>
-                      <li>Fresh herbs: For fresh flavor, chop two tablespoons of parsley and crush one clove of garlic.</li>
-                      <li>Sugar: A dash of sugar balances out all of the acidity from the tomatoes.</li>
-                      <li>Spices and seasonings: This homemade lasagna is seasoned with dried basil, dried oregano, salt, and black pepper.</li>
-                      <li>Noodles: Of course, you'll need lasagna noodles! This recipe calls for uncooked noodles, but you can use the oven-ready variety to save time.</li>
-                      <li>Cheese: The cheese layer is made up of cottage cheese and Parmesan. You'll also need shredded mozzarella.</li>
-                      <li>Eggs: Eggs make the cheese layer extra creamy. Plus, they act as a binding agent (which means they hold the layer together).</li>
-                  </ul>
-                  <li>Steps</li>
-                  <ol>
-                      <li>Cook the meat: Cook the ground meat in a skillet until browned and crumbly. Add the onion and continue cooking until it's translucent...</li>
-                      <li>Cook the noodles: Boil the lasagna noodles in lightly salted water until they're al dente.</li>
-                      <li>Make the cheese layer: Mix cottage cheese, Parmesan cheese, eggs, the remaining parsley, the remaining salt, and pepper in a bowl.</li>
-                      <li>Assemble the lasagna: Layer the ingredients according to the recipe (starting with sauce and ending with mozzarella) until the lasagna is assembled.</li>
-                      <li>Bake the lasagna: Cover with foil and bake in the preheated oven for about half an hour. Remove the foil and continue baking until the top is golden brown.</li>
-                  </ol>
-              </ul>
-          </div>
-      </div>
+      <Box>
+        <BackButton />
+        <RecipeCard
+          title='Homemade Lasagna'
+          imageSrc='https://www.allrecipes.com/thmb/zZCLBop9DmB05w3z1LtTtWUGjcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/19344_homemade-lasagna_Rita2-1x1-1-b4f53c3ba2f4475c97665908a6fd1783.jpg'
+          description="This traditional lasagna recipe is layered with a rich meat sauce and a creamy parmesan white sauce, plus the perfect amount of mozzarella cheese! You won't find a better recipe for homemade lasagna."
+          ingredients={[
+            '12 lasagna noodles',
+            '500g of ground beef',
+            '1 onion, chopped',
+            '2 cloves of garlic, minced',
+            '2 cups ricotta cheese',
+            '1 egg',
+            '3 cups shredded mozzarella cheese',
+            '3 cups grated Parmesan cheese',
+            '2 tablespoons fresh basil',
+            '2 cups tomato sauce',
+            'Salt and pepper to taste',
+          ]}
+          steps={[
+            'Preheat oven to 375°F (190°C).',
+            'In a large pot, cook lasagna noodles in boiling water until al dente. Rinse with cold water and drain well.',
+            'In a large skillet, cook and stir ground beef, onion, and garlic over medium heat until brown. Add tomato sauce and basil; simmer for 10 minutes.',
+            'In a mixing bowl, combine ricotta cheese, egg, salt, and pepper; mix well.',
+            'Spread a thin layer of meat sauce in the bottom of a baking dish. Layer with lasagna noodles, ricotta mixture, mozzarella, parmesan, and meat sauce. Repeat layers until all ingredients are used, finishing with a layer of mozzarella and Parmesan.',
+            'Bake in preheated oven for 50 minutes. Let stand for 10 minutes before serving.',
+          ]}
+        />
+      </Box>
     );
   }
 
   function MicrowaveBakedPotato() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', width: '900px' }}>
-              <h1>Microwave Baked Potato</h1>
-              <img
-                  src="https://www.allrecipes.com/thmb/cxaoqgpqkLuAiImkSFIxPKz_yKw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/85337-microwave-baked-potato-21-edefae39276544be801966be339afbf2.jpg"
-                  alt="Microwave Baked Potato"
-                  style={{ width: '100%' }}
-              />
-              <p>
-                  If you want the yummy taste of a slowly baked potato but aren't patient
-                  enough, or don't have the know-how to bake it in an oven, this is for you.
-                  Give it 12 minutes and get a mouthwatering, taste bud-tingling treat.
-              </p>
-              <ul style={{ width: '100%' }}>
-                  <li>Ingredients</li>
-                  <ul>
-                      <li>1 large russet potato</li>
-                      <li>salt and ground black pepper to taste</li>
-                      <li>1 tablespoon butter</li>
-                      <li>2 tablespoons shredded Cheddar cheese</li>
-                      <li>1 tablespoon sour cream</li>
-                  </ul>
-                  <li>Steps</li>
-                  <ol>
-                      <li>Scrub potato and prick with a fork. Place on a microwave-safe plate.</li>
-                      <li>Microwave on full power for 5 minutes. Turn potato over, and microwave until soft, about 5 more minutes.</li>
-                      <li>Remove potato from the microwave, and cut in half lengthwise. Season with salt and pepper and mash up the inside a little with a fork.</li>
-                      <li>Add butter and Cheddar cheese. Microwave until melted, about 1 more minute.</li>
-                      <li>Top with sour cream, and serve.</li>
-                  </ol>
-              </ul>
-          </div>
-      </div>
+      <Box>
+        <BackButton />
+        <RecipeCard
+          title='Microwave Baked Potato'
+          imageSrc='https://www.allrecipes.com/thmb/cxaoqgpqkLuAiImkSFIxPKz_yKw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/85337-microwave-baked-potato-21-edefae39276544be801966be339afbf2.jpg'
+          description='A quick and easy way to get the comfort of a baked potato without the wait. This microwave version is just as tasty and satisfying.'
+          ingredients={[
+            '1 large russet potato',
+            '1 teaspoon olive oil',
+            'Salt and pepper to taste',
+            'Your favorite potato toppings',
+          ]}
+          steps={[
+            'Thoroughly wash and prick your potato with a fork. This allows steam to release as it’s cooking.',
+            'Rub the potato with the olive oil and sprinkle with salt and pepper.',
+            'Place potato on microwave-safe dish and microwave on high for 5 minutes. Flip the potato and cook for an additional 5 minutes.',
+            "Using a towel or oven mitt, gently squeeze the sides of the potato. If it's soft, it's done. If not, continue to microwave and check at 1-minute intervals.",
+            'Split the potato down the middle, fluff with a fork, and add your favorite toppings.',
+          ]}
+        />
+      </Box>
     );
   }
 
-  return (
-    <div>
-      {renderRecipe()}
-    </div>
-  );
+  return <Box>{renderRecipe()}</Box>;
 }
 
 export default OdinRecipes;

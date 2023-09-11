@@ -5,8 +5,11 @@
   "homepage": "https://itkrivoshei.github.io/JSt-For-Fun/",
   "dependencies": {
     "@babel/preset-typescript": "^7.22.5",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@mui/material": "^5.14.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
