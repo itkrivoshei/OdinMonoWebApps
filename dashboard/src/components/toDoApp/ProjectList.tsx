@@ -60,7 +60,9 @@ function ProjectList() {
               <span onClick={() => handleProjectClick(project.id)}>
                 {project.title}
               </span>
-              <button onClick={() => handleEditClick(project.id, project.title)}>
+              <button
+                onClick={() => handleEditClick(project.id, project.title)}
+              >
                 Edit
               </button>
               {project.id !== 0 && (

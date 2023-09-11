@@ -7,8 +7,13 @@ type Player = {
 };
 
 const TicTacToe: React.FC = () => {
-  const [board, setBoard] = useState<Array<'X' | 'O' | null>>(Array(9).fill(null));
-  const [currentPlayer, setCurrentPlayer] = useState<Player>({ name: 'Player 1', mark: 'X' });
+  const [board, setBoard] = useState<Array<'X' | 'O' | null>>(
+    Array(9).fill(null)
+  );
+  const [currentPlayer, setCurrentPlayer] = useState<Player>({
+    name: 'Player 1',
+    mark: 'X',
+  });
   const [aiGame, setAiGame] = useState(false);
   const [gameOver, setGameOver] = useState(false);
 
@@ -20,7 +25,7 @@ const TicTacToe: React.FC = () => {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
 
   const checkGameOver = (currentBoard: Array<'X' | 'O' | null>) => {
@@ -36,7 +41,7 @@ const TicTacToe: React.FC = () => {
       }
     }
 
-    if (currentBoard.every(cell => cell !== null)) {
+    if (currentBoard.every((cell) => cell !== null)) {
       // Handle tie scenario.
       setGameOver(true);
     }
@@ -64,7 +69,8 @@ const TicTacToe: React.FC = () => {
       }
     });
     if (emptyCells.length > 0) {
-      const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+      const randomIndex =
+        emptyCells[Math.floor(Math.random() * emptyCells.length)];
       currentBoard[randomIndex] = currentPlayer.mark;
       setBoard(currentBoard);
       checkGameOver(currentBoard);
@@ -72,7 +78,11 @@ const TicTacToe: React.FC = () => {
   };
 
   const switchPlayer = () => {
-    setCurrentPlayer(prev => (prev.mark === 'X' ? { name: 'AI', mark: 'O' } : { name: 'Player 1', mark: 'X' }));
+    setCurrentPlayer((prev) =>
+      prev.mark === 'X'
+        ? { name: 'AI', mark: 'O' }
+        : { name: 'Player 1', mark: 'X' }
+    );
   };
 
   const startGame = (isAiGame: boolean) => {
@@ -87,13 +97,13 @@ const TicTacToe: React.FC = () => {
   };
 
   return (
-    <div className="tic-tac-toe-container">
+    <div className='tic-tac-toe-container'>
       <h1>Tic Tac Toe</h1>
       <div>
         <button onClick={() => startGame(true)}>Play against AI</button>
         <button onClick={() => startGame(false)}>2 Player Game</button>
       </div>
-      <div id="gameboard">
+      <div id='gameboard'>
         {board.map((cell, index) => (
           <div key={index} onClick={() => playTurn(index)}>
             {cell}

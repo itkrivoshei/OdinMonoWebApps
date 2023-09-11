@@ -44,27 +44,31 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
 
   return (
     <>
-      <div ref={keyRef} data-key={keyCode} className="key">
+      <div ref={keyRef} data-key={keyCode} className='key'>
         <kbd>{keyChar}</kbd>
-        <span className="sound">{soundName}</span>
+        <span className='sound'>{soundName}</span>
       </div>
-      <audio ref={audioRef} data-key={keyCode} src={`sounds/${soundName}.wav`}></audio>
+      <audio
+        ref={audioRef}
+        data-key={keyCode}
+        src={`sounds/${soundName}.wav`}
+      ></audio>
     </>
   );
 };
 
 const DrumKit: React.FC = () => {
   return (
-    <div className="keys drum-kit-container">
-      <DrumKey keyChar="A" soundName="clap" keyCode={65} />
-      <DrumKey keyChar="S" soundName="hihat" keyCode={83} />
-      <DrumKey keyChar="D" soundName="kick" keyCode={68} />
-      <DrumKey keyChar="F" soundName="openhat" keyCode={70} />
-      <DrumKey keyChar="G" soundName="boom" keyCode={71} />
-      <DrumKey keyChar="H" soundName="ride" keyCode={72} />
-      <DrumKey keyChar="J" soundName="snare" keyCode={74} />
-      <DrumKey keyChar="K" soundName="tom" keyCode={75} />
-      <DrumKey keyChar="L" soundName="tink" keyCode={76} />
+    <div className='keys drum-kit-container'>
+      <DrumKey keyChar='A' soundName='clap' keyCode={65} />
+      <DrumKey keyChar='S' soundName='hihat' keyCode={83} />
+      <DrumKey keyChar='D' soundName='kick' keyCode={68} />
+      <DrumKey keyChar='F' soundName='openhat' keyCode={70} />
+      <DrumKey keyChar='G' soundName='boom' keyCode={71} />
+      <DrumKey keyChar='H' soundName='ride' keyCode={72} />
+      <DrumKey keyChar='J' soundName='snare' keyCode={74} />
+      <DrumKey keyChar='K' soundName='tom' keyCode={75} />
+      <DrumKey keyChar='L' soundName='tink' keyCode={76} />
     </div>
   );
 };

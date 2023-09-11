@@ -46,7 +46,8 @@ export const deleteTodo = (id: number | string): DeleteTodoAction => ({
  *
  * @returns {function} Thunk action creator to dispatch.
  */
-export const fetchTodos = () => async (dispatch: any) => {  // If you have a type for dispatch, replace 'any' with it.
+export const fetchTodos = () => async (dispatch: any) => {
+  // If you have a type for dispatch, replace 'any' with it.
   dispatch({
     type: FETCH_TODOS,
   });

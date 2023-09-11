@@ -9,10 +9,10 @@ function AddProject() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (title) {
-        dispatch(addProject(title));
-        setTitle('');
+      dispatch(addProject(title));
+      setTitle('');
     }
-};
+  };
 
   return (
     <form onSubmit={handleSubmit}>

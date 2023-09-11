@@ -14,7 +14,6 @@ import OdinRecipes from './components/OdinRecipes/OdinRecipes';
 import Landing from './components/Landing/Landing';
 import DashLanding from './components/DashLanding/DashLanding';
 
-
 function App() {
   return (
     <div className='App'>

@@ -20,46 +20,46 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 
 const DashLanding = () => {
   return (
-    <div className="dash-landing-container">
+    <div className='dash-landing-container'>
       <Sidebar />
       <MainContent />
     </div>
   );
-}
+};
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
+    <aside className='sidebar'>
       <Logo />
       <Navigation />
       <Settings />
     </aside>
   );
-}
+};
 
 const Logo = () => {
   return (
-    <div className="logo">
+    <div className='logo'>
       <DashboardIcon />
       <h2>Dashboard</h2>
     </div>
   );
-}
+};
 
 const Navigation = () => {
   return (
-    <nav className="nav">
+    <nav className='nav'>
       <ul>
-        <MenuItem icon={<HomeIcon />} label="Home" />
-        <MenuItem icon={<AccountCircleIcon />} label="Profile" />
-        <MenuItem icon={<MessageIcon />} label="Messages" />
-        <MenuItem icon={<HistoryIcon />} label="History" />
-        <MenuItem icon={<AssignmentIcon />} label="Tasks" />
-        <MenuItem icon={<GroupIcon />} label="Communities" />
+        <MenuItem icon={<HomeIcon />} label='Home' />
+        <MenuItem icon={<AccountCircleIcon />} label='Profile' />
+        <MenuItem icon={<MessageIcon />} label='Messages' />
+        <MenuItem icon={<HistoryIcon />} label='History' />
+        <MenuItem icon={<AssignmentIcon />} label='Tasks' />
+        <MenuItem icon={<GroupIcon />} label='Communities' />
       </ul>
     </nav>
   );
-}
+};
 
 type MenuItemProps = {
   icon: React.ReactNode;
@@ -68,99 +68,101 @@ type MenuItemProps = {
 
 const MenuItem: React.FC<MenuItemProps> = ({ icon, label }) => {
   return (
-    <li>{icon} {label}</li>
+    <li>
+      {icon} {label}
+    </li>
   );
-}
+};
 
 const Settings = () => {
   return (
-    <div className="settings">
+    <div className='settings'>
       <ul>
-        <MenuItem icon={<SettingsIcon />} label="Settings" />
-        <MenuItem icon={<HelpOutlineIcon />} label="Support" />
-        <MenuItem icon={<LockIcon />} label="Privacy" />
+        <MenuItem icon={<SettingsIcon />} label='Settings' />
+        <MenuItem icon={<HelpOutlineIcon />} label='Support' />
+        <MenuItem icon={<LockIcon />} label='Privacy' />
       </ul>
     </div>
   );
-}
+};
 
 const MainContent = () => {
   return (
-    <main className="main">
+    <main className='main'>
       <Header />
       <Content />
     </main>
   );
-}
+};
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className='header'>
       <TopBar />
       <LowerBar />
     </header>
   );
-}
+};
 
 const TopBar = () => {
   return (
-    <div className="top-bar">
-      <div className="search-bar">
-        <input id="search-input" type="text" />
+    <div className='top-bar'>
+      <div className='search-bar'>
+        <input id='search-input' type='text' />
         <SearchIcon />
       </div>
-      <div className="notifications">
+      <div className='notifications'>
         <NotificationsIcon />
       </div>
-      <div className="user-info">
+      <div className='user-info'>
         <img
-          src="https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem"
-          alt="User Avatar"
-          className="avatar-small"
+          src='https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem'
+          alt='User Avatar'
+          className='avatar-small'
         />
-        <span className="nickname">Username</span>
+        <span className='nickname'>Username</span>
       </div>
     </div>
   );
-}
+};
 
 const LowerBar = () => {
   return (
-    <div className="lower-bar">
-      <div className="user">
+    <div className='lower-bar'>
+      <div className='user'>
         <img
-          src="https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem"
-          alt="User Avatar"
-          className="avatar-large"
+          src='https://api.dicebear.com/6.x/notionists-neutral/svg?seed=Salem'
+          alt='User Avatar'
+          className='avatar-large'
         />
-        <div className="greeting">
+        <div className='greeting'>
           <h4>Hi there!</h4>
-          <span className="nickname">Username</span>
+          <span className='nickname'>Username</span>
         </div>
       </div>
-      <div className="actions">
+      <div className='actions'>
         <AddIcon />
         <CloudUploadIcon />
         <ShareIcon />
       </div>
     </div>
   );
-}
+};
 
 const Content = () => {
   return (
-    <section className="content">
+    <section className='content'>
       <MainContentSection />
       <RightSidebar />
     </section>
   );
-}
+};
 
 const MainContentSection = () => {
   return (
-    <div className="main-content">
+    <div className='main-content'>
       <h2>My Projects</h2>
-      <div className="my-projects">
+      <div className='my-projects'>
         {/* This can be further optimized by using .map and an array of projects */}
         <ProjectCard />
         <ProjectCard />
@@ -169,56 +171,56 @@ const MainContentSection = () => {
       </div>
     </div>
   );
-}
+};
 
 const ProjectCard = () => {
   return (
-    <div className="card">
+    <div className='card'>
       <h3>Project Name</h3>
-      <div className="card-actions">
+      <div className='card-actions'>
         <ShareIcon />
         <VisibilityIcon />
         <StarIcon />
       </div>
     </div>
   );
-}
+};
 
 const RightSidebar = () => {
   return (
-    <aside className="right-sidebar">
+    <aside className='right-sidebar'>
       <Announcements />
       <Statistics />
     </aside>
   );
-}
+};
 
 const Announcements = () => {
   return (
-    <div className="announcements">
+    <div className='announcements'>
       <h3>Announcements</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada commodo turpis, sed facilisis diam feugiat a. Pellentesque malesuada dictum purus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada
+        commodo turpis, sed facilisis diam feugiat a. Pellentesque malesuada
+        dictum purus.
       </p>
-      <p>
-        Lorem ipsum...
-      </p>
+      <p>Lorem ipsum...</p>
     </div>
   );
-}
+};
 
 const Statistics = () => {
   return (
-    <div className="statistics">
+    <div className='statistics'>
       <h3>Statistics</h3>
+      <p>Lorem ipsum...</p>
       <p>
-        Lorem ipsum...
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada commodo turpis, sed facilisis diam feugiat a. Pellentesque malesuada dictum purus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada
+        commodo turpis, sed facilisis diam feugiat a. Pellentesque malesuada
+        dictum purus.
       </p>
     </div>
   );
-}
+};
 
 export default DashLanding;
