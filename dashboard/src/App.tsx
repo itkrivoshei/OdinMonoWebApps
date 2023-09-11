@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Dashboard from './components/Dashboard';
 import Restaurant from './components/RestaurantPages/Restaurant';
 import ToDoApp from './components/ToDoApp/ToDoApp';
@@ -14,9 +15,15 @@ import OdinRecipes from './components/OdinRecipes/OdinRecipes';
 import Landing from './components/Landing/Landing';
 import DashLanding from './components/DashLanding/DashLanding';
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 function App() {
   return (
-    <div className='App'>
+    <ThemeProvider theme={darkTheme}>
       <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path='/' element={<Dashboard />} />
@@ -34,7 +41,7 @@ function App() {
           <Route path='/OdinRecipes' element={<OdinRecipes />} />
         </Routes>
       </Router>
-    </div>
+    </ThemeProvider>
   );
 }
 
