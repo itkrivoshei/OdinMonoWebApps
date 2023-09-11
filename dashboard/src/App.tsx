@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import Restaurant from './components/Restaurant/Restaurant';
+import Restaurant from './components/RestaurantPages/Restaurant';
 import ToDoApp from './components/ToDoApp/ToDoApp';
 import TicTacToe from './components/TicTacToe/TicTacToe';
 import BookLibrary from './components/BookLibrary/BookLibrary';
