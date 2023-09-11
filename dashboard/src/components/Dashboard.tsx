@@ -1,54 +1,77 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Dashboard.scss';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  Container,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
 
 const Dashboard = () => {
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
+  const projects = [
+    { path: '/ToDoApp', name: 'To Do' },
+    { path: '/TicTacToe', name: 'Tic Tac Toe' },
+    { path: '/BookLibrary', name: 'Book Library' },
+    { path: '/SignUpForm', name: 'Sign Up Form' },
+    { path: '/Calculator', name: 'Calculator' },
+    { path: '/EtchASketch', name: 'Etch a Sketch' },
+    { path: '/DrumKit', name: 'Drum Kit' },
+    { path: '/RockPaperScissors', name: 'Rock Paper Scissors' },
+    { path: '/DashLanding', name: 'Simple Dashboard Landing' },
+    { path: '/Restaurant', name: 'Restaurant Landing Pages' },
+    { path: '/OdinRecipes', name: 'Recipes Pages' },
+    { path: '/Landing', name: 'First Odin Landing' },
+  ];
+
   return (
-    <main>
-      <section className='dashboard-container'>
-        <h1>Odin Projects</h1>
-        <div className='project-list'>
-          <div className='project'>
-            <div className='sub-project'>
-              <Link to='/ToDoApp'>To Do</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/TicTacToe'>Tic Tac Toe</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/BookLibrary'>Book Library</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/SignUpForm'>Sign Up Form</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/Calculator'>Calculator</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/EtchASketch'>Etch a Sketch</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/DrumKit'>Drum Kit</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/RockPaperScissors'>Rock Paper Scissors</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/DashLanding'>Simple Dashboard Landing</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/Restaurant'>Restaurant Landing Pages</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/OdinRecipes'>Recipes Pages</Link>
-            </div>
-            <div className='sub-project'>
-              <Link to='/Landing'>First Odin Landing</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div
+        style={{
+          display: 'flex',
+          minHeight: '100vh',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Container
+          component='main'
+          maxWidth='sm'
+          style={{
+            paddingTop: '2rem',
+            background: 'linear-gradient(45deg, #333, #111)',
+            borderRadius: '8px',
+            padding: '2rem',
+          }}
+        >
+          <Typography variant='h4' align='center' gutterBottom>
+            Odin Projects
+          </Typography>
+          <List>
+            {projects.map((project, idx) => (
+              <ListItem
+                key={idx}
+                button
+                component={RouterLink}
+                to={project.path}
+              >
+                <ListItemText primary={project.name} />
+              </ListItem>
+            ))}
+          </List>
+        </Container>
+      </div>
+    </ThemeProvider>
   );
 };
 

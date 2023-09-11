@@ -1,4 +1,15 @@
 import React, { useState } from 'react';
+import {
+  Container,
+  Button,
+  Typography,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import PeopleIcon from '@mui/icons-material/People';
+import MoodBadIcon from '@mui/icons-material/MoodBad';
 
 type Weapon = 'ROCK' | 'PAPER' | 'SCISSORS';
 
@@ -11,6 +22,26 @@ interface GameState {
 }
 
 export const RockPaperScissors: React.FC = () => {
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: '#50fa7b', // green
+      },
+      secondary: {
+        main: '#ff79c6', // pink
+      },
+      background: {
+        default: '#282a36',
+        paper: '#44475a',
+      },
+      text: {
+        primary: '#f8f8f2',
+        secondary: '#6272a4',
+      },
+    },
+  });
+
   const [gameState, setGameState] = useState<GameState>({
     gamesPlayed: 0,
     ties: 0,
@@ -50,14 +81,14 @@ export const RockPaperScissors: React.FC = () => {
         ...prev,
         playerScore: prev.playerScore + 1,
         gamesPlayed: prev.gamesPlayed + 1,
-        message: `WIN: Machine died with ${computerWeapon}, you kill it with ${playerWeapon}`,
+        message: `WIN: Machine died with ${computerWeapon}, you killed it with ${playerWeapon}`,
       }));
     } else {
       setGameState((prev) => ({
         ...prev,
         computerScore: prev.computerScore + 1,
         gamesPlayed: prev.gamesPlayed + 1,
-        message: `LOSE: You died with ${playerWeapon}, computer kill you with ${computerWeapon}`,
+        message: `LOSE: You died with ${playerWeapon}, computer killed you with ${computerWeapon}`,
       }));
     }
   };
@@ -73,25 +104,90 @@ export const RockPaperScissors: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Rock, Paper, Scissors</h1>
-      <button onClick={() => playOneRound('ROCK')}>Rock</button>
-      <button onClick={() => playOneRound('PAPER')}>Paper</button>
-      <button onClick={() => playOneRound('SCISSORS')}>Scissors</button>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            width: '100%',
+            maxWidth: '400px',
+            marginBottom: '2rem',
+          }}
+        >
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => playOneRound('ROCK')}
+          >
+            Rock
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => playOneRound('PAPER')}
+          >
+            Paper
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => playOneRound('SCISSORS')}
+          >
+            Scissors
+          </Button>
+        </div>
 
-      <div>{gameState.message}</div>
-      <div>
-        Game played: {gameState.gamesPlayed}
-        <br />
-        Ties: {gameState.ties}
-        <br />
-        You: {gameState.playerScore}
-        <br />
-        Computer: {gameState.computerScore}
-      </div>
+        <Typography
+          variant='h6'
+          style={{
+            marginTop: '2rem',
+            color: gameState.message.includes('WIN')
+              ? '#50fa7b'
+              : gameState.message.includes('TIE')
+              ? '#f1fa8c'
+              : '#ff5555',
+          }}
+        >
+          {gameState.message}
+        </Typography>
 
-      <button onClick={resetGame}>Play Again</button>
-    </div>
+        {gameState.message.includes('WIN') && (
+          <EmojiEventsIcon style={{ marginTop: '0.5rem', color: '#50fa7b' }} />
+        )}
+        {gameState.message.includes('TIE') && (
+          <PeopleIcon style={{ marginTop: '0.5rem', color: '#f1fa8c' }} />
+        )}
+        {gameState.message.includes('LOSE') && (
+          <MoodBadIcon style={{ marginTop: '0.5rem', color: '#ff5555' }} />
+        )}
+
+        <Typography style={{ marginTop: '1.5rem' }}>
+          Game played: {gameState.gamesPlayed} <br />
+          Ties: {gameState.ties} <br />
+          You: {gameState.playerScore} <br />
+          Computer: {gameState.computerScore}
+        </Typography>
+
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={resetGame}
+          style={{ marginTop: '2rem' }}
+        >
+          Play Again
+        </Button>
+      </Container>
+    </ThemeProvider>
   );
 };
 
