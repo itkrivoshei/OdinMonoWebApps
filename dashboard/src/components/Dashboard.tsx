@@ -34,16 +34,16 @@ const Dashboard = () => {
               <Link to='/RockPaperScissors'>Rock Paper Scissors</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/OdinRecipes'>Recipes</Link>
+              <Link to='/DashLanding'>Simple Dashboard Landing</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/Restaurant'>Restaurant Landing</Link>
+              <Link to='/Restaurant'>Restaurant Landing Pages</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/Landing'>Odin Landing</Link>
+              <Link to='/OdinRecipes'>Recipes Pages</Link>
             </div>
             <div className='sub-project'>
-              <Link to='/DashLanding'>Dashboard Landing</Link>
+              <Link to='/Landing'>First Odin Landing</Link>
             </div>
           </div>
         </div>
