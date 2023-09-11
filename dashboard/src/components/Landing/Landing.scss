@@ -1,9 +1,25 @@
+// Variables
+$primary-color: #3882f6;
+$bg-gray: #e5e7eb;
+$bg-black: #1f2937;
+$text-gray: #e5e7eb;
+$text-dark: #474d55;
+$text-black: #1f2937;
+$text-white: #f9faf8;
+
 .landing-container {
+  // Global Resets
   * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style-type: none;
+  }
+
+  // Layout Properties
+  .normal-width {
+    width: 1200px;
+    margin: 0 auto;
   }
 
   body {
@@ -14,13 +30,20 @@
     justify-content: center;
   }
 
-  .button {
-    background-color: #3882f6;
+  // Common Components
+  .button,
+  .button-blue {
     border: none;
     padding: 10px;
     border-radius: 8px;
+    background-color: $primary-color;
   }
 
+  .button-blue {
+    border: 2px solid $text-white;
+  }
+
+  // Background Modifiers
   .main,
   .bg-full-black,
   .bg-full-gray {
@@ -28,76 +51,59 @@
   }
 
   .bg-full-gray {
-    background-color: #e5e7eb;
+    background-color: $bg-gray;
   }
 
   .bg-full-black {
-    background-color: #1f2937;
+    background-color: $bg-black;
   }
 
-  .header-tabs .logo-text {
-    margin-right: auto;
-  }
-
-  .normal-width {
-    width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* Header */
-
+  // Header Styles
   .header-tabs {
     display: flex;
     align-items: center;
+
+    .logo-text {
+      margin-right: auto;
+      color: $text-white;
+      font-size: 24px;
+    }
+
+    li {
+      margin-top: 24px;
+      padding: 10px;
+    }
   }
 
-  .header-tabs li {
-    margin-top: 24px;
-    padding: 10px;
-  }
-
-  /* Text */
-
+  // Text Modifiers
   .plain-text {
-    color: #e5e7eb;
+    color: $text-gray;
     font-size: 18px;
   }
 
   .quote-text {
-    color: #474d55;
-  }
-  .quote-text-ps {
-    color: #1f2937;
-  }
-
-  .logo-text,
-  .header-white-text {
-    color: #f9faf8;
-  }
-
-  .header-white-text .header-black-text {
-    font-weight: bolder;
-  }
-
-  .header-white-text {
-    font-size: 48px;
-  }
-
-  .logo-text {
-    font-size: 24px;
-  }
-
-  .header-black-text,
-  .quote-text {
+    color: $text-dark;
     font-size: 36px;
-  }
-
-  .quote-text {
     font-style: italic;
   }
 
-  /* First main block */
+  .quote-text-ps {
+    color: $text-black;
+    padding-top: 8px;
+    font-size: 24px;
+    text-align: right;
+  }
 
+  .header-white-text {
+    color: $text-white;
+    font-size: 48px;
+
+    .header-black-text {
+      font-weight: bolder;
+    }
+  }
+
+  // Main Blocks
   .normal-width.first-main {
     display: flex;
     padding: 64px 0;
@@ -107,23 +113,15 @@
 
   .text-block {
     flex: 1;
-  }
 
-  .text-block .plain-text {
-    margin: 12px 0;
+    .plain-text {
+      margin: 12px 0;
+    }
   }
 
   .first-main img {
     flex: auto;
   }
-
-  .quote-text-ps {
-    padding-top: 8px;
-    font-size: 24px;
-    text-align: right;
-  }
-
-  /* Second main block */
 
   .second-main {
     display: flex;
@@ -131,51 +129,41 @@
     align-items: center;
     padding: 64px 0;
     text-align: center;
-  }
+    color: $text-white;
 
-  .img-bar ul {
-    margin-top: 24px;
-    display: flex;
-    justify-content: center;
-    gap: 46px;
-  }
+    .img-bar ul {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 46px;
 
-  .img-bar ul li {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    flex: 0;
-  }
+      li {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        flex: 0;
 
-  .img-bar ul li img {
-    border-radius: 15px;
+        img {
+          border-radius: 15px;
+        }
+      }
+    }
   }
-
-  /* Gray block */
 
   .gray-block {
     padding: 64px;
     max-width: 900px;
   }
 
-  /* Blue block */
-
   .blue-block {
     border-radius: 20px;
     padding: 40px 120px;
     margin: 64px;
-    background-color: #3882f6;
+    background-color: $primary-color;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .button-blue {
-    background-color: #3882f6;
-    border: 2px solid white;
-    padding: 10px;
-    border-radius: 8px;
   }
 
   .footer {
