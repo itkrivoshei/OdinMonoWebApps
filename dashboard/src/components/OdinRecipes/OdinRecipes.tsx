@@ -33,20 +33,37 @@ function OdinRecipes() {
 
   function RecipeList() {
     return (
-      <Container>
-        <Typography variant='h4' component='div' gutterBottom>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+        }}
+      >
+        <Typography variant='h4' component='div' gutterBottom color='white'>
           Odin Recipes
         </Typography>
         <List>
-          <ListItem button onClick={() => setSelectedRecipe('HomemadeLasagna')}>
+          <ListItem
+            button
+            onClick={() => setSelectedRecipe('HomemadeLasagna')}
+            style={{ color: 'white' }}
+          >
             Homemade Lasagna
           </ListItem>
-          <ListItem button onClick={() => setSelectedRecipe('AcornSquash')}>
+          <ListItem
+            button
+            onClick={() => setSelectedRecipe('AcornSquash')}
+            style={{ color: 'white' }}
+          >
             Acorn Squash
           </ListItem>
           <ListItem
             button
             onClick={() => setSelectedRecipe('MicrowaveBakedPotato')}
+            style={{ color: 'white' }}
           >
             Microwave Baked Potato
           </ListItem>
@@ -58,10 +75,10 @@ function OdinRecipes() {
   function BackButton() {
     return (
       <Button
-        variant='contained'
-        color='primary'
+        variant='outlined'
+        color='inherit'
+        sx={{ color: 'white', borderColor: 'white', marginBottom: 2 }}
         onClick={goBack}
-        sx={{ mb: 2 }}
       >
         Back to Recipes
       </Button>
@@ -75,6 +92,7 @@ function OdinRecipes() {
     ingredients: string[];
     steps: string[];
   }
+
   function RecipeCard({
     title,
     imageSrc,
@@ -83,38 +101,52 @@ function OdinRecipes() {
     steps,
   }: RecipeCardProps) {
     return (
-      <Card sx={{ maxWidth: 900, m: 'auto', mt: 3 }}>
-        <CardMedia component='img' height='250' image={imageSrc} alt={title} />
-        <CardContent>
-          <Typography variant='h5' gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            {description}
-          </Typography>
-          <Typography variant='h6'>Ingredients</Typography>
-          <List>
-            {ingredients.map((ingredient, idx) => (
-              <ListItem key={idx}>{ingredient}</ListItem>
-            ))}
-          </List>
-          <Typography variant='h6'>Steps</Typography>
-          <List>
-            {steps.map((step, idx) => (
-              <ListItem key={idx}>
-                <Typography>{step}</Typography>
-              </ListItem>
-            ))}
-          </List>
-        </CardContent>
-      </Card>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          pt: 2,
+        }}
+      >
+        <BackButton />
+        <Card sx={{ maxWidth: 900 }}>
+          <CardMedia
+            component='img'
+            height='250'
+            image={imageSrc}
+            alt={title}
+          />
+          <CardContent>
+            <Typography variant='h5' gutterBottom>
+              {title}
+            </Typography>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              {description}
+            </Typography>
+            <Typography variant='h6'>Ingredients</Typography>
+            <List>
+              {ingredients.map((ingredient, idx) => (
+                <ListItem key={idx}>{ingredient}</ListItem>
+              ))}
+            </List>
+            <Typography variant='h6'>Steps</Typography>
+            <List>
+              {steps.map((step, idx) => (
+                <ListItem key={idx}>
+                  <Typography>{step}</Typography>
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+        </Card>
+      </Box>
     );
   }
 
   function AcornSquash() {
     return (
       <Box>
-        <BackButton />
         <RecipeCard
           title='Acorn Squash'
           imageSrc='https://www.allrecipes.com/thmb/gWKtlXa_borjWzer06AMsIllJOM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/16796-acorn-squash-1x1-76-a112f8ea8d90419ea1836dca402d9d8c.jpg'
@@ -138,7 +170,6 @@ function OdinRecipes() {
   function HomemadeLasagna() {
     return (
       <Box>
-        <BackButton />
         <RecipeCard
           title='Homemade Lasagna'
           imageSrc='https://www.allrecipes.com/thmb/zZCLBop9DmB05w3z1LtTtWUGjcY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/19344_homemade-lasagna_Rita2-1x1-1-b4f53c3ba2f4475c97665908a6fd1783.jpg'
@@ -172,7 +203,6 @@ function OdinRecipes() {
   function MicrowaveBakedPotato() {
     return (
       <Box>
-        <BackButton />
         <RecipeCard
           title='Microwave Baked Potato'
           imageSrc='https://www.allrecipes.com/thmb/cxaoqgpqkLuAiImkSFIxPKz_yKw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/85337-microwave-baked-potato-21-edefae39276544be801966be339afbf2.jpg'
