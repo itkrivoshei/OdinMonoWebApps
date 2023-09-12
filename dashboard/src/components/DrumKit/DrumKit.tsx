@@ -18,7 +18,11 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
       if (keyRef.current && audioRef.current) {
         keyRef.current.classList.add('playing');
         audioRef.current.currentTime = 0;
-        audioRef.current.play();
+        try {
+          audioRef.current.play();
+        } catch (err) {
+          console.error('Failed to play:', err);
+        }
       }
     };
 
@@ -51,7 +55,13 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
       <audio
         ref={audioRef}
         data-key={keyCode}
-        src={`sounds/${soundName}.wav`}
+        src={`./sounds/${soundName}.wav`}
+        onError={(e) => {
+          const target = e.target as HTMLAudioElement;
+          console.error(
+            `Error playing ${target.src}: ${target.error?.message}`
+          );
+        }}
       ></audio>
     </>
   );
@@ -59,7 +69,7 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
 
 const DrumKit: React.FC = () => {
   return (
-    <div className='keys drum-kit-container'>
+    <div className='drum-kit-container'>
       <DrumKey keyChar='A' soundName='clap' keyCode={65} />
       <DrumKey keyChar='S' soundName='hihat' keyCode={83} />
       <DrumKey keyChar='D' soundName='kick' keyCode={68} />
