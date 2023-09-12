@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './EtchASketch.scss';
 
 const EtchASketch: React.FC = () => {
   const [boardSize, setBoardSize] = useState<number>(16);
   const [boardColor, setBoardColor] = useState<string>('pink');
   const [pixelColor, setPixelColor] = useState<string>('blue');
+
+  const [tempBoardSize, setTempBoardSize] = useState<string>('16');
+  const [tempBoardColor, setTempBoardColor] = useState<string>('pink');
+  const [tempPixelColor, setTempPixelColor] = useState<string>('blue');
+
+  const workspaceRef = useRef<HTMLDivElement | null>(null);
 
   const getRandomColor = () => {
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -29,48 +35,69 @@ const EtchASketch: React.FC = () => {
   };
 
   const handleSetNewBoard = () => {
-    setBoardSize((prevSize) => {
-      if (!prevSize || isNaN(prevSize) || prevSize > 100) {
-        return 16;
-      }
-      return prevSize;
-    });
-    setBoardColor((prevColor) => prevColor || 'pink');
-    setPixelColor((prevColor) => prevColor || 'blue');
+    const newSize = Number(tempBoardSize);
+    if (newSize && !isNaN(newSize) && newSize <= 100) {
+      setBoardSize(newSize);
+    } else {
+      setBoardSize(16);
+    }
+
+    setBoardColor(tempBoardColor || 'pink');
+    setPixelColor(tempPixelColor || 'blue');
   };
+
+  useEffect(() => {
+    if (workspaceRef.current) {
+      const pixels = workspaceRef.current.querySelectorAll(
+        '.pixel'
+      ) as NodeListOf<HTMLDivElement>;
+      pixels.forEach((pixel) => {
+        pixel.style.backgroundColor = boardColor;
+        pixel.style.filter = '';
+      });
+    }
+  }, [boardSize, boardColor]);
 
   return (
     <div className='etch-a-sketch-container'>
-      <button onClick={handleSetNewBoard}>Set board</button>
-      <p>Board</p>
-      <span>Size:</span>
-      <input
-        id='board-size'
-        type='text'
-        placeholder='16'
-        value={boardSize}
-        onChange={(e) => setBoardSize(Number(e.target.value))}
-      />
-      <span>Color:</span>
-      <input
-        id='board-color'
-        type='text'
-        placeholder='pink'
-        value={boardColor}
-        onChange={(e) => setBoardColor(e.target.value)}
-      />
-      <p>Pixel</p>
-      <span>Color:</span>
-      <input
-        id='pixel-color'
-        type='text'
-        placeholder='blue'
-        value={pixelColor}
-        onChange={(e) => setPixelColor(e.target.value)}
-      />
-      <button onClick={() => setPixelColor('rainbow')}>Rainbow color</button>
-      <button onClick={() => setPixelColor('black')}>To Black Mod</button>
-      <div className='work-space'>
+      <div>
+        <span>Board Size:</span>
+        <input
+          id='board-size'
+          type='text'
+          placeholder='16'
+          value={tempBoardSize}
+          onChange={(e) => setTempBoardSize(e.target.value)}
+        />
+        <button onClick={handleSetNewBoard}>Set board</button>
+      </div>
+      <div>
+        <span>Board Color:</span>
+        <input
+          id='board-color'
+          type='text'
+          placeholder='pink'
+          value={tempBoardColor}
+          onChange={(e) => setTempBoardColor(e.target.value)}
+        />
+        <button onClick={() => setBoardColor(tempBoardColor)}>Set Color</button>
+      </div>
+      <div>
+        <span>Draw Color:</span>
+        <input
+          id='pixel-color'
+          type='text'
+          placeholder='blue'
+          value={tempPixelColor}
+          onChange={(e) => setTempPixelColor(e.target.value)}
+        />
+        <button onClick={() => setPixelColor(tempPixelColor)}>Set Color</button>
+      </div>
+      <div>
+        <button onClick={() => setPixelColor('rainbow')}>Rainbow Mod</button>
+        <button onClick={() => setPixelColor('black')}>Shadow Mod</button>
+      </div>
+      <div className='work-space' ref={workspaceRef}>
         {Array(boardSize)
           .fill(0)
           .map((_, rowIndex) => (
