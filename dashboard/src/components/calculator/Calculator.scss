@@ -1,6 +1,8 @@
 .calculator-container {
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;400&display=swap');
 
+  background: linear-gradient(to right, #b5a28a, #e2d1ba, #c9b8a3);
+
   *,
   *::before,
   *::after {
@@ -10,19 +12,14 @@
     font-family: 'IBM Plex Sans', sans-serif;
   }
 
-  body {
-    background: linear-gradient(to right, #b5a28a, #e2d1ba, #c9b8a3);
-  }
-
   button {
     all: unset;
   }
 
-  .calculator {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  height: 100vh;
 
   .statusPanel {
     display: flex;
@@ -98,9 +95,9 @@
     place-items: center;
     grid-template-areas:
       'ac c vol git'
-      'numLock divide multiply subtract'
-      'seven eight nine add'
-      'four five six add'
+      'numLock divide multiply minus'
+      'seven eight nine plus'
+      'four five six plus'
       'one two three enter'
       'zero zero dot enter';
     background: #36352e;
@@ -148,8 +145,8 @@
   #zero {
     grid-area: zero;
   }
-  #add {
-    grid-area: add;
+  #plus {
+    grid-area: plus;
   }
   #minus {
     grid-area: minus;
