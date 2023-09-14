@@ -1,22 +1,22 @@
 import React from 'react';
 import './DashLanding.scss';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import HomeIcon from '@material-ui/icons/Home';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import MessageIcon from '@material-ui/icons/Message';
-import HistoryIcon from '@material-ui/icons/History';
-import GroupIcon from '@material-ui/icons/Group';
-import SettingsIcon from '@material-ui/icons/Settings';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import LockIcon from '@material-ui/icons/Lock';
-import SearchIcon from '@material-ui/icons/Search';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import AddIcon from '@material-ui/icons/Add';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import ShareIcon from '@material-ui/icons/Share';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import StarIcon from '@material-ui/icons/Star';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MessageIcon from '@mui/icons-material/Message';
+import HistoryIcon from '@mui/icons-material/History';
+import GroupIcon from '@mui/icons-material/Group';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import LockIcon from '@mui/icons-material/Lock';
+import SearchIcon from '@mui/icons-material/Search';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import AddIcon from '@mui/icons-material/Add';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ShareIcon from '@mui/icons-material/Share';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import StarIcon from '@mui/icons-material/Star';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 const DashLanding = () => {
   return (
