@@ -67,6 +67,28 @@
     border-right: 0;
   }
 
+  @keyframes lockToFade {
+    from {
+      background: #292828;
+      color: #292828;
+    }
+    to {
+      background: linear-gradient(to right, #019120, #338946, #019120);
+      color: #22c722;
+    }
+  }
+
+  @keyframes fadeToLock {
+    from {
+      background: linear-gradient(to right, #019120, #338946, #019120);
+      color: #22c722;
+    }
+    to {
+      background: #292828;
+      color: #292828;
+    }
+  }
+
   .display {
     max-width: 400px;
     height: 60px;
@@ -75,14 +97,18 @@
     align-items: center;
     justify-content: right;
     overflow: hidden;
-    color: #22c722;
     font-weight: bold;
     font-size: 20px;
-    background-color: #292828;
+    animation: lockToFade 0.5s forwards;
     padding: 10px;
     border: 1px solid #222;
     border-radius: 10px;
     margin: 24px 24px;
+    transition: background 0.5s, color 0.2s;
+  }
+
+  .lock {
+    animation: fadeToLock 0.5s forwards;
   }
 
   .buttons {
