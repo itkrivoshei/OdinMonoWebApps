@@ -7,6 +7,8 @@ const Calculator: React.FC = () => {
   const [previousVal, setPreviousVal] = useState<string>('');
   const [volume, setVolume] = useState(1);
   const [operator, setOperator] = useState<string | null>(null);
+  const [gitFlash, setGitFlash] = useState<boolean>(false);
+  const [numLockFlash, setNumLockFlash] = useState<boolean>(true);
 
   // Howler sounds
   const pGenericButton = useRef(
@@ -22,11 +24,6 @@ const Calculator: React.FC = () => {
     new Howl({ src: ['./audio/release_long_key.mp3'] })
   ).current;
 
-  pGenericButton.volume(volume);
-  rGenericButton.volume(volume);
-  pLongButton.volume(volume);
-  rLongButton.volume(volume);
-
   const handleInput = (value: string) => {
     switch (value) {
       case 'c':
@@ -37,12 +34,20 @@ const Calculator: React.FC = () => {
         break;
       case 'git':
         window.open('https://github.com/itkrivoshei', '_blank');
+        setGitFlash(true);
+        break;
+      case 'vol':
+        setVolume((prevVolume) => (prevVolume === 0 ? 1 : 0));
         break;
       case 'enter':
         const result = calculate();
         setCurrentVal(result);
-        setPreviousVal(''); // Reset the previous value
+        setPreviousVal('');
         setOperator(null);
+        break;
+      case 'numLock':
+        setNumLockFlash((prevNumLockFlash) => !prevNumLockFlash);
+        numLockFlash ? setCurrentVal('') : setCurrentVal('0');
         break;
       default:
         if (isOperator(value)) {
@@ -98,6 +103,7 @@ const Calculator: React.FC = () => {
   };
 
   const appendCurrentValue = (value: string) => {
+    if (!numLockFlash && !isNaN(Number(value))) return;
     if (value === '.' && currentVal.includes('.')) return;
 
     if (
@@ -158,12 +164,24 @@ const Calculator: React.FC = () => {
         id={id}
         className={`button ${isLongKey ? 'long-key' : ''}`}
         onClick={() => handleClick(dataValue)}
-        onMouseDown={() =>
-          isLongKey ? pLongButton.play() : pGenericButton.play()
-        }
-        onMouseUp={() =>
-          isLongKey ? rLongButton.play() : rGenericButton.play()
-        }
+        onMouseDown={() => {
+          if (id === 'vol') {
+            pGenericButton.play();
+          } else if (volume === 1) {
+            if (isLongKey) {
+              pLongButton.play();
+            } else pGenericButton.play();
+          }
+        }}
+        onMouseUp={() => {
+          if (id === 'vol') {
+            rGenericButton.play();
+          } else if (volume === 1) {
+            if (isLongKey) {
+              rLongButton.play();
+            } else rGenericButton.play();
+          }
+        }}
       >
         <img src={imageSrc} alt={dataValue} />
       </button>
@@ -177,20 +195,22 @@ const Calculator: React.FC = () => {
           Num
           <br />
           Lock
-          <div className='light'></div>
+          <div className={`light ${numLockFlash ? 'flash' : ''}`}></div>
         </div>
         <div>
           Volume
-          <div className='light'></div>
+          <div className={`light ${volume ? 'flash' : ''}`}></div>
         </div>
         <div>
           Git
           <br />
           Check
-          <div className='light'></div>
+          <div className={`light ${gitFlash ? 'flash' : ''}`}></div>
         </div>
       </div>
-      <div className='display'>{currentVal}</div>
+      <div className={`display ${!numLockFlash ? 'lock' : ''}`}>
+        {currentVal}
+      </div>
       <div className='buttons'>
         <Button
           id='ac'
@@ -281,6 +301,7 @@ const Calculator: React.FC = () => {
           id='plus'
           dataValue='+'
           imageSrc='./svg/plus.svg'
+          isLongKey
           handleClick={handleInput}
         />
         <Button
@@ -317,6 +338,7 @@ const Calculator: React.FC = () => {
           id='zero'
           dataValue='0'
           imageSrc='./svg/zero.svg'
+          isLongKey
           handleClick={handleInput}
         />
       </div>
