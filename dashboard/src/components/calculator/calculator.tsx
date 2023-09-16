@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Calculator.scss';
 import { Howl } from 'howler';
 
@@ -23,6 +23,110 @@ const Calculator: React.FC = () => {
   const rLongButton = useRef(
     new Howl({ src: ['./audio/release_long_key.mp3'] })
   ).current;
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    let isLongKey = false;
+
+    if (e.key === 'enter' || e.key === '+' || e.key === '0') {
+      isLongKey = true;
+    }
+
+    switch (e.key) {
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+      case '0':
+      case '.':
+        handleKeyInteraction(e.key);
+        break;
+      case 'Enter':
+        handleKeyInteraction('enter');
+        break;
+      case 'Backspace':
+        handleKeyInteraction('c');
+        break;
+      case 'c':
+      case 'C':
+        handleKeyInteraction('ac');
+        break;
+      case 'g':
+      case 'G':
+        handleKeyInteraction('git');
+        break;
+      case 'v':
+      case 'V':
+        handleKeyInteraction('vol');
+        break;
+      case 'Delete':
+        handleKeyInteraction('del');
+        break;
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        handleKeyInteraction(e.key);
+        break;
+      case 'NumLock':
+        handleKeyInteraction('numLock');
+        break;
+      default:
+        return;
+    }
+
+    if (volume === 1) {
+      if (isLongKey) {
+        pLongButton.play();
+      } else {
+        pGenericButton.play();
+      }
+    }
+  };
+
+  const handleKeyInteraction = (value: string) => {
+    let isLongKey = false;
+
+    if (value === 'enter' || value === '+' || value === '0') {
+      isLongKey = true;
+    }
+    handleInput(value);
+  };
+
+  useEffect(() => {
+    const handleKeyUp = (e: KeyboardEvent) => {
+      let isLongKey = false;
+      switch (e.key) {
+        case 'Enter':
+        case '+':
+        case '0':
+          isLongKey = true;
+          break;
+        default:
+          break;
+      }
+
+      if (volume === 1) {
+        if (isLongKey) {
+          rLongButton.play();
+        } else {
+          rGenericButton.play();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
 
   const handleInput = (value: string) => {
     switch (value) {
