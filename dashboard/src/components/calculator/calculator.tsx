@@ -24,7 +24,11 @@ const Calculator: React.FC = () => {
     new Howl({ src: ['./audio/release_long_key.mp3'] })
   ).current;
 
+  const pressedKeys = useRef<Set<string>>(new Set());
+
   const handleKeyDown = (e: KeyboardEvent) => {
+    if (pressedKeys.current.has(e.key)) return;
+
     let isLongKey = false;
 
     if (e.key === 'enter' || e.key === '+' || e.key === '0') {
@@ -86,6 +90,8 @@ const Calculator: React.FC = () => {
         pGenericButton.play();
       }
     }
+
+    pressedKeys.current.add(e.key);
   };
 
   const handleKeyInteraction = (value: string) => {
@@ -94,12 +100,15 @@ const Calculator: React.FC = () => {
     if (value === 'enter' || value === '+' || value === '0') {
       isLongKey = true;
     }
+
     handleInput(value);
   };
 
   useEffect(() => {
     const handleKeyUp = (e: KeyboardEvent) => {
+      pressedKeys.current.delete(e.key);
       let isLongKey = false;
+
       switch (e.key) {
         case 'Enter':
         case '+':
