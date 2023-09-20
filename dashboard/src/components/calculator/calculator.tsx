@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Calculator.scss';
 import { Howl } from 'howler';
+import Button from './Button';
 
 const Calculator: React.FC = () => {
   const [currentVal, setCurrentVal] = useState<string>('0');
@@ -57,6 +58,8 @@ const Calculator: React.FC = () => {
         break;
       case 'c':
       case 'C':
+      case 'a':
+      case 'A':
         handleKeyInteraction('ac');
         break;
       case 'g':
@@ -83,7 +86,7 @@ const Calculator: React.FC = () => {
         return;
     }
 
-    if (volume === 1) {
+    if (volume === 1 || e.key === 'v' || e.key === 'V') {
       if (isLongKey) {
         pLongButton.play();
       } else {
@@ -104,30 +107,30 @@ const Calculator: React.FC = () => {
     handleInput(value);
   };
 
+  const handleKeyUp = (e: KeyboardEvent) => {
+    pressedKeys.current.delete(e.key);
+    let isLongKey = false;
+
+    switch (e.key) {
+      case 'Enter':
+      case '+':
+      case '0':
+        isLongKey = true;
+        break;
+      default:
+        break;
+    }
+
+    if (volume === 1 || e.key === 'v' || e.key === 'V') {
+      if (isLongKey) {
+        rLongButton.play();
+      } else {
+        rGenericButton.play();
+      }
+    }
+  };
+
   useEffect(() => {
-    const handleKeyUp = (e: KeyboardEvent) => {
-      pressedKeys.current.delete(e.key);
-      let isLongKey = false;
-
-      switch (e.key) {
-        case 'Enter':
-        case '+':
-        case '0':
-          isLongKey = true;
-          break;
-        default:
-          break;
-      }
-
-      if (volume === 1) {
-        if (isLongKey) {
-          rLongButton.play();
-        } else {
-          rGenericButton.play();
-        }
-      }
-    };
-
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
 
@@ -135,9 +138,10 @@ const Calculator: React.FC = () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  }, [volume]);
 
   const handleInput = (value: string) => {
+    console.log(value);
     switch (value) {
       case 'c':
         clearCurrent();
@@ -172,10 +176,6 @@ const Calculator: React.FC = () => {
     }
   };
 
-  const isOperator = (value: string) => {
-    return ['+', '-', '*', '/', 'enter'].includes(value);
-  };
-
   const handleOperator = (value: string) => {
     // If there's an existing operator and no current value, replace the operator
     if (operator && currentVal === '0') {
@@ -200,6 +200,20 @@ const Calculator: React.FC = () => {
     setOperator(value);
   };
 
+  const appendCurrentValue = (value: string) => {
+    if (!numLockFlash && !isNaN(Number(value))) return;
+    if (value === '.' && currentVal.includes('.')) return;
+
+    if (
+      (currentVal === '0' && value !== '.') ||
+      (previousVal && operator && currentVal === '0')
+    ) {
+      setCurrentVal(value);
+    } else {
+      setCurrentVal((prevVal) => prevVal + value);
+    }
+  };
+
   const clearCurrent = () => {
     const newVal = currentVal.slice(0, -1);
     if (newVal === '') {
@@ -215,18 +229,8 @@ const Calculator: React.FC = () => {
     setOperator(null);
   };
 
-  const appendCurrentValue = (value: string) => {
-    if (!numLockFlash && !isNaN(Number(value))) return;
-    if (value === '.' && currentVal.includes('.')) return;
-
-    if (
-      (currentVal === '0' && value !== '.') ||
-      (previousVal && operator && currentVal === '0')
-    ) {
-      setCurrentVal(value);
-    } else {
-      setCurrentVal((prevVal) => prevVal + value);
-    }
+  const isOperator = (value: string) => {
+    return ['+', '-', '*', '/', 'enter'].includes(value);
   };
 
   const calculate = (): string => {
@@ -255,50 +259,6 @@ const Calculator: React.FC = () => {
         break;
     }
     return res % 1 !== 0 ? res.toFixed(2) : res.toString();
-  };
-
-  interface ButtonProps {
-    id: string;
-    dataValue: string;
-    imageSrc: string;
-    handleClick: (value: string) => void;
-    isLongKey?: boolean;
-  }
-
-  const Button: React.FC<ButtonProps> = ({
-    id,
-    dataValue,
-    imageSrc,
-    handleClick,
-    isLongKey,
-  }) => {
-    return (
-      <button
-        id={id}
-        className={`button ${isLongKey ? 'long-key' : ''}`}
-        onClick={() => handleClick(dataValue)}
-        onMouseDown={() => {
-          if (id === 'vol') {
-            pGenericButton.play();
-          } else if (volume === 1) {
-            if (isLongKey) {
-              pLongButton.play();
-            } else pGenericButton.play();
-          }
-        }}
-        onMouseUp={() => {
-          if (id === 'vol') {
-            rGenericButton.play();
-          } else if (volume === 1) {
-            if (isLongKey) {
-              rLongButton.play();
-            } else rGenericButton.play();
-          }
-        }}
-      >
-        <img src={imageSrc} alt={dataValue} />
-      </button>
-    );
   };
 
   return (
