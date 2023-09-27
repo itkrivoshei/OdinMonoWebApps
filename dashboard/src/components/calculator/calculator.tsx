@@ -1,241 +1,142 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Calculator.scss';
 import { Howl } from 'howler';
 import Button from './Button';
 
 const Calculator: React.FC = () => {
-  const [currentVal, setCurrentVal] = useState<string>('0');
-  const [previousVal, setPreviousVal] = useState<string>('');
-  const [volume, setVolume] = useState(1);
-  const [operator, setOperator] = useState<string | null>(null);
-  const [gitFlash, setGitFlash] = useState<boolean>(false);
-  const [numLockFlash, setNumLockFlash] = useState<boolean>(true);
+  const [currentVal, setCurrentVal] = useState('');
+  const [previousVal, setPreviousVal] = useState('');
+  const [operator, setOperator] = useState('');
+  const [isKeyDown, setIsKeyDown] = useState(false);
+  const [git, setGit] = useState(false);
+  const [sound, setSound] = useState(true);
+  const [power, setPower] = useState(true);
 
   // Howler sounds
-  const pGenericButton = useRef(
-    new Howl({ src: ['./audio/press_generic.mp3'] })
-  ).current;
-  const rGenericButton = useRef(
-    new Howl({ src: ['./audio/release_generic.mp3'] })
-  ).current;
-  const pLongButton = useRef(
-    new Howl({ src: ['./audio/press_long_key.mp3'] })
-  ).current;
-  const rLongButton = useRef(
-    new Howl({ src: ['./audio/release_long_key.mp3'] })
-  ).current;
+  const pGenericButton = new Howl({ src: ['./audio/press_generic.mp3'] });
+  const rGenericButton = new Howl({ src: ['./audio/release_generic.mp3'] });
+  const pLongButton = new Howl({ src: ['./audio/press_long_key.mp3'] });
+  const rLongButton = new Howl({ src: ['./audio/release_long_key.mp3'] });
 
-  const pressedKeys = useRef<Set<string>>(new Set());
+  const keys = [
+    '+',
+    '-',
+    '*',
+    '/',
+    '=',
+    '.',
+    'dot',
+    'g',
+    'v',
+    'n',
+    'c',
+    'Enter',
+    'Escape',
+    'Backspace',
+    'Delete',
+    'NumLock',
+    'g',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+  ];
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (pressedKeys.current.has(e.key)) return;
-
-    let isLongKey = false;
-
-    if (e.key === 'enter' || e.key === '+' || e.key === '0') {
-      isLongKey = true;
-    }
-
-    switch (e.key) {
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-      case '0':
-      case '.':
-        handleKeyInteraction(e.key);
-        break;
-      case 'Enter':
-        handleKeyInteraction('enter');
-        break;
-      case 'Backspace':
-        handleKeyInteraction('c');
-        break;
+  const handleMultiKeys = (key: string) => {
+    switch (key) {
       case 'c':
-      case 'C':
-      case 'a':
-      case 'A':
-        handleKeyInteraction('ac');
-        break;
-      case 'g':
-      case 'G':
-        handleKeyInteraction('git');
-        break;
-      case 'v':
-      case 'V':
-        handleKeyInteraction('vol');
-        break;
+      case 'Backspace':
       case 'Delete':
-        handleKeyInteraction('del');
-        break;
-      case '+':
-      case '-':
-      case '*':
-      case '/':
-        handleKeyInteraction(e.key);
-        break;
+        return 'clear';
+      case '=':
+      case 'Enter':
+        return '=';
+      case 'Delete':
+      case 'Escape':
+        return 'delete';
       case 'NumLock':
-        handleKeyInteraction('numLock');
-        break;
+      case 'n':
+        return 'numLock';
       default:
-        return;
+        return key;
     }
+  };
 
-    if (volume === 1 || e.key === 'v' || e.key === 'V') {
-      if (isLongKey) {
+  const handleSound = (key: string, direction: string) => {
+    if (direction === 'down' && !isKeyDown) {
+      if (['0', '+', 'Enter', '='].includes(key)) {
         pLongButton.play();
       } else {
         pGenericButton.play();
       }
-    }
-
-    pressedKeys.current.add(e.key);
-  };
-
-  const handleKeyInteraction = (value: string) => {
-    let isLongKey = false;
-
-    if (value === 'enter' || value === '+' || value === '0') {
-      isLongKey = true;
-    }
-
-    handleInput(value);
-  };
-
-  const handleKeyUp = (e: KeyboardEvent) => {
-    pressedKeys.current.delete(e.key);
-    let isLongKey = false;
-
-    switch (e.key) {
-      case 'Enter':
-      case '+':
-      case '0':
-        isLongKey = true;
-        break;
-      default:
-        break;
-    }
-
-    if (volume === 1 || e.key === 'v' || e.key === 'V') {
-      if (isLongKey) {
+      setIsKeyDown(true);
+    } else if (direction === 'up') {
+      if (['0', '+', 'Enter'].includes(key)) {
         rLongButton.play();
       } else {
         rGenericButton.play();
       }
+      setIsKeyDown(false);
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keyup', handleKeyUp);
-    };
-  }, [volume]);
+  const isClickValid = (value: string) => {
+    return keys.includes(value);
+  };
 
   const handleInput = (value: string) => {
-    console.log(value);
     switch (value) {
-      case 'c':
-        clearCurrent();
+      case 'clear':
+        if (power) setCurrentVal((prev) => prev.slice(0, -1));
         break;
-      case 'ac':
-        clearAll();
-        break;
-      case 'git':
-        window.open('https://github.com/itkrivoshei', '_blank');
-        setGitFlash(true);
-        break;
-      case 'vol':
-        setVolume((prevVolume) => (prevVolume === 0 ? 1 : 0));
-        break;
-      case 'enter':
-        const result = calculate();
-        setCurrentVal(result);
-        setPreviousVal('');
-        setOperator(null);
-        break;
-      case 'numLock':
-        setNumLockFlash((prevNumLockFlash) => !prevNumLockFlash);
-        numLockFlash ? setCurrentVal('') : setCurrentVal('0');
+      case 'delete':
+        if (power) {
+          setCurrentVal('');
+          setPreviousVal('');
+          setOperator('');
+        }
         break;
       default:
-        if (isOperator(value)) {
+        if (isOperator(value) && power) {
           handleOperator(value);
-        } else {
-          appendCurrentValue(value);
+        } else if (
+          (parseInt(value) || parseInt(value) === 0 || value === '.') &&
+          power
+        ) {
+          setCurrentVal((prev) => prev + value);
         }
         break;
     }
   };
 
   const handleOperator = (value: string) => {
-    // If there's an existing operator and no current value, replace the operator
-    if (operator && currentVal === '0') {
-      setOperator(value);
-      return;
-    }
-
-    // If there's an existing operator, previous value, and a current value, compute the result
-    if (operator && currentVal !== '0' && previousVal) {
+    if (value === '=') {
       const result = calculate();
+      setCurrentVal(result);
       setPreviousVal(result);
-      setCurrentVal('0'); // Clear the current value after calculation
+    } else if (operator && currentVal) {
+      const result = calculate();
+      setCurrentVal(result);
+      setPreviousVal(result);
       setOperator(value);
-      return;
-    }
-
-    // If there's a current value but no previous value, set current value as the previous value
-    if (currentVal !== '0' && !previousVal) {
+    } else {
+      setOperator(value);
       setPreviousVal(currentVal);
-      setCurrentVal('0'); // Clear the current value after setting the operator
+      setCurrentVal('');
     }
-    setOperator(value);
-  };
-
-  const appendCurrentValue = (value: string) => {
-    if (!numLockFlash && !isNaN(Number(value))) return;
-    if (value === '.' && currentVal.includes('.')) return;
-
-    if (
-      (currentVal === '0' && value !== '.') ||
-      (previousVal && operator && currentVal === '0')
-    ) {
-      setCurrentVal(value);
-    } else {
-      setCurrentVal((prevVal) => prevVal + value);
-    }
-  };
-
-  const clearCurrent = () => {
-    const newVal = currentVal.slice(0, -1);
-    if (newVal === '') {
-      setCurrentVal('0');
-    } else {
-      setCurrentVal(newVal);
-    }
-  };
-
-  const clearAll = () => {
-    setCurrentVal('0');
-    setPreviousVal('0');
-    setOperator(null);
   };
 
   const isOperator = (value: string) => {
-    return ['+', '-', '*', '/', 'enter'].includes(value);
+    return ['+', '-', '*', '/', '=', 'Enter'].includes(value);
   };
 
-  const calculate = (): string => {
-    if (!operator || !previousVal) return currentVal;
-
+  const calculate = () => {
     const current = parseFloat(currentVal);
     const previous = parseFloat(previousVal);
     let res = 0;
@@ -252,13 +153,79 @@ const Calculator: React.FC = () => {
         break;
       case '/':
         if (current === 0) {
-          window.open('https://www.youtube.com/watch?v=NKmGVE85GUU', '_blank');
+          setCurrentVal('');
+          setPreviousVal('');
+          setOperator('');
+          window.open('https://www.youtube.com/watch?v=NKmGVE85GUU');
         } else {
           res = previous / current;
         }
         break;
+      default:
+        break;
     }
-    return res % 1 !== 0 ? res.toFixed(2) : res.toString();
+
+    return res.toFixed(2);
+  };
+
+  useEffect(() => {
+    const handleMouseDown = (e: any) => {
+      const value = e.target.parentElement.getAttribute('data-value');
+      if (sound || value === 'v') handleSound(value, 'down');
+      handleInput(value);
+    };
+
+    const handleMouseUp = (e: any) => {
+      const value = e.target.parentElement.getAttribute('data-value');
+      console.log(e.target.parentElement);
+      if (sound || value === 'v') handleSound(value, 'up');
+      if (value === 'g' || value === 'NumLock' || value === 'v')
+        handleCommandButtons(value);
+    };
+
+    const handleKeyDown = (e: any) => {
+      if (!isClickValid(e.key)) return;
+      const finalKey = handleMultiKeys(e.key);
+      if (sound || e.key === 'v') handleSound(e.key, 'down');
+      handleInput(finalKey);
+      if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v')
+        handleCommandButtons(finalKey);
+    };
+
+    const handleKeyUp = (e: any) => {
+      if (!isClickValid(e.key)) return;
+      if (sound) handleSound(e.key, 'up');
+    };
+
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [sound]);
+
+  const handleCommandButtons = (value: string) => {
+    switch (value) {
+      case 'g':
+        setGit(!git);
+        if (git) window.open('https://github.com/itkrivoshei');
+        break;
+      case 'v':
+        setSound(!sound);
+        console.log(sound);
+        break;
+      case 'NumLock':
+        setPower(!power);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -268,152 +235,72 @@ const Calculator: React.FC = () => {
           Num
           <br />
           Lock
-          <div className={`light ${numLockFlash ? 'flash' : ''}`}></div>
+          <div className={`light ${power ? 'flash' : ''}`}></div>
         </div>
         <div>
           Volume
-          <div className={`light ${volume ? 'flash' : ''}`}></div>
+          <div className={`light ${sound ? 'flash' : ''}`}></div>
         </div>
         <div>
           Git
           <br />
           Check
-          <div className={`light ${gitFlash ? 'flash' : ''}`}></div>
+          <div className={`light ${git ? 'flash' : ''}`}></div>
         </div>
       </div>
-      <div className={`display ${!numLockFlash ? 'lock' : ''}`}>
-        {currentVal}
-      </div>
+      <div className={`display ${!power ? 'lock' : ''}`}>{currentVal}</div>
       <div className='buttons'>
-        <Button
-          id='ac'
-          dataValue='ac'
-          imageSrc='./svg/ac.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='c'
-          dataValue='c'
-          imageSrc='./svg/c.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='divide'
-          dataValue='/'
-          imageSrc='./svg/divide.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='dot'
-          dataValue='.'
-          imageSrc='./svg/dot.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='eight'
-          dataValue='8'
-          imageSrc='./svg/eight.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='enter'
-          dataValue='enter'
-          imageSrc='./svg/enter.svg'
-          isLongKey
-          handleClick={handleInput}
-        />
-        <Button
-          id='five'
-          dataValue='5'
-          imageSrc='./svg/five.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='four'
-          dataValue='4'
-          imageSrc='./svg/four.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='git'
-          dataValue='git'
-          imageSrc='./svg/git.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='minus'
-          dataValue='-'
-          imageSrc='./svg/minus.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='multiply'
-          dataValue='*'
-          imageSrc='./svg/multiply.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='nine'
-          dataValue='9'
-          imageSrc='./svg/nine.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='numLock'
-          dataValue='numLock'
-          imageSrc='./svg/numLock.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='one'
-          dataValue='1'
-          imageSrc='./svg/one.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='plus'
-          dataValue='+'
-          imageSrc='./svg/plus.svg'
-          isLongKey
-          handleClick={handleInput}
-        />
-        <Button
-          id='seven'
-          dataValue='7'
-          imageSrc='./svg/seven.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='six'
-          dataValue='6'
-          imageSrc='./svg/six.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='three'
-          dataValue='3'
-          imageSrc='./svg/three.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='two'
-          dataValue='2'
-          imageSrc='./svg/two.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='vol'
-          dataValue='vol'
-          imageSrc='./svg/vol.svg'
-          handleClick={handleInput}
-        />
-        <Button
-          id='zero'
-          dataValue='0'
-          imageSrc='./svg/zero.svg'
-          isLongKey
-          handleClick={handleInput}
-        />
+        {[
+          { id: 'ac', dataValue: 'delete', imageSrc: './svg/ac.svg' },
+          { id: 'c', dataValue: 'clear', imageSrc: './svg/c.svg' },
+          { id: 'divide', dataValue: '/', imageSrc: './svg/divide.svg' },
+          { id: 'dot', dataValue: '.', imageSrc: './svg/dot.svg' },
+          { id: 'eight', dataValue: '8', imageSrc: './svg/eight.svg' },
+          {
+            id: 'enter',
+            dataValue: '=',
+            imageSrc: './svg/enter.svg',
+            isLongKey: true,
+          },
+          { id: 'five', dataValue: '5', imageSrc: './svg/five.svg' },
+          { id: 'four', dataValue: '4', imageSrc: './svg/four.svg' },
+          { id: 'git', dataValue: 'git', imageSrc: './svg/git.svg' },
+          { id: 'minus', dataValue: '-', imageSrc: './svg/minus.svg' },
+          { id: 'multiply', dataValue: '*', imageSrc: './svg/multiply.svg' },
+          { id: 'nine', dataValue: '9', imageSrc: './svg/nine.svg' },
+          {
+            id: 'numLock',
+            dataValue: 'numLock',
+            imageSrc: './svg/numLock.svg',
+          },
+          { id: 'one', dataValue: '1', imageSrc: './svg/one.svg' },
+          {
+            id: 'plus',
+            dataValue: '+',
+            imageSrc: './svg/plus.svg',
+            isLongKey: true,
+          },
+          { id: 'seven', dataValue: '7', imageSrc: './svg/seven.svg' },
+          { id: 'six', dataValue: '6', imageSrc: './svg/six.svg' },
+          { id: 'three', dataValue: '3', imageSrc: './svg/three.svg' },
+          { id: 'two', dataValue: '2', imageSrc: './svg/two.svg' },
+          { id: 'vol', dataValue: 'v', imageSrc: './svg/vol.svg' },
+          {
+            id: 'zero',
+            dataValue: '0',
+            imageSrc: './svg/zero.svg',
+            isLongKey: true,
+          },
+        ].map((button) => (
+          <Button
+            key={button.id}
+            id={button.id}
+            dataValue={button.dataValue}
+            imageSrc={button.imageSrc}
+            isLongKey={button.isLongKey}
+            handleClick={handleInput}
+          />
+        ))}
       </div>
     </div>
   );
