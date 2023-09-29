@@ -165,7 +165,7 @@ const Calculator: React.FC = () => {
         break;
     }
 
-    return res.toFixed(2);
+    return res % 1 === 0 ? String(res) : parseFloat(res.toFixed(2)).toString();
   };
 
   useEffect(() => {
