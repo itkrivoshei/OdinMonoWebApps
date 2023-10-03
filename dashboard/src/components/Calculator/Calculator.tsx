@@ -35,6 +35,8 @@ const Calculator: React.FC = () => {
     'Backspace',
     'Delete',
     'NumLock',
+    'Clear',
+    'ac',
     'g',
     '1',
     '2',
@@ -52,17 +54,14 @@ const Calculator: React.FC = () => {
     switch (key) {
       case 'c':
       case 'Backspace':
-      case 'Delete':
-        return 'clear';
+        return 'Clear';
       case '=':
       case 'Enter':
         return '=';
-      case 'Delete':
       case 'Escape':
-        return 'delete';
-      case 'NumLock':
+        return 'Delete';
       case 'n':
-        return 'numLock';
+        return 'NumLock';
       default:
         return key;
     }
@@ -92,10 +91,10 @@ const Calculator: React.FC = () => {
 
   const handleInput = (value: string) => {
     switch (value) {
-      case 'clear':
+      case 'Clear':
         if (power) setCurrentVal((prev) => prev.slice(0, -1));
         break;
-      case 'delete':
+      case 'Delete':
         if (power) {
           setCurrentVal('');
           setPreviousVal('');
@@ -249,8 +248,8 @@ const Calculator: React.FC = () => {
       <div className={`display ${!power ? 'lock' : ''}`}>{currentVal}</div>
       <div className='buttons'>
         {[
-          { id: 'ac', dataValue: 'delete', imageSrc: './svg/ac.svg' },
-          { id: 'c', dataValue: 'clear', imageSrc: './svg/c.svg' },
+          { id: 'ac', dataValue: 'Delete', imageSrc: './svg/ac.svg' },
+          { id: 'c', dataValue: 'Clear', imageSrc: './svg/c.svg' },
           { id: 'divide', dataValue: '/', imageSrc: './svg/divide.svg' },
           { id: 'dot', dataValue: '.', imageSrc: './svg/dot.svg' },
           { id: 'eight', dataValue: '8', imageSrc: './svg/eight.svg' },
@@ -268,7 +267,7 @@ const Calculator: React.FC = () => {
           { id: 'nine', dataValue: '9', imageSrc: './svg/nine.svg' },
           {
             id: 'numLock',
-            dataValue: 'numLock',
+            dataValue: 'NumLock',
             imageSrc: './svg/numLock.svg',
           },
           { id: 'one', dataValue: '1', imageSrc: './svg/one.svg' },
