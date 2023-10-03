@@ -76,6 +76,7 @@ const Calculator: React.FC = () => {
         pGenericButton.play();
       }
       setIsKeyDown(true);
+      console.log(isKeyDown);
     } else if (direction === 'up') {
       if (['0', '+', 'Enter'].includes(key)) {
         rLongButton.play();
@@ -207,7 +208,7 @@ const Calculator: React.FC = () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [sound]);
+  }, [sound, isKeyDown]);
 
   const handleCommandButtons = (value: string) => {
     switch (value) {
