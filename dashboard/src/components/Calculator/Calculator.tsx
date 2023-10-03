@@ -176,7 +176,7 @@ const Calculator: React.FC = () => {
     };
 
     const handleMouseUp = (e: any) => {
-      const value = e.target.parentElement.getAttribute('data-value');
+      const value = e.target.getAttribute('alt');
       if (sound || value === 'v') handleSound(value, 'up');
       if (value === 'g' || value === 'NumLock' || value === 'v')
         handleCommandButtons(value);
