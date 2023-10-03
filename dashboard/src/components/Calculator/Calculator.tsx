@@ -170,14 +170,13 @@ const Calculator: React.FC = () => {
 
   useEffect(() => {
     const handleMouseDown = (e: any) => {
-      const value = e.target.parentElement.getAttribute('data-value');
+      const value = e.target.getAttribute('alt');
       if (sound || value === 'v') handleSound(value, 'down');
       handleInput(value);
     };
 
     const handleMouseUp = (e: any) => {
       const value = e.target.parentElement.getAttribute('data-value');
-      console.log(e.target.parentElement);
       if (sound || value === 'v') handleSound(value, 'up');
       if (value === 'g' || value === 'NumLock' || value === 'v')
         handleCommandButtons(value);
@@ -218,7 +217,6 @@ const Calculator: React.FC = () => {
         break;
       case 'v':
         setSound(!sound);
-        console.log(sound);
         break;
       case 'NumLock':
         setPower(!power);
