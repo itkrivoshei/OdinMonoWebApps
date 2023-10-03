@@ -4,7 +4,8 @@ interface ButtonProps {
   id: string;
   dataValue: string;
   imageSrc: string;
-  handleClick: (value: string) => void;
+  onMouseDown: (value: string) => void;
+  onMouseUp: (value: string) => void;
   isLongKey?: boolean;
 }
 
@@ -12,14 +13,16 @@ const Button: React.FC<ButtonProps> = ({
   id,
   dataValue,
   imageSrc,
-  handleClick,
+  onMouseDown,
+  onMouseUp,
   isLongKey,
 }) => {
   return (
     <button
       id={id}
       className={`button ${isLongKey ? 'long-key' : ''}`}
-      onClick={() => handleClick(dataValue)}
+      onMouseDown={() => onMouseDown(dataValue)}
+      onMouseUp={() => onMouseUp(dataValue)}
     >
       <img src={imageSrc} alt={dataValue} />
     </button>

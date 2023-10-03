@@ -166,19 +166,6 @@ const Calculator: React.FC = () => {
   };
 
   useEffect(() => {
-    const handleMouseDown = (e: any) => {
-      const value = e.target.getAttribute('alt');
-      if (sound || value === 'v') handleSound(value, 'down');
-      handleInput(value);
-    };
-
-    const handleMouseUp = (e: any) => {
-      const value = e.target.getAttribute('alt');
-      if (sound || value === 'v') handleSound(value, 'up');
-      if (value === 'g' || value === 'NumLock' || value === 'v')
-        handleCommandButtons(value);
-    };
-
     const handleKeyDown = (e: any) => {
       if (!isClickValid(e.key)) return;
       const finalKey = handleMultiKeys(e.key);
@@ -193,14 +180,10 @@ const Calculator: React.FC = () => {
       if (sound || e.key === 'v') handleSound(e.key, 'up');
     };
 
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
     return () => {
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
@@ -221,6 +204,17 @@ const Calculator: React.FC = () => {
       default:
         break;
     }
+  };
+
+  const handleMouseDown = (dataValue: any) => {
+    if (sound || dataValue === 'v') handleSound(dataValue, 'down');
+    handleInput(dataValue);
+  };
+
+  const handleMouseUp = (dataValue: any) => {
+    if (sound || dataValue === 'v') handleSound(dataValue, 'up');
+    if (dataValue === 'g' || dataValue === 'NumLock' || dataValue === 'v')
+      handleCommandButtons(dataValue);
   };
 
   return (
@@ -293,7 +287,8 @@ const Calculator: React.FC = () => {
             dataValue={button.dataValue}
             imageSrc={button.imageSrc}
             isLongKey={button.isLongKey}
-            handleClick={handleInput}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
           />
         ))}
       </div>
