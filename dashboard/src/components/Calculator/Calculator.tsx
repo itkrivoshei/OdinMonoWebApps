@@ -69,15 +69,14 @@ const Calculator: React.FC = () => {
   };
 
   const handleSound = (key: string, direction: string) => {
-    if (direction === 'down' && !isKeyDown) {
+    if (direction === 'down' && !isKeyDown && keys.includes(key)) {
       if (['0', '+', 'Enter', '='].includes(key)) {
         pLongButton.play();
       } else {
         pGenericButton.play();
       }
       setIsKeyDown(true);
-      console.log(isKeyDown);
-    } else if (direction === 'up') {
+    } else if (direction === 'up' && keys.includes(key)) {
       if (['0', '+', 'Enter'].includes(key)) {
         rLongButton.play();
       } else {
