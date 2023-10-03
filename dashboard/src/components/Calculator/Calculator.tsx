@@ -55,7 +55,6 @@ const Calculator: React.FC = () => {
       case 'c':
       case 'Backspace':
         return 'Clear';
-      case '=':
       case 'Enter':
         return '=';
       case 'Escape':
