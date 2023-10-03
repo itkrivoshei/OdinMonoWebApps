@@ -58,7 +58,6 @@ const Calculator: React.FC = () => {
       case 'Enter':
         return '=';
       case 'Escape':
-        return 'Delete';
       case 'n':
         return 'NumLock';
       default:
@@ -191,7 +190,7 @@ const Calculator: React.FC = () => {
 
     const handleKeyUp = (e: any) => {
       if (!isClickValid(e.key)) return;
-      if (sound) handleSound(e.key, 'up');
+      if (sound || e.key === 'v') handleSound(e.key, 'up');
     };
 
     window.addEventListener('mousedown', handleMouseDown);
