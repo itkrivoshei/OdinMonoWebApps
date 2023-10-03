@@ -209,8 +209,8 @@ const Calculator: React.FC = () => {
   const handleCommandButtons = (value: string) => {
     switch (value) {
       case 'g':
-        setGit(!git);
-        if (git) window.open('https://github.com/itkrivoshei');
+        setGit(true);
+        window.open('https://github.com/itkrivoshei');
         break;
       case 'v':
         setSound(!sound);
@@ -259,7 +259,7 @@ const Calculator: React.FC = () => {
           },
           { id: 'five', dataValue: '5', imageSrc: './svg/five.svg' },
           { id: 'four', dataValue: '4', imageSrc: './svg/four.svg' },
-          { id: 'git', dataValue: 'git', imageSrc: './svg/git.svg' },
+          { id: 'git', dataValue: 'g', imageSrc: './svg/git.svg' },
           { id: 'minus', dataValue: '-', imageSrc: './svg/minus.svg' },
           { id: 'multiply', dataValue: '*', imageSrc: './svg/multiply.svg' },
           { id: 'nine', dataValue: '9', imageSrc: './svg/nine.svg' },
