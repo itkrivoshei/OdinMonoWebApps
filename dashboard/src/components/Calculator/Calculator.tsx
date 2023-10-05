@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 import Button from './Button';
 
 const Calculator: React.FC = () => {
-  const [currentVal, setCurrentVal] = useState('');
+  const [currentVal, setCurrentVal] = useState('0');
   const [previousVal, setPreviousVal] = useState('');
   const [operator, setOperator] = useState('');
   const [isKeyDown, setIsKeyDown] = useState(false);
@@ -90,11 +90,13 @@ const Calculator: React.FC = () => {
   const handleInput = (value: string) => {
     switch (value) {
       case 'Clear':
-        if (power) setCurrentVal((prev) => prev.slice(0, -1));
+        if (power) {
+          setCurrentVal((prev) => (prev.length > 1 ? prev.slice(0, -1) : '0'));
+        }
         break;
       case 'Delete':
         if (power) {
-          setCurrentVal('');
+          setCurrentVal('0');
           setPreviousVal('');
           setOperator('');
         }
@@ -106,7 +108,17 @@ const Calculator: React.FC = () => {
           (parseInt(value) || parseInt(value) === 0 || value === '.') &&
           power
         ) {
-          setCurrentVal((prev) => prev + value);
+          setCurrentVal((prev) => {
+            if (prev === '0' && value !== '.') {
+              return value;
+            } else if (prev === '0' && value === '.') {
+              return '0.';
+            } else if (value === '.' && prev.includes('.')) {
+              return prev;
+            } else {
+              return prev + value;
+            }
+          });
         }
         break;
     }
@@ -200,6 +212,9 @@ const Calculator: React.FC = () => {
         break;
       case 'NumLock':
         setPower(!power);
+        setCurrentVal('0');
+        setPreviousVal('');
+        setOperator('');
         break;
       default:
         break;
