@@ -11,6 +11,7 @@ const Calculator: React.FC = () => {
   const [git, setGit] = useState(false);
   const [sound, setSound] = useState(true);
   const [power, setPower] = useState(true);
+  const [lastKeyPressed, setLastKeyPressed] = useState<string | null>(null);
 
   // Howler sounds
   const pGenericButton = new Howl({ src: ['./audio/press_generic.mp3'] });
@@ -185,11 +186,13 @@ const Calculator: React.FC = () => {
       handleInput(finalKey);
       if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v')
         handleCommandButtons(finalKey);
+      setLastKeyPressed(finalKey); // Set last key pressed
     };
 
     const handleKeyUp = (e: any) => {
       if (!isClickValid(e.key)) return;
       if (sound || e.key === 'v') handleSound(e.key, 'up');
+      setLastKeyPressed(null); // Reset last key pressed
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -304,6 +307,7 @@ const Calculator: React.FC = () => {
             isLongKey={button.isLongKey}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
+            isActive={button.dataValue === lastKeyPressed}
           />
         ))}
       </div>

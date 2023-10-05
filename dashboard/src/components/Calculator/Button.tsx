@@ -7,6 +7,7 @@ interface ButtonProps {
   onMouseDown: (value: string) => void;
   onMouseUp: (value: string) => void;
   isLongKey?: boolean;
+  isActive?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,11 +17,14 @@ const Button: React.FC<ButtonProps> = ({
   onMouseDown,
   onMouseUp,
   isLongKey,
+  isActive,
 }) => {
   return (
     <button
       id={id}
-      className={`button ${isLongKey ? 'long-key' : ''}`}
+      className={`button ${isLongKey ? 'long-key' : ''} ${
+        isActive ? 'active' : ''
+      }`}
       onMouseDown={() => onMouseDown(dataValue)}
       onMouseUp={() => onMouseUp(dataValue)}
     >
