@@ -187,7 +187,7 @@ const Calculator: React.FC = () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [sound, isKeyDown]);
+  }, [sound, isKeyDown, power]);
 
   const handleCommandButtons = (value: string) => {
     switch (value) {
