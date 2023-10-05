@@ -12,6 +12,10 @@ const Calculator: React.FC = () => {
   const [sound, setSound] = useState(true);
   const [power, setPower] = useState(true);
   const [lastKeyPressed, setLastKeyPressed] = useState<string | null>(null);
+  const [lastOperation, setLastOperation] = useState<{
+    operand: string;
+    operator: string;
+  } | null>(null);
 
   // Howler sounds
   const pGenericButton = new Howl({ src: ['./audio/press_generic.mp3'] });
@@ -100,6 +104,7 @@ const Calculator: React.FC = () => {
           setCurrentVal('0');
           setPreviousVal('');
           setOperator('');
+          setLastOperation(null);
         }
         break;
       default:
@@ -127,18 +132,34 @@ const Calculator: React.FC = () => {
 
   const handleOperator = (value: string) => {
     if (value === '=') {
-      const result = calculate();
-      setCurrentVal(result);
-      setPreviousVal(result);
-    } else if (operator && currentVal) {
-      const result = calculate();
-      setCurrentVal(result);
-      setPreviousVal(result);
-      setOperator(value);
+      if (previousVal && currentVal && operator) {
+        const result = calculate();
+        setCurrentVal(result);
+        setPreviousVal('');
+        setOperator('');
+        setLastOperation({ operand: currentVal, operator });
+      } else if (lastOperation) {
+        // If "=" is pressed again, use the last operand and operator
+        const result = calculateWithLastOperation();
+        setCurrentVal(result);
+        setPreviousVal('');
+        setOperator('');
+      }
     } else {
-      setOperator(value);
-      setPreviousVal(currentVal);
-      setCurrentVal('');
+      if (operator && !currentVal) {
+        setOperator(value);
+      } else if (previousVal && currentVal && operator) {
+        const result = calculate();
+        setCurrentVal('');
+        setPreviousVal(result);
+        setOperator(value);
+        setLastOperation(null); // Reset the last operation when a new operator is pressed
+      } else {
+        setPreviousVal(currentVal);
+        setCurrentVal('');
+        setOperator(value);
+        setLastOperation(null); // Reset the last operation when a new operator is pressed
+      }
     }
   };
 
@@ -149,33 +170,33 @@ const Calculator: React.FC = () => {
   const calculate = () => {
     const current = parseFloat(currentVal);
     const previous = parseFloat(previousVal);
-    let res = 0;
+    return performCalculation(previous, current, operator);
+  };
 
-    switch (operator) {
+  const calculateWithLastOperation = () => {
+    const current = parseFloat(currentVal);
+    const last = parseFloat(lastOperation!.operand);
+    return performCalculation(current, last, lastOperation!.operator);
+  };
+
+  const performCalculation = (a: number, b: number, op: string) => {
+    switch (op) {
       case '+':
-        res = previous + current;
-        break;
+        return String(a + b);
       case '-':
-        res = previous - current;
-        break;
+        return String(a - b);
       case '*':
-        res = previous * current;
-        break;
+        return String(a * b);
       case '/':
-        if (current === 0) {
-          setCurrentVal('');
-          setPreviousVal('');
-          setOperator('');
+        if (b === 0) {
           window.open('https://www.youtube.com/watch?v=NKmGVE85GUU');
+          return 'Error';
         } else {
-          res = previous / current;
+          return String(a / b);
         }
-        break;
       default:
-        break;
+        return 'Error';
     }
-
-    return res % 1 === 0 ? String(res) : parseFloat(res.toFixed(2)).toString();
   };
 
   useEffect(() => {
