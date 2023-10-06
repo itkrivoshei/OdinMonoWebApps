@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './SignUpForm.scss';
 
 const SignUpForm: React.FC = () => {
@@ -27,6 +27,57 @@ const SignUpForm: React.FC = () => {
           match[3] ? '-' + match[3] : ''
         }`
       : '';
+  };
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    createMatrixBackground();
+  }, []);
+
+  const createMatrixBackground = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()<>/|';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops: number[] = [];
+
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
+    }
+
+    const drawMatrix = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0';
+      ctx.font = fontSize + "px 'VT323', monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    };
+
+    const matrixInterval = setInterval(drawMatrix, 50);
+
+    return () => clearInterval(matrixInterval);
   };
 
   const isPasswordValid = (password: string) => {
@@ -103,10 +154,9 @@ const SignUpForm: React.FC = () => {
 
   return (
     <div className='sign-up-form-container'>
-      {/* Matrix background will go here if needed */}
+      <canvas ref={canvasRef} id='canvas' />
       <div className='right-side'>
         <form onSubmit={handleFormSubmit}>
-          {/* The below code is repetitive, consider creating a reusable Input component */}
           <label htmlFor='firstName'>First Name *</label>
           <input
             type='text'
@@ -117,7 +167,55 @@ const SignUpForm: React.FC = () => {
           />
           <div className='error'>{formErrors.firstName}</div>
 
-          {/* ... Repeat for all other form fields ... */}
+          <label htmlFor='lastName'>Last Name *</label>
+          <input
+            type='text'
+            id='lastName'
+            name='lastName'
+            value={formData.lastName}
+            onChange={handleInputChange}
+          />
+          <div className='error'>{formErrors.lastName}</div>
+
+          <label htmlFor='email'>Email *</label>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            value={formData.email}
+            onChange={handleInputChange}
+          />
+          <div className='error'>{formErrors.email}</div>
+
+          <label htmlFor='phoneNumber'>Phone Number *</label>
+          <input
+            type='text'
+            id='phoneNumber'
+            name='phoneNumber'
+            value={formData.phoneNumber}
+            onChange={handleInputChange}
+          />
+          <div className='error'>{formErrors.phoneNumber}</div>
+
+          <label htmlFor='password'>Password *</label>
+          <input
+            type='password'
+            id='password'
+            name='password'
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+          <div className='error'>{formErrors.password}</div>
+
+          <label htmlFor='confirmPassword'>Confirm Password *</label>
+          <input
+            type='password'
+            id='confirmPassword'
+            name='confirmPassword'
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
+          />
+          <div className='error'>{formErrors.confirmPassword}</div>
 
           <button type='submit'>Create Account</button>
         </form>

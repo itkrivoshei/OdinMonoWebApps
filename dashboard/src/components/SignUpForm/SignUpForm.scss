@@ -1,122 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .sign-up-form-container {
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
+  body {
+    margin: 0;
+    color: #0f0;
+    font-family: 'VT323', monospace;
+    overflow: hidden;
+    background-color: black;
+  }
 
   * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
 
-  body {
-    background-color: black;
-    color: #0f0;
-    font-family: 'VT323', monospace;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  input.valid {
-    background-color: rgba(0, 255, 0, 0.05);
-  }
-
-  input.invalid {
-    background-color: rgba(255, 0, 0, 0.05);
-    border-color: red;
-  }
-
-  .left-side {
-    flex: 1;
+  .sign-up-form-container {
     position: relative;
+    height: 100vh;
     overflow: hidden;
-  }
-
-  .logo {
-    position: absolute;
-    background: black;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 60%;
-    z-index: 2;
-  }
-
-  .logo-text {
-    position: absolute;
-    background: black;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
-    top: 50%;
-    left: 50%;
-  }
-
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
   }
 
   canvas {
     display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .right-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
+    width: 80%;
+    max-width: 400px;
   }
 
   form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 80%;
-    margin: 0 auto;
-    background-color: black;
-    padding: 82px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  label,
+  input,
+  button {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: #0f0;
   }
 
   label {
-    font-size: 1.2rem;
     cursor: pointer;
   }
 
   input {
     padding: 8px;
-    font-family: 'VT323', monospace;
-    font-size: 1rem;
     background-color: #000;
-    color: #0f0;
     border: 1px solid #025a02;
-  }
 
-  input:focus {
-    border-color: #0f0;
-    outline: none;
+    &:focus {
+      border-color: #0f0;
+      outline: none;
+    }
   }
 
   button {
     padding: 10px;
-    font-family: 'VT323', monospace;
-    font-size: 1.2rem;
     background-color: #000;
-    color: #0f0;
     border: 1px solid #0f0;
     cursor: pointer;
-  }
 
-  button:hover {
-    border-color: #00ff00;
-  }
+    &:hover {
+      border-color: #00ff00;
+    }
 
-  button:focus {
-    outline: none;
+    &:focus {
+      outline: none;
+    }
   }
 
   .error {
