@@ -32,28 +32,17 @@ const SignUpForm: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    createMatrixBackground();
-  }, []);
-
-  const createMatrixBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const characters =
+    let characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()<>/|';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops: number[] = [];
-
-    for (let i = 0; i < columns; i++) {
-      drops[i] = 1;
-    }
+    let fontSize = 14;
+    let columns = canvas.width / fontSize;
+    let drops: number[] = Array(Math.floor(columns)).fill(1);
 
     const drawMatrix = () => {
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -75,10 +64,37 @@ const SignUpForm: React.FC = () => {
       }
     };
 
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight,
+        document.documentElement.clientHeight
+      );
+
+      // Adjust the font size and columns dynamically based on new width
+      fontSize = Math.max(canvas.width / 100, 10); // Ensure a minimum font size of 10
+      columns = canvas.width / fontSize;
+      drops = Array(Math.floor(columns)).fill(1); // Reset drops array size
+
+      drawMatrix();
+    };
+
     const matrixInterval = setInterval(drawMatrix, 50);
 
-    return () => clearInterval(matrixInterval);
-  };
+    window.addEventListener('resize', resizeCanvas);
+
+    return () => {
+      clearInterval(matrixInterval);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Update canvas size when form errors change
+    window.dispatchEvent(new Event('resize'));
+  }, [formErrors]); // Runs whenever formErrors changes
 
   const isPasswordValid = (password: string) => {
     const regex =
@@ -105,7 +121,6 @@ const SignUpForm: React.FC = () => {
     const isValid = validateForm();
     if (isValid) {
       console.log('Form submitted successfully', formData);
-      // Here you would handle your form submission logic, such as sending the data to an API
     }
   };
 
@@ -155,6 +170,15 @@ const SignUpForm: React.FC = () => {
   return (
     <div className='sign-up-form-container'>
       <canvas ref={canvasRef} id='canvas' />
+      <div className='left-side'>
+        <div className='logo'>
+          <img
+            src='https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWFmOGFiODQxZWY0N2Q5ODNhYmIzZGZmMDk5NTg5ZTJhNzQwNjcwMSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/2p1ng5ek9qIR8wzPn5/giphy.gif'
+            alt='Logo'
+          />
+          <h1 className='logo-text'>Sign up Form</h1>
+        </div>
+      </div>
       <div className='right-side'>
         <form onSubmit={handleFormSubmit}>
           <label htmlFor='firstName'>First Name *</label>

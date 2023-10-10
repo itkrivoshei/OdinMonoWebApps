@@ -1,38 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .sign-up-form-container {
-  body {
-    margin: 0;
-    color: #0f0;
-    font-family: 'VT323', monospace;
-    overflow: hidden;
-    background-color: black;
-  }
+  display: flex;
+  font-family: 'VT323', monospace;
+  color: #0f0;
+  margin: 0;
+  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  justify-content: space-between;
 
   * {
     box-sizing: border-box;
   }
 
-  .sign-up-form-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-
   canvas {
+    position: absolute;
     display: block;
     width: 100%;
-    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .left-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    position: relative;
+    max-width: 60%;
+    text-align: center;
+  }
+
+  .logo img {
+    max-width: 100%;
+  }
+
+  .logo-text {
+    font-size: 2rem;
   }
 
   .right-side {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 80%;
-    max-width: 400px;
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   form {
@@ -85,5 +103,29 @@
     color: #f00;
     font-size: 1rem;
     margin-bottom: 12px;
+  }
+
+  // Media Query for Mobile View
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .left-side,
+    .right-side {
+      flex: none;
+      width: 100%;
+    }
+
+    .logo {
+      max-width: 80%;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+    }
+
+    form {
+      width: 80%;
+      max-width: 300px;
+    }
   }
 }
