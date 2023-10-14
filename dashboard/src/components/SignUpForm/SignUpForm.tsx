@@ -66,6 +66,7 @@ const SignUpForm: React.FC = () => {
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
+      console.log('hi');
       canvas.height = Math.max(
         document.body.scrollHeight,
         document.documentElement.scrollHeight,
@@ -77,24 +78,26 @@ const SignUpForm: React.FC = () => {
       fontSize = Math.max(canvas.width / 100, 10); // Ensure a minimum font size of 10
       columns = canvas.width / fontSize;
       drops = Array(Math.floor(columns)).fill(1); // Reset drops array size
-
-      drawMatrix();
     };
 
+    // Draw the matrix at a regular interval
     const matrixInterval = setInterval(drawMatrix, 50);
 
-    window.addEventListener('resize', resizeCanvas);
+    // Resize the canvas when the window is resized
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      drawMatrix(); // Optionally redraw the matrix after resizing
+    });
+
+    // Initial canvas setup and matrix draw
+    resizeCanvas();
+    drawMatrix();
 
     return () => {
       clearInterval(matrixInterval);
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
-
-  useEffect(() => {
-    // Update canvas size when form errors change
-    window.dispatchEvent(new Event('resize'));
-  }, [formErrors]); // Runs whenever formErrors changes
 
   const isPasswordValid = (password: string) => {
     const regex =
