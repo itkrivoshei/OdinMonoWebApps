@@ -1,4 +1,38 @@
 import React, { useState } from 'react';
+import {
+  Button,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Typography,
+  Paper,
+  Grid,
+  FormGroup,
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+// Define the styles
+const useStyles = makeStyles({
+  root: {
+    minHeight: '100vh',
+    color: '#f8f8f2',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: '#282a36',
+    padding: '20px',
+    width: '80%',
+  },
+  addButton: {
+    width: '100%',
+    backgroundColor: '#50fa7b', // Dracula green
+    '&:hover': {
+      backgroundColor: '#5af78e',
+    },
+  },
+});
 
 type Book = {
   title: string;
@@ -70,78 +104,100 @@ const Library: React.FC = () => {
     setMyLibrary(updatedBooks);
   };
 
+  const classes = useStyles();
+
   return (
-    <div className='max-w-screen-lg flex flex-col p-10 text-white w-full bg-gray-800 mt-10'>
-      <h1 className='text-3xl mb-4'>My Library</h1>
-      <div className='grid grid-cols-1 gap-4'>
-        {myLibrary.map((book, index) => (
-          <div key={index}>
-            <h2 className='text-xl'>{book.title}</h2>
-            <p>{book.author}</p>
-            <p>{book.pages} pages</p>
-            <div className='flex items-center mb-1'>
-              <input
-                type='checkbox'
-                checked={book.read}
-                onChange={() => toggleRead(index)}
-              />
-              <label className='ml-2'>Read</label>
-            </div>
-            <button
-              className='bg-red-500 text-white px-2 py-1'
-              onClick={() => removeBook(index)}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
-      </div>
+    <div className={classes.root}>
+      <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
+        <Typography variant='h4' gutterBottom>
+          My Library
+        </Typography>
+        <Grid container spacing={3}>
+          {myLibrary.map((book, index) => (
+            <Grid item xs={12} key={index}>
+              <Typography variant='h6'>{book.title}</Typography>
+              <Typography>{book.author}</Typography>
+              <Typography>{book.pages} pages</Typography>
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={book.read}
+                      onChange={() => toggleRead(index)}
+                    />
+                  }
+                  label='Read'
+                />
+              </FormGroup>
+              <Button
+                variant='contained'
+                className={classes.addButton}
+                onClick={() => setShowForm(!showForm)}
+                style={{ marginTop: '20px' }}
+              >
+                ADD BOOK
+              </Button>
+            </Grid>
+          ))}
+        </Grid>
 
-      <button
-        className='bg-blue-500 text-white px-4 py-2 mt-4'
-        onClick={() => setShowForm(!showForm)}
-      >
-        ADD BOOK
-      </button>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={() => setShowForm(!showForm)}
+          style={{ marginTop: '20px' }}
+        >
+          ADD BOOK
+        </Button>
 
-      {showForm && (
-        <form onSubmit={handleFormSubmit} className='mt-4 space-y-2'>
-          <input
-            name='title'
-            placeholder='Title'
-            value={formData.title}
-            onChange={handleInputChange}
-            className='w-full px-2 py-1 bg-gray-700 text-white'
-          />
-          <input
-            name='author'
-            placeholder='Author'
-            value={formData.author}
-            onChange={handleInputChange}
-            className='w-full px-2 py-1 bg-gray-700 text-white'
-          />
-          <input
-            name='pages'
-            placeholder='Pages'
-            type='number'
-            value={formData.pages}
-            onChange={handleInputChange}
-            className='w-full px-2 py-1 bg-gray-700 text-white'
-          />
-          <div className='flex items-center'>
-            <input
-              name='read'
-              type='checkbox'
-              checked={formData.read}
+        {showForm && (
+          <form onSubmit={handleFormSubmit} style={{ marginTop: '20px' }}>
+            <TextField
+              name='title'
+              placeholder='Title'
+              value={formData.title}
               onChange={handleInputChange}
+              fullWidth
+              margin='normal'
+              variant='outlined'
             />
-            <label className='ml-2'>Read</label>
-          </div>
-          <button type='submit' className='bg-green-100 text-black px-4 py-2'>
-            Submit
-          </button>
-        </form>
-      )}
+            <TextField
+              name='author'
+              placeholder='Author'
+              value={formData.author}
+              onChange={handleInputChange}
+              fullWidth
+              margin='normal'
+              variant='outlined'
+            />
+            <TextField
+              name='pages'
+              placeholder='Pages'
+              type='number'
+              value={formData.pages}
+              onChange={handleInputChange}
+              fullWidth
+              margin='normal'
+              variant='outlined'
+            />
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name='read'
+                    checked={formData.read}
+                    onChange={handleInputChange}
+                  />
+                }
+                label='Read'
+              />
+            </FormGroup>
+            <Button type='submit' variant='contained' color='primary'>
+              Submit
+            </Button>
+          </form>
+        )}
+      </Paper>
     </div>
   );
 };
