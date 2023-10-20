@@ -9,30 +9,6 @@ import {
   Grid,
   FormGroup,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-
-// Define the styles
-const useStyles = makeStyles({
-  root: {
-    minHeight: '100vh',
-    color: '#f8f8f2',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: '#282a36',
-    padding: '20px',
-    width: '80%',
-  },
-  addButton: {
-    width: '100%',
-    backgroundColor: '#50fa7b', // Dracula green
-    '&:hover': {
-      backgroundColor: '#5af78e',
-    },
-  },
-});
 
 type Book = {
   title: string;
@@ -104,11 +80,17 @@ const Library: React.FC = () => {
     setMyLibrary(updatedBooks);
   };
 
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
-      <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
+    <>
+      <Paper
+        elevation={3}
+        style={{
+          padding: '20px',
+          marginTop: '20px',
+          backgroundColor: '#44475A',
+          color: '#F8F8F2',
+        }}
+      >
         <Typography variant='h4' gutterBottom>
           My Library
         </Typography>
@@ -129,24 +111,11 @@ const Library: React.FC = () => {
                   label='Read'
                 />
               </FormGroup>
-              <Button
-                variant='contained'
-                className={classes.addButton}
-                onClick={() => setShowForm(!showForm)}
-                style={{ marginTop: '20px' }}
-              >
-                ADD BOOK
-              </Button>
             </Grid>
           ))}
         </Grid>
 
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={() => setShowForm(!showForm)}
-          style={{ marginTop: '20px' }}
-        >
+        <Button variant='contained' onClick={() => setShowForm(!showForm)}>
           ADD BOOK
         </Button>
 
@@ -198,7 +167,7 @@ const Library: React.FC = () => {
           </form>
         )}
       </Paper>
-    </div>
+    </>
   );
 };
 
