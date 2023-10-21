@@ -82,15 +82,7 @@ const Library: React.FC = () => {
 
   return (
     <>
-      <Paper
-        elevation={3}
-        style={{
-          padding: '20px',
-          marginTop: '20px',
-          backgroundColor: '#44475A',
-          color: '#F8F8F2',
-        }}
-      >
+      <Paper elevation={3}>
         <Typography variant='h4' gutterBottom>
           My Library
         </Typography>
