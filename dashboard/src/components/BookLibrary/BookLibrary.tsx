@@ -8,7 +8,16 @@ import {
   Paper,
   Grid,
   FormGroup,
+  Container,
+  Box,
 } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 type Book = {
   title: string;
@@ -81,85 +90,115 @@ const Library: React.FC = () => {
   };
 
   return (
-    <>
-      <Paper elevation={3}>
-        <Typography variant='h4' gutterBottom>
-          My Library
-        </Typography>
-        <Grid container spacing={3}>
-          {myLibrary.map((book, index) => (
-            <Grid item xs={12} key={index}>
-              <Typography variant='h6'>{book.title}</Typography>
-              <Typography>{book.author}</Typography>
-              <Typography>{book.pages} pages</Typography>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={book.read}
-                      onChange={() => toggleRead(index)}
+    <ThemeProvider theme={darkTheme}>
+      <Container component='main' maxWidth='md'>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
+          height='100vh'
+        >
+          <Paper
+            elevation={3}
+            style={{
+              padding: '20px',
+              width: '100%',
+            }}
+          >
+            <Typography variant='h4' color='#bd93f9' gutterBottom>
+              My Library
+            </Typography>
+            <Grid container spacing={3}>
+              {myLibrary.map((book, index) => (
+                <Grid item xs={12} key={index}>
+                  <Typography color='#8BE9FD' variant='h6'>
+                    {book.title}
+                  </Typography>
+                  <Typography>{book.author}</Typography>
+                  <Typography>{book.pages} pages</Typography>
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={book.read}
+                          onChange={() => toggleRead(index)}
+                        />
+                      }
+                      label='Read'
                     />
-                  }
-                  label='Read'
-                />
-              </FormGroup>
+                  </FormGroup>
+                  <Button
+                    variant='contained'
+                    color='error'
+                    onClick={() => removeBook(index)}
+                    style={{ marginTop: '10px' }}
+                  >
+                    Remove
+                  </Button>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
 
-        <Button variant='contained' onClick={() => setShowForm(!showForm)}>
-          ADD BOOK
-        </Button>
-
-        {showForm && (
-          <form onSubmit={handleFormSubmit} style={{ marginTop: '20px' }}>
-            <TextField
-              name='title'
-              placeholder='Title'
-              value={formData.title}
-              onChange={handleInputChange}
-              fullWidth
-              margin='normal'
-              variant='outlined'
-            />
-            <TextField
-              name='author'
-              placeholder='Author'
-              value={formData.author}
-              onChange={handleInputChange}
-              fullWidth
-              margin='normal'
-              variant='outlined'
-            />
-            <TextField
-              name='pages'
-              placeholder='Pages'
-              type='number'
-              value={formData.pages}
-              onChange={handleInputChange}
-              fullWidth
-              margin='normal'
-              variant='outlined'
-            />
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name='read'
-                    checked={formData.read}
-                    onChange={handleInputChange}
-                  />
-                }
-                label='Read'
-              />
-            </FormGroup>
-            <Button type='submit' variant='contained' color='primary'>
-              Submit
+            <Button
+              variant='contained'
+              onClick={() => setShowForm(!showForm)}
+              style={{ marginTop: '20px', width: '100%' }}
+            >
+              ADD BOOK
             </Button>
-          </form>
-        )}
-      </Paper>
-    </>
+
+            {showForm && (
+              <form onSubmit={handleFormSubmit} style={{ marginTop: '20px' }}>
+                <TextField
+                  name='title'
+                  placeholder='Title'
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  fullWidth
+                  margin='normal'
+                  variant='outlined'
+                />
+                <TextField
+                  name='author'
+                  placeholder='Author'
+                  value={formData.author}
+                  onChange={handleInputChange}
+                  fullWidth
+                  margin='normal'
+                  variant='outlined'
+                />
+                <TextField
+                  name='pages'
+                  placeholder='Pages'
+                  type='number'
+                  value={formData.pages}
+                  onChange={handleInputChange}
+                  fullWidth
+                  margin='normal'
+                  variant='outlined'
+                />
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name='read'
+                        checked={formData.read}
+                        onChange={handleInputChange}
+                      />
+                    }
+                    label='Read'
+                  />
+                </FormGroup>
+                <Button type='submit' variant='contained' color='primary'>
+                  Submit
+                </Button>
+              </form>
+            )}
+          </Paper>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 };
 
