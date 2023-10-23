@@ -1,13 +1,11 @@
 .tic-tac-toe-container {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #282a36;
-    font-family: Arial, sans-serif;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #282a36;
+  font-family: Arial, sans-serif;
 
   #gameboard {
     display: none;
