@@ -16,6 +16,9 @@ const TicTacToe: React.FC = () => {
   });
   const [aiGame, setAiGame] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [winningCells, setWinningCells] = useState<number[]>([]);
+  const [isTie, setIsTie] = useState(false);
+  const [boardVisible, setBoardVisible] = useState(false);
 
   const winningCombinations = [
     [0, 1, 2],
@@ -35,15 +38,15 @@ const TicTacToe: React.FC = () => {
         currentBoard[combination[0]] === currentBoard[combination[1]] &&
         currentBoard[combination[1]] === currentBoard[combination[2]]
       ) {
-        // Highlight the winning cells or display a message.
         setGameOver(true);
+        setWinningCells(combination);
         return;
       }
     }
 
     if (currentBoard.every((cell) => cell !== null)) {
-      // Handle tie scenario.
       setGameOver(true);
+      setIsTie(true);
     }
   };
 
@@ -53,15 +56,20 @@ const TicTacToe: React.FC = () => {
       newBoard[index] = currentPlayer.mark;
       setBoard(newBoard);
       checkGameOver(newBoard);
-      if (aiGame) {
-        switchPlayer();
-        playAiTurn(newBoard);
-      }
       switchPlayer();
+
+      if (aiGame && !gameOver) {
+        playAiTurn(newBoard, 'O');
+        checkGameOver(newBoard);
+        switchPlayer();
+      }
     }
   };
 
-  const playAiTurn = (currentBoard: Array<'X' | 'O' | null>) => {
+  const playAiTurn = (
+    currentBoard: Array<'X' | 'O' | null>,
+    aiMark: 'X' | 'O'
+  ) => {
     const emptyCells: number[] = [];
     currentBoard.forEach((cell, index) => {
       if (cell === null) {
@@ -71,13 +79,14 @@ const TicTacToe: React.FC = () => {
     if (emptyCells.length > 0) {
       const randomIndex =
         emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      currentBoard[randomIndex] = currentPlayer.mark;
+      currentBoard[randomIndex] = aiMark;
       setBoard(currentBoard);
       checkGameOver(currentBoard);
     }
   };
 
   const switchPlayer = () => {
+    console.log('switching player');
     setCurrentPlayer((prev) =>
       prev.mark === 'X'
         ? { name: 'AI', mark: 'O' }
@@ -86,10 +95,13 @@ const TicTacToe: React.FC = () => {
   };
 
   const startGame = (isAiGame: boolean) => {
+    setBoardVisible(true);
     setBoard(Array(9).fill(null));
     setCurrentPlayer({ name: 'Player 1', mark: 'X' });
     setAiGame(isAiGame);
     setGameOver(false);
+    setWinningCells([]);
+    setIsTie(false);
   };
 
   const resetGame = () => {
@@ -100,17 +112,32 @@ const TicTacToe: React.FC = () => {
     <div className='tic-tac-toe-container'>
       <h1>Tic Tac Toe</h1>
       <div>
-        <button onClick={() => startGame(true)}>Play against AI</button>
-        <button onClick={() => startGame(false)}>2 Player Game</button>
+        <button
+          className={aiGame ? 'active-mod' : ''}
+          onClick={() => startGame(true)}
+        >
+          Play against AI
+        </button>
+        <button
+          className={!aiGame ? 'active-mod' : ''}
+          onClick={() => startGame(false)}
+        >
+          2 Player Game
+        </button>
       </div>
-      <div id='gameboard'>
+      <div id='gameboard' className={boardVisible ? 'visible' : ''}>
         {board.map((cell, index) => (
-          <div key={index} onClick={() => playTurn(index)}>
+          <div
+            key={index}
+            onClick={() => playTurn(index)}
+            className={
+              winningCells.includes(index) ? 'winner' : isTie ? 'tie' : ''
+            }
+          >
             {cell}
           </div>
         ))}
       </div>
-      {gameOver && <div>Game Over!</div>}
       <button onClick={resetGame}>Reset Game</button>
     </div>
   );
