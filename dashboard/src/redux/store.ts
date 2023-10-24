@@ -32,9 +32,7 @@ function loadState() {
 
     const parsedState = JSON.parse(serializedState);
 
-    return isValidState(parsedState)
-      ? { todos: parsedState }
-      : { todos: initialState }; // Validate the loaded state
+    return isValidState(parsedState) ? parsedState : { todos: initialState }; // Validate the loaded state
   } catch (err) {
     console.error('Could not load state', err);
     return { todos: initialState };
