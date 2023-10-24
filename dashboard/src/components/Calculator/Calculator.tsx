@@ -9,7 +9,7 @@ const Calculator: React.FC = () => {
   const [operator, setOperator] = useState('');
   const [isKeyDown, setIsKeyDown] = useState(false);
   const [git, setGit] = useState(false);
-  const [sound, setSound] = useState(true);
+  const [sound, setSound] = useState(false);
   const [power, setPower] = useState(true);
   const [lastKeyPressed, setLastKeyPressed] = useState<string | null>(null);
   const [audioInitialized, setAudioInitialized] = useState(false);
@@ -80,8 +80,6 @@ const Calculator: React.FC = () => {
 
     setAudioInitialized(true);
   };
-
-  initializeAudio();
 
   const handleMultiKeys = (key: string) => {
     switch (key) {
@@ -302,6 +300,7 @@ const Calculator: React.FC = () => {
         window.open('https://github.com/itkrivoshei');
         break;
       case 'v':
+        initializeAudio(); // Ensure audio is initialized
         setSound(!sound);
         break;
       case 'NumLock':
