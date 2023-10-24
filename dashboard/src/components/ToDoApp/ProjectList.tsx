@@ -4,7 +4,7 @@ import {
   setActiveProject,
   deleteProject,
   editProject,
-} from '../../redux/actions/todoActions';
+} from './redux/actions/todoActions';
 import { State, Project } from './ToDoApp';
 
 function ProjectList() {
