@@ -90,7 +90,6 @@ const TicTacToe: React.FC = () => {
   };
 
   const switchPlayer = () => {
-    console.log('switching player');
     setCurrentPlayer((prev) =>
       prev.mark === 'X'
         ? { name: 'AI', mark: 'O' }

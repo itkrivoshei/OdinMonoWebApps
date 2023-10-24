@@ -66,7 +66,6 @@ const SignUpForm: React.FC = () => {
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      console.log('hi');
       canvas.height = Math.max(
         document.body.scrollHeight,
         document.documentElement.scrollHeight,
