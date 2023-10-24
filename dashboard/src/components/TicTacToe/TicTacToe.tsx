@@ -31,7 +31,7 @@ const TicTacToe: React.FC = () => {
     [2, 4, 6],
   ];
 
-  const checkGameOver = (currentBoard: Array<'X' | 'O' | null>) => {
+  const checkGameOver = (currentBoard: Array<'X' | 'O' | null>): boolean => {
     for (let combination of winningCombinations) {
       if (
         currentBoard[combination[0]] &&
@@ -39,15 +39,18 @@ const TicTacToe: React.FC = () => {
         currentBoard[combination[1]] === currentBoard[combination[2]]
       ) {
         setGameOver(true);
-        setWinningCells(combination);
-        return;
+        setWinningCells(combination); // Set the winning combination
+        return true;
       }
     }
 
     if (currentBoard.every((cell) => cell !== null)) {
       setGameOver(true);
-      setIsTie(true);
+      setIsTie(true); // Set the tie state
+      return true;
     }
+
+    return false;
   };
 
   const playTurn = (index: number) => {
@@ -55,10 +58,11 @@ const TicTacToe: React.FC = () => {
       const newBoard = [...board];
       newBoard[index] = currentPlayer.mark;
       setBoard(newBoard);
-      checkGameOver(newBoard);
+
+      const isGameOver = checkGameOver(newBoard);
       switchPlayer();
 
-      if (aiGame && !gameOver) {
+      if (aiGame && !isGameOver) {
         playAiTurn(newBoard, 'O');
         checkGameOver(newBoard);
         switchPlayer();
