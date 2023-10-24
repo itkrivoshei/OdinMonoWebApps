@@ -55,7 +55,7 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
       <audio
         ref={audioRef}
         data-key={keyCode}
-        src={`./sounds/${soundName}.wav`}
+        src={`./DrumKit/sounds/${soundName}.wav`}
         onError={(e) => {
           const target = e.target as HTMLAudioElement;
           console.error(
