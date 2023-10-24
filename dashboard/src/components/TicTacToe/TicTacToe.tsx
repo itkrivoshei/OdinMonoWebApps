@@ -14,7 +14,7 @@ const TicTacToe: React.FC = () => {
     name: 'Player 1',
     mark: 'X',
   });
-  const [aiGame, setAiGame] = useState(false);
+  const [aiGame, setAiGame] = useState<boolean | null>(null);
   const [gameOver, setGameOver] = useState(false);
   const [winningCells, setWinningCells] = useState<number[]>([]);
   const [isTie, setIsTie] = useState(false);
@@ -98,11 +98,11 @@ const TicTacToe: React.FC = () => {
     );
   };
 
-  const startGame = (isAiGame: boolean) => {
+  const startGame = (isAiGame: boolean | null) => {
     setBoardVisible(true);
     setBoard(Array(9).fill(null));
     setCurrentPlayer({ name: 'Player 1', mark: 'X' });
-    setAiGame(isAiGame);
+    setAiGame(isAiGame || false);
     setGameOver(false);
     setWinningCells([]);
     setIsTie(false);
@@ -117,13 +117,13 @@ const TicTacToe: React.FC = () => {
       <h1>Tic Tac Toe</h1>
       <div>
         <button
-          className={aiGame ? 'active-mod' : ''}
+          className={aiGame === true ? 'active-mod' : ''}
           onClick={() => startGame(true)}
         >
           Play against AI
         </button>
         <button
-          className={!aiGame ? 'active-mod' : ''}
+          className={aiGame === false ? 'active-mod' : ''}
           onClick={() => startGame(false)}
         >
           2 Player Game
@@ -142,7 +142,7 @@ const TicTacToe: React.FC = () => {
           </div>
         ))}
       </div>
-      <button onClick={resetGame}>Reset Game</button>
+      {boardVisible && <button onClick={resetGame}>Reset Game</button>}{' '}
     </div>
   );
 };
