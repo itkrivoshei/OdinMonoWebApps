@@ -10,6 +10,7 @@ import {
   fetchTodos,
   addProject,
 } from './redux/actions/todoActions';
+import './index.scss';
 
 export interface Todo {
   id: number;
@@ -48,9 +49,12 @@ class ToDoApp extends React.Component<ToDoAppProps> {
     const { todos, addTodo, deleteTodo } = this.props;
 
     return (
-      <div>
+      <div className='todoapp'>
+        <h1>Todo App</h1>
+        <h2>Projects</h2>
         <AddProject />
         <ProjectList />
+        <h2>Todo's</h2>
         <AddTodo addTodo={addTodo} />
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>

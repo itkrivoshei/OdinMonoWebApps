@@ -45,11 +45,6 @@ function TodoItem({ todo }: TodoItemProps) {
 
   return (
     <li>
-      <input
-        type='checkbox'
-        checked={!!todo.completed}
-        onChange={handleToggleCompletion}
-      />
       {isEditing ? (
         <>
           <input type='text' value={newName} onChange={handleChange} />
@@ -57,13 +52,24 @@ function TodoItem({ todo }: TodoItemProps) {
         </>
       ) : (
         <>
-          <span
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          >
-            {todo.text}
-          </span>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
+          <div>
+            <input
+              type='checkbox'
+              checked={!!todo.completed}
+              onChange={handleToggleCompletion}
+            />
+            <span
+              style={{
+                textDecoration: todo.completed ? 'line-through' : 'none',
+              }}
+            >
+              {todo.text}
+            </span>
+          </div>
+          <div>
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
         </>
       )}
     </li>
