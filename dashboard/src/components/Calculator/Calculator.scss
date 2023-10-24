@@ -111,6 +111,15 @@
     animation: fadeToLock 0.5s forwards;
   }
 
+  .loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.5rem;
+    color: #36352e;
+  }
+
   .buttons {
     max-width: 400px;
     width: 100%;

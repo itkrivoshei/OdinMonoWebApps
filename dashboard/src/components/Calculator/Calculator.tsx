@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Calculator.scss';
 import { Howl } from 'howler';
 import Button from './Button';
@@ -12,16 +12,17 @@ const Calculator: React.FC = () => {
   const [sound, setSound] = useState(true);
   const [power, setPower] = useState(true);
   const [lastKeyPressed, setLastKeyPressed] = useState<string | null>(null);
+  const [audioInitialized, setAudioInitialized] = useState(false);
+  const [svgLoaded, setSvgLoaded] = useState(false);
   const [lastOperation, setLastOperation] = useState<{
     operand: string;
     operator: string;
   } | null>(null);
 
-  // Howler sounds
-  const pGenericButton = new Howl({ src: ['./audio/press_generic.mp3'] });
-  const rGenericButton = new Howl({ src: ['./audio/release_generic.mp3'] });
-  const pLongButton = new Howl({ src: ['./audio/press_long_key.mp3'] });
-  const rLongButton = new Howl({ src: ['./audio/release_long_key.mp3'] });
+  const pGenericButton = useRef<Howl | null>(null);
+  const rGenericButton = useRef<Howl | null>(null);
+  const pLongButton = useRef<Howl | null>(null);
+  const rLongButton = useRef<Howl | null>(null);
 
   const keys = [
     '+',
@@ -55,6 +56,33 @@ const Calculator: React.FC = () => {
     '0',
   ];
 
+  const initializeAudio = () => {
+    if (audioInitialized) return;
+
+    // Initialize the Howl objects
+    pGenericButton.current = new Howl({
+      src: ['./Calculator/audio/press_generic.mp3'],
+    });
+    rGenericButton.current = new Howl({
+      src: ['./Calculator/audio/release_generic.mp3'],
+    });
+    pLongButton.current = new Howl({
+      src: ['./Calculator/audio/press_long_key.mp3'],
+    });
+    rLongButton.current = new Howl({
+      src: ['./Calculator/audio/release_long_key.mp3'],
+    });
+
+    // Try to resume the AudioContext on user interaction
+    if (Howler.ctx && Howler.ctx.state && Howler.ctx.state === 'suspended') {
+      Howler.ctx.resume();
+    }
+
+    setAudioInitialized(true);
+  };
+
+  initializeAudio();
+
   const handleMultiKeys = (key: string) => {
     switch (key) {
       case 'c':
@@ -71,18 +99,20 @@ const Calculator: React.FC = () => {
   };
 
   const handleSound = (key: string, direction: string) => {
+    if (!audioInitialized) return;
+
     if (direction === 'down' && !isKeyDown && keys.includes(key)) {
       if (['0', '+', 'Enter', '='].includes(key)) {
-        pLongButton.play();
+        pLongButton.current?.play();
       } else {
-        pGenericButton.play();
+        pGenericButton.current?.play();
       }
       setIsKeyDown(true);
     } else if (direction === 'up' && keys.includes(key)) {
       if (['0', '+', 'Enter'].includes(key)) {
-        rLongButton.play();
+        rLongButton.current?.play();
       } else {
-        rGenericButton.play();
+        rGenericButton.current?.play();
       }
       setIsKeyDown(false);
     }
@@ -200,6 +230,46 @@ const Calculator: React.FC = () => {
   };
 
   useEffect(() => {
+    const imageList = [
+      './Calculator/svg/ac.svg',
+      './Calculator/svg/c.svg',
+      './Calculator/svg/divide.svg',
+      './Calculator/svg/dot.svg',
+      './Calculator/svg/eight.svg',
+      './Calculator/svg/enter.svg',
+      './Calculator/svg/five.svg',
+      './Calculator/svg/four.svg',
+      './Calculator/svg/git.svg',
+      './Calculator/svg/minus.svg',
+      './Calculator/svg/multiply.svg',
+      './Calculator/svg/nine.svg',
+      './Calculator/svg/numLock.svg',
+      './Calculator/svg/one.svg',
+      './Calculator/svg/plus.svg',
+      './Calculator/svg/seven.svg',
+      './Calculator/svg/six.svg',
+      './Calculator/svg/three.svg',
+      './Calculator/svg/two.svg',
+      './Calculator/svg/vol.svg',
+      './Calculator/svg/zero.svg',
+    ];
+
+    let loadedImages = 0;
+
+    imageList.forEach(
+      (imageSrc) => {
+        const img = new Image();
+        img.src = imageSrc;
+        img.onload = () => {
+          loadedImages++;
+          if (loadedImages === imageList.length) {
+            setSvgLoaded(true);
+          }
+        };
+      },
+      [sound, isKeyDown, power]
+    );
+
     const handleKeyDown = (e: any) => {
       if (!isClickValid(e.key)) return;
       const finalKey = handleMultiKeys(e.key);
@@ -258,80 +328,154 @@ const Calculator: React.FC = () => {
 
   return (
     <div className='calculator-container'>
-      <div className='statusPanel'>
-        <div>
-          Num
-          <br />
-          Lock
-          <div className={`light ${power ? 'flash' : ''}`}></div>
-        </div>
-        <div>
-          Volume
-          <div className={`light ${sound ? 'flash' : ''}`}></div>
-        </div>
-        <div>
-          Git
-          <br />
-          Check
-          <div className={`light ${git ? 'flash' : ''}`}></div>
-        </div>
-      </div>
-      <div className={`display ${!power ? 'lock' : ''}`}>{currentVal}</div>
-      <div className='buttons'>
-        {[
-          { id: 'ac', dataValue: 'Delete', imageSrc: './svg/ac.svg' },
-          { id: 'c', dataValue: 'Clear', imageSrc: './svg/c.svg' },
-          { id: 'divide', dataValue: '/', imageSrc: './svg/divide.svg' },
-          { id: 'dot', dataValue: '.', imageSrc: './svg/dot.svg' },
-          { id: 'eight', dataValue: '8', imageSrc: './svg/eight.svg' },
-          {
-            id: 'enter',
-            dataValue: '=',
-            imageSrc: './svg/enter.svg',
-            isLongKey: true,
-          },
-          { id: 'five', dataValue: '5', imageSrc: './svg/five.svg' },
-          { id: 'four', dataValue: '4', imageSrc: './svg/four.svg' },
-          { id: 'git', dataValue: 'g', imageSrc: './svg/git.svg' },
-          { id: 'minus', dataValue: '-', imageSrc: './svg/minus.svg' },
-          { id: 'multiply', dataValue: '*', imageSrc: './svg/multiply.svg' },
-          { id: 'nine', dataValue: '9', imageSrc: './svg/nine.svg' },
-          {
-            id: 'numLock',
-            dataValue: 'NumLock',
-            imageSrc: './svg/numLock.svg',
-          },
-          { id: 'one', dataValue: '1', imageSrc: './svg/one.svg' },
-          {
-            id: 'plus',
-            dataValue: '+',
-            imageSrc: './svg/plus.svg',
-            isLongKey: true,
-          },
-          { id: 'seven', dataValue: '7', imageSrc: './svg/seven.svg' },
-          { id: 'six', dataValue: '6', imageSrc: './svg/six.svg' },
-          { id: 'three', dataValue: '3', imageSrc: './svg/three.svg' },
-          { id: 'two', dataValue: '2', imageSrc: './svg/two.svg' },
-          { id: 'vol', dataValue: 'v', imageSrc: './svg/vol.svg' },
-          {
-            id: 'zero',
-            dataValue: '0',
-            imageSrc: './svg/zero.svg',
-            isLongKey: true,
-          },
-        ].map((button) => (
-          <Button
-            key={button.id}
-            id={button.id}
-            dataValue={button.dataValue}
-            imageSrc={button.imageSrc}
-            isLongKey={button.isLongKey}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            isActive={button.dataValue === lastKeyPressed}
-          />
-        ))}
-      </div>
+      {!svgLoaded ? (
+        <div className='loading-screen'>Loading...</div>
+      ) : (
+        <>
+          <div className='statusPanel'>
+            <div>
+              Num
+              <br />
+              Lock
+              <div className={`light ${power ? 'flash' : ''}`}></div>
+            </div>
+            <div>
+              Volume
+              <div className={`light ${sound ? 'flash' : ''}`}></div>
+            </div>
+            <div>
+              Git
+              <br />
+              Check
+              <div className={`light ${git ? 'flash' : ''}`}></div>
+            </div>
+          </div>
+          <div className={`display ${!power ? 'lock' : ''}`}>{currentVal}</div>
+          <div className='buttons'>
+            {[
+              {
+                id: 'ac',
+                dataValue: 'Delete',
+                imageSrc: './Calculator/svg/ac.svg',
+              },
+              {
+                id: 'c',
+                dataValue: 'Clear',
+                imageSrc: './Calculator/svg/c.svg',
+              },
+              {
+                id: 'divide',
+                dataValue: '/',
+                imageSrc: './Calculator/svg/divide.svg',
+              },
+              {
+                id: 'dot',
+                dataValue: '.',
+                imageSrc: './Calculator/svg/dot.svg',
+              },
+              {
+                id: 'eight',
+                dataValue: '8',
+                imageSrc: './Calculator/svg/eight.svg',
+              },
+              {
+                id: 'enter',
+                dataValue: '=',
+                imageSrc: './Calculator/svg/enter.svg',
+                isLongKey: true,
+              },
+              {
+                id: 'five',
+                dataValue: '5',
+                imageSrc: './Calculator/svg/five.svg',
+              },
+              {
+                id: 'four',
+                dataValue: '4',
+                imageSrc: './Calculator/svg/four.svg',
+              },
+              {
+                id: 'git',
+                dataValue: 'g',
+                imageSrc: './Calculator/svg/git.svg',
+              },
+              {
+                id: 'minus',
+                dataValue: '-',
+                imageSrc: './Calculator/svg/minus.svg',
+              },
+              {
+                id: 'multiply',
+                dataValue: '*',
+                imageSrc: './Calculator/svg/multiply.svg',
+              },
+              {
+                id: 'nine',
+                dataValue: '9',
+                imageSrc: './Calculator/svg/nine.svg',
+              },
+              {
+                id: 'numLock',
+                dataValue: 'NumLock',
+                imageSrc: './Calculator/svg/numLock.svg',
+              },
+              {
+                id: 'one',
+                dataValue: '1',
+                imageSrc: './Calculator/svg/one.svg',
+              },
+              {
+                id: 'plus',
+                dataValue: '+',
+                imageSrc: './Calculator/svg/plus.svg',
+                isLongKey: true,
+              },
+              {
+                id: 'seven',
+                dataValue: '7',
+                imageSrc: './Calculator/svg/seven.svg',
+              },
+              {
+                id: 'six',
+                dataValue: '6',
+                imageSrc: './Calculator/svg/six.svg',
+              },
+              {
+                id: 'three',
+                dataValue: '3',
+                imageSrc: './Calculator/svg/three.svg',
+              },
+              {
+                id: 'two',
+                dataValue: '2',
+                imageSrc: './Calculator/svg/two.svg',
+              },
+              {
+                id: 'vol',
+                dataValue: 'v',
+                imageSrc: './Calculator/svg/vol.svg',
+              },
+              {
+                id: 'zero',
+                dataValue: '0',
+                imageSrc: './Calculator/svg/zero.svg',
+                isLongKey: true,
+              },
+            ].map((button) => (
+              <Button
+                key={button.id}
+                id={button.id}
+                dataValue={button.dataValue}
+                imageSrc={button.imageSrc}
+                isLongKey={button.isLongKey}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                isActive={button.dataValue === lastKeyPressed}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
