@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -22,6 +23,17 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
     />
+
+    <!-- Script for GitHub Pages routing solution -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
 
     <!-- Uncomment the line below if you're making your app a PWA -->
     <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
