@@ -32,7 +32,7 @@ const TicTacToe: React.FC = () => {
   ];
 
   const checkGameOver = (currentBoard: Array<'X' | 'O' | null>): boolean => {
-    for (let combination of winningCombinations) {
+    for (const combination of winningCombinations) {
       if (
         currentBoard[combination[0]] &&
         currentBoard[combination[0]] === currentBoard[combination[1]] &&
@@ -54,20 +54,22 @@ const TicTacToe: React.FC = () => {
   };
 
   const playTurn = (index: number) => {
-    if (board[index] === null && !gameOver) {
-      const newBoard = [...board];
-      newBoard[index] = currentPlayer.mark;
-      setBoard(newBoard);
-
-      const isGameOver = checkGameOver(newBoard);
-      switchPlayer();
-
-      if (aiGame && !isGameOver) {
-        playAiTurn(newBoard, 'O');
-        checkGameOver(newBoard);
-        switchPlayer();
-      }
+    if (!(board[index] === null && !gameOver)) {
+      return;
     }
+    const newBoard = [...board];
+    newBoard[index] = currentPlayer.mark;
+    setBoard(newBoard);
+
+    const isGameOver = checkGameOver(newBoard);
+    switchPlayer();
+
+    if (!(aiGame && !isGameOver)) {
+      return;
+    }
+    playAiTurn(newBoard, 'O');
+    checkGameOver(newBoard);
+    switchPlayer();
   };
 
   const playAiTurn = (
@@ -80,13 +82,14 @@ const TicTacToe: React.FC = () => {
         emptyCells.push(index);
       }
     });
-    if (emptyCells.length > 0) {
-      const randomIndex =
-        emptyCells[Math.floor(Math.random() * emptyCells.length)];
-      currentBoard[randomIndex] = aiMark;
-      setBoard(currentBoard);
-      checkGameOver(currentBoard);
+    if (!(emptyCells.length > 0)) {
+      return;
     }
+    const randomIndex =
+      emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    currentBoard[randomIndex] = aiMark;
+    setBoard(currentBoard);
+    checkGameOver(currentBoard);
   };
 
   const switchPlayer = () => {

@@ -17,17 +17,17 @@ const StatusPanel: React.FC<StatusPanelProps> = ({
         Num
         <br />
         Lock
-        <div className={`light ${numLockFlash ? 'flash' : ''}`}></div>
+        <div className={`light ${numLockFlash ? 'flash' : ''}`} />
       </div>
       <div>
         Volume
-        <div className={`light ${volume ? 'flash' : ''}`}></div>
+        <div className={`light ${volume ? 'flash' : ''}`} />
       </div>
       <div>
         Git
         <br />
         Check
-        <div className={`light ${gitFlash ? 'flash' : ''}`}></div>
+        <div className={`light ${gitFlash ? 'flash' : ''}`} />
       </div>
     </div>
   );

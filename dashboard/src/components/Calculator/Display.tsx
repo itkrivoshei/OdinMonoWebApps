@@ -6,9 +6,7 @@ interface DisplayProps {
 }
 
 const Display: React.FC<DisplayProps> = ({ value, numLockFlash }) => {
-  return (
-    <div className={`display ${!numLockFlash ? 'lock' : ''}`}>{value}</div>
-  );
+  return <div className={`display ${numLockFlash ? '' : 'lock'}`}>{value}</div>;
 };
 
 export default Display;

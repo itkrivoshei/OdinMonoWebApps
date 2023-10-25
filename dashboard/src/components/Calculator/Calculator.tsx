@@ -74,7 +74,7 @@ const Calculator: React.FC = () => {
     });
 
     // Try to resume the AudioContext on user interaction
-    if (Howler.ctx && Howler.ctx.state && Howler.ctx.state === 'suspended') {
+    if (Howler.ctx?.state && Howler.ctx.state === 'suspended') {
       Howler.ctx.resume();
     }
 
@@ -173,21 +173,19 @@ const Calculator: React.FC = () => {
         setPreviousVal('');
         setOperator('');
       }
+    } else if (operator && !currentVal) {
+      setOperator(value);
     } else {
-      if (operator && !currentVal) {
-        setOperator(value);
-      } else if (previousVal && currentVal && operator) {
+      if (previousVal && currentVal && operator) {
         const result = calculate();
         setCurrentVal('');
         setPreviousVal(result);
-        setOperator(value);
-        setLastOperation(null); // Reset the last operation when a new operator is pressed
       } else {
         setPreviousVal(currentVal);
         setCurrentVal('');
-        setOperator(value);
-        setLastOperation(null); // Reset the last operation when a new operator is pressed
       }
+      setOperator(value);
+      setLastOperation(null); // Reset the last operation when a new operator is pressed
     }
   };
 
@@ -273,7 +271,7 @@ const Calculator: React.FC = () => {
       const finalKey = handleMultiKeys(e.key);
       if (sound || e.key === 'v') handleSound(e.key, 'down');
       handleInput(finalKey);
-      if (finalKey === 'g' || finalKey === 'NumLock' || finalKey === 'v')
+      if (['g', 'NumLock', 'v'].includes(finalKey))
         handleCommandButtons(finalKey);
       setLastKeyPressed(finalKey); // Set last key pressed
     };
@@ -321,35 +319,33 @@ const Calculator: React.FC = () => {
 
   const handleMouseUp = (dataValue: any) => {
     if (sound || dataValue === 'v') handleSound(dataValue, 'up');
-    if (dataValue === 'g' || dataValue === 'NumLock' || dataValue === 'v')
+    if (['g', 'NumLock', 'v'].includes(dataValue))
       handleCommandButtons(dataValue);
   };
 
   return (
     <div className='calculator-container'>
-      {!svgLoaded ? (
-        <div className='loading-screen'>Loading...</div>
-      ) : (
+      {svgLoaded ? (
         <>
           <div className='statusPanel'>
             <div>
               Num
               <br />
               Lock
-              <div className={`light ${power ? 'flash' : ''}`}></div>
+              <div className={`light ${power ? 'flash' : ''}`} />
             </div>
             <div>
               Volume
-              <div className={`light ${sound ? 'flash' : ''}`}></div>
+              <div className={`light ${sound ? 'flash' : ''}`} />
             </div>
             <div>
               Git
               <br />
               Check
-              <div className={`light ${git ? 'flash' : ''}`}></div>
+              <div className={`light ${git ? 'flash' : ''}`} />
             </div>
           </div>
-          <div className={`display ${!power ? 'lock' : ''}`}>{currentVal}</div>
+          <div className={`display ${power ? '' : 'lock'}`}>{currentVal}</div>
           <div className='buttons'>
             {[
               {
@@ -474,6 +470,8 @@ const Calculator: React.FC = () => {
             ))}
           </div>
         </>
+      ) : (
+        <div className='loading-screen'>Loading...</div>
       )}
     </div>
   );

@@ -23,8 +23,8 @@ const SignUpForm: React.FC = () => {
     const cleaned = phoneNumber.replace(/\D/g, '').slice(0, 10);
     const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,4})$/);
     return match
-      ? `${match[1]}${match[2] ? '-' + match[2] : ''}${
-          match[3] ? '-' + match[3] : ''
+      ? `${match[1]}${match[2] ? `-${match[2]}` : ''}${
+          match[3] ? `-${match[3]}` : ''
         }`
       : '';
   };
@@ -38,7 +38,7 @@ const SignUpForm: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let characters =
+    const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()<>/|';
     let fontSize = 14;
     let columns = canvas.width / fontSize;
@@ -49,7 +49,7 @@ const SignUpForm: React.FC = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = '#0f0';
-      ctx.font = fontSize + "px 'VT323', monospace";
+      ctx.font = `${fontSize}px 'VT323', monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const text = characters.charAt(
@@ -128,7 +128,7 @@ const SignUpForm: React.FC = () => {
 
   const validateForm = () => {
     let valid = true;
-    let errors = {
+    const errors = {
       firstName: '',
       lastName: '',
       email: '',
