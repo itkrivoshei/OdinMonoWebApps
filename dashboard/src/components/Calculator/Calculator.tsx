@@ -201,8 +201,8 @@ const Calculator: React.FC = () => {
 
   const calculateWithLastOperation = () => {
     const current = parseFloat(currentVal);
-    const last = parseFloat(lastOperation!.operand);
-    return performCalculation(current, last, lastOperation!.operator);
+    const last = parseFloat(lastOperation?.operand ?? '0');
+    return performCalculation(current, last, lastOperation?.operator ?? '+');
   };
 
   const performCalculation = (a: number, b: number, op: string) => {
@@ -266,7 +266,7 @@ const Calculator: React.FC = () => {
       [sound, isKeyDown, power]
     );
 
-    const handleKeyDown = (e: any) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (!isClickValid(e.key)) return;
       const finalKey = handleMultiKeys(e.key);
       if (sound || e.key === 'v') handleSound(e.key, 'down');
@@ -276,7 +276,7 @@ const Calculator: React.FC = () => {
       setLastKeyPressed(finalKey); // Set last key pressed
     };
 
-    const handleKeyUp = (e: any) => {
+    const handleKeyUp = (e: KeyboardEvent) => {
       if (!isClickValid(e.key)) return;
       if (sound || e.key === 'v') handleSound(e.key, 'up');
       setLastKeyPressed(null); // Reset last key pressed
@@ -312,12 +312,12 @@ const Calculator: React.FC = () => {
     }
   };
 
-  const handleMouseDown = (dataValue: any) => {
+  const handleMouseDown = (dataValue: string) => {
     if (sound || dataValue === 'v') handleSound(dataValue, 'down');
     handleInput(dataValue);
   };
 
-  const handleMouseUp = (dataValue: any) => {
+  const handleMouseUp = (dataValue: string) => {
     if (sound || dataValue === 'v') handleSound(dataValue, 'up');
     if (['g', 'NumLock', 'v'].includes(dataValue))
       handleCommandButtons(dataValue);

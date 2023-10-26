@@ -51,7 +51,7 @@ export const RockPaperScissors: React.FC = () => {
   });
 
   const getComputerChoice = (): Weapon => {
-    let weaponNum = Math.floor(Math.random() * 3 + 1);
+    const weaponNum = Math.floor(Math.random() * 3 + 1);
 
     switch (weaponNum) {
       case 1:

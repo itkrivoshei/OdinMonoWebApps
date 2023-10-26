@@ -71,7 +71,9 @@
         flex: 1;
         height: auto;
         background-color: blue;
-        transition: background-color 0.3s ease, filter 0.3s ease;
+        transition:
+          background-color 0.3s ease,
+          filter 0.3s ease;
         border: 1px solid #6272a4;
       }
     }

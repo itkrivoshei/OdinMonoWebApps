@@ -54,7 +54,7 @@ class ToDoApp extends React.Component<ToDoAppProps> {
         <h2>Projects</h2>
         <AddProject />
         <ProjectList />
-        <h2>Todo's</h2>
+        <h2>Todo&apos;s</h2>
         <AddTodo addTodo={addTodo} />
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>

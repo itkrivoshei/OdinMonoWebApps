@@ -82,12 +82,12 @@ const Landing = () => {
           <div className='blue-block'>
             <div>
               <p className='plain-text'>
-                <strong>way I'm smaller but.. Ok, daddy :]</strong>
+                <strong>way I&apos;m smaller but.. Ok, daddy :]</strong>
               </p>
               <p className='plain-text'>Ok call me daddy 👈(ﾟヮﾟ👈)</p>
             </div>
             <button className='button-blue plain-text'>
-              I'm a button without meaning
+              I&apos;m a button without meaning
             </button>
           </div>
         </div>

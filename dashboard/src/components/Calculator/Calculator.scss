@@ -104,7 +104,9 @@
     border: 1px solid #222;
     border-radius: 10px;
     margin: 24px 24px;
-    transition: background 0.5s, color 0.2s;
+    transition:
+      background 0.5s,
+      color 0.2s;
   }
 
   .lock {
