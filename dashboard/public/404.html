@@ -1,13 +1,49 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Redirecting...</title>
-    <script>
-      sessionStorage.redirect = location.href;
-    </script>
-    <meta http-equiv="refresh" content="0;URL='/JSt-For-Fun/'" />
+    <title>Page Not Found</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 150px;
+        font-family: 'Arial', sans-serif;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      body {
+        background-color: #f9f9f9;
+      }
+      .message {
+        display: inline-block;
+        text-align: left;
+        line-height: 49px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 10px 25px;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="message">
+      <h1>404</h1>
+      <p>Sorry, the page you are looking for cannot be found.</p>
+      <p>
+        Please check the URL or go back to the
+        <a href="/JSt-For-Fun/">homepage</a>.
+      </p>
+    </div>
+  </body>
 </html>
