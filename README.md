@@ -1,3 +1,1 @@
 # JSt-For-Fun
-
-Playground 🧪
