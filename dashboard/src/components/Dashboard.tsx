@@ -31,6 +31,7 @@ const Dashboard = () => {
     { path: '/Restaurant', name: 'Restaurant Landing Pages' },
     { path: '/OdinRecipes', name: 'Recipes Pages' },
     { path: '/Landing', name: 'First Odin Landing' },
+    { path: '/WeatherApp', name: 'Weather App' },
   ];
 
   return (
