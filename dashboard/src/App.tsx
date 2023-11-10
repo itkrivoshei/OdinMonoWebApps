@@ -13,6 +13,7 @@ import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors'
 import OdinRecipes from './components/OdinRecipes/OdinRecipes';
 import Landing from './components/Landing/Landing';
 import DashLanding from './components/DashLanding/DashLanding';
+import WeatherApp from './components/WeatherApp/WeatherApp';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/DashLanding' element={<DashLanding />} />
         <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
         <Route path='/OdinRecipes' element={<OdinRecipes />} />
+        <Route path='/WeatherApp' element={<WeatherApp />} />
       </Routes>
     </Router>
   );
