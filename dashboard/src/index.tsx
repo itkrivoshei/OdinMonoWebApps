@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './components/ToDoApp/redux/store';
+import store from './redux/store';
 
 const rootElement = document.getElementById('root');
 

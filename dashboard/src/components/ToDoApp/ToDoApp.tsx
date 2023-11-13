@@ -9,7 +9,7 @@ import {
   deleteTodo,
   fetchTodos,
   addProject,
-} from './redux/actions/todoActions';
+} from '../../redux/actions/todoActions';
 import './index.scss';
 
 export interface Todo {

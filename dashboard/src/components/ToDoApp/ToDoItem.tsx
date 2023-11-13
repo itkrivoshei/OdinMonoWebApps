@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, editTodo, toggleTodo } from './redux/actions/todoActions';
+import {
+  deleteTodo,
+  editTodo,
+  toggleTodo,
+} from '../../redux/actions/todoActions';
 
 type Todo = {
   id: number;
