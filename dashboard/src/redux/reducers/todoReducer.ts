@@ -8,7 +8,7 @@ import {
   EDIT_PROJECT,
   EDIT_TODO,
   TOGGLE_TODO_COMPLETION,
-} from './actionTypes';
+} from '../actions/actionTypes';
 
 // Type definitions
 interface Todo {

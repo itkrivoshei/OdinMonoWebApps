@@ -8,7 +8,7 @@ import {
   EDIT_PROJECT,
   TOGGLE_TODO_COMPLETION,
   EDIT_TODO,
-} from '../reducers/actionTypes';
+} from './actionTypes';
 
 // Action Creator: Add a new todo item
 /**
