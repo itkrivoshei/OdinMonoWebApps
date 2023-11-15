@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
-import todos from './todoReducer';
+import weatherReducer from './weatherReducer';
+import todosReducer from './todoReducer';
 
-export default combineReducers({
-  todos,
+const rootReducer = combineReducers({
+  weather: weatherReducer,
+  todos: todosReducer,
 });
+
+export type RootState = ReturnType<typeof rootReducer>;
+export default rootReducer;
