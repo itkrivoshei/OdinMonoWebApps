@@ -1,10 +1,16 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 
-export const FETCH_WEATHER_START = 'FETCH_WEATHER_START';
-export const FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS';
-export const FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE';
-export const RESET_WEATHER_ERROR = 'RESET_WEATHER_ERROR';
+export enum WeatherActionType {
+  FETCH_WEATHER_START = 'FETCH_WEATHER_START',
+  FETCH_WEATHER_SUCCESS = 'FETCH_WEATHER_SUCCESS',
+  FETCH_WEATHER_FAILURE = 'FETCH_WEATHER_FAILURE',
+  RESET_WEATHER_ERROR = 'RESET_WEATHER_ERROR',
+  SET_UNIT_CELSIUS = 'SET_UNIT_CELSIUS',
+  SET_UNIT_FAHRENHEIT = 'SET_UNIT_FAHRENHEIT',
+  SET_WIND_SPEED_KPH = 'SET_WIND_SPEED_KPH',
+  SET_WIND_SPEED_MPH = 'SET_WIND_SPEED_MPH',
+}
 
 export interface WeatherData {
   location: {
@@ -29,26 +35,90 @@ export interface WeatherData {
   };
 }
 
-export const resetWeatherError = () => ({
-  type: RESET_WEATHER_ERROR,
+interface FetchWeatherStartAction {
+  type: WeatherActionType.FETCH_WEATHER_START;
+}
+
+interface FetchWeatherSuccessAction {
+  type: WeatherActionType.FETCH_WEATHER_SUCCESS;
+  payload: WeatherData;
+}
+
+interface FetchWeatherFailureAction {
+  type: WeatherActionType.FETCH_WEATHER_FAILURE;
+  payload: string;
+}
+
+interface ResetWeatherErrorAction {
+  type: WeatherActionType.RESET_WEATHER_ERROR;
+}
+
+interface SetUnitCelsiusAction {
+  type: WeatherActionType.SET_UNIT_CELSIUS;
+}
+
+interface SetUnitFahrenheitAction {
+  type: WeatherActionType.SET_UNIT_FAHRENHEIT;
+}
+
+interface SetWindSpeedKPHAction {
+  type: WeatherActionType.SET_WIND_SPEED_KPH;
+}
+
+interface SetWindSpeedMPHAction {
+  type: WeatherActionType.SET_WIND_SPEED_MPH;
+}
+
+export type WeatherActionTypes =
+  | FetchWeatherStartAction
+  | FetchWeatherSuccessAction
+  | FetchWeatherFailureAction
+  | ResetWeatherErrorAction
+  | SetUnitCelsiusAction
+  | SetUnitFahrenheitAction
+  | SetWindSpeedKPHAction
+  | SetWindSpeedMPHAction;
+
+export const fetchWeatherStart = (): FetchWeatherStartAction => ({
+  type: WeatherActionType.FETCH_WEATHER_START,
 });
 
-const fetchWeatherStart = () => ({
-  type: FETCH_WEATHER_START,
-});
-
-const fetchWeatherSuccess = (weatherData: WeatherData) => ({
-  type: FETCH_WEATHER_SUCCESS,
+export const fetchWeatherSuccess = (
+  weatherData: WeatherData
+): FetchWeatherSuccessAction => ({
+  type: WeatherActionType.FETCH_WEATHER_SUCCESS,
   payload: weatherData,
 });
 
-const fetchWeatherFailure = (error: string) => ({
-  type: FETCH_WEATHER_FAILURE,
+export const fetchWeatherFailure = (
+  error: string
+): FetchWeatherFailureAction => ({
+  type: WeatherActionType.FETCH_WEATHER_FAILURE,
   payload: error,
 });
 
+export const resetWeatherError = (): ResetWeatherErrorAction => ({
+  type: WeatherActionType.RESET_WEATHER_ERROR,
+});
+
+export const setUnitCelsius = (): SetUnitCelsiusAction => ({
+  type: WeatherActionType.SET_UNIT_CELSIUS,
+});
+
+export const setUnitFahrenheit = (): SetUnitFahrenheitAction => ({
+  type: WeatherActionType.SET_UNIT_FAHRENHEIT,
+});
+
+export const setWindSpeedKPH = (): SetWindSpeedKPHAction => ({
+  type: WeatherActionType.SET_WIND_SPEED_KPH,
+});
+
+export const setWindSpeedMPH = (): SetWindSpeedMPHAction => ({
+  type: WeatherActionType.SET_WIND_SPEED_MPH,
+});
+
 export const fetchWeather = (city: string) => {
-  return (dispatch: Dispatch) => {
+  return (dispatch: Dispatch<WeatherActionTypes>) => {
     dispatch(resetWeatherError());
     dispatch(fetchWeatherStart());
 
@@ -57,7 +127,6 @@ export const fetchWeather = (city: string) => {
         `/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${city}&aqi=yes`
       )
       .then((response) => {
-        console.log(response);
         dispatch(fetchWeatherSuccess(response.data));
       })
       .catch((error) => {

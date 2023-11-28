@@ -1,16 +1,14 @@
 import React from 'react';
 import MainWeatherDisplay from './MainWeatherDisplay';
-import DailyForecast from './DailyForecast';
-import HourlyForecast from './HourlyForecast';
+import WeatherMeme from './WeatherMeme';
 import SettingsMenu from './SettingsMenu';
 
 const WeatherApp = () => {
   return (
     <div>
-      <MainWeatherDisplay />
-      <DailyForecast />
-      <HourlyForecast />
       <SettingsMenu />
+      <MainWeatherDisplay />
+      <WeatherMeme />
     </div>
   );
 };

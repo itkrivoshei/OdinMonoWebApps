@@ -6,41 +6,52 @@ import {
 } from '../../redux/actions/weatherActions';
 import { RootState } from '../../redux/reducers';
 
+type MainWeatherDisplayProps = PropsFromRedux;
+
 const mapStateToProps = (state: RootState) => ({
   weatherData: state.weather.weatherData,
   isLoading: state.weather.loading,
   error: state.weather.error,
+  unit: state.weather.unit,
 });
 
 const mapDispatchToProps = {
   fetchWeather,
+  resetWeatherError,
 };
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
-type PropsFromRedux = ConnectedProps<typeof connector>;
 
-type MainWeatherDisplayProps = PropsFromRedux & {
-  // Additional props here if needed
-};
+type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const MainWeatherDisplay: React.FC<MainWeatherDisplayProps> = ({
   fetchWeather,
+  resetWeatherError,
   weatherData,
   isLoading,
   error,
+  unit,
 }) => {
   useEffect(() => {
     fetchWeather('London');
     resetWeatherError();
   }, [fetchWeather, resetWeatherError]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   if (error) {
-    console.log('Rendering error:', error);
-    console.log('Weather data when error:', weatherData);
+    console.error('Rendering error:', error);
+    console.error('Weather data when error:', weatherData);
     return <p>Error loading weather: {error}</p>;
   }
+
+  const displayTemperature = (tempC: number, tempF: number) =>
+    unit === 'C' ? `${tempC}°C` : `${tempF}°F`;
+
+  const displayWindSpeed = (speedKph: number, speedMph: number) =>
+    unit === 'C' ? `${speedKph} kph` : `${speedMph} mph`;
 
   return (
     <div>
@@ -51,17 +62,26 @@ const MainWeatherDisplay: React.FC<MainWeatherDisplayProps> = ({
           </h2>
           <p>Local Time: {weatherData.location.localtime}</p>
           <p>
-            Temperature: {weatherData.current.temp_c}°C /{' '}
-            {weatherData.current.temp_f}°F
+            Temperature:{' '}
+            {displayTemperature(
+              weatherData.current.temp_c,
+              weatherData.current.temp_f
+            )}
           </p>
           <p>
-            Feels Like: {weatherData.current.feelslike_c}°C /{' '}
-            {weatherData.current.feelslike_f}°F
+            Feels Like:{' '}
+            {displayTemperature(
+              weatherData.current.feelslike_c,
+              weatherData.current.feelslike_f
+            )}
           </p>
           <p>Humidity: {weatherData.current.humidity}%</p>
           <p>
-            Wind: {weatherData.current.wind_kph} kph /{' '}
-            {weatherData.current.wind_mph} mph
+            Wind:{' '}
+            {displayWindSpeed(
+              weatherData.current.wind_kph,
+              weatherData.current.wind_mph
+            )}
           </p>
           <p>Condition: {weatherData.current.condition.text}</p>
           <p>
