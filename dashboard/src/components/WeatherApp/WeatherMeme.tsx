@@ -25,7 +25,7 @@ const WeatherMeme: React.FC<PropsFromRedux> = ({ currentCondition }) => {
       const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
         params: {
           api_key: process.env.REACT_APP_GIPHY_API_KEY,
-          q: condition + 'weather',
+          q: condition,
           limit: 30,
         },
       });

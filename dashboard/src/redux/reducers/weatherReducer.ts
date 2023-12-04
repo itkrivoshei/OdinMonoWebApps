@@ -23,29 +23,6 @@ const initialState: WeatherState = {
   unit: Unit.Celsius,
 };
 
-const convertWindSpeed = (speed: number, toUnit: Unit): number => {
-  return toUnit === Unit.Celsius ? speed * 1.60934 : speed / 1.60934;
-};
-
-const updateWeatherData = (
-  state: WeatherState,
-  updateFn: (
-    currentWeatherData: WeatherData['current']
-  ) => WeatherData['current']
-): WeatherState => {
-  if (!state.weatherData) {
-    return state;
-  }
-
-  return {
-    ...state,
-    weatherData: {
-      ...state.weatherData,
-      current: updateFn(state.weatherData.current),
-    },
-  };
-};
-
 const weatherReducer = (
   state = initialState,
   action: WeatherActionTypes
@@ -64,16 +41,16 @@ const weatherReducer = (
       return { ...state, error: null };
 
     case WeatherActionType.SET_UNIT_CELSIUS:
-      return updateWeatherData(state, (current) => ({
-        ...current,
-        wind_kph: convertWindSpeed(current.wind_mph, Unit.Celsius),
-      }));
+      return {
+        ...state,
+        unit: Unit.Celsius,
+      };
 
     case WeatherActionType.SET_UNIT_FAHRENHEIT:
-      return updateWeatherData(state, (current) => ({
-        ...current,
-        wind_mph: convertWindSpeed(current.wind_kph, Unit.Fahrenheit),
-      }));
+      return {
+        ...state,
+        unit: Unit.Fahrenheit,
+      };
 
     default:
       return state;

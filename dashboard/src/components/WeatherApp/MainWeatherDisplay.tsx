@@ -35,7 +35,7 @@ const MainWeatherDisplay: React.FC<MainWeatherDisplayProps> = ({
   useEffect(() => {
     fetchWeather('London');
     resetWeatherError();
-  }, [fetchWeather, resetWeatherError]);
+  }, []);
 
   if (isLoading) {
     return <p>Loading...</p>;
