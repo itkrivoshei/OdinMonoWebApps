@@ -4,7 +4,7 @@ import {
   setUnitCelsius,
   setUnitFahrenheit,
 } from '../../redux/actions/weatherActions';
-import { RootState } from '../../redux/reducers';
+import { RootState } from '../../redux/reducers/rootReducer';
 import { Unit } from '../../redux/reducers/weatherReducer';
 
 const mapStateToProps = (state: RootState) => ({

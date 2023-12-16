@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { RootState } from '../../redux/reducers';
+import { RootState } from '../../redux/reducers/rootReducer';
 import axios from 'axios';
 
 const mapStateToProps = (state: RootState) => ({

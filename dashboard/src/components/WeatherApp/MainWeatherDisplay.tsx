@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import {
-  fetchWeather,
+  fetchWeatherByLocation,
   resetWeatherError,
 } from '../../redux/actions/weatherActions';
-import { RootState } from '../../redux/reducers';
+import { RootState } from '../../redux/reducers/rootReducer';
 
 type MainWeatherDisplayProps = PropsFromRedux;
 
@@ -16,7 +16,7 @@ const mapStateToProps = (state: RootState) => ({
 });
 
 const mapDispatchToProps = {
-  fetchWeather,
+  fetchWeatherByLocation,
   resetWeatherError,
 };
 
@@ -25,7 +25,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 const MainWeatherDisplay: React.FC<MainWeatherDisplayProps> = ({
-  fetchWeather,
+  fetchWeatherByLocation,
   resetWeatherError,
   weatherData,
   isLoading,
@@ -33,9 +33,8 @@ const MainWeatherDisplay: React.FC<MainWeatherDisplayProps> = ({
   unit,
 }) => {
   useEffect(() => {
-    fetchWeather('London');
-    resetWeatherError();
-  }, []);
+    fetchWeatherByLocation();
+  }, [fetchWeatherByLocation, resetWeatherError]);
 
   if (isLoading) {
     return <p>Loading...</p>;

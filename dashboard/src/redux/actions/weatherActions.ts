@@ -1,5 +1,14 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { RootState } from '../reducers/rootReducer';
+
+export type ThunkResult<R> = ThunkAction<
+  R,
+  RootState,
+  undefined,
+  WeatherActionTypes
+>;
 
 export enum WeatherActionType {
   FETCH_WEATHER_START = 'FETCH_WEATHER_START',
@@ -10,6 +19,9 @@ export enum WeatherActionType {
   SET_UNIT_FAHRENHEIT = 'SET_UNIT_FAHRENHEIT',
   SET_WIND_SPEED_KPH = 'SET_WIND_SPEED_KPH',
   SET_WIND_SPEED_MPH = 'SET_WIND_SPEED_MPH',
+  FETCH_LOCATION_START = 'FETCH_LOCATION_START',
+  FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS',
+  FETCH_LOCATION_FAILURE = 'FETCH_LOCATION_FAILURE',
 }
 
 export interface WeatherData {
@@ -35,6 +47,19 @@ export interface WeatherData {
   };
 }
 
+interface FetchLocationStartAction {
+  type: WeatherActionType.FETCH_LOCATION_START;
+}
+
+interface FetchLocationSuccessAction {
+  type: WeatherActionType.FETCH_LOCATION_SUCCESS;
+  payload: { latitude: number; longitude: number };
+}
+
+interface FetchLocationFailureAction {
+  type: WeatherActionType.FETCH_LOCATION_FAILURE;
+  payload: string;
+}
 interface FetchWeatherStartAction {
   type: WeatherActionType.FETCH_WEATHER_START;
 }
@@ -77,7 +102,9 @@ export type WeatherActionTypes =
   | SetUnitCelsiusAction
   | SetUnitFahrenheitAction
   | SetWindSpeedKPHAction
-  | SetWindSpeedMPHAction;
+  | FetchLocationStartAction
+  | FetchLocationSuccessAction
+  | FetchLocationFailureAction;
 
 export const fetchWeatherStart = (): FetchWeatherStartAction => ({
   type: WeatherActionType.FETCH_WEATHER_START,
@@ -117,14 +144,73 @@ export const setWindSpeedMPH = (): SetWindSpeedMPHAction => ({
   type: WeatherActionType.SET_WIND_SPEED_MPH,
 });
 
-export const fetchWeather = (city: string) => {
+export const fetchLocationStart = (): FetchLocationStartAction => ({
+  type: WeatherActionType.FETCH_LOCATION_START,
+});
+
+export const fetchLocationSuccess = (
+  latitude: number,
+  longitude: number
+): FetchLocationSuccessAction => ({
+  type: WeatherActionType.FETCH_LOCATION_SUCCESS,
+  payload: { latitude, longitude },
+});
+
+export const fetchLocationFailure = (
+  error: string
+): FetchLocationFailureAction => ({
+  type: WeatherActionType.FETCH_LOCATION_FAILURE,
+  payload: error,
+});
+
+export const fetchWeatherByLocation = (): ThunkResult<void> => {
+  return (
+    dispatch: ThunkDispatch<RootState, undefined, WeatherActionTypes>
+  ) => {
+    dispatch(fetchLocationStart());
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          dispatch(fetchLocationSuccess(latitude, longitude));
+          dispatch(fetchWeather({ latitude, longitude }));
+        },
+        (error) => {
+          dispatch(fetchLocationFailure(error.message));
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      dispatch(
+        fetchLocationFailure('Geolocation is not supported by this browser.')
+      );
+    }
+  };
+};
+
+export const fetchWeather = (location: {
+  city?: string;
+  latitude?: number;
+  longitude?: number;
+}): ThunkResult<void> => {
   return (dispatch: Dispatch<WeatherActionTypes>) => {
     dispatch(resetWeatherError());
     dispatch(fetchWeatherStart());
 
+    let query;
+    if (location.city) {
+      query = location.city;
+    } else if (location.latitude && location.longitude) {
+      query = `${location.latitude},${location.longitude}`;
+    } else {
+      dispatch(fetchWeatherFailure('Invalid location data'));
+      return;
+    }
+
     axios
       .get(
-        `/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${city}&aqi=yes`
+        `/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`
       )
       .then((response) => {
         dispatch(fetchWeatherSuccess(response.data));
