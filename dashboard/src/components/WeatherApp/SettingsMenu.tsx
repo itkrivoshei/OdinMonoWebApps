@@ -7,13 +7,14 @@ import {
 } from '../../redux/actions/weatherActions';
 import { RootState } from '../../redux/reducers/rootReducer';
 import { Unit } from '../../redux/reducers/weatherReducer';
+import './styles/SettingsMenu.scss';
 
-// Mapping Redux state to component props
+// Function to map Redux state to component props
 const mapStateToProps = (state: RootState) => ({
   unit: state.weather.unit,
 });
 
-// Mapping Redux dispatch actions to component props
+// Function to map Redux dispatch actions to component props
 const mapDispatchToProps = {
   setUnitCelsius,
   setUnitFahrenheit,
@@ -24,7 +25,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-// SettingsMenu component
+// Functional component for the Settings Menu
 const SettingsMenu: React.FC<PropsFromRedux> = ({
   setUnitCelsius,
   setUnitFahrenheit,
@@ -32,39 +33,46 @@ const SettingsMenu: React.FC<PropsFromRedux> = ({
   unit,
 }) => {
   const [city, setCity] = useState('');
+  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
 
-  // Function to handle unit toggle
-  const toggleUnit = () => {
-    if (unit === Unit.Celsius) {
-      setUnitFahrenheit();
-    } else {
-      setUnitCelsius();
-    }
+  // Toggles the visibility of the settings content
+  const toggleSettingsVisibility = () => {
+    setIsSettingsVisible(!isSettingsVisible);
   };
 
-  // Function to handle city input change
+  // Toggles between Celsius and Fahrenheit units
+  const toggleUnit = () => {
+    unit === Unit.Celsius ? setUnitFahrenheit() : setUnitCelsius();
+  };
+
+  // Updates the city state based on user input
   const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCity(event.target.value);
   };
 
-  // Function to handle form submission
+  // Dispatches an action to fetch weather data for the specified city
   const handleFetchWeather = () => {
     fetchWeather({ city });
   };
 
   return (
-    <div>
-      <button onClick={toggleUnit}>
-        Switch to {unit === Unit.Celsius ? 'Fahrenheit' : 'Celsius'}
-      </button>
-      <div>
+    <div className='settings-menu'>
+      <div className='settings-icon' onClick={toggleSettingsVisibility}>
+        <span className='material-symbols-outlined'>settings</span>
+      </div>
+      <div className={`settings-content ${isSettingsVisible ? 'active' : ''}`}>
         <input
           type='text'
           value={city}
           onChange={handleCityChange}
           placeholder='Enter city'
         />
-        <button onClick={handleFetchWeather}>Fetch Weather</button>
+        <button className='search-button' onClick={handleFetchWeather}>
+          <span className='material-symbols-outlined'>search</span>
+        </button>
+        <button className='unit-toggle-button' onClick={toggleUnit}>
+          {unit === Unit.Celsius ? 'EU' : 'US'}
+        </button>
       </div>
     </div>
   );
