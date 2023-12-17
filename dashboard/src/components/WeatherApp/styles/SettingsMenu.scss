@@ -1,10 +1,10 @@
-// Defines the layout and behavior of the settings menu
+// Settings Menu Styles
 .settings-menu {
   position: relative;
   width: 100%;
   padding-top: 10px;
 
-  // Positions the settings icon and defines its appearance
+  // Icon for accessing the settings
   .settings-icon {
     position: absolute;
     top: 10px;
@@ -12,50 +12,60 @@
     cursor: pointer;
     z-index: 2;
 
+    // Style for the settings icon
     .material-symbols-outlined {
       font-size: 24px;
-      color: black;
+      color: #50fa7b;
     }
   }
 
-  // Controls the display and styling of the collapsible settings content area
+  // Content area for settings controls
   .settings-content {
     display: none;
     position: absolute;
     top: 48px;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: black;
     padding: 10px;
     border-radius: 8px;
     width: fit-content;
 
+    // Active state for displaying the settings content
     &.active {
       display: flex;
       align-items: center;
     }
 
-    // Defines the look and feel of the input field within the settings content
+    // Input field within settings
     input[type='text'] {
-      background-color: rgba(34, 34, 34, 0.5);
-      color: black;
+      background-color: #6272a4;
+      color: #50fa7b;
       padding: 5px;
-      border-color: black;
       border: none;
       border-radius: 4px;
       margin-right: 10px;
     }
 
-    // Styles the search and toggle buttons to match the overall design
+    input::placeholder {
+      color: #50fa7b;
+    }
+
+    // Buttons for actions like search and unit toggle
     .search-button,
     .unit-toggle-button {
+      color: #50fa7b;
       background-color: transparent;
+      border-radius: 50%;
       border: none;
       cursor: pointer;
       padding: 5px;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      // Hover state for buttons
+      &:hover {
+        background-color: #ff79c6;
+      }
     }
   }
 }

@@ -1,0 +1,93 @@
+// Main Weather Display Styles
+.main-weather-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif; // Choose a font that suits your design
+
+  // Location block for displaying city and country
+  .location {
+    font-size: 2rem;
+    color: #ff79c6;
+  }
+
+  .main-info-container {
+    display: flex;
+  }
+
+  .error {
+    color: #ff5555;
+    font-size: 1.2rem;
+  }
+
+  // Temperature block for displaying main temperature
+  .temperature {
+    font-size: 8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    color: #ff79c6;
+
+    // Degree symbol adjacent to the temperature
+    .degree-symbol {
+      font-size: 2rem;
+      position: relative;
+      top: -3rem;
+      margin-left: -1rem;
+    }
+  }
+
+  .temperature-section {
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  // Divider between temperature and weather details
+  .divider {
+    height: 100%;
+    border-left: 1px solid #6272a4;
+    margin: 0 1rem;
+  }
+
+  // Container for main weather information
+  .main-info-containder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .feels,
+  .weather-meme-section {
+    color: #8be9fd;
+  }
+
+  // Detailed weather information like wind and humidity
+  .details {
+    display: flex;
+    font-size: 1.2rem;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    // Individual detail items
+    .detail {
+      margin: 0 1rem;
+      text-align: center;
+      color: #bd93f9;
+      margin-bottom: 1rem;
+    }
+  }
+
+  // Date and time display
+  .date {
+    font-size: 1rem;
+    color: #8be9fd;
+    margin-bottom: 2rem;
+  }
+}
