@@ -41,12 +41,23 @@ The [Weather App](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp) is an 
 
 ## Contributing
 
-Contributions to enhance the Weather App are welcome. Please adhere to the following guidelines:
+To contribute, please follow the contribution guidelines of the main [JSt-For-Fun repository](https://github.com/itkrivoshei/JSt-For-Fun).
 
-- Fork the repository.
-- Create a new branch for your feature or fix.
-- Commit your changes with clear, descriptive messages.
-- Push to the branch and open a pull request.
+Here’s how you can contribute to the Weather App:
+
+1. **Fork the Main Repository**: Start by forking the [JSt-For-Fun repository](https://github.com/itkrivoshei/JSt-For-Fun) to your GitHub account.
+2. **Create a Branch**: In your fork, create a new branch for your work (`git checkout -b feature/AmazingWeatherFeature`).
+3. **Make Your Changes**: Implement your changes or improvements in the new branch.
+4. **Test Your Changes**: Ensure your changes do not break any existing functionality and adhere to the project's coding standards.
+5. **Commit Your Changes**: Commit your changes with a clear and descriptive commit message (`git commit -m 'Add some AmazingWeatherFeature'`).
+6. **Push Your Changes**: Push your branch to your fork (`git push origin feature/AmazingWeatherFeature`).
+7. **Open a Pull Request**: Create a pull request from your branch to the main JSt-For-Fun repository’s `master` branch.
+
+For more detailed instructions, refer to the [CONTRIBUTING.md](https://github.com/itkrivoshei/JSt-For-Fun/blob/master/CONTRIBUTING.md) file in the JSt-For-Fun repository.
+
+---
+
+This revised contribution section links directly to the main repository's contribution guidelines, ensuring consistency and making it easier for contributors to understand the contribution process.
 
 ## License
 
