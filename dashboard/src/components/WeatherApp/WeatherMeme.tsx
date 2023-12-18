@@ -1,45 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
-import axios from 'axios';
+import { fetchGif } from '../../redux/actions/weatherActions';
 
 const mapStateToProps = (state: RootState) => ({
   currentCondition: state.weather.weatherData?.current.condition.text,
+  gifUrl: state.weather.gifUrl,
 });
 
-const connector = connect(mapStateToProps);
+const mapDispatchToProps = {
+  fetchGif,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-const WeatherMeme: React.FC<PropsFromRedux> = ({ currentCondition }) => {
-  const [gifUrl, setGifUrl] = useState<string>('');
-
+const WeatherMeme: React.FC<PropsFromRedux> = ({
+  currentCondition,
+  gifUrl,
+  fetchGif,
+}) => {
   useEffect(() => {
     if (currentCondition) {
       fetchGif(currentCondition);
     }
-  }, [currentCondition]);
-
-  const fetchGif = async (condition: string) => {
-    try {
-      const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
-        params: {
-          api_key: process.env.REACT_APP_GIPHY_API_KEY,
-          q: condition + ' weather',
-          limit: 30,
-        },
-      });
-
-      if (response.data.data.length > 0) {
-        const randomIndex = Math.floor(
-          Math.random() * response.data.data.length
-        );
-        setGifUrl(response.data.data[randomIndex].images.fixed_height.url);
-      }
-    } catch (error) {
-      console.error('Error fetching gif:', error);
-    }
-  };
+  }, [currentCondition, fetchGif]);
 
   return <div>{gifUrl && <img src={gifUrl} alt='Weather Meme' />}</div>;
 };

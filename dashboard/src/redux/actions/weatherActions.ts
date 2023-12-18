@@ -22,6 +22,9 @@ export enum WeatherActionType {
   FETCH_LOCATION_START = 'FETCH_LOCATION_START',
   FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS',
   FETCH_LOCATION_FAILURE = 'FETCH_LOCATION_FAILURE',
+  FETCH_GIF_START = 'FETCH_GIF_START',
+  FETCH_GIF_SUCCESS = 'FETCH_GIF_SUCCESS',
+  FETCH_GIF_FAILURE = 'FETCH_GIF_FAILURE',
 }
 
 export interface WeatherData {
@@ -94,6 +97,20 @@ interface SetWindSpeedMPHAction {
   type: WeatherActionType.SET_WIND_SPEED_MPH;
 }
 
+interface FetchGifStartAction {
+  type: WeatherActionType.FETCH_GIF_START;
+}
+
+interface FetchGifSuccessAction {
+  type: WeatherActionType.FETCH_GIF_SUCCESS;
+  payload: string; // URL of the fetched GIF
+}
+
+interface FetchGifFailureAction {
+  type: WeatherActionType.FETCH_GIF_FAILURE;
+  payload: string;
+}
+
 export type WeatherActionTypes =
   | FetchWeatherStartAction
   | FetchWeatherSuccessAction
@@ -104,7 +121,10 @@ export type WeatherActionTypes =
   | SetWindSpeedKPHAction
   | FetchLocationStartAction
   | FetchLocationSuccessAction
-  | FetchLocationFailureAction;
+  | FetchLocationFailureAction
+  | FetchGifFailureAction
+  | FetchGifSuccessAction
+  | FetchGifStartAction;
 
 export const fetchWeatherStart = (): FetchWeatherStartAction => ({
   type: WeatherActionType.FETCH_WEATHER_START,
@@ -163,6 +183,50 @@ export const fetchLocationFailure = (
   payload: error,
 });
 
+export const fetchGifStart = (): FetchGifStartAction => ({
+  type: WeatherActionType.FETCH_GIF_START,
+});
+
+export const fetchGifSuccess = (gifUrl: string): FetchGifSuccessAction => ({
+  type: WeatherActionType.FETCH_GIF_SUCCESS,
+  payload: gifUrl,
+});
+
+export const fetchGifFailure = (error: string): FetchGifFailureAction => ({
+  type: WeatherActionType.FETCH_GIF_FAILURE,
+  payload: error,
+});
+
+export const fetchGif = (condition: string): ThunkResult<void> => {
+  return async (dispatch) => {
+    dispatch(fetchGifStart());
+
+    try {
+      const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
+        params: {
+          api_key: process.env.REACT_APP_GIPHY_API_KEY,
+          q: condition + ' weather',
+          limit: 30,
+        },
+      });
+
+      if (response.data.data.length > 0) {
+        const randomIndex = Math.floor(
+          Math.random() * response.data.data.length
+        );
+        dispatch(
+          fetchGifSuccess(
+            response.data.data[randomIndex].images.fixed_height.url
+          )
+        );
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      dispatch(fetchGifFailure(message));
+    }
+  };
+};
+
 export const fetchWeatherByLocation = (): ThunkResult<void> => {
   return (
     dispatch: ThunkDispatch<RootState, undefined, WeatherActionTypes>
@@ -208,10 +272,10 @@ export const fetchWeather = (location: {
       return;
     }
 
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`;
+
     axios
-      .get(
-        `/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`
-      )
+      .get(apiUrl)
       .then((response) => {
         dispatch(fetchWeatherSuccess(response.data));
       })
