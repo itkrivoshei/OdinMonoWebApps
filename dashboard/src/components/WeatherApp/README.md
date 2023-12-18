@@ -1,6 +1,6 @@
 # [Weather App](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp)
 
-## Introduction
+## Overview
 
 The [Weather App](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp) is an interactive web application that provides real-time weather forecasts. Built with React, TypeScript, and Redux, this project integrates with the Weather API to fetch weather data and displays it in a user-friendly interface. Users can search for specific locations and choose between Fahrenheit or Celsius for temperature display. The UI adapts dynamically based on the weather data, enhancing the user experience with color changes and weather-related images, including GIFs sourced from the Giphy API.
 
