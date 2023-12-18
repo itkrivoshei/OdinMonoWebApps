@@ -1,98 +1,52 @@
-# JSt-For-Fun - Web App Monorepo
+# JSt-For-Fun Repository
 
-This repository contains a collection of web applications built using React, TypeScript, and Redux. These projects were completed as part of [The Odin Project](https://www.theodinproject.com/) course. You can explore and interact with these projects on the [live website](https://itkrivoshei.github.io/JSt-For-Fun/).
+## Overview
+
+Welcome to the "JSt-For-Fun" repository! This monorepo is a collection of web-based projects developed using React, TypeScript, and Redux. Each project demonstrates various aspects of front-end development and showcases a range of skills from simple to complex. The projects are part of the learning journey from [The Odin Project](https://www.theodinproject.com), an open-source coding curriculum.
 
 ## Project List
 
 Here is a list of projects sorted from most difficult (interesting) to least difficult:
 
 ### Project: Weather App
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/WeatherApp)
+1. **Weather App** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/WeatherApp)
+2. **Calculator** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Calculator) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/Calculator)
+3. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/EtchASketch) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/EtchASketch)
+4. **Todo List** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/ToDoApp) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/ToDoApp)
+5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/TicTacToe) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/TicTacToe)
+6. **DrumKit** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/DrumKit) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/DrumKit)
+7. **Sign-up Form** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/SignUpForm) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/SignUpForm)
+8. **Library** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/BookLibrary) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/BookLibrary)
+9. **Rock Paper Scissors** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/RockPaperScissors)
+10. **Admin Dashboard** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/DashLanding) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/DashLanding)
+11. **Restaurant Page** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Restaurant) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/RestaurantPages)
+12. **Landing Page** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Landing) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/Landing)
+13. **Recipes** [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/OdinRecipes) | [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/OdinRecipes)
 
-### Project: Calculator
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Calculator)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/Calculator)
+## Project Structure
 
-### Project: Etch-a-Sketch
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/EtchASketch)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/EtchASketch)
+The repository is structured for ease of navigation and development:
 
-### Project: Todo List
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/ToDoApp)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/ToDoApp)
-
-### Project: Tic Tac Toe
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/TicTacToe)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/TicTacToe)
-
-### Project: DrumKit
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/DrumKit)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/DrumKit)
-
-### Project: Sign-up Form
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/SignUpForm)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/SignUpForm)
-
-### Project: Library
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/BookLibrary)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/BookLibrary)
-
-### Project: Rock Paper Scissors
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/RockPaperScissors)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/RockPaperScissors)
-
-### Project: Admin Dashboard
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/DashLanding)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/DashLanding)
-
-### Project: Restaurant Page
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Restaurant)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/RestaurantPages)
-
-### Project: Landing Page
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/Landing)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/Landing)
-
-### Project: Recipes
-- [Live Preview](https://itkrivoshei.github.io/JSt-For-Fun/#/OdinRecipes)
-- [Code](https://github.com/itkrivoshei/JSt-For-Fun/tree/main/dashboard/src/components/OdinRecipes)
-
-
-## About The Odin Project
-
-The Odin Project is an open-source online curriculum that teaches web development. You can explore their repository on [GitHub](https://github.com/TheOdinProject).
-
-## Getting Started
-
-To get started with this repository, follow these steps:
-
-1. Clone the repository to your local machine.
-
-```bash
-git clone https://github.com/itkrivoshei/JSt-For-Fun.git
 ```
-
-2. Navigate to the project directory.
-
-```bash
-cd JSt-For-Fun
+📦dashboard
+ ┣ 📂public
+ ┣ 📂src
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂[Project Directories]
+ ┃ ┃ ┃ ┗ 📜[Component Files]
+ ┃ ┣ 📂redux
+ ┃ ┃ ┣ 📂actions
+ ┃ ┃ ┃ ┗ 📜[Action Files]
+ ┃ ┃ ┣ 📂reducers
+ ┃ ┃ ┃ ┗ 📜[Reducer Files]
+ ┃ ┗ 📜[Other Source Files]
+ ┗ 📜[Configuration Files]
 ```
-
-3. Install the project dependencies.
-
-```bash
-npm install
-```
-
-4. Start the development server.
-
-```bash
-npm start
-```
-
-You can now explore and modify the projects as needed.
 
 ## License
 
-This repository is open source and available under the [MIT License](LICENSE). Feel free to use and modify the code as needed.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+Special thanks to [The Odin Project](https://www.theodinproject.com) for providing an excellent learning platform and contributing to the open-source community.
