@@ -22,11 +22,25 @@ The [Weather App](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp) is an 
 
 ## Setup/Installation
 
-1. Clone the repository: `git clone https://github.com/itkrivoshei/JSt-For-Fun/`
-2. Navigate to the project directory: `cd JSt-For-Fun`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open `http://localhost:3000` in your browser.
+To install and run these projects locally on your machine, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/itkrivoshei/JSt-For-Fun.git
+   ```
+2. Navigate to the project's root directory:
+   ```bash
+   cd JSt-For-Fun
+   ```
+3. Install the required dependencies for each project. For example, to set up the Weather App, navigate to its directory and run:
+   ```bash
+   cd dashboard/src/components/WeatherApp
+   npm install
+   ```
+4. To start the project, run:
+   ```bash
+   npm start
+   ```
 
 ## Usage Instructions
 
