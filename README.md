@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the "JSt-For-Fun" repository! This monorepo is a collection of web-based projects developed using React, TypeScript, and Redux. Each project demonstrates various aspects of front-end development and showcases a range of skills from simple to complex. The projects are part of the learning journey from [The Odin Project](https://www.theodinproject.com), an open-source coding curriculum.
+Welcome to the **JSt-For-Fun** repository! This monorepo is a collection of web-based projects developed using React, TypeScript, and Redux. Each project demonstrates various aspects of front-end development and showcases a range of skills from simple to complex. The projects are part of the learning journey from [The Odin Project](https://www.theodinproject.com), an open-source coding curriculum.
 
 ## Project List
 
