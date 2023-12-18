@@ -76,6 +76,8 @@ Contributions are always welcome! If you have suggestions for improvements or wa
 5. Push to the branch (`git push origin feature/AmazingFeature`).
 6. Open a pull request.
 
+Before contributing, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed instructions on how to contribute to this project.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
