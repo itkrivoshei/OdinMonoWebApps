@@ -2,7 +2,7 @@
 
 ## Overview
 
-The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application that provides real-time weather forecasts. Developed using React, TypeScript, and Redux, this project integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs in a user-friendly interface. It offers features like location-based weather search and the ability to toggle between Fahrenheit and Celsius temperature units. The adaptive UI enhances user experience with color changes and weather-themed visuals.
+The [Weather App](https://itkrivoshei.github.io/JSt-For-Fun/#/WeatherApp) is a dynamic web application that provides real-time weather forecasts. Developed using React, TypeScript, and Redux, this project integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs in a user-friendly interface. It offers features like location-based weather search and the ability to toggle between Fahrenheit and Celsius temperature units. The adaptive UI enhances user experience with color changes and weather-themed visuals.
 
 ## Key Features
 
@@ -24,11 +24,11 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/itkrivoshei/OdinMonoWebApps.git
+   git clone https://github.com/itkrivoshei/JSt-For-Fun.git
    ```
 2. Navigate to the App directory:
    ```bash
-   cd OdinMonoWebApps
+   cd JSt-For-Fun
    ```
 3. Install the required dependencies:
    ```bash
@@ -54,18 +54,18 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
 
 We welcome contributions to the Weather App. To contribute:
 
-1. Fork the [main repository](https://github.com/itkrivoshei/OdinMonoWebApps).
+1. Fork the [main repository](https://github.com/itkrivoshei/JSt-For-Fun).
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
 3. Make your changes.
 4. Commit your changes (`git commit -m 'Add AmazingFeature'`).
 5. Push to the branch (`git push origin feature/AmazingFeature`).
 6. Open a pull request.
 
-For more details, see the [CONTRIBUTING.md](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/CONTRIBUTING.md) in the main repository.
+For more details, see the [CONTRIBUTING.md](https://github.com/itkrivoshei/JSt-For-Fun/blob/master/CONTRIBUTING.md) in the main repository.
 
 ## License
 
-This project is open source, available under the [MIT License](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/LICENSE).
+This project is open source, available under the [MIT License](https://github.com/itkrivoshei/JSt-For-Fun/blob/master/LICENSE).
 
 ## Acknowledgments
 

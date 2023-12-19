@@ -2,7 +2,7 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://itkrivoshei.github.io/OdinMonoWebApps/",
+  "homepage": "https://itkrivoshei.github.io/JSt-For-Fun/",
   "proxy": "http://api.weatherapi.com",
   "dependencies": {
     "@emotion/react": "^11.11.1",
