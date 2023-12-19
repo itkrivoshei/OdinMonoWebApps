@@ -28,7 +28,7 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
    ```
 2. Navigate to the App directory:
    ```bash
-   cd OdinMonoWebApps
+   cd OdinMonoWebApps/dashboard
    ```
 3. Install the required dependencies:
    ```bash
