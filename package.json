@@ -1,6 +1,9 @@
 {
-  "name": "OdinMonoWebApps",
+  "name": "odin-mono-web-apps",
   "version": "0.1.0",
+  "description": "The Odin Projects collection",
+  "license": "MIT",
+  "repository": "https://github.com/itkrivoshei/OdinMonoWebApps",
   "private": true,
   "homepage": "https://itkrivoshei.github.io/OdinMonoWebApps/",
   "proxy": "http://api.weatherapi.com",
@@ -30,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write ../.",
+    "pretty": "prettier --write ../.",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
