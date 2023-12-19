@@ -61,16 +61,16 @@ const Calculator: React.FC = () => {
 
     // Initialize the Howl objects
     pGenericButton.current = new Howl({
-      src: ['./Calculator/audio/press_generic.mp3'],
+      src: ['./Calculator/audio/pressGeneric.mp3'],
     });
     rGenericButton.current = new Howl({
-      src: ['./Calculator/audio/release_generic.mp3'],
+      src: ['./Calculator/audio/releaseGeneric.mp3'],
     });
     pLongButton.current = new Howl({
-      src: ['./Calculator/audio/press_long_key.mp3'],
+      src: ['./Calculator/audio/pressLongKey.mp3'],
     });
     rLongButton.current = new Howl({
-      src: ['./Calculator/audio/release_long_key.mp3'],
+      src: ['./Calculator/audio/releaseLongKey.mp3'],
     });
 
     // Try to resume the AudioContext on user interaction
