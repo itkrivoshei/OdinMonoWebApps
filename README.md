@@ -8,38 +8,37 @@ Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a d
 
 Here is a list of projects sorted from most difficult (interesting) to least difficult:
 
-1. **Weather App** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/WeatherApp)
-2. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/Calculator)
-3. **Todo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/ToDoApp)
-4. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/BookLibrary)
-5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/TicTacToe)
-6. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/EtchASketch) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/EtchASketch)
-7. **Rock Paper Scissors** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/RockPaperScissors)
-8. **Sign-up Form** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/SignUpForm)
-9. **DrumKit** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DrumKit) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/DrumKit)
-11. **Admin Dashboard** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/DashLanding)
-12. **Landing Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/Landing)
-13. **Restaurant Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/RestaurantPages)
-14. **Recipes** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/OdinRecipes) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/dashboard/src/components/OdinRecipes)
+1. **Weather App** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/WeatherApp)
+2. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Calculator)
+3. **Todo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
+4. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/BookLibrary)
+5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TicTacToe)
+6. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/EtchASketch) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/EtchASketch)
+7. **Rock Paper Scissors** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RockPaperScissors)
+8. **Sign-up Form** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/SignUpForm)
+9. **DrumKit** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DrumKit) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DrumKit)
+10. **Admin Dashboard** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DashLanding)
+11. **Landing Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Landing)
+12. **Restaurant Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RestaurantPages)
+13. **Recipes** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/OdinRecipes) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/OdinRecipes)
 
 ## Repository Structure
 
 Our repository is thoughtfully organized to enhance ease of navigation and development:
 
 ```
-📦dashboard
- ┣ 📂public
- ┣ 📂src
- ┃ ┣ 📂components
- ┃ ┃ ┣ 📂[Individual Project Directories]
- ┃ ┃ ┃ ┗ 📜[Component Files for each project]
- ┃ ┣ 📂redux
- ┃ ┃ ┣ 📂actions
- ┃ ┃ ┃ ┗ 📜[Redux Action Files]
- ┃ ┃ ┣ 📂reducers
- ┃ ┃ ┃ ┗ 📜[Redux Reducer Files]
- ┃ ┗ 📜[General Source Files]
- ┗ 📜[Configuration and Setup Files]
+📂public
+📂src
+┣ 📂components
+┃ ┣ 📂[Individual Project Directories]
+┃ ┃ ┗ 📜[Component Files for each project]
+┣ 📂redux
+┃ ┣ 📂actions
+┃ ┃ ┗ 📜[Redux Action Files]
+┃ ┣ 📂reducers
+┃ ┃ ┗ 📜[Redux Reducer Files]
+┗ 📜[General Source Files]
+📜[Configuration and Setup Files]
 ```
 
 ## Getting Started
@@ -52,7 +51,7 @@ To get started with these projects:
    ```
 2. **Navigate to the App**:
    ```bash
-   cd OdinMonoWebApps/dashboard
+   cd OdinMonoWebApps
    ```
 3. **Install Dependencies**:
    ```bash
@@ -65,7 +64,7 @@ To get started with these projects:
 
 ## Contributing
 
-Your contributions are invaluable to us! If you're enthusiastic about improving or adding to these projects, please follow the steps in our [Contribution Guidelines](CONTRIBUTING.md). 
+Your contributions are invaluable to us! If you're enthusiastic about improving or adding to these projects, please follow the steps in our [Contribution Guidelines](CONTRIBUTING.md).
 
 ## License
 
