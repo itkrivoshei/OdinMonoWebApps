@@ -2,26 +2,26 @@
 
 ## Welcome Contributors!
 
-Thank you for considering contributing to the JSt-For-Fun projects! Your efforts help make this a more robust learning resource for everyone. This document provides guidelines for contributing to this repository, welcoming contributions from all skill levels, from beginners to experienced developers.
+Thank you for considering contributing to the OdinMonoWebApps projects! Your efforts help make this a more robust learning resource for everyone. This document provides guidelines for contributing to this repository, welcoming contributions from all skill levels, from beginners to experienced developers.
 
 ## How You Can Contribute
 
 ### Identifying Issues and Enhancements
 
-1. **Check Existing Issues**: Before posting a new issue, please review the existing [issues](https://github.com/itkrivoshei/JSt-For-Fun/issues) to avoid duplicates.
-2. **Report New Issues**: Found a bug or have a suggestion? Use our issue templates to [create a new issue](https://github.com/itkrivoshei/JSt-For-Fun/issues/new).
+1. **Check Existing Issues**: Before posting a new issue, please review the existing [issues](https://github.com/itkrivoshei/OdinMonoWebApps/issues) to avoid duplicates.
+2. **Report New Issues**: Found a bug or have a suggestion? Use our issue templates to [create a new issue](https://github.com/itkrivoshei/OdinMonoWebApps/issues/new).
 
 ### Code Contributions
 
 If you're looking to contribute code, such as bug fixes, features, or improvements:
 
-1. **Fork the Repository**: Start by forking the [main repository](https://github.com/itkrivoshei/JSt-For-Fun) on GitHub.
+1. **Fork the Repository**: Start by forking the [main repository](https://github.com/itkrivoshei/OdinMonoWebApps) on GitHub.
 2. **Clone Your Fork**: Clone your fork to your local machine for development.
 3. **Branch Out**: Create a new branch for your task (`git checkout -b feature/AmazingFeature`).
 4. **Implement Changes**: Make your code changes in your feature branch.
 5. **Commit Your Work**: Commit your changes with clear and descriptive messages (`git commit -m 'Added AmazingFeature'`).
 6. **Push Your Changes**: Push the changes to your fork (`git push origin feature/AmazingFeature`).
-7. **Submit a Pull Request**: Open a [pull request](https://github.com/itkrivoshei/JSt-For-Fun/pulls) to merge your changes into the main repository.
+7. **Submit a Pull Request**: Open a [pull request](https://github.com/itkrivoshei/OdinMonoWebApps/pulls) to merge your changes into the main repository.
 
 #### Pull Request Best Practices
 
@@ -46,4 +46,4 @@ In our community, we strive for a respectful and inclusive environment. Please a
 
 ## Need Help?
 
-If you have questions or need assistance with the contribution process, feel free to [create an issue](https://github.com/itkrivoshei/JSt-For-Fun/issues/new) for community discussion.
+If you have questions or need assistance with the contribution process, feel free to [create an issue](https://github.com/itkrivoshei/OdinMonoWebApps/issues/new) for community discussion.
