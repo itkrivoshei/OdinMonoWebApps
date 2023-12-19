@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/JSt-For-Fun/static/css/main.769b7232.css",
-    "main.js": "/JSt-For-Fun/static/js/main.94b4c757.js",
-    "static/js/787.545aecf5.chunk.js": "/JSt-For-Fun/static/js/787.545aecf5.chunk.js",
-    "static/media/background.jpg": "/JSt-For-Fun/static/media/background.b6c880a4adaf4eb971a0.jpg",
-    "index.html": "/JSt-For-Fun/index.html",
-    "main.769b7232.css.map": "/JSt-For-Fun/static/css/main.769b7232.css.map",
-    "main.94b4c757.js.map": "/JSt-For-Fun/static/js/main.94b4c757.js.map",
-    "787.545aecf5.chunk.js.map": "/JSt-For-Fun/static/js/787.545aecf5.chunk.js.map"
+    "main.css": "/OdinMonoWebApps/static/css/main.4fb7f405.css",
+    "main.js": "/OdinMonoWebApps/static/js/main.21b3d42e.js",
+    "static/js/787.545aecf5.chunk.js": "/OdinMonoWebApps/static/js/787.545aecf5.chunk.js",
+    "static/media/background.jpg": "/OdinMonoWebApps/static/media/background.b6c880a4adaf4eb971a0.jpg",
+    "index.html": "/OdinMonoWebApps/index.html",
+    "main.4fb7f405.css.map": "/OdinMonoWebApps/static/css/main.4fb7f405.css.map",
+    "main.21b3d42e.js.map": "/OdinMonoWebApps/static/js/main.21b3d42e.js.map",
+    "787.545aecf5.chunk.js.map": "/OdinMonoWebApps/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.769b7232.css",
-    "static/js/main.94b4c757.js"
+    "static/css/main.4fb7f405.css",
+    "static/js/main.21b3d42e.js"
   ]
 }
