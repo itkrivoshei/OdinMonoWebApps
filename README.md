@@ -52,7 +52,7 @@ To get started with these projects:
    ```
 2. **Navigate to the App**:
    ```bash
-   cd OdinMonoWebApps
+   cd OdinMonoWebApps/dashboard
    ```
 3. **Install Dependencies**:
    ```bash
