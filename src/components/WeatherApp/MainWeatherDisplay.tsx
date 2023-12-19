@@ -9,7 +9,7 @@ import { RootState } from '../../redux/reducers/rootReducer';
 import './styles/MainWeatherDisplay.scss';
 
 // Utility function for displaying temperature
-const displayTemperature = (temp: number) => `${temp}`;
+const displayTemperature = (temp: number, unit: string) => `${temp} ${unit}`;
 
 // Utility function for displaying wind speed
 const displayWindSpeed = (speed: number, unit: string) => `${speed} ${unit}`;
