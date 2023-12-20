@@ -27,7 +27,6 @@ function saveState(state: StateType): void {
 // Load the state from local storage
 function loadState() {
   try {
-    3;
     const serializedState = localStorage.getItem('myState');
     if (serializedState === null) return { toDos: initialState };
 
