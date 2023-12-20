@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddTodo from './AddToDo';
-import TodoList from './ToDoList';
+import AddToDo from './AddToDo';
+import ToDoList from './ToDoList';
 import ProjectList from './ProjectList';
 import AddProject from './AddProject';
 import {
-  addTodo,
-  deleteTodo,
-  fetchTodos,
+  addToDo,
+  deleteToDo,
+  fetchToDos,
   addProject,
-} from '../../redux/actions/todoActions';
+} from '../../redux/actions/toDoActions';
 import './index.scss';
 
-export interface Todo {
+export interface ToDo {
   id: number;
   text: string;
   completed: boolean;
@@ -21,42 +21,42 @@ export interface Todo {
 export interface Project {
   id: number;
   title: string;
-  todos: Todo[];
+  toDos: ToDo[];
 }
 
 interface ToDoAppProps {
-  todos: Todo[];
-  addTodo: (text: string) => void;
-  deleteTodo: (id: number) => void;
-  fetchTodos: () => void;
+  toDos: ToDo[];
+  addToDo: (text: string) => void;
+  deleteToDo: (id: number) => void;
+  fetchToDos: () => void;
   addProject: (title: string) => void;
 }
 
 export interface State {
-  todos: {
+  toDos: {
     projects: Project[];
     activeProject: number;
   };
 }
 
 class ToDoApp extends React.Component<ToDoAppProps> {
-  // Lifecycle method to fetch todos once the component has mounted.
+  // Lifecycle method to fetch toDos once the component has mounted.
   componentDidMount() {
-    this.props.fetchTodos();
+    this.props.fetchToDos();
   }
 
   render() {
-    const { todos, addTodo, deleteTodo } = this.props;
+    const { toDos, addToDo, deleteToDo } = this.props;
 
     return (
-      <div className='todoapp'>
-        <h1>Todo App</h1>
+      <div className='toDoapp'>
+        <h1>ToDo App</h1>
         <h2>Projects</h2>
         <AddProject />
         <ProjectList />
-        <h2>Todo&apos;s</h2>
-        <AddTodo addTodo={addTodo} />
-        <TodoList todos={todos} deleteTodo={deleteTodo} />
+        <h2>ToDo&apos;s</h2>
+        <AddToDo addToDo={addToDo} />
+        <ToDoList toDos={toDos} deleteToDo={deleteToDo} />
       </div>
     );
   }
@@ -64,19 +64,19 @@ class ToDoApp extends React.Component<ToDoAppProps> {
 
 // Maps the Redux state to this component's props.
 const mapStateToProps = (state: State) => {
-  const activeProject = state.todos.projects.find(
-    (project) => project.id === state.todos.activeProject
+  const activeProject = state.toDos.projects.find(
+    (project) => project.id === state.toDos.activeProject
   );
   return {
-    todos: activeProject ? activeProject.todos : [],
+    toDos: activeProject ? activeProject.toDos : [],
   };
 };
 
 // Maps the Redux dispatch actions to this component's props.
 const mapDispatchToProps = {
-  addTodo,
-  deleteTodo,
-  fetchTodos,
+  addToDo,
+  deleteToDo,
+  fetchToDos,
   addProject,
 };
 

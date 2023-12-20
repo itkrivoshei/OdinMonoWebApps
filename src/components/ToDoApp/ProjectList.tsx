@@ -4,7 +4,7 @@ import {
   setActiveProject,
   deleteProject,
   editProject,
-} from '../../redux/actions/todoActions';
+} from '../../redux/actions/toDoActions';
 import { State, Project } from './ToDoApp';
 
 function ProjectList() {
@@ -13,7 +13,7 @@ function ProjectList() {
   const [newName, setNewName] = useState<string>('');
 
   // Retrieve list of projects from the Redux state.
-  const projects = useSelector((state: State) => state.todos.projects) || [];
+  const projects = useSelector((state: State) => state.toDos.projects) || [];
   const dispatch = useDispatch();
 
   // Handles click event on a project, setting it as the active project.

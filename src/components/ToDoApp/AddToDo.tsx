@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 
-interface AddTodoProps {
-  addTodo: (input: string) => void;
+interface AddToDoProps {
+  addToDo: (input: string) => void;
 }
 
-function AddTodo({ addTodo }: AddTodoProps) {
+function AddToDo({ addToDo }: AddToDoProps) {
   // State to manage the input value
   const [input, setInput] = useState('');
 
   // Handler for form submission
-  const handleAddTodo = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddToDo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmedInput = input.trim(); // Trim the input
 
-    // Only add the todo if the trimmed input isn't empty
+    // Only add the toDo if the trimmed input isn't empty
     if (trimmedInput) {
-      addTodo(trimmedInput);
+      addToDo(trimmedInput);
       setInput(''); // Reset input field
     }
   };
 
   return (
-    <form onSubmit={handleAddTodo}>
+    <form onSubmit={handleAddToDo}>
       <input
         type='text'
         value={input}
         onChange={(event) => setInput(event.target.value)}
-        placeholder='Enter todo...'
+        placeholder='Enter toDo...'
       />
-      <button type='submit'>Add Todo</button>
+      <button type='submit'>Add ToDo</button>
     </form>
   );
 }
 
-export default AddTodo;
+export default AddToDo;

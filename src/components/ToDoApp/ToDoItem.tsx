@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  deleteTodo,
-  editTodo,
-  toggleTodo,
-} from '../../redux/actions/todoActions';
+  deleteToDo,
+  editToDo,
+  toggleToDo,
+} from '../../redux/actions/toDoActions';
 
-type Todo = {
+type ToDo = {
   id: number;
   text: string;
   completed: boolean;
 };
 
-interface TodoItemProps {
-  todo: Todo;
-  deleteTodo: (id: number) => void;
+interface ToDoItemProps {
+  toDo: ToDo;
+  deleteToDo: (id: number) => void;
 }
 
-function TodoItem({ todo }: TodoItemProps) {
+function ToDoItem({ toDo }: ToDoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
-  const [newName, setNewName] = useState(todo.text || '');
+  const [newName, setNewName] = useState(toDo.text || '');
 
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteTodo(todo.id));
+    dispatch(deleteToDo(toDo.id));
   };
 
   const handleEdit = () => {
@@ -33,7 +33,7 @@ function TodoItem({ todo }: TodoItemProps) {
 
   const handleSave = () => {
     if (newName.trim()) {
-      dispatch(editTodo(todo.id, newName));
+      dispatch(editToDo(toDo.id, newName));
       setIsEditing(false);
     }
   };
@@ -42,9 +42,9 @@ function TodoItem({ todo }: TodoItemProps) {
     setNewName(e.target.value);
   };
 
-  // Handle the toggle of the todo's completion state
+  // Handle the toggle of the toDo's completion state
   const handleToggleCompletion = () => {
-    dispatch(toggleTodo(todo.id));
+    dispatch(toggleToDo(toDo.id));
   };
 
   return (
@@ -59,15 +59,15 @@ function TodoItem({ todo }: TodoItemProps) {
           <div>
             <input
               type='checkbox'
-              checked={!!todo.completed}
+              checked={!!toDo.completed}
               onChange={handleToggleCompletion}
             />
             <span
               style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
+                textDecoration: toDo.completed ? 'line-through' : 'none',
               }}
             >
-              {todo.text}
+              {toDo.text}
             </span>
           </div>
           <div>
@@ -80,4 +80,4 @@ function TodoItem({ todo }: TodoItemProps) {
   );
 }
 
-export default TodoItem;
+export default ToDoItem;

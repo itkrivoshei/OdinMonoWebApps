@@ -8,10 +8,10 @@ import {
   EDIT_PROJECT,
   EDIT_TODO,
   TOGGLE_TODO_COMPLETION,
-} from '../actions/actionTypes';
+} from '../actions/toDoActionTypes';
 
 // Type definitions
-interface Todo {
+interface ToDo {
   id: number;
   text: string;
   completed?: boolean;
@@ -20,10 +20,10 @@ interface Todo {
 interface Project {
   id: number | string;
   title: string;
-  todos: Todo[];
+  toDos: ToDo[];
 }
 
-interface TodoState {
+interface ToDoState {
   projects: Project[];
   activeProject: string | number;
 }
@@ -34,20 +34,20 @@ interface Action {
 }
 
 // Initial state structure for the Redux store.
-export const initialState: TodoState = {
+export const initialState: ToDoState = {
   projects: [
     {
       id: 'default',
       title: 'Default Project',
-      todos: [],
+      toDos: [],
     },
   ],
   activeProject: 'default',
 };
 
-const todoReducer = (state = initialState, action: Action): TodoState => {
+const toDoReducer = (state = initialState, action: Action): ToDoState => {
   switch (action.type) {
-    // Handles the addition of a todo item to the active project.
+    // Handles the addition of a toDo item to the active project.
     case ADD_TODO:
       return {
         ...state,
@@ -55,8 +55,8 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
           project.id === state.activeProject
             ? {
                 ...project,
-                todos: [
-                  ...project.todos,
+                toDos: [
+                  ...project.toDos,
                   { id: Date.now(), text: action.payload },
                 ],
               }
@@ -64,7 +64,7 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
         ),
       };
 
-    // Handles the deletion of a todo item from the active project.
+    // Handles the deletion of a toDo item from the active project.
     case DELETE_TODO:
       return {
         ...state,
@@ -72,22 +72,22 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
           project.id === state.activeProject
             ? {
                 ...project,
-                todos: project.todos.filter(
-                  (todo) => todo.id !== action.payload
+                toDos: project.toDos.filter(
+                  (toDo) => toDo.id !== action.payload
                 ),
               }
             : project
         ),
       };
 
-    // Handles fetching and integrating remote todos into a new project.
+    // Handles fetching and integrating remote toDos into a new project.
     case FETCH_TODOS:
       if (Array.isArray(action.payload)) {
         return {
           ...state,
           projects: [
             ...state.projects,
-            { id: Date.now(), title: 'Fetched Todos', todos: action.payload },
+            { id: Date.now(), title: 'Fetched ToDos', toDos: action.payload },
           ],
         };
       }
@@ -106,7 +106,7 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
         ...state,
         projects: [
           ...state.projects,
-          { id: Date.now(), title: action.payload, todos: [] },
+          { id: Date.now(), title: action.payload, toDos: [] },
         ],
       };
 
@@ -144,10 +144,10 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
           project.id === state.activeProject
             ? {
                 ...project,
-                todos: project.todos.map((todo) =>
-                  todo.id === action.payload.id
-                    ? { ...todo, text: action.payload.newText }
-                    : todo
+                toDos: project.toDos.map((toDo) =>
+                  toDo.id === action.payload.id
+                    ? { ...toDo, text: action.payload.newText }
+                    : toDo
                 ),
               }
             : project
@@ -161,10 +161,10 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
           project.id === state.activeProject
             ? {
                 ...project,
-                todos: project.todos.map((todo) =>
-                  todo.id === action.payload
-                    ? { ...todo, completed: !todo.completed }
-                    : todo
+                toDos: project.toDos.map((toDo) =>
+                  toDo.id === action.payload
+                    ? { ...toDo, completed: !toDo.completed }
+                    : toDo
                 ),
               }
             : project
@@ -177,4 +177,4 @@ const todoReducer = (state = initialState, action: Action): TodoState => {
   }
 };
 
-export default todoReducer;
+export default toDoReducer;

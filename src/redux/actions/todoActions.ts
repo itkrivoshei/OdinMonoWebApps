@@ -8,45 +8,45 @@ import {
   EDIT_PROJECT,
   TOGGLE_TODO_COMPLETION,
   EDIT_TODO,
-} from './actionTypes';
+} from './toDoActionTypes';
 
-// Action Creator: Add a new todo item
+// Action Creator: Add a new toDo item
 /**
- * Dispatch an action to add a new todo with the given text.
+ * Dispatch an action to add a new toDo with the given text.
  *
- * @param {string} text - Text for the new todo.
+ * @param {string} text - Text for the new toDo.
  * @returns {object} Action object to dispatch.
  */
-export const addTodo = (text: string) => ({
+export const addToDo = (text: string) => ({
   type: ADD_TODO,
   payload: text,
 });
 
-// Action Creator: Delete a todo item
+// Action Creator: Delete a toDo item
 /**
- * Dispatch an action to delete a todo based on its ID.
+ * Dispatch an action to delete a toDo based on its ID.
  *
- * @param {number|string} id - The ID of the todo to delete.
+ * @param {number|string} id - The ID of the toDo to delete.
  * @returns {object} Action object to dispatch.
  */
-interface DeleteTodoAction {
+interface DeleteToDoAction {
   type: typeof DELETE_TODO;
   payload: number | string;
 }
 
-export const deleteTodo = (id: number | string): DeleteTodoAction => ({
+export const deleteToDo = (id: number | string): DeleteToDoAction => ({
   type: DELETE_TODO,
   payload: id,
 });
 
-// Action Creator: Fetch todos
+// Action Creator: Fetch toDos
 /**
- * Dispatch an action to indicate that todos are being fetched.
+ * Dispatch an action to indicate that toDos are being fetched.
  * (In a real-world scenario, this would involve fetching data from an API).
  *
  * @returns {function} Thunk action creator to dispatch.
  */
-export const fetchTodos = () => async (dispatch: any) => {
+export const fetchToDos = () => async (dispatch: any) => {
   // If you have a type for dispatch, replace 'any' with it.
   dispatch({
     type: FETCH_TODOS,
@@ -106,13 +106,13 @@ export const editProject = (projectId: number | string, newName: string) => ({
 });
 
 /**
- * Dispatch an action to edit an existing todo based on its ID.
+ * Dispatch an action to edit an existing toDo based on its ID.
  *
- * @param {number|string} id - The ID of the todo to edit.
- * @param {string} newText - The updated text for the todo.
+ * @param {number|string} id - The ID of the toDo to edit.
+ * @param {string} newText - The updated text for the toDo.
  * @returns {object} Action object to dispatch.
  */
-export const editTodo = (id: number | string, newText: string) => ({
+export const editToDo = (id: number | string, newText: string) => ({
   type: EDIT_TODO,
   payload: {
     id,
@@ -121,12 +121,12 @@ export const editTodo = (id: number | string, newText: string) => ({
 });
 
 /**
- * Dispatch an action to toggle the completion status of a todo based on its ID.
+ * Dispatch an action to toggle the completion status of a toDo based on its ID.
  *
- * @param {number|string} id - The ID of the todo to toggle.
+ * @param {number|string} id - The ID of the toDo to toggle.
  * @returns {object} Action object to dispatch.
  */
-export const toggleTodo = (id: number | string) => ({
+export const toggleToDo = (id: number | string) => ({
   type: TOGGLE_TODO_COMPLETION,
   payload: id,
 });

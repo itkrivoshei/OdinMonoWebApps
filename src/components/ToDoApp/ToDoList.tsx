@@ -1,26 +1,26 @@
 import React from 'react';
-import TodoItem from './ToDoItem';
+import ToDoItem from './ToDoItem';
 
-type Todo = {
+type ToDo = {
   id: number;
   text: string;
   completed: boolean;
 };
 
-interface TodoListProps {
-  todos: Todo[];
-  deleteTodo: (id: number) => void;
+interface ToDoListProps {
+  toDos: ToDo[];
+  deleteToDo: (id: number) => void;
 }
 
-// Component to list out todos.
-function TodoList({ todos, deleteTodo }: TodoListProps) {
+// Component to list out toDos.
+function ToDoList({ toDos, deleteToDo }: ToDoListProps) {
   return (
     <ul>
-      {todos.map((todo: Todo) => (
-        <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
+      {toDos.map((toDo: ToDo) => (
+        <ToDoItem key={toDo.id} toDo={toDo} deleteToDo={deleteToDo} />
       ))}
     </ul>
   );
 }
 
-export default TodoList;
+export default ToDoList;
