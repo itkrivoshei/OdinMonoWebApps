@@ -154,8 +154,8 @@ export const RockPaperScissors: React.FC = () => {
             color: gameState.message.includes('WIN')
               ? '#50fa7b'
               : gameState.message.includes('TIE')
-              ? '#f1fa8c'
-              : '#ff5555',
+                ? '#f1fa8c'
+                : '#ff5555',
           }}
         >
           {gameState.message}
