@@ -10,7 +10,7 @@ Here is a list of projects sorted from most difficult (interesting) to least dif
 
 1. **Weather App** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/WeatherApp)
 2. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Calculator)
-3. **Todo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
+3. **ToDo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
 4. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/BookLibrary)
 5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TicTacToe)
 6. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/EtchASketch) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/EtchASketch)
