@@ -1,14 +1,4 @@
-import {
-  ADD_TODO,
-  DELETE_TODO,
-  FETCH_TODOS,
-  SET_ACTIVE_PROJECT,
-  ADD_PROJECT,
-  DELETE_PROJECT,
-  EDIT_PROJECT,
-  EDIT_TODO,
-  TOGGLE_TODO_COMPLETION,
-} from '../actions/toDoActionTypes';
+import { ToDoActionType } from '../actions/toDoActions';
 
 // Type definitions
 interface ToDo {
@@ -48,7 +38,7 @@ export const initialState: ToDoState = {
 const toDoReducer = (state = initialState, action: Action): ToDoState => {
   switch (action.type) {
     // Handles the addition of a toDo item to the active project.
-    case ADD_TODO:
+    case ToDoActionType.ADD_TODO:
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -65,7 +55,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
       };
 
     // Handles the deletion of a toDo item from the active project.
-    case DELETE_TODO:
+    case ToDoActionType.DELETE_TODO:
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -81,7 +71,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
       };
 
     // Handles fetching and integrating remote toDos into a new project.
-    case FETCH_TODOS:
+    case ToDoActionType.FETCH_TODOS:
       if (Array.isArray(action.payload)) {
         return {
           ...state,
@@ -94,14 +84,14 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
       return state;
 
     // Handles setting a project as the currently active project.
-    case SET_ACTIVE_PROJECT:
+    case ToDoActionType.SET_ACTIVE_PROJECT:
       return {
         ...state,
         activeProject: action.payload,
       };
 
     // Handles the addition of a new project with a title.
-    case ADD_PROJECT:
+    case ToDoActionType.ADD_PROJECT:
       return {
         ...state,
         projects: [
@@ -111,7 +101,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
       };
 
     // Handles the deletion of an entire project.
-    case DELETE_PROJECT:
+    case ToDoActionType.DELETE_PROJECT:
       return {
         ...state,
         projects: state.projects.filter(
@@ -124,7 +114,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
             : state.activeProject,
       };
 
-    case EDIT_PROJECT:
+    case ToDoActionType.EDIT_PROJECT:
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -137,7 +127,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
         ),
       };
 
-    case EDIT_TODO:
+    case ToDoActionType.EDIT_TODO:
       return {
         ...state,
         projects: state.projects.map((project) =>
@@ -154,7 +144,7 @@ const toDoReducer = (state = initialState, action: Action): ToDoState => {
         ),
       };
 
-    case TOGGLE_TODO_COMPLETION:
+    case ToDoActionType.TOGGLE_TODO_COMPLETION:
       return {
         ...state,
         projects: state.projects.map((project) =>
