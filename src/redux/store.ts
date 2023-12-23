@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk';
-import rootReducer from './reducers/rootReducer';
+import rootReducer from './rootReducer';
 import { initialState } from './reducers/toDoReducer';
 
 type StateType = {
