@@ -1,12 +1,13 @@
 import React from 'react';
-import { ConnectedMainWeatherDisplay } from './MainWeatherDisplay';
+
+import MainWeatherDisplay from './MainWeatherDisplay';
 import SettingsMenu from './SettingsMenu';
 
 const WeatherApp = () => {
   return (
     <div>
       <SettingsMenu />
-      <ConnectedMainWeatherDisplay />
+      <MainWeatherDisplay />
     </div>
   );
 };
