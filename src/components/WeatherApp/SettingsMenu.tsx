@@ -1,58 +1,33 @@
 import React, { useState } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState, AppDispatch } from '../../redux/store';
 import {
-  setUnitCelsius,
-  setUnitFahrenheit,
+  toggleRegionFormat,
   fetchWeather,
-} from '../../redux/actions/weatherActions';
-import { RootState } from '../../redux/reducers/rootReducer';
-import { Unit } from '../../redux/reducers/weatherReducer';
+} from '../../redux/slices/weatherSlice';
 import './styles/SettingsMenu.scss';
 
-// Function to map Redux state to component props
-const mapStateToProps = (state: RootState) => ({
-  unit: state.weather.unit,
-});
-
-// Function to map Redux dispatch actions to component props
-const mapDispatchToProps = {
-  setUnitCelsius,
-  setUnitFahrenheit,
-  fetchWeather,
-};
-
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-// Functional component for the Settings Menu
-const SettingsMenu: React.FC<PropsFromRedux> = ({
-  setUnitCelsius,
-  setUnitFahrenheit,
-  fetchWeather,
-  unit,
-}) => {
+const SettingsMenu: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const region = useSelector((state: RootState) => state.weather.region);
   const [city, setCity] = useState('');
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
 
-  // Toggles the visibility of the settings content
   const toggleSettingsVisibility = () => {
     setIsSettingsVisible(!isSettingsVisible);
   };
 
-  // Toggles between Celsius and Fahrenheit units
-  const toggleUnit = () => {
-    unit === Unit.Celsius ? setUnitFahrenheit() : setUnitCelsius();
+  const handleToggleRegion = () => {
+    dispatch(toggleRegionFormat());
   };
 
-  // Updates the city state based on user input
   const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCity(event.target.value);
   };
 
-  // Dispatches an action to fetch weather data for the specified city
   const handleFetchWeather = () => {
-    fetchWeather({ city });
+    dispatch(fetchWeather({ city }));
   };
 
   return (
@@ -70,12 +45,12 @@ const SettingsMenu: React.FC<PropsFromRedux> = ({
         <button className='search-button' onClick={handleFetchWeather}>
           <span className='material-symbols-outlined'>search</span>
         </button>
-        <button className='unit-toggle-button' onClick={toggleUnit}>
-          {unit === Unit.Celsius ? 'EU' : 'US'}
+        <button className='unit-toggle-button' onClick={handleToggleRegion}>
+          {region === 'EU' ? 'US' : 'EU'}
         </button>
       </div>
     </div>
   );
 };
 
-export default connector(SettingsMenu);
+export default SettingsMenu;
