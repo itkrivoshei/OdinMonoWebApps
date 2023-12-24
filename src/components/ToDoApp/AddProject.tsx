@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProject } from '../../redux/actions/toDoActions';
+import { addProject } from '../../redux/slices/toDoSlice';
 
 function AddProject() {
   const [title, setTitle] = useState('');
