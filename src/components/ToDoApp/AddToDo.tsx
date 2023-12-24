@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToDo } from '../../redux/slices/toDoSlice';
 
-interface AddToDoProps {
-  addToDo: (input: string) => void;
-}
-
-function AddToDo({ addToDo }: AddToDoProps) {
-  // State to manage the input value
+function AddToDo() {
   const [input, setInput] = useState('');
+  const dispatch = useDispatch();
 
-  // Handler for form submission
   const handleAddToDo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const trimmedInput = input.trim(); // Trim the input
+    const trimmedInput = input.trim();
 
-    // Only add the toDo if the trimmed input isn't empty
     if (trimmedInput) {
-      addToDo(trimmedInput);
-      setInput(''); // Reset input field
+      dispatch(addToDo(trimmedInput));
+      setInput('');
     }
   };
 
