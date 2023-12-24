@@ -6,7 +6,7 @@ interface ToDo {
   completed: boolean;
 }
 
-interface Project {
+export interface Project {
   id: number | string;
   title: string;
   toDos: ToDo[];
