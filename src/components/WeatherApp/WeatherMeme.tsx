@@ -1,33 +1,23 @@
+import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
-import { RootState } from '../../redux/reducers/rootReducer';
-import { fetchGif } from '../../redux/actions/weatherActions';
 
-const mapStateToProps = (state: RootState) => ({
-  currentCondition: state.weather.weatherData?.current.condition.text,
-  gifUrl: state.weather.gifUrl,
-});
+import { fetchGif } from '../../redux/slices/weatherSlice';
+import { RootState } from '../../redux/store';
 
-const mapDispatchToProps = {
-  fetchGif,
-};
+const WeatherMeme: React.FC = () => {
+  const dispatch = useDispatch();
+  const currentCondition = useSelector(
+    (state: RootState) => state.weather.weatherData?.current.condition.text
+  );
+  const gifUrl = useSelector((state: RootState) => state.weather.gifUrl);
 
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-const WeatherMeme: React.FC<PropsFromRedux> = ({
-  currentCondition,
-  gifUrl,
-  fetchGif,
-}) => {
   useEffect(() => {
     if (currentCondition) {
-      fetchGif(currentCondition);
+      dispatch(fetchGif(currentCondition));
     }
-  }, [currentCondition, fetchGif]);
+  }, [currentCondition, dispatch]);
 
   return <div>{gifUrl && <img src={gifUrl} alt='Weather Meme' />}</div>;
 };
 
-export default connector(WeatherMeme);
+export default WeatherMeme;
