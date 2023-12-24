@@ -1,46 +1,41 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState } from '../../redux/store';
 import {
   setActiveProject,
   deleteProject,
   editProject,
-} from '../../redux/actions/toDoActions';
-import { State, Project } from './ToDoApp';
+} from '../../redux/slices/toDoSlice';
+import { Project } from '../../redux/slices/toDoSlice';
 
 function ProjectList() {
-  // State variables for inline editing.
-  const [isEditing, setIsEditing] = useState<number | null>(null);
+  const [isEditing, setIsEditing] = useState<number | string | null>(null);
   const [newName, setNewName] = useState<string>('');
 
-  // Retrieve list of projects from the Redux state.
-  const projects = useSelector((state: State) => state.toDos.projects) || [];
+  const projects = useSelector((state: RootState) => state.toDo.projects) || [];
   const dispatch = useDispatch();
 
-  // Handles click event on a project, setting it as the active project.
-  const handleProjectClick = (projectId: number) => {
+  const handleProjectClick = (projectId: number | string) => {
     dispatch(setActiveProject(projectId));
   };
 
-  // Handles the event when the delete button of a project is clicked.
-  const handleProjectDelete = (projectId: number) => {
+  const handleProjectDelete = (projectId: number | string) => {
     dispatch(deleteProject(projectId));
   };
 
-  // Initiates the edit mode for a project name.
-  const handleEditClick = (projectId: number, currentName: string) => {
+  const handleEditClick = (projectId: number | string, currentName: string) => {
     setIsEditing(projectId);
-    setNewName(currentName); // Pre-fill the input with the current project name.
+    setNewName(currentName);
   };
 
-  // Handles changes in the input box during editing.
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
   };
 
-  // Finalizes the editing process and updates the project name in the Redux state.
-  const handleSaveClick = (projectId: number) => {
+  const handleSaveClick = (projectId: number | string) => {
     if (newName.trim()) {
-      dispatch(editProject(projectId, newName));
+      dispatch(editProject({ projectId, newName }));
       setIsEditing(null);
       setNewName('');
     }
@@ -66,7 +61,7 @@ function ProjectList() {
                 >
                   Edit
                 </button>
-                {project.id !== 0 && (
+                {project.id !== 'default' && (
                   <button onClick={() => handleProjectDelete(project.id)}>
                     Delete
                   </button>
