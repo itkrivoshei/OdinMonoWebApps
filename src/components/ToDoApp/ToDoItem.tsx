@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  deleteToDo,
-  editToDo,
-  toggleToDo,
-} from '../../redux/actions/toDoActions';
 
-type ToDo = {
+import { deleteToDo, editToDo, toggleToDo } from '../../redux/slices/toDoSlice';
+
+interface ToDo {
   id: number;
   text: string;
   completed: boolean;
-};
+}
 
 interface ToDoItemProps {
   toDo: ToDo;
-  deleteToDo: (id: number) => void;
 }
 
-function ToDoItem({ toDo }: ToDoItemProps) {
+const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newName, setNewName] = useState(toDo.text || '');
-
+  const [newName, setNewName] = useState(toDo.text);
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -33,7 +28,12 @@ function ToDoItem({ toDo }: ToDoItemProps) {
 
   const handleSave = () => {
     if (newName.trim()) {
-      dispatch(editToDo(toDo.id, newName));
+      dispatch(
+        editToDo({
+          toDoId: toDo.id,
+          newText: newName,
+        })
+      );
       setIsEditing(false);
     }
   };
@@ -42,7 +42,6 @@ function ToDoItem({ toDo }: ToDoItemProps) {
     setNewName(e.target.value);
   };
 
-  // Handle the toggle of the toDo's completion state
   const handleToggleCompletion = () => {
     dispatch(toggleToDo(toDo.id));
   };
@@ -78,6 +77,6 @@ function ToDoItem({ toDo }: ToDoItemProps) {
       )}
     </li>
   );
-}
+};
 
 export default ToDoItem;
