@@ -2,10 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 
 import { fetchGif } from '../../redux/slices/weatherSlice';
-import { RootState } from '../../redux/store';
+import { RootState, AppDispatch } from '../../redux/store';
 
 const WeatherMeme: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const currentCondition = useSelector(
     (state: RootState) => state.weather.weatherData?.current.condition.text
   );
