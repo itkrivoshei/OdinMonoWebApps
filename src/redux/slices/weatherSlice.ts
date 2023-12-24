@@ -5,7 +5,26 @@ export enum Region {
   US = 'US',
 }
 
-export interface WeatherData {}
+export interface WeatherData {
+  location: {
+    name: string;
+    country: string;
+    localtime: string;
+  };
+  current: {
+    feelslike_c: number;
+    feelslike_f: number;
+    wind_kph: number;
+    wind_mph: number;
+    humidity: number;
+    air_quality?: {
+      'us-epa-index': number;
+    };
+    condition: {
+      text: string;
+    };
+  };
+}
 
 interface WeatherState {
   weatherData: WeatherData | null;
