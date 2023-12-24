@@ -1,26 +1,25 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
 
-type ToDo = {
+interface ToDo {
   id: number;
   text: string;
   completed: boolean;
-};
+}
 
 interface ToDoListProps {
   toDos: ToDo[];
-  deleteToDo: (id: number) => void;
 }
 
 // Component to list out toDos.
-function ToDoList({ toDos, deleteToDo }: ToDoListProps) {
+const ToDoList: React.FC<ToDoListProps> = ({ toDos }) => {
   return (
     <ul>
-      {toDos.map((toDo: ToDo) => (
-        <ToDoItem key={toDo.id} toDo={toDo} deleteToDo={deleteToDo} />
+      {toDos.map((toDo) => (
+        <ToDoItem key={toDo.id} toDo={toDo} />
       ))}
     </ul>
   );
-}
+};
 
 export default ToDoList;
