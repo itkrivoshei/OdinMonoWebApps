@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
-import { fetchWeather } from '../../redux/slices/weatherSlice';
 import { RootState, AppDispatch } from '../../redux/store';
-import './styles/MainWeatherDisplay.scss';
+import { fetchWeather } from '../../redux/slices/weatherSlice';
 import WeatherMeme from './WeatherMeme';
+import './styles/MainWeatherDisplay.scss';
 
 const MainWeatherDisplay: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
