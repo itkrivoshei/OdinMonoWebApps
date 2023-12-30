@@ -57,7 +57,9 @@ export const fetchWeather = createAsyncThunk(
         location.city || `${location.latitude},${location.longitude}`;
       const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`;
       const response = await fetch(apiUrl);
+
       if (!response.ok) throw new Error('Failed to fetch weather data');
+
       return await response.json();
     } catch (error) {
       return rejectWithValue('Failed to fetch weather data');
@@ -72,7 +74,9 @@ export const fetchGif = createAsyncThunk(
       const response = await fetch(
         `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${condition} weather&limit=1`
       );
+
       if (!response.ok) throw new Error('Failed to fetch GIF');
+
       const data = await response.json();
       return data.data.length > 0 ? data.data[0].images.fixed_height.url : null;
     } catch (error) {
