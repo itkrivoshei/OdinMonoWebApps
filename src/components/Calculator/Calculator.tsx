@@ -59,7 +59,6 @@ const Calculator: React.FC = () => {
   const initializeAudio = () => {
     if (audioInitialized) return;
 
-    // Initialize the Howl objects
     pGenericButton.current = new Howl({
       src: ['./Calculator/audio/pressGeneric.mp3'],
     });
@@ -73,7 +72,6 @@ const Calculator: React.FC = () => {
       src: ['./Calculator/audio/releaseLongKey.mp3'],
     });
 
-    // Try to resume the AudioContext on user interaction
     if (Howler.ctx?.state && Howler.ctx.state === 'suspended') {
       Howler.ctx.resume();
     }
@@ -167,7 +165,6 @@ const Calculator: React.FC = () => {
         setOperator('');
         setLastOperation({ operand: currentVal, operator });
       } else if (lastOperation) {
-        // If "=" is pressed again, use the last operand and operator
         const result = calculateWithLastOperation();
         setCurrentVal(result);
         setPreviousVal('');
@@ -185,7 +182,7 @@ const Calculator: React.FC = () => {
         setCurrentVal('');
       }
       setOperator(value);
-      setLastOperation(null); // Reset the last operation when a new operator is pressed
+      setLastOperation(null);
     }
   };
 
@@ -273,13 +270,13 @@ const Calculator: React.FC = () => {
       handleInput(finalKey);
       if (['g', 'NumLock', 'v'].includes(finalKey))
         handleCommandButtons(finalKey);
-      setLastKeyPressed(finalKey); // Set last key pressed
+      setLastKeyPressed(finalKey);
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
       if (!isClickValid(e.key)) return;
       if (sound || e.key === 'v') handleSound(e.key, 'up');
-      setLastKeyPressed(null); // Reset last key pressed
+      setLastKeyPressed(null);
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -298,7 +295,7 @@ const Calculator: React.FC = () => {
         window.open('https://github.com/itkrivoshei');
         break;
       case 'v':
-        initializeAudio(); // Ensure audio is initialized
+        initializeAudio();
         setSound(!sound);
         break;
       case 'NumLock':
