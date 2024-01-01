@@ -53,12 +53,10 @@ const MainWeatherDisplay: React.FC = () => {
         {new Date(weatherData.location.localtime).toLocaleString()}
       </div>
 
-      {/* Main weather info */}
       <div className='main-info-container'>
-        {/* Temperature Section */}
         <div className='temperature-section'>
           <div className='temperature'>
-            {/* {displayTemperature(weatherData.current)} */}
+            {displayTemperature(weatherData.current.temp_c)}
           </div>
           <div className='feels'>
             Feels: {displayTemperature(weatherData.current.feelslike_c)}
@@ -67,7 +65,6 @@ const MainWeatherDisplay: React.FC = () => {
 
         <div className='divider' />
 
-        {/* Other Details */}
         <div className='details'>
           <div className='detail'>
             Wind: {displayWindSpeed(weatherData.current.wind_kph)}
@@ -77,13 +74,12 @@ const MainWeatherDisplay: React.FC = () => {
           </div>
           <div className='detail'>
             Air Quality:{' '}
-            {/* {weatherData.current.air_quality['us-epa-index'] || 'N/A'} */}
+            {weatherData.current.air_quality['us-epa-index'] || 'N/A'}
           </div>
         </div>
 
         <div className='divider' />
 
-        {/* Weather Meme Section */}
         <WeatherMeme />
         <div>Condition: {weatherData.current.condition.text}</div>
       </div>
