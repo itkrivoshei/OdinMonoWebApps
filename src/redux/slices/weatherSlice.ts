@@ -93,6 +93,33 @@ const weatherSlice = createSlice({
       state.region = state.region === Region.EU ? Region.US : Region.EU;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchWeather.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchWeather.fulfilled, (state, action) => {
+        state.weatherData = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchWeather.rejected, (state, action) => {
+        state.error = action.error.message ?? 'Failed to fetch weather data';
+        state.loading = false;
+      })
+      .addCase(fetchGif.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchGif.fulfilled, (state, action) => {
+        state.gifUrl = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchGif.rejected, (state, action) => {
+        state.error = action.error.message ?? 'Failed to fetch GIF';
+        state.loading = false;
+      });
+  },
 });
 
 export const { toggleRegionFormat } = weatherSlice.actions;
