@@ -57,10 +57,19 @@ const MainWeatherDisplay: React.FC = () => {
       <div className='main-info-container'>
         <div className='temperature-section'>
           <div className='temperature'>
-            {displayTemperature(weatherData.current.temp_c)}
+            {displayTemperature(
+              region === 'EU'
+                ? weatherData.current.temp_c
+                : weatherData.current.temp_f
+            )}
           </div>
           <div className='feels'>
-            Feels: {displayTemperature(weatherData.current.feelslike_c)}
+            Feels:{' '}
+            {displayTemperature(
+              region === 'EU'
+                ? weatherData.current.feelslike_c
+                : weatherData.current.feelslike_c
+            )}
           </div>
         </div>
 
@@ -74,7 +83,7 @@ const MainWeatherDisplay: React.FC = () => {
             Humidity: {weatherData.current.humidity}%
           </div>
           <div className='detail'>
-            Air Quality:{' '}
+            Air Quality (US EPA):{' '}
             {weatherData.current.air_quality['us-epa-index'] || 'N/A'}
           </div>
         </div>
