@@ -12,12 +12,14 @@ export interface WeatherData {
     localtime: string;
   };
   current: {
+    temp_c: number;
+    temp_f: number;
     feelslike_c: number;
     feelslike_f: number;
     wind_kph: number;
     wind_mph: number;
     humidity: number;
-    air_quality?: {
+    air_quality: {
       'us-epa-index': number;
     };
     condition: {
