@@ -40,7 +40,8 @@ const MainWeatherDisplay: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const displayTemperature = (temp: number) => `${temp}°${region}`;
+  const displayTemperature = (temp: number) =>
+    `${temp}°${region === 'EU' ? 'C' : 'F'}`;
   const displayWindSpeed = (speed: number) =>
     `${speed} ${region === 'EU' ? 'kph' : 'mph'}`;
 
