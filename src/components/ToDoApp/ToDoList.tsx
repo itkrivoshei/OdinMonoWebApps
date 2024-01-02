@@ -11,7 +11,6 @@ interface ToDoListProps {
   toDos: ToDo[];
 }
 
-// Component to list out toDos.
 const ToDoList: React.FC<ToDoListProps> = ({ toDos }) => {
   return (
     <ul>
