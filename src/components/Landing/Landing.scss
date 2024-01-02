@@ -1,14 +1,11 @@
-// Variables
-$primary-color: #3882f6;
-$bg-gray: #e5e7eb;
-$bg-black: #1f2937;
-$text-gray: #e5e7eb;
-$text-dark: #474d55;
-$text-black: #1f2937;
-$text-white: #f9faf8;
-
 .landing-container {
-  // Global Resets
+  $primary-color: #3882f6;
+  $bg-gray: #e5e7eb;
+  $bg-black: #1f2937;
+  $text-gray: #e5e7eb;
+  $text-dark: #474d55;
+  $text-black: #1f2937;
+  $text-white: #f9faf8;
   * {
     margin: 0;
     padding: 0;
@@ -16,7 +13,6 @@ $text-white: #f9faf8;
     list-style-type: none;
   }
 
-  // Layout Properties
   .normal-width {
     width: 1200px;
     margin: 0 auto;
@@ -30,7 +26,6 @@ $text-white: #f9faf8;
     justify-content: center;
   }
 
-  // Common Components
   .button,
   .button-blue {
     border: none;
@@ -43,7 +38,6 @@ $text-white: #f9faf8;
     border: 2px solid $text-white;
   }
 
-  // Background Modifiers
   .main,
   .bg-full-black,
   .bg-full-gray {
@@ -58,7 +52,6 @@ $text-white: #f9faf8;
     background-color: $bg-black;
   }
 
-  // Header Styles
   .header-tabs {
     display: flex;
     align-items: center;
@@ -75,7 +68,6 @@ $text-white: #f9faf8;
     }
   }
 
-  // Text Modifiers
   .plain-text {
     color: $text-gray;
     font-size: 18px;
@@ -103,7 +95,6 @@ $text-white: #f9faf8;
     }
   }
 
-  // Main Blocks
   .normal-width.first-main {
     display: flex;
     padding: 64px 0;
