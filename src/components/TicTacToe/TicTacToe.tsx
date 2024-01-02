@@ -39,14 +39,14 @@ const TicTacToe: React.FC = () => {
         currentBoard[combination[1]] === currentBoard[combination[2]]
       ) {
         setGameOver(true);
-        setWinningCells(combination); // Set the winning combination
+        setWinningCells(combination);
         return true;
       }
     }
 
     if (currentBoard.every((cell) => cell !== null)) {
       setGameOver(true);
-      setIsTie(true); // Set the tie state
+      setIsTie(true);
       return true;
     }
 
