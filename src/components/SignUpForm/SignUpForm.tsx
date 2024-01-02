@@ -73,22 +73,18 @@ const SignUpForm: React.FC = () => {
         document.documentElement.clientHeight
       );
 
-      // Adjust the font size and columns dynamically based on new width
-      fontSize = Math.max(canvas.width / 100, 10); // Ensure a minimum font size of 10
+      fontSize = Math.max(canvas.width / 100, 10);
       columns = canvas.width / fontSize;
-      drops = Array(Math.floor(columns)).fill(1); // Reset drops array size
+      drops = Array(Math.floor(columns)).fill(1);
     };
 
-    // Draw the matrix at a regular interval
     const matrixInterval = setInterval(drawMatrix, 50);
 
-    // Resize the canvas when the window is resized
     window.addEventListener('resize', () => {
       resizeCanvas();
-      drawMatrix(); // Optionally redraw the matrix after resizing
+      drawMatrix();
     });
 
-    // Initial canvas setup and matrix draw
     resizeCanvas();
     drawMatrix();
 
@@ -107,7 +103,6 @@ const SignUpForm: React.FC = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    // If the input is a phone number, format it
     if (name === 'phoneNumber') {
       setFormData((prevData) => ({
         ...prevData,
