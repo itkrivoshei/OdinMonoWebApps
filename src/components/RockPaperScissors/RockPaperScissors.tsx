@@ -26,10 +26,10 @@ export const RockPaperScissors: React.FC = () => {
     palette: {
       mode: 'dark',
       primary: {
-        main: '#50fa7b', // green
+        main: '#50fa7b',
       },
       secondary: {
-        main: '#ff79c6', // pink
+        main: '#ff79c6',
       },
       background: {
         default: '#282a36',
