@@ -6,7 +6,6 @@ import {
   toggleRegionFormat,
   fetchWeather,
 } from '../../redux/slices/weatherSlice';
-import './styles/SettingsMenu.scss';
 
 const SettingsMenu: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
