@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+
 import {
   Container,
   Typography,
@@ -38,49 +39,28 @@ const darkTheme = createTheme({
   },
 });
 
-const DashboardComponent: React.FC = React.memo(() => {
+const Dashboard: React.FunctionComponent = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div
-        style={{
-          display: 'flex',
-          minHeight: '100vh',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Container
-          component='main'
-          maxWidth='sm'
-          style={{
-            paddingTop: '2rem',
-            background: 'linear-gradient(45deg, #333, #111)',
-            borderRadius: '8px',
-            padding: '2rem',
-          }}
-        >
-          <Typography variant='h4' align='center' gutterBottom>
-            Odin Projects
-          </Typography>
-          <List>
-            {projects.map((project, idx) => (
-              <ListItem
-                key={idx}
-                button
-                component={RouterLink}
-                to={project.path}
-              >
-                <ListItemText primary={project.name} />
-              </ListItem>
-            ))}
-          </List>
-        </Container>
-      </div>
+      <Container>
+        <Typography variant='h5'>Odin Projects</Typography>
+        <List>
+          {projects.map((project) => (
+            <ListItem
+              key={project.path}
+              component={RouterLink}
+              to={project.path}
+            >
+              <ListItemText primary={project.name} />
+            </ListItem>
+          ))}
+        </List>
+      </Container>
     </ThemeProvider>
   );
-});
+};
 
-DashboardComponent.displayName = 'Dashboard';
+Dashboard.displayName = 'Dashboard';
 
-export default React.memo(DashboardComponent);
+export default React.memo(Dashboard);
