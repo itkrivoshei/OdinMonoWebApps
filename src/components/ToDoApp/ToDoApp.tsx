@@ -5,7 +5,6 @@ import ToDoList from './ToDoList';
 import ProjectList from './ProjectList';
 import AddProject from './AddProject';
 import { RootState } from '../../redux/store';
-import './index.scss';
 
 const ToDoApp: React.FC = () => {
   const activeProject = useSelector((state: RootState) =>
