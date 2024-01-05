@@ -1,5 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Box } from '@mui/material';
 
 import { fetchGif } from '../../redux/slices/weatherSlice';
 import { RootState, AppDispatch } from '../../redux/store';
@@ -17,7 +18,17 @@ const WeatherMeme: React.FC = () => {
     }
   }, [currentCondition, dispatch]);
 
-  return <div>{gifUrl && <img src={gifUrl} alt='Weather Meme' />}</div>;
+  return (
+    <Box display='flex' justifyContent='center' alignItems='center' p={2}>
+      {gifUrl && (
+        <img
+          src={gifUrl}
+          alt='Weather Meme'
+          style={{ maxWidth: '100%', height: 'auto' }}
+        />
+      )}
+    </Box>
+  );
 };
 
 export default WeatherMeme;
