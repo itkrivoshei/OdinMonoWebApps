@@ -8,8 +8,8 @@ import {
   ListItemText,
   CssBaseline,
   ThemeProvider,
+  createTheme,
 } from '@mui/material';
-import { theme } from './theme';
 
 interface Project {
   path: string;
@@ -32,9 +32,15 @@ const projects: Project[] = [
   { path: '/WeatherApp', name: 'Weather App' },
 ];
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 const DashboardComponent: React.FC = React.memo(() => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div
         style={{
