@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SearchIcon from '@mui/icons-material/Search';
+
 import { AppDispatch } from '../../redux/store';
 import {
   toggleRegionFormat,
