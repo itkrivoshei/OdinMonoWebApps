@@ -61,9 +61,8 @@ const SettingsMenu: FC = () => {
             alignItems='center'
             onClick={handleToggleRegion}
           >
-            <Typography>US</Typography>
+            <Typography>US/EU</Typography>
             <AntSwitch defaultChecked color='default' size='small' />
-            <Typography>EU</Typography>
           </Stack>
         </Box>
       )}
