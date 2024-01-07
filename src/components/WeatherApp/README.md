@@ -2,7 +2,7 @@
 
 ## Overview
 
-The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application providing real-time weather forecasts. It is developed using React, TypeScript, and Redux Toolkit, offering a user-friendly interface with Material UI components styled using a custom Dracula theme. The app integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs. Users can search for weather forecasts by city and enjoy an adaptive UI that changes its visual theme based on the weather conditions.
+The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application providing real-time weather forecasts. It is developed using React, TypeScript, and Redux Toolkit, offering a user-friendly interface with Material UI components styled using a custom CyberPunk Font. The app integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs. Users can search for weather forecasts by city and enjoy an adaptive UI that changes gif based on the weather conditions.
 
 ## Key Features
 
@@ -19,7 +19,7 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
 - **Redux Toolkit**: For state management.
 - **Weather API & Giphy API**: Provides weather data and GIFs.
 - **Material UI**: For component styling, replacing SCSS.
-- **Custom Dracula Theme**: For a unique UI experience.
+- **Custom CyberPunk Font**: For a unique UI experience.
 
 ## Setup and Installation
 
