@@ -33,7 +33,11 @@ const SettingsMenu: FC = () => {
 
   return (
     <Box position='absolute' top={0} margin={2}>
-      <IconButton onClick={toggleSettingsVisibility} aria-label='settings'>
+      <IconButton
+        onClick={toggleSettingsVisibility}
+        aria-label='settings'
+        color='success'
+      >
         <SettingsIcon />
       </IconButton>
       {isSettingsVisible && (
@@ -49,7 +53,7 @@ const SettingsMenu: FC = () => {
             />
             <IconButton
               aria-label='search'
-              color='primary'
+              color='success'
               onClick={handleFetchWeather}
             >
               <SearchIcon />
@@ -61,7 +65,7 @@ const SettingsMenu: FC = () => {
             alignItems='center'
             onClick={handleToggleRegion}
           >
-            <Typography>US/EU</Typography>
+            <Typography>Units</Typography>
             <AntSwitch defaultChecked color='default' size='small' />
           </Stack>
         </Box>
