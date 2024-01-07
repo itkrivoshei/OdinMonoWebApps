@@ -2,23 +2,24 @@
 
 ## Overview
 
-The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application that provides real-time weather forecasts. Developed using React, TypeScript, and Redux, this project integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs in a user-friendly interface. It offers features like location-based weather search and the ability to toggle between Fahrenheit and Celsius temperature units. The adaptive UI enhances user experience with color changes and weather-themed visuals.
+The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application providing real-time weather forecasts. It is developed using React, TypeScript, and Redux Toolkit, offering a user-friendly interface with Material UI components styled using a custom Dracula theme. The app integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs. Users can search for weather forecasts by city and enjoy an adaptive UI that changes its visual theme based on the weather conditions.
 
 ## Key Features
 
-- **Real-time Weather Data**: Utilizes the Weather API to fetch current weather forecasts for any specified location.
-- **Temperature Unit Conversion**: Users can switch between Fahrenheit and Celsius units for temperature display.
-- **Interactive Weather GIFs**: Incorporates Giphy API to provide engaging weather-themed GIFs based on current weather conditions.
-- **State Management with Redux**: Manages application state efficiently, ensuring a responsive and smooth user experience.
+- **Real-time Weather Data**: Fetches current weather forecasts for any specified location using the Weather API.
+- **Unit Conversion**: Users can switch between metric (°C, km/h) and imperial (°F, mph) units for temperature and wind speed.
+- **Interactive Weather GIFs**: Engaging weather-themed GIFs from the Giphy API based on the current weather conditions.
+- **State Management with Redux Toolkit**: Efficient application state management for a responsive user experience.
+- **City Search Functionality**: Allows users to search for weather information by city.
 
 ## Technologies
 
 - **React**: For building the user interface.
-- **TypeScript**: To ensure type safety and improve maintainability.
-- **Redux**: For managing application state.
-- **Weather API**: Provides accurate and up-to-date weather information.
-- **Giphy API**: Offers a vast collection of GIFs for various weather conditions.
-- **SCSS**: For styling the application with more advanced CSS features.
+- **TypeScript**: Ensures type safety and improves maintainability.
+- **Redux Toolkit**: For state management.
+- **Weather API & Giphy API**: Provides weather data and GIFs.
+- **Material UI**: For component styling, replacing SCSS.
+- **Custom Dracula Theme**: For a unique UI experience.
 
 ## Setup and Installation
 
