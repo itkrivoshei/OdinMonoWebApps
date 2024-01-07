@@ -64,10 +64,21 @@ const MainWeatherDisplay: React.FC = () => {
       display='flex'
       justifyContent='center'
       alignItems='center'
-      height='100vh'
+      minHeight='100vh'
     >
-      <Paper elevation={3} sx={{ p: 2, mt: 2, minWidth: 300 }}>
-        <Typography variant='h6'>
+      <Paper
+        elevation={3}
+        sx={{
+          p: 2,
+          mt: 2,
+          minWidth: 300,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant='h3'>
           {weatherData.location.name}, {weatherData.location.country}
         </Typography>
         <Typography variant='body1'>
@@ -76,7 +87,7 @@ const MainWeatherDisplay: React.FC = () => {
 
         <Box sx={{ mt: 2 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h5'>
+            <Typography variant='h3'>
               {displayTemperature(
                 region === 'EU'
                   ? weatherData.current.temp_c
@@ -91,13 +102,13 @@ const MainWeatherDisplay: React.FC = () => {
           <Divider sx={{ my: 2 }} />
 
           <Box>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Wind: {displayWindSpeed(weatherData.current.wind_kph)}
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Humidity: {weatherData.current.humidity}%
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Air Quality (US EPA):{' '}
               {weatherData.current.air_quality['us-epa-index'] || 'N/A'}
             </Typography>
