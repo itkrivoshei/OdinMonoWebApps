@@ -36,7 +36,16 @@ const MainWeatherDisplay: React.FC = () => {
         alignItems='center'
         height='100vh'
       >
-        <Typography color='error'>Error loading weather: {error}</Typography>
+        <Paper
+          sx={{
+            p: 2,
+            backgroundColor: 'rgba(26, 26, 46, 0.8)',
+          }}
+        >
+          <Typography variant='h3' color='error'>
+            ERROR: {error}
+          </Typography>
+        </Paper>
       </Box>
     );
   }
@@ -49,15 +58,35 @@ const MainWeatherDisplay: React.FC = () => {
         alignItems='center'
         height='100vh'
       >
-        <Typography>Enter City in Settings</Typography>
+        <Paper
+          sx={{
+            p: 2,
+            backgroundColor: 'rgba(26, 26, 46, 0.8)',
+          }}
+        >
+          <Typography variant='h3' color='#4cc9f0'>
+            Enter City
+          </Typography>
+        </Paper>
       </Box>
     );
   }
 
   const displayTemperature = (temp: number) =>
     `${temp}°${region === 'EU' ? 'C' : 'F'}`;
+
   const displayWindSpeed = (speed: number) =>
     `${speed} ${region === 'EU' ? 'kph' : 'mph'}`;
+
+  function formatLocalTime(localTime: string): string {
+    const date = new Date(localTime);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${hours}:${minutes} | ${day}/${month}/${year}`;
+  }
 
   return (
     <Box
@@ -76,34 +105,68 @@ const MainWeatherDisplay: React.FC = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          backgroundColor: 'rgba(26, 26, 46, 0.8)',
         }}
       >
-        <Typography variant='h3'>
-          {weatherData.location.name}, {weatherData.location.country}
-        </Typography>
-        <Typography variant='body1'>
-          {new Date(weatherData.location.localtime).toLocaleString()}
-        </Typography>
-
         <Box sx={{ mt: 2 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h3'>
+          <Typography variant='h3' color={'#f72585'}>
+            {weatherData.location.name}, {weatherData.location.country}
+          </Typography>
+          <Typography variant='body1' color={'#4cc9f0'}>
+            {formatLocalTime(weatherData.location.localtime)}
+          </Typography>
+
+          <Divider
+            sx={{
+              my: 2,
+              backgroundColor: '#7209b7',
+            }}
+          />
+
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Typography variant='h3' color={'#f72585'}>
               {displayTemperature(
                 region === 'EU'
                   ? weatherData.current.temp_c
                   : weatherData.current.temp_f
               )}
             </Typography>
-            <Typography variant='body2' sx={{ fontWeight: 'light' }}>
-              Feels: {displayTemperature(weatherData.current.feelslike_c)}
+            <Typography
+              variant='body2'
+              color={'#4cc9f0'}
+              sx={{ fontWeight: 'light' }}
+            >
+              Feels:{' '}
+              {displayTemperature(
+                region === 'EU'
+                  ? weatherData.current.feelslike_c
+                  : weatherData.current.feelslike_f
+              )}
             </Typography>
           </Box>
 
-          <Divider sx={{ my: 2 }} />
+          <Divider
+            sx={{
+              my: 2,
+              backgroundColor: '#7209b7',
+            }}
+          />
 
-          <Box>
+          <Box color={'#4cc9f0'}>
             <Typography variant='body1'>
-              Wind: {displayWindSpeed(weatherData.current.wind_kph)}
+              Wind:{' '}
+              {displayWindSpeed(
+                region === 'EU'
+                  ? weatherData.current.wind_kph
+                  : weatherData.current.wind_mph
+              )}
             </Typography>
             <Typography variant='body1'>
               Humidity: {weatherData.current.humidity}%
@@ -114,10 +177,11 @@ const MainWeatherDisplay: React.FC = () => {
             </Typography>
           </Box>
 
-          <Divider sx={{ my: 2 }} />
+          <Divider sx={{ my: 2, backgroundColor: '#7209b7' }} />
 
           <WeatherMeme />
-          <Typography variant='body2'>
+
+          <Typography variant='body2' color={'#4cc9f0'}>
             Condition: {weatherData.current.condition.text}
           </Typography>
         </Box>
