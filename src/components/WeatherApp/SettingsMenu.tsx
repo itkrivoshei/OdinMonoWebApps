@@ -1,14 +1,6 @@
-import React, { useState, ChangeEvent, FC } from 'react';
+import React, { useState, ChangeEvent, FC, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  Box,
-  IconButton,
-  TextField,
-  Typography,
-  Stack,
-  Switch as AntSwitch,
-} from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { Box, IconButton, TextField, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 import { AppDispatch } from '../../redux/store';
@@ -20,56 +12,54 @@ import {
 const SettingsMenu: FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const [city, setCity] = useState<string>('');
-  const [isSettingsVisible, setIsSettingsVisible] = useState<boolean>(false);
-
-  const toggleSettingsVisibility = () => setIsSettingsVisible((prev) => !prev);
 
   const handleToggleRegion = () => dispatch(toggleRegionFormat());
 
-  const handleCityChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const handleCityChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCity(event.target.value);
+  };
 
-  const handleFetchWeather = () => dispatch(fetchWeather({ city }));
+  const handleFetchWeather = () => {
+    dispatch(fetchWeather({ city }));
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleFetchWeather();
+  };
 
   return (
     <Box position='absolute' top={0} margin={2}>
-      <IconButton
-        onClick={toggleSettingsVisibility}
-        aria-label='settings'
-        color='success'
-      >
-        <SettingsIcon />
-      </IconButton>
-      {isSettingsVisible && (
-        <Box>
+      <Box>
+        <form onSubmit={handleSubmit}>
           <Box display='flex' alignItems='center' gap={1} marginY={2}>
             <TextField
               type='text'
               value={city}
               onChange={handleCityChange}
-              placeholder='Enter city'
+              label='Enter City'
               variant='outlined'
               size='small'
+              sx={{ label: { color: '#4cc9f0' } }}
             />
             <IconButton
               aria-label='search'
-              color='success'
-              onClick={handleFetchWeather}
+              type='submit'
+              sx={{ color: '#4cc9f0' }}
             >
               <SearchIcon />
             </IconButton>
           </Box>
-          <Stack
-            direction='row'
-            spacing={1}
-            alignItems='center'
-            onClick={handleToggleRegion}
-          >
-            <Typography>Units</Typography>
-            <AntSwitch defaultChecked color='default' size='small' />
-          </Stack>
-        </Box>
-      )}
+        </form>
+        <Button
+          onClick={handleToggleRegion}
+          variant='outlined'
+          size='small'
+          sx={{ color: '#4cc9f0' }}
+        >
+          UNIT
+        </Button>
+      </Box>
     </Box>
   );
 };
