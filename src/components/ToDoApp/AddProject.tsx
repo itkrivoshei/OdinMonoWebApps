@@ -24,7 +24,6 @@ const AddProject: React.FC = () => {
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
-          maxWidth: 300,
           margin: 'auto',
         }}
       >
