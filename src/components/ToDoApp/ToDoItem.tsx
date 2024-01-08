@@ -1,6 +1,16 @@
-import { Box, Button, Checkbox, TextField, Typography } from '@mui/material';
 import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  Box,
+  Checkbox,
+  Paper,
+  TextField,
+  Typography,
+  IconButton,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 
 import { deleteToDo, editToDo, toggleToDo } from '../../redux/slices/toDoSlice';
 
@@ -36,25 +46,59 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
   return (
     <Box component='li'>
       {isEditing ? (
-        <Box>
-          <TextField value={newName} onChange={handleChange} />
-          <Button onClick={handleSave}>Save</Button>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            maxWidth: 300,
+            margin: 'auto',
+          }}
+        >
+          <TextField
+            value={newName}
+            size='small'
+            onChange={handleChange}
+            fullWidth
+          />
+          <IconButton onClick={handleSave} aria-label='save'>
+            <SaveIcon />
+          </IconButton>
         </Box>
       ) : (
-        <Box>
-          <Checkbox
-            checked={!!toDo.completed}
-            onChange={handleToggleCompletion}
-          />
-          <Typography
-            variant='body1'
-            style={{ textDecoration: toDo.completed ? 'line-through' : 'none' }}
-          >
-            {toDo.text}
-          </Typography>
-          <Button onClick={handleEdit}>Edit</Button>
-          <Button onClick={handleDelete}>Delete</Button>
-        </Box>
+        <Paper
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            backgroundColor: '#c8b6ff',
+            margin: '1',
+            padding: '1',
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Checkbox
+              checked={!!toDo.completed}
+              onChange={handleToggleCompletion}
+            />
+            <Typography
+              variant='body1'
+              style={{
+                textDecoration: toDo.completed ? 'line-through' : 'none',
+              }}
+            >
+              {toDo.text}
+            </Typography>
+          </Box>
+          <Box>
+            <IconButton onClick={handleEdit} aria-label='edit'>
+              <EditIcon />
+            </IconButton>
+            <IconButton onClick={handleDelete} aria-label='delete'>
+              <DeleteIcon />
+            </IconButton>
+          </Box>
+        </Paper>
       )}
     </Box>
   );
