@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Box, Typography } from '@mui/material';
+
+import { RootState } from '../../redux/store';
+
 import AddToDo from './AddToDo';
 import ToDoList from './ToDoList';
 import ProjectList from './ProjectList';
 import AddProject from './AddProject';
-import { RootState } from '../../redux/store';
 
 const ToDoApp: React.FC = () => {
   const activeProject = useSelector((state: RootState) =>
@@ -14,15 +17,15 @@ const ToDoApp: React.FC = () => {
   );
 
   return (
-    <div className='toDoApp'>
-      <h1>ToDo App</h1>
-      <h2>Projects</h2>
+    <Box className='toDoApp' sx={{ padding: 2 }}>
+      <Typography variant='h1'>ToDo App</Typography>
+      <Typography variant='h2'>Projects</Typography>
       <AddProject />
       <ProjectList />
-      <h2>ToDo&apos;s</h2>
+      <Typography variant='h2'>ToDo&apos;s</Typography>
       <AddToDo />
       {activeProject && <ToDoList toDos={activeProject.toDos} />}
-    </div>
+    </Box>
   );
 };
 
