@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { Box, Button, Checkbox, TextField, Typography } from '@mui/material';
+import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { deleteToDo, editToDo, toggleToDo } from '../../redux/slices/toDoSlice';
@@ -18,64 +19,44 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
   const [newName, setNewName] = useState(toDo.text);
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteToDo(toDo.id));
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
+  const handleDelete = () => dispatch(deleteToDo(toDo.id));
+  const handleEdit = () => setIsEditing(true);
+  const handleToggleCompletion = () => dispatch(toggleToDo(toDo.id));
 
   const handleSave = () => {
     if (newName.trim()) {
-      dispatch(
-        editToDo({
-          toDoId: toDo.id,
-          newText: newName,
-        })
-      );
+      dispatch(editToDo({ toDoId: toDo.id, newText: newName }));
       setIsEditing(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setNewName(e.target.value);
-  };
-
-  const handleToggleCompletion = () => {
-    dispatch(toggleToDo(toDo.id));
-  };
 
   return (
-    <li>
+    <Box component='li'>
       {isEditing ? (
-        <>
-          <input type='text' value={newName} onChange={handleChange} />
-          <button onClick={handleSave}>Save</button>
-        </>
+        <Box>
+          <TextField value={newName} onChange={handleChange} />
+          <Button onClick={handleSave}>Save</Button>
+        </Box>
       ) : (
-        <>
-          <div>
-            <input
-              type='checkbox'
-              checked={!!toDo.completed}
-              onChange={handleToggleCompletion}
-            />
-            <span
-              style={{
-                textDecoration: toDo.completed ? 'line-through' : 'none',
-              }}
-            >
-              {toDo.text}
-            </span>
-          </div>
-          <div>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-        </>
+        <Box>
+          <Checkbox
+            checked={!!toDo.completed}
+            onChange={handleToggleCompletion}
+          />
+          <Typography
+            variant='body1'
+            style={{ textDecoration: toDo.completed ? 'line-through' : 'none' }}
+          >
+            {toDo.text}
+          </Typography>
+          <Button onClick={handleEdit}>Edit</Button>
+          <Button onClick={handleDelete}>Delete</Button>
+        </Box>
       )}
-    </li>
+    </Box>
   );
 };
 
