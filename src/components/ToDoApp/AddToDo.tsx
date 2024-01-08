@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+
+import { Button, TextField, Box } from '@mui/material';
+
 import { useDispatch } from 'react-redux';
 import { addToDo } from '../../redux/slices/toDoSlice';
 
-function AddToDo() {
+const AddToDo: React.FC = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
@@ -18,15 +21,28 @@ function AddToDo() {
 
   return (
     <form onSubmit={handleAddToDo}>
-      <input
-        type='text'
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-        placeholder='Enter toDo...'
-      />
-      <button type='submit'>Add ToDo</button>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          maxWidth: 300,
+          margin: 'auto',
+        }}
+      >
+        <TextField
+          label='Enter ToDo'
+          variant='outlined'
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          fullWidth
+        />
+        <Button variant='contained' color='primary' type='submit'>
+          Add ToDo
+        </Button>
+      </Box>
     </form>
   );
-}
+};
 
 export default AddToDo;
