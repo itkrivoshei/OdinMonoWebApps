@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Box, Typography, Button, TextField } from '@mui/material';
 
 import { RootState } from '../../redux/store';
 import {
@@ -9,7 +10,7 @@ import {
 } from '../../redux/slices/toDoSlice';
 import { Project } from '../../redux/slices/toDoSlice';
 
-function ProjectList() {
+const ProjectList: React.FC = () => {
   const [isEditing, setIsEditing] = useState<number | string | null>(null);
   const [newName, setNewName] = useState<string>('');
 
@@ -42,37 +43,37 @@ function ProjectList() {
   };
 
   return (
-    <ul>
+    <Box>
       {projects.map((project: Project) => (
-        <li key={project.id}>
+        <Box key={project.id}>
           {isEditing === project.id ? (
-            <>
-              <input value={newName} onChange={handleNameChange} />
-              <button onClick={() => handleSaveClick(project.id)}>Save</button>
-            </>
+            <Box>
+              <TextField value={newName} onChange={handleNameChange} />
+              <Button onClick={() => handleSaveClick(project.id)}>Save</Button>
+            </Box>
           ) : (
-            <>
-              <span onClick={() => handleProjectClick(project.id)}>
+            <Box>
+              <Typography onClick={() => handleProjectClick(project.id)}>
                 {project.title}
-              </span>
-              <div>
-                <button
+              </Typography>
+              <Box>
+                <Button
                   onClick={() => handleEditClick(project.id, project.title)}
                 >
                   Edit
-                </button>
+                </Button>
                 {project.id !== 'default' && (
-                  <button onClick={() => handleProjectDelete(project.id)}>
+                  <Button onClick={() => handleProjectDelete(project.id)}>
                     Delete
-                  </button>
+                  </Button>
                 )}
-              </div>
-            </>
+              </Box>
+            </Box>
           )}
-        </li>
+        </Box>
       ))}
-    </ul>
+    </Box>
   );
-}
+};
 
 export default ProjectList;
