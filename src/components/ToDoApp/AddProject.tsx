@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+
+import { Button, TextField, Box } from '@mui/material';
+
 import { useDispatch } from 'react-redux';
 import { addProject } from '../../redux/slices/toDoSlice';
 
-function AddProject() {
+const AddProject: React.FC = () => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
@@ -16,15 +19,28 @@ function AddProject() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type='text'
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder='Project Title'
-      />
-      <button type='submit'>Add Project</button>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          maxWidth: 300,
+          margin: 'auto',
+        }}
+      >
+        <TextField
+          label='Project Title'
+          variant='outlined'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          fullWidth
+        />
+        <Button variant='contained' color='primary' type='submit'>
+          Add Project
+        </Button>
+      </Box>
     </form>
   );
-}
+};
 
 export default AddProject;
