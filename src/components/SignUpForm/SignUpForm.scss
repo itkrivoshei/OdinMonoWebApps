@@ -5,9 +5,8 @@
   font-family: 'VT323', monospace;
   color: #0f0;
   margin: 0;
-  height: 100vh;
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   justify-content: space-between;
 
   * {
@@ -116,7 +115,8 @@
     }
 
     .logo {
-      max-width: 80%;
+      max-width: 300px;
+      margin-top: 24px;
     }
 
     .logo-text {
