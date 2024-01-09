@@ -79,10 +79,10 @@ const ToDoApp: React.FC = () => {
             }}
           >
             <Typography
-              variant='h4'
+              variant='h2'
               sx={{
                 m3: 2,
-                color: '#7161ef',
+                color: '#282A36',
               }}
             >
               ToDoApp
@@ -101,6 +101,9 @@ const ToDoApp: React.FC = () => {
               gap: 2,
             }}
           >
+            <Typography variant='h3' color={'#282A36'}>
+              ToDo&apos;s
+            </Typography>
             <AddToDo />
             {activeProject && <ToDoList toDos={activeProject.toDos} />}
           </Box>
