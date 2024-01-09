@@ -14,7 +14,14 @@ interface ToDoListProps {
 
 const ToDoList: React.FC<ToDoListProps> = ({ toDos }) => {
   return (
-    <List>
+    <List
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        width: '100%',
+      }}
+    >
       {toDos.map((toDo) => (
         <ToDoItem key={toDo.id} toDo={toDo} />
       ))}
