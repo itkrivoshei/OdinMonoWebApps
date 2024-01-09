@@ -60,7 +60,6 @@ const ProjectList: React.FC = () => {
             wordBreak: 'break-word',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: 1,
             backgroundColor:
               project.id === activeProjectId ? '#957fef' : '#c8b6ff',
             cursor: 'pointer',
