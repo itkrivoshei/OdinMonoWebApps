@@ -21,6 +21,17 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
 - **Material UI**: For component styling, replacing SCSS.
 - **Custom CyberPunk Font**: For a unique UI experience.
 
+## Usage
+
+- **Location Search**: Enter a city or location to get the current weather forecast.
+- **Toggle Temperature Units**: Use the switch to change temperature units between Fahrenheit and Celsius.
+- **Enjoy Weather GIFs**: The app displays unique GIFs related to the current weather conditions.
+
+## API Keys and Security
+
+- **Secure your API Keys**: Keep your WeatherAPI and Giphy API keys secure, preferably using environment variables.
+- **Avoid Publicly Exposing API Keys**: Never commit your API keys to the public repository. Use `.env` files or server-side configuration to manage them.
+
 ## Setup and Installation
 
 1. Clone the repository:
@@ -39,17 +50,6 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
    ```bash
    npm start
    ```
-
-## Usage
-
-- **Location Search**: Enter a city or location to get the current weather forecast.
-- **Toggle Temperature Units**: Use the switch to change temperature units between Fahrenheit and Celsius.
-- **Enjoy Weather GIFs**: The app displays unique GIFs related to the current weather conditions.
-
-## API Keys and Security
-
-- **Secure your API Keys**: Keep your WeatherAPI and Giphy API keys secure, preferably using environment variables.
-- **Avoid Publicly Exposing API Keys**: Never commit your API keys to the public repository. Use `.env` files or server-side configuration to manage them.
 
 ## How to Contribute
 
