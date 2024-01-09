@@ -71,8 +71,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             backgroundColor: '#c8b6ff',
-            margin: '1',
-            padding: '1',
+            opacity: toDo.completed ? 0.5 : 1,
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -82,9 +81,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
             />
             <Typography
               variant='body1'
-              sx={{
-                wordBreak: 'break-word',
-              }}
+              sx={{ wordBreak: 'break-word' }}
               style={{
                 textDecoration: toDo.completed ? 'line-through' : 'none',
               }}
@@ -105,5 +102,4 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
     </Box>
   );
 };
-
 export default ToDoItem;
