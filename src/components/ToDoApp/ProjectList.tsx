@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Typography, Button, TextField } from '@mui/material';
+import { Box, Typography, TextField, IconButton, Paper } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 
 import { RootState } from '../../redux/store';
 import {
@@ -15,6 +18,9 @@ const ProjectList: React.FC = () => {
   const [newName, setNewName] = useState<string>('');
 
   const projects = useSelector((state: RootState) => state.toDo.projects) || [];
+  const activeProjectId = useSelector(
+    (state: RootState) => state.toDo.activeProject
+  );
   const dispatch = useDispatch();
 
   const handleProjectClick = (projectId: number | string) => {
@@ -43,34 +49,86 @@ const ProjectList: React.FC = () => {
   };
 
   return (
-    <Box>
+    <Box
+      sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}
+    >
       {projects.map((project: Project) => (
-        <Box key={project.id}>
+        <Paper
+          key={project.id}
+          sx={{
+            display: 'flex',
+            wordBreak: 'break-word',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 1,
+            backgroundColor:
+              project.id === activeProjectId ? '#957fef' : '#c8b6ff',
+            cursor: 'pointer',
+            '&:hover': {
+              backgroundColor:
+                project.id === activeProjectId ? '#b0a6db' : '#a096cb',
+            },
+          }}
+          onClick={() => handleProjectClick(project.id)}
+        >
           {isEditing === project.id ? (
-            <Box>
-              <TextField value={newName} onChange={handleNameChange} />
-              <Button onClick={() => handleSaveClick(project.id)}>Save</Button>
+            <Box
+              sx={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              <TextField
+                fullWidth
+                value={newName}
+                onChange={handleNameChange}
+                size='small'
+                onClick={(e) => e.stopPropagation()}
+              />
+              <IconButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSaveClick(project.id);
+                }}
+                aria-label='save'
+              >
+                <SaveIcon />
+              </IconButton>
             </Box>
           ) : (
-            <Box>
-              <Typography onClick={() => handleProjectClick(project.id)}>
-                {project.title}
-              </Typography>
-              <Box>
-                <Button
-                  onClick={() => handleEditClick(project.id, project.title)}
+            <Typography
+              variant='body1'
+              sx={{ flexGrow: 1, textAlign: 'center' }}
+            >
+              {project.title}
+            </Typography>
+          )}
+          {!isEditing && (
+            <Box sx={{ ml: 'auto' }}>
+              <IconButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleEditClick(project.id, project.title);
+                }}
+                aria-label='edit'
+              >
+                <EditIcon />
+              </IconButton>
+              {project.id !== 'default' && (
+                <IconButton
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProjectDelete(project.id);
+                  }}
+                  aria-label='delete'
                 >
-                  Edit
-                </Button>
-                {project.id !== 'default' && (
-                  <Button onClick={() => handleProjectDelete(project.id)}>
-                    Delete
-                  </Button>
-                )}
-              </Box>
+                  <DeleteIcon />
+                </IconButton>
+              )}
             </Box>
           )}
-        </Box>
+        </Paper>
       ))}
     </Box>
   );
