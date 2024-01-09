@@ -51,7 +51,6 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            maxWidth: 300,
             margin: 'auto',
           }}
         >
@@ -83,6 +82,9 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
             />
             <Typography
               variant='body1'
+              sx={{
+                wordBreak: 'break-word',
+              }}
               style={{
                 textDecoration: toDo.completed ? 'line-through' : 'none',
               }}
