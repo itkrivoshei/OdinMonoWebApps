@@ -5,34 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Not Found</title>
     <style>
-      body {
-        text-align: center;
-        padding: 150px;
-        font-family: 'Arial', sans-serif;
-      }
-      h1 {
-        font-size: 50px;
-      }
-      body {
-        background-color: #f9f9f9;
-      }
       .message {
-        display: inline-block;
-        text-align: left;
-        line-height: 49px;
-      }
-      a {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 10px 25px;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      a:hover {
-        background-color: #0056b3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     </style>
   </head>
@@ -40,10 +17,7 @@
     <div class="message">
       <h1>404</h1>
       <p>Sorry, the page you are looking for cannot be found.</p>
-      <p>
-        Please check the URL or go back to the
-        <a href="/OdinMonoWebApps/">homepage</a>.
-      </p>
+      <p>Please check the URL or go back.</p>
     </div>
   </body>
 </html>
