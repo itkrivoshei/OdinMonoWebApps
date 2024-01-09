@@ -9,18 +9,18 @@ Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a d
 Here is a list of projects sorted from most difficult (interesting) to least difficult:
 
 1. **Weather App** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/WeatherApp)
-2. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Calculator)
-3. **ToDo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
-4. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/BookLibrary)
-5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TicTacToe)
-6. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/EtchASketch) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/EtchASketch)
-7. **Rock Paper Scissors** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RockPaperScissors)
-8. **Sign-up Form** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/SignUpForm)
-9. **DrumKit** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DrumKit) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DrumKit)
-10. **Admin Dashboard** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DashLanding)
-11. **Landing Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Landing)
-12. **Restaurant Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RestaurantPages)
-13. **Recipes** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/OdinRecipes) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/OdinRecipes)
+2. **ToDo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
+3. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Calculator)
+5. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/BookLibrary)
+6. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TicTacToe)
+7. **Etch-a-Sketch** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/EtchASketch) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/EtchASketch)
+8. **Rock Paper Scissors** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RockPaperScissors)
+9. **Sign-up Form** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/SignUpForm)
+10. **DrumKit** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DrumKit) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DrumKit)
+11. **Admin Dashboard** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DashLanding)
+12. **Landing Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Landing)
+13. **Restaurant Page** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RestaurantPages)
+14. **Recipes** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/OdinRecipes) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/OdinRecipes)
 
 ## Repository Structure
 
