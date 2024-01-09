@@ -7,10 +7,10 @@ const Landing = () => {
       <div className='bg-full-black'>
         <div className='normal-width'>
           <ul className='header-tabs'>
-            <li className='logo-text'>Hi there ☝️</li>
-            <li className='plain-text'>Gordon</li>
-            <li className='plain-text'>Source</li>
-            <li className='plain-text'>Ramsey</li>
+            <li className='logo-text'>Welcome!</li>
+            <li className='plain-text'>Home</li>
+            <li className='plain-text'>About Us</li>
+            <li className='plain-text'>Contact</li>
           </ul>
         </div>
       </div>
@@ -19,28 +19,24 @@ const Landing = () => {
         <div className='bg-full-black'>
           <div className='normal-width first-main'>
             <div className='text-block'>
-              <h1 className='header-white-text'>Sometimes I want to&nbsp;🤯</h1>
+              <h1 className='header-white-text'>Discover Our Services</h1>
               <p className='plain-text'>
-                But my mother tells me nothing about dying from too many chicken
-                sandwiches 🗿
+                Explore a wide range of solutions tailored to meet your needs.
               </p>
-              <button className='button'>PUSH ME EEEy..</button>
+              <button className='button'>Learn More</button>
             </div>
             <img
               width='220px'
               src='https://images.pexels.com/photos/3938023/pexels-photo-3938023.jpeg?cs=srgb&dl=pexels-chokniti-khongchum-3938023.jpg&fm=jpg'
-              alt='Random'
+              alt='Service Image'
             />
           </div>
         </div>
 
         <div className='normal-width second-main'>
-          <h2 className='header-black-text'>
-            Another strange text without meaning but with butter under the vest
-          </h2>
+          <h2 className='header-black-text'>Our Commitment to Quality</h2>
           <div className='img-bar'>
             <ul>
-              {/* Repeating blocks can be made more DRY, but for now, I'm keeping it as-is. */}
               {Array(4)
                 .fill('')
                 .map((_, idx) => (
@@ -48,18 +44,9 @@ const Landing = () => {
                     <img
                       width='220px'
                       src='https://images.pexels.com/photos/3938023/pexels-photo-3938023.jpeg?cs=srgb&dl=pexels-chokniti-khongchum-3938023.jpg&fm=jpg'
-                      alt='Random'
+                      alt='Quality Image'
                     />
-                    <p>
-                      {
-                        [
-                          "Yeah I want to do it more don't stop 👈(⌒▽⌒)👉",
-                          'Touch me please today ＼(((￣(￣(￣▽￣)￣)￣)))／',
-                          'But you are wrong young man you need to eat this dust! ○( ＾皿＾)っ Hehehe…',
-                          'My pony is broken and I think I need to eat more of my pills :-O',
-                        ][idx]
-                      }
-                    </p>
+                    <p>Quality Service {idx + 1}</p>
                   </li>
                 ))}
             </ul>
@@ -69,11 +56,10 @@ const Landing = () => {
         <div className='bg-full-gray'>
           <div className='normal-width gray-block'>
             <p className='quote-text'>
-              My father feels strange and also he has a strange shape without
-              glitching. Stop talking with me that way! (*/ω＼*)
+              We prioritize customer satisfaction and innovative solutions.
             </p>
             <p className='quote-text-ps'>
-              <strong>So lorem ipsum ℃</strong>
+              <strong>Commitment to Excellence</strong>
             </p>
           </div>
         </div>
@@ -82,20 +68,18 @@ const Landing = () => {
           <div className='blue-block'>
             <div>
               <p className='plain-text'>
-                <strong>way I&apos;m smaller but.. Ok, daddy :]</strong>
+                <strong>Contact Us Today</strong>
               </p>
-              <p className='plain-text'>Ok call me daddy 👈(ﾟヮﾟ👈)</p>
+              <p className='plain-text'>We are here to help!</p>
             </div>
-            <button className='button-blue plain-text'>
-              I&apos;m a button without meaning
-            </button>
+            <button className='button-blue plain-text'>Get in Touch</button>
           </div>
         </div>
       </div>
 
       <div className='bg-full-black'>
         <div className='normal-width footer'>
-          <p className='plain-text'>Copyright © Niko 2022 o(*^▽^*)</p>
+          <p className='plain-text'>Copyright © Your Company Name 2024</p>
         </div>
       </div>
     </div>
