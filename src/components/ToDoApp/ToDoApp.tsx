@@ -59,11 +59,10 @@ const ToDoApp: React.FC = () => {
             display: 'flex',
             flexDirection: 'row',
             maxWidth: '90vw',
-            maxHeight: '90vh',
             backgroundColor: '#9381ff',
             width: '70vh',
-            height: '50vh',
-            opacity: 0.9,
+            minHeight: '50vh',
+            opacity: 0.93,
             padding: 2,
           }}
         >
@@ -72,16 +71,22 @@ const ToDoApp: React.FC = () => {
               width: '35%',
               backgroundColor: 'secondary.main',
               padding: 2,
+              gap: 2,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'start',
+              justifyContent: 'space-evenly',
               alignItems: 'center',
             }}
           >
-            <Typography variant='h4' sx={{ m3: 2 }}>
+            <Typography
+              variant='h4'
+              sx={{
+                m3: 2,
+                color: '#7161ef',
+              }}
+            >
               ToDoApp
             </Typography>
-            <Typography variant='h6'>Projects</Typography>
             <AddProject />
             <ProjectList />
           </Box>
@@ -93,6 +98,7 @@ const ToDoApp: React.FC = () => {
               justifyContent: 'center',
               alignItems: 'center',
               paddingLeft: 2,
+              gap: 2,
             }}
           >
             <AddToDo />
