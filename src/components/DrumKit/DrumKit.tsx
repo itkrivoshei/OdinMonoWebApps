@@ -1,6 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import './DrumKit.scss';
 
+import clapSound from '../../assets/DrumKit/sounds/clap.wav';
+import hihatSound from '../../assets/DrumKit/sounds/hihat.wav';
+import kickSound from '../../assets/DrumKit/sounds/kick.wav';
+import openhatSound from '../../assets/DrumKit/sounds/openhat.wav';
+import boomSound from '../../assets/DrumKit/sounds/boom.wav';
+import rideSound from '../../assets/DrumKit/sounds/ride.wav';
+import snareSound from '../../assets/DrumKit/sounds/snare.wav';
+import tomSound from '../../assets/DrumKit/sounds/tom.wav';
+import tinkSound from '../../assets/DrumKit/sounds/tink.wav';
+
+const soundMap: Record<string, string> = {
+  clap: clapSound,
+  hihat: hihatSound,
+  kick: kickSound,
+  openhat: openhatSound,
+  boom: boomSound,
+  ride: rideSound,
+  snare: snareSound,
+  tom: tomSound,
+  tink: tinkSound,
+};
+
 type DrumKeyProps = {
   keyChar: string;
   soundName: string;
@@ -18,11 +40,9 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
       if (keyRef.current && audioRef.current) {
         keyRef.current.classList.add('playing');
         audioRef.current.currentTime = 0;
-        try {
-          audioRef.current.play();
-        } catch (err) {
+        audioRef.current.play().catch((err) => {
           console.error('Failed to play:', err);
-        }
+        });
       }
     };
 
@@ -37,13 +57,15 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
     const removeTransition = (event: TransitionEvent) => {
       if (event.propertyName !== 'transform') return;
 
-      const target = event.target as HTMLElement;
-      target.classList.remove('playing');
+      if (keyRef.current) {
+        keyRef.current.classList.remove('playing');
+      }
     };
 
-    if (keyRef.current) {
-      keyRef.current.addEventListener('transitionend', removeTransition);
-    }
+    keyRef.current?.addEventListener('transitionend', removeTransition);
+    return () => {
+      keyRef.current?.removeEventListener('transitionend', removeTransition);
+    };
   }, []);
 
   return (
@@ -55,7 +77,7 @@ const DrumKey: React.FC<DrumKeyProps> = ({ keyChar, soundName, keyCode }) => {
       <audio
         ref={audioRef}
         data-key={keyCode}
-        src={`./DrumKit/sounds/${soundName}.wav`}
+        src={soundMap[soundName]}
         onError={(e) => {
           const target = e.target as HTMLAudioElement;
           console.error(
