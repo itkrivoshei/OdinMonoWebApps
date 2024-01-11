@@ -3,6 +3,33 @@ import './Calculator.scss';
 import { Howl } from 'howler';
 import Button from './Button';
 
+import pressGeneric from '../../assets/Calculator/audio/pressGeneric.mp3';
+import releaseGeneric from '../../assets/Calculator/audio/releaseGeneric.mp3';
+import pressLongKey from '../../assets/Calculator/audio/pressLongKey.mp3';
+import releaseLongKey from '../../assets/Calculator/audio/releaseLongKey.mp3';
+
+import { ReactComponent as AcSvg } from '../../assets/Calculator/svg/ac.svg';
+import { ReactComponent as Csvg } from '../../assets/Calculator/svg/c.svg';
+import { ReactComponent as DivideSvg } from '../../assets/Calculator/svg/divide.svg';
+import { ReactComponent as DotSvg } from '../../assets/Calculator/svg/dot.svg';
+import { ReactComponent as EightSvg } from '../../assets/Calculator/svg/eight.svg';
+import { ReactComponent as EnterSvg } from '../../assets/Calculator/svg/enter.svg';
+import { ReactComponent as FiveSvg } from '../../assets/Calculator/svg/five.svg';
+import { ReactComponent as FourSvg } from '../../assets/Calculator/svg/four.svg';
+import { ReactComponent as GitSvg } from '../../assets/Calculator/svg/git.svg';
+import { ReactComponent as MinusSvg } from '../../assets/Calculator/svg/minus.svg';
+import { ReactComponent as MultiplySvg } from '../../assets/Calculator/svg/multiply.svg';
+import { ReactComponent as NineSvg } from '../../assets/Calculator/svg/nine.svg';
+import { ReactComponent as NumLockSvg } from '../../assets/Calculator/svg/numLock.svg';
+import { ReactComponent as OneSvg } from '../../assets/Calculator/svg/one.svg';
+import { ReactComponent as PlusSvg } from '../../assets/Calculator/svg/plus.svg';
+import { ReactComponent as SevenSvg } from '../../assets/Calculator/svg/seven.svg';
+import { ReactComponent as SixSvg } from '../../assets/Calculator/svg/six.svg';
+import { ReactComponent as ThreeSvg } from '../../assets/Calculator/svg/three.svg';
+import { ReactComponent as TwoSvg } from '../../assets/Calculator/svg/two.svg';
+import { ReactComponent as VolSvg } from '../../assets/Calculator/svg/vol.svg';
+import { ReactComponent as ZeroSvg } from '../../assets/Calculator/svg/zero.svg';
+
 const Calculator: React.FC = () => {
   const [currentVal, setCurrentVal] = useState('0');
   const [previousVal, setPreviousVal] = useState('');
@@ -13,7 +40,6 @@ const Calculator: React.FC = () => {
   const [power, setPower] = useState(true);
   const [lastKeyPressed, setLastKeyPressed] = useState<string | null>(null);
   const [audioInitialized, setAudioInitialized] = useState(false);
-  const [svgLoaded, setSvgLoaded] = useState(false);
   const [lastOperation, setLastOperation] = useState<{
     operand: string;
     operator: string;
@@ -60,16 +86,16 @@ const Calculator: React.FC = () => {
     if (audioInitialized) return;
 
     pGenericButton.current = new Howl({
-      src: ['./Calculator/audio/pressGeneric.mp3'],
+      src: [pressGeneric],
     });
     rGenericButton.current = new Howl({
-      src: ['./Calculator/audio/releaseGeneric.mp3'],
+      src: [releaseGeneric],
     });
     pLongButton.current = new Howl({
-      src: ['./Calculator/audio/pressLongKey.mp3'],
+      src: [pressLongKey],
     });
     rLongButton.current = new Howl({
-      src: ['./Calculator/audio/releaseLongKey.mp3'],
+      src: [releaseLongKey],
     });
 
     if (Howler.ctx?.state && Howler.ctx.state === 'suspended') {
@@ -223,46 +249,6 @@ const Calculator: React.FC = () => {
   };
 
   useEffect(() => {
-    const imageList = [
-      './Calculator/svg/ac.svg',
-      './Calculator/svg/c.svg',
-      './Calculator/svg/divide.svg',
-      './Calculator/svg/dot.svg',
-      './Calculator/svg/eight.svg',
-      './Calculator/svg/enter.svg',
-      './Calculator/svg/five.svg',
-      './Calculator/svg/four.svg',
-      './Calculator/svg/git.svg',
-      './Calculator/svg/minus.svg',
-      './Calculator/svg/multiply.svg',
-      './Calculator/svg/nine.svg',
-      './Calculator/svg/numLock.svg',
-      './Calculator/svg/one.svg',
-      './Calculator/svg/plus.svg',
-      './Calculator/svg/seven.svg',
-      './Calculator/svg/six.svg',
-      './Calculator/svg/three.svg',
-      './Calculator/svg/two.svg',
-      './Calculator/svg/vol.svg',
-      './Calculator/svg/zero.svg',
-    ];
-
-    let loadedImages = 0;
-
-    imageList.forEach(
-      (imageSrc) => {
-        const img = new Image();
-        img.src = imageSrc;
-        img.onload = () => {
-          loadedImages++;
-          if (loadedImages === imageList.length) {
-            setSvgLoaded(true);
-          }
-        };
-      },
-      [sound, isKeyDown, power]
-    );
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isClickValid(e.key)) return;
       const finalKey = handleMultiKeys(e.key);
@@ -282,11 +268,13 @@ const Calculator: React.FC = () => {
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
+    initializeAudio();
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [sound, isKeyDown, power]);
+  }, [sound, isKeyDown, power, audioInitialized]);
 
   const handleCommandButtons = (value: string) => {
     switch (value) {
@@ -322,154 +310,78 @@ const Calculator: React.FC = () => {
 
   return (
     <div className='calculator-container'>
-      {svgLoaded ? (
-        <>
-          <div className='statusPanel'>
-            <div>
-              Num
-              <br />
-              Lock
-              <div className={`light ${power ? 'flash' : ''}`} />
-            </div>
-            <div>
-              Volume
-              <div className={`light ${sound ? 'flash' : ''}`} />
-            </div>
-            <div>
-              Git
-              <br />
-              Check
-              <div className={`light ${git ? 'flash' : ''}`} />
-            </div>
+      <>
+        <div className='statusPanel'>
+          <div>
+            Num
+            <br />
+            Lock
+            <div className={`light ${power ? 'flash' : ''}`} />
           </div>
-          <div className={`display ${power ? '' : 'lock'}`}>{currentVal}</div>
-          <div className='buttons'>
-            {[
-              {
-                id: 'ac',
-                dataValue: 'Delete',
-                imageSrc: './Calculator/svg/ac.svg',
-              },
-              {
-                id: 'c',
-                dataValue: 'Clear',
-                imageSrc: './Calculator/svg/c.svg',
-              },
-              {
-                id: 'divide',
-                dataValue: '/',
-                imageSrc: './Calculator/svg/divide.svg',
-              },
-              {
-                id: 'dot',
-                dataValue: '.',
-                imageSrc: './Calculator/svg/dot.svg',
-              },
-              {
-                id: 'eight',
-                dataValue: '8',
-                imageSrc: './Calculator/svg/eight.svg',
-              },
-              {
-                id: 'enter',
-                dataValue: '=',
-                imageSrc: './Calculator/svg/enter.svg',
-                isLongKey: true,
-              },
-              {
-                id: 'five',
-                dataValue: '5',
-                imageSrc: './Calculator/svg/five.svg',
-              },
-              {
-                id: 'four',
-                dataValue: '4',
-                imageSrc: './Calculator/svg/four.svg',
-              },
-              {
-                id: 'git',
-                dataValue: 'g',
-                imageSrc: './Calculator/svg/git.svg',
-              },
-              {
-                id: 'minus',
-                dataValue: '-',
-                imageSrc: './Calculator/svg/minus.svg',
-              },
-              {
-                id: 'multiply',
-                dataValue: '*',
-                imageSrc: './Calculator/svg/multiply.svg',
-              },
-              {
-                id: 'nine',
-                dataValue: '9',
-                imageSrc: './Calculator/svg/nine.svg',
-              },
-              {
-                id: 'numLock',
-                dataValue: 'NumLock',
-                imageSrc: './Calculator/svg/numLock.svg',
-              },
-              {
-                id: 'one',
-                dataValue: '1',
-                imageSrc: './Calculator/svg/one.svg',
-              },
-              {
-                id: 'plus',
-                dataValue: '+',
-                imageSrc: './Calculator/svg/plus.svg',
-                isLongKey: true,
-              },
-              {
-                id: 'seven',
-                dataValue: '7',
-                imageSrc: './Calculator/svg/seven.svg',
-              },
-              {
-                id: 'six',
-                dataValue: '6',
-                imageSrc: './Calculator/svg/six.svg',
-              },
-              {
-                id: 'three',
-                dataValue: '3',
-                imageSrc: './Calculator/svg/three.svg',
-              },
-              {
-                id: 'two',
-                dataValue: '2',
-                imageSrc: './Calculator/svg/two.svg',
-              },
-              {
-                id: 'vol',
-                dataValue: 'v',
-                imageSrc: './Calculator/svg/vol.svg',
-              },
-              {
-                id: 'zero',
-                dataValue: '0',
-                imageSrc: './Calculator/svg/zero.svg',
-                isLongKey: true,
-              },
-            ].map((button) => (
-              <Button
-                key={button.id}
-                id={button.id}
-                dataValue={button.dataValue}
-                imageSrc={button.imageSrc}
-                isLongKey={button.isLongKey}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                isActive={button.dataValue === lastKeyPressed}
-              />
-            ))}
+          <div>
+            Volume
+            <div className={`light ${sound ? 'flash' : ''}`} />
           </div>
-        </>
-      ) : (
-        <div className='loading-screen'>Loading...</div>
-      )}
+          <div>
+            Git
+            <br />
+            Check
+            <div className={`light ${git ? 'flash' : ''}`} />
+          </div>
+        </div>
+        <div className={`display ${power ? '' : 'lock'}`}>{currentVal}</div>
+        <div className='buttons'>
+          {[
+            { id: 'ac', dataValue: 'Delete', SvgComponent: AcSvg },
+            { id: 'c', dataValue: 'Clear', SvgComponent: Csvg },
+            { id: 'divide', dataValue: '/', SvgComponent: DivideSvg },
+            { id: 'dot', dataValue: '.', SvgComponent: DotSvg },
+            { id: 'eight', dataValue: '8', SvgComponent: EightSvg },
+            {
+              id: 'enter',
+              dataValue: '=',
+              SvgComponent: EnterSvg,
+              isLongKey: true,
+            },
+            { id: 'five', dataValue: '5', SvgComponent: FiveSvg },
+            { id: 'four', dataValue: '4', SvgComponent: FourSvg },
+            { id: 'git', dataValue: 'g', SvgComponent: GitSvg },
+            { id: 'minus', dataValue: '-', SvgComponent: MinusSvg },
+            { id: 'multiply', dataValue: '*', SvgComponent: MultiplySvg },
+            { id: 'nine', dataValue: '9', SvgComponent: NineSvg },
+            { id: 'numLock', dataValue: 'NumLock', SvgComponent: NumLockSvg },
+            { id: 'one', dataValue: '1', SvgComponent: OneSvg },
+            {
+              id: 'plus',
+              dataValue: '+',
+              SvgComponent: PlusSvg,
+              isLongKey: true,
+            },
+            { id: 'seven', dataValue: '7', SvgComponent: SevenSvg },
+            { id: 'six', dataValue: '6', SvgComponent: SixSvg },
+            { id: 'three', dataValue: '3', SvgComponent: ThreeSvg },
+            { id: 'two', dataValue: '2', SvgComponent: TwoSvg },
+            { id: 'vol', dataValue: 'v', SvgComponent: VolSvg },
+            {
+              id: 'zero',
+              dataValue: '0',
+              SvgComponent: ZeroSvg,
+              isLongKey: true,
+            },
+          ].map((button) => (
+            <Button
+              key={button.id}
+              id={button.id}
+              dataValue={button.dataValue}
+              SvgComponent={button.SvgComponent}
+              isLongKey={button.isLongKey}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              isActive={button.dataValue === lastKeyPressed}
+            />
+          ))}
+        </div>
+      </>
     </div>
   );
 };
