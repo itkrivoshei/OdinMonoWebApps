@@ -3,24 +3,24 @@ import React, { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
-import { addToDo } from '../../redux/slices/toDoSlice';
+import { addTodo } from '../../redux/slices/todoSlice';
 
-const AddToDo: React.FC = () => {
+const AddTodo: React.FC = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  const handleAddToDo = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddTodo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const trimmedInput = input.trim();
 
     if (trimmedInput) {
-      dispatch(addToDo(trimmedInput));
+      dispatch(addTodo(trimmedInput));
       setInput('');
     }
   };
 
   return (
-    <form onSubmit={handleAddToDo}>
+    <form onSubmit={handleAddTodo}>
       <Box
         sx={{
           display: 'flex',
@@ -31,18 +31,18 @@ const AddToDo: React.FC = () => {
         }}
       >
         <TextField
-          label='Enter ToDo'
+          label='Enter Todo'
           variant='outlined'
           value={input}
           onChange={(e) => setInput(e.target.value)}
           fullWidth
         />
         <Button variant='contained' color='primary' type='submit'>
-          Add ToDo
+          Add Todo
         </Button>
       </Box>
     </form>
   );
 };
 
-export default AddToDo;
+export default AddTodo;

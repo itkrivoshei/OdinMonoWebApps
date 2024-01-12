@@ -12,30 +12,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 
-import { deleteToDo, editToDo, toggleToDo } from '../../redux/slices/toDoSlice';
+import { deleteTodo, editTodo, toggleTodo } from '../../redux/slices/todoSlice';
 
-interface ToDo {
+interface Todo {
   id: number;
   text: string;
   completed: boolean;
 }
 
-interface ToDoItemProps {
-  toDo: ToDo;
+interface TodoItemProps {
+  todo: Todo;
 }
 
-const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [newName, setNewName] = useState(toDo.text);
+  const [newName, setNewName] = useState(todo.text);
   const dispatch = useDispatch();
 
-  const handleDelete = () => dispatch(deleteToDo(toDo.id));
+  const handleDelete = () => dispatch(deleteTodo(todo.id));
   const handleEdit = () => setIsEditing(true);
-  const handleToggleCompletion = () => dispatch(toggleToDo(toDo.id));
+  const handleToggleCompletion = () => dispatch(toggleTodo(todo.id));
 
   const handleSave = () => {
     if (newName.trim()) {
-      dispatch(editToDo({ toDoId: toDo.id, newText: newName }));
+      dispatch(editTodo({ todoId: todo.id, newText: newName }));
       setIsEditing(false);
     }
   };
@@ -71,22 +71,22 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             backgroundColor: '#c8b6ff',
-            opacity: toDo.completed ? 0.5 : 1,
+            opacity: todo.completed ? 0.5 : 1,
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Checkbox
-              checked={!!toDo.completed}
+              checked={!!todo.completed}
               onChange={handleToggleCompletion}
             />
             <Typography
               variant='body1'
               sx={{ wordBreak: 'break-word' }}
               style={{
-                textDecoration: toDo.completed ? 'line-through' : 'none',
+                textDecoration: todo.completed ? 'line-through' : 'none',
               }}
             >
-              {toDo.text}
+              {todo.text}
             </Typography>
           </Box>
           <Box>
@@ -102,4 +102,4 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ toDo }) => {
     </Box>
   );
 };
-export default ToDoItem;
+export default TodoItem;

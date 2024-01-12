@@ -9,7 +9,7 @@ Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a d
 Here is a list of projects sorted from most difficult (interesting) to least difficult:
 
 1. **Weather App** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/WeatherApp)
-2. **ToDo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/ToDoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/ToDoApp)
+2. **Todo List** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TodoApp)
 3. **Calculator** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/Calculator)
 4. **Library** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/BookLibrary) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/BookLibrary)
 5. **Tic Tac Toe** [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TicTacToe)

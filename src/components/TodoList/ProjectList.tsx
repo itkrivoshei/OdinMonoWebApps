@@ -10,16 +10,16 @@ import {
   setActiveProject,
   deleteProject,
   editProject,
-} from '../../redux/slices/toDoSlice';
-import { Project } from '../../redux/slices/toDoSlice';
+} from '../../redux/slices/todoSlice';
+import { Project } from '../../redux/slices/todoSlice';
 
 const ProjectList: React.FC = () => {
   const [isEditing, setIsEditing] = useState<number | string | null>(null);
   const [newName, setNewName] = useState<string>('');
 
-  const projects = useSelector((state: RootState) => state.toDo.projects) || [];
+  const projects = useSelector((state: RootState) => state.todo.projects) || [];
   const activeProjectId = useSelector(
-    (state: RootState) => state.toDo.activeProject
+    (state: RootState) => state.todo.activeProject
   );
   const dispatch = useDispatch();
 

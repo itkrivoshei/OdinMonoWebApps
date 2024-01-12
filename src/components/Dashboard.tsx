@@ -18,7 +18,7 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { path: '/ToDoApp', name: 'To Do' },
+  { path: '/TodoApp', name: 'To Do' },
   { path: '/TicTacToe', name: 'Tic Tac Toe' },
   { path: '/BookLibrary', name: 'Book Library' },
   { path: '/SignUpForm', name: 'Sign Up Form' },

@@ -1,18 +1,18 @@
 import React from 'react';
 import { List } from '@mui/material';
-import ToDoItem from './ToDoItem';
+import TodoItem from './TodoItem';
 
-interface ToDo {
+interface Todo {
   id: number;
   text: string;
   completed: boolean;
 }
 
-interface ToDoListProps {
-  toDos: ToDo[];
+interface TodoListProps {
+  todos: Todo[];
 }
 
-const ToDoList: React.FC<ToDoListProps> = ({ toDos }) => {
+const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   return (
     <List
       sx={{
@@ -22,11 +22,11 @@ const ToDoList: React.FC<ToDoListProps> = ({ toDos }) => {
         width: '100%',
       }}
     >
-      {toDos.map((toDo) => (
-        <ToDoItem key={toDo.id} toDo={toDo} />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </List>
   );
 };
 
-export default ToDoList;
+export default TodoList;

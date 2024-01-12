@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface ToDo {
+interface Todo {
   id: number;
   text: string;
   completed: boolean;
@@ -9,34 +9,34 @@ interface ToDo {
 export interface Project {
   id: number | string;
   title: string;
-  toDos: ToDo[];
+  todos: Todo[];
 }
 
-interface ToDoState {
+interface TodoState {
   projects: Project[];
   activeProject: string | number;
 }
 
-const initialState: ToDoState = {
+const initialState: TodoState = {
   projects: [
     {
       id: 'default',
       title: 'Default Project',
-      toDos: [],
+      todos: [],
     },
   ],
   activeProject: 'default',
 };
 
-const toDoSlice = createSlice({
-  name: 'toDo',
+const todoSlice = createSlice({
+  name: 'todo',
   initialState,
   reducers: {
-    addToDo: (state, action) => {
+    addTodo: (state, action) => {
       const project = state.projects.find((p) => p.id === state.activeProject);
 
       if (project) {
-        project.toDos.push({
+        project.todos.push({
           id: Date.now(),
           text: action.payload,
           completed: false,
@@ -44,28 +44,28 @@ const toDoSlice = createSlice({
       }
     },
 
-    deleteToDo: (state, action) => {
+    deleteTodo: (state, action) => {
       const project = state.projects.find((p) => p.id === state.activeProject);
 
       if (project) {
-        project.toDos = project.toDos.filter(
-          (toDo) => toDo.id !== action.payload
+        project.todos = project.todos.filter(
+          (todo) => todo.id !== action.payload
         );
       }
     },
 
-    fetchToDos: (state, action) => {
+    fetchTodos: (state, action) => {
       const newProject = {
         id: Date.now(),
-        title: 'Fetched ToDos',
-        toDos: action.payload,
+        title: 'Fetched Todos',
+        todos: action.payload,
       };
 
       state.projects.push(newProject);
     },
 
     addProject: (state, action) => {
-      state.projects.push({ id: Date.now(), title: action.payload, toDos: [] });
+      state.projects.push({ id: Date.now(), title: action.payload, todos: [] });
     },
 
     setActiveProject: (state, action) => {
@@ -91,36 +91,36 @@ const toDoSlice = createSlice({
       }
     },
 
-    editToDo: (state, action) => {
+    editTodo: (state, action) => {
       const project = state.projects.find((p) => p.id === state.activeProject);
-      const toDo = project?.toDos.find((t) => t.id === action.payload.toDoId);
+      const todo = project?.todos.find((t) => t.id === action.payload.todoId);
 
-      if (toDo) {
-        toDo.text = action.payload.newText;
+      if (todo) {
+        todo.text = action.payload.newText;
       }
     },
 
-    toggleToDo: (state, action) => {
+    toggleTodo: (state, action) => {
       const project = state.projects.find((p) => p.id === state.activeProject);
-      const toDo = project?.toDos.find((t) => t.id === action.payload);
+      const todo = project?.todos.find((t) => t.id === action.payload);
 
-      if (toDo) {
-        toDo.completed = !toDo.completed;
+      if (todo) {
+        todo.completed = !todo.completed;
       }
     },
   },
 });
 
 export const {
-  addToDo,
-  deleteToDo,
-  fetchToDos,
+  addTodo,
+  deleteTodo,
+  fetchTodos,
   addProject,
   setActiveProject,
   deleteProject,
   editProject,
-  editToDo,
-  toggleToDo,
-} = toDoSlice.actions;
+  editTodo,
+  toggleTodo,
+} = todoSlice.actions;
 
-export default toDoSlice.reducer;
+export default todoSlice.reducer;

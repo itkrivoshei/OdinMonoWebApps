@@ -3,18 +3,18 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './styles/main.scss';
 import Dashboard from './components/Dashboard';
-import Restaurant from './components/RestaurantPages/Restaurant';
-import ToDoApp from './components/ToDoApp/ToDoApp';
+import Restaurant from './components/RestaurantPage/Restaurant';
+import TodoApp from './components/TodoList/TodoApp';
 import TicTacToe from './components/TicTacToe/TicTacToe';
-import BookLibrary from './components/BookLibrary/BookLibrary';
+import BookLibrary from './components/Library/BookLibrary';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import Calculator from './components/Calculator/Calculator';
 import EtchASketch from './components/EtchASketch/EtchASketch';
 import DrumKit from './components/DrumKit/DrumKit';
 import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors';
-import OdinRecipes from './components/OdinRecipes/OdinRecipes';
-import Landing from './components/Landing/Landing';
-import DashLanding from './components/DashLanding/DashLanding';
+import OdinRecipes from './components/Recipes/OdinRecipes';
+import Landing from './components/Landing Page/Landing';
+import DashLanding from './components/AdminDashboard/DashLanding';
 import WeatherApp from './components/WeatherApp/WeatherApp';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Dashboard />} />
         <Route path='/Restaurant' element={<Restaurant />} />
-        <Route path='/ToDoApp' element={<ToDoApp />} />
+        <Route path='/TodoApp' element={<TodoApp />} />
         <Route path='/TicTacToe' element={<TicTacToe />} />
         <Route path='/BookLibrary' element={<BookLibrary />} />
         <Route path='/SignUpForm' element={<SignUpForm />} />

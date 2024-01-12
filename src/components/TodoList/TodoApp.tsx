@@ -10,16 +10,16 @@ import {
 
 import { RootState } from '../../redux/store';
 
-import AddToDo from './AddToDo';
-import ToDoList from './ToDoList';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
 import ProjectList from './ProjectList';
 import AddProject from './AddProject';
-import lofiImage from '../../assets/ToDoApp/images/lofi_image.jpg';
+import lofiImage from '../../assets/TodoList/images/lofi_image.jpg';
 
-const ToDoApp: React.FC = () => {
+const TodoApp: React.FC = () => {
   const activeProject = useSelector((state: RootState) =>
-    state.toDo.projects.find(
-      (project) => project.id === state.toDo.activeProject
+    state.todo.projects.find(
+      (project) => project.id === state.todo.activeProject
     )
   );
 
@@ -85,7 +85,7 @@ const ToDoApp: React.FC = () => {
                 color: '#282A36',
               }}
             >
-              ToDoApp
+              TodoApp
             </Typography>
             <AddProject />
             <ProjectList />
@@ -102,10 +102,10 @@ const ToDoApp: React.FC = () => {
             }}
           >
             <Typography variant='h3' color={'#282A36'}>
-              ToDo&apos;s
+              Todo&apos;s
             </Typography>
-            <AddToDo />
-            {activeProject && <ToDoList toDos={activeProject.toDos} />}
+            <AddTodo />
+            {activeProject && <TodoList todos={activeProject.todos} />}
           </Box>
         </Paper>
       </Box>
@@ -113,4 +113,4 @@ const ToDoApp: React.FC = () => {
   );
 };
 
-export default ToDoApp;
+export default TodoApp;
