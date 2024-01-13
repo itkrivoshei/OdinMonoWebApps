@@ -1,4 +1,4 @@
-# 📄 React/TypeScript Landing Page
+# 📄 Landing Page
 
 ## 📖 Overview
 
