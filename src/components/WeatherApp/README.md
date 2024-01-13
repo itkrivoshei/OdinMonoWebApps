@@ -3,35 +3,35 @@
 ## 📖 Overview
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/WeatherApp.gif?raw=true)
 
-The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application providing real-time weather forecasts. Developed using React, TypeScript, and Redux Toolkit, it offers a user-friendly interface with Material UI components styled using a custom CyberPunk Font. The app integrates with the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to fetch and display weather data and related GIFs. Users can search for weather forecasts by city and enjoy an adaptive UI that changes gif based on the weather conditions.
+The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is a dynamic web application providing real-time weather forecasts, developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-weather-app). Using React, TypeScript, and Redux Toolkit, it features a user-friendly interface with Material UI components and a custom CyberPunk Font. The app uses the [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) to display weather data and related GIFs. Users can search for weather forecasts by city and experience an adaptive UI that changes based on the weather conditions.
 
 ## 🌟 Key Features
 
 - **Real-time Weather Data**: Fetches current weather forecasts for any specified location using the Weather API.
-- **Unit Conversion**: Users can switch between metric (°C, km/h) and imperial (°F, mph) units for temperature and wind speed.
-- **Interactive Weather GIFs**: Engaging weather-themed GIFs from the Giphy API based on the current weather conditions.
-- **State Management with Redux Toolkit**: Efficient application state management for a responsive user experience.
-- **City Search Functionality**: Allows users to search for weather information by city.
+- **Unit Conversion**: Toggle between metric (°C, km/h) and imperial (°F, mph) units.
+- **Interactive Weather GIFs**: Weather-themed GIFs from the Giphy API, adapting to current conditions.
+- **State Management with Redux Toolkit**: Ensures a responsive user experience.
+- **City Search Functionality**: Search for weather information by city.
 
 ## 💻 Technologies
 
-- **React**: For building the user interface.
-- **TypeScript**: Ensures type safety and improves maintainability.
-- **Redux Toolkit**: For state management.
+- **React**: For the user interface.
+- **TypeScript**: Enhances type safety and maintainability.
+- **Redux Toolkit**: Manages application state.
 - **Weather API & Giphy API**: Provides weather data and GIFs.
-- **Material UI**: For component styling, replacing SCSS.
-- **Custom CyberPunk Font**: For a unique UI experience.
+- **Material UI**: For modern component styling.
+- **Custom CyberPunk Font**: Unique UI experience.
 
 ## 🚀 Usage
 
-- **Location Search**: Enter a city or location to get the current weather forecast.
-- **Toggle Temperature Units**: Use the switch to change temperature units between Fahrenheit and Celsius.
-- **Enjoy Weather GIFs**: The app displays unique GIFs related to the current weather conditions.
+- **Location Search**: Enter a city for weather forecasts.
+- **Toggle Temperature Units**: Switch between Fahrenheit and Celsius.
+- **Weather GIFs**: Displays GIFs related to current weather.
 
 ## 🔒 API Keys and Security
 
-- **Secure your API Keys**: Keep your WeatherAPI and Giphy API keys secure, preferably using environment variables.
-- **Avoid Publicly Exposing API Keys**: Never commit your API keys to the public repository. Use `.env` files or server-side configuration to manage them.
+- **API Key Security**: Secure WeatherAPI and Giphy API keys using environment variables.
+- **Prevent API Key Exposure**: Do not commit API keys to public repositories. Manage them with `.env` files or server-side configurations.
 
 ## ⚙️ Setup and Installation
 
@@ -43,7 +43,7 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
    ```bash
    cd OdinMonoWebApps/dashboard
    ```
-3. Install the required dependencies:
+3. Install dependencies:
    ```bash
    npm install
    ```
@@ -54,24 +54,36 @@ The [Weather App](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) is
 
 ## 🤝 How to Contribute
 
-We welcome contributions to the Weather App. To contribute:
+Contributions to the Weather App are welcome:
 
 1. Fork the [main repository](https://github.com/itkrivoshei/OdinMonoWebApps).
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add AmazingFeature'`).
-5. Push to the
+3. Make changes.
+4. Commit (`git commit -m 'Add AmazingFeature'`).
+5. Push to
 
-branch (`git push origin feature/AmazingFeature`).
+the branch (`git push origin feature/AmazingFeature`).
 6. Open a pull request.
 
-For more details, see the [CONTRIBUTING.md](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/CONTRIBUTING.md) in the main repository.
+For more details, refer to the [CONTRIBUTING.md](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/CONTRIBUTING.md) in the main repository.
 
 ## 📜 License
 
-This project is open source, available under the [MIT License](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/LICENSE).
+This project is open source, licensed under the [MIT License](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/LICENSE).
 
 ## 🌟 Acknowledgments
 
-- Inspired by [The Odin Project's curriculum](https://www.theodinproject.com/lessons/node-path-javascript-weather-app).
-- Thanks to [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) for the data and media resources.
+- Inspired by and developed as a part of the assignment for [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-weather-app).
+- Special thanks to [Weather API](https://www.weatherapi.com/) and [Giphy API](https://developers.giphy.com/) for providing the data and media resources.
+
+## 📚 Assignment from The Odin Project
+
+As part of the assignment from [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-weather-app), this Weather App was created to demonstrate skills in using APIs and building a dynamic user interface. The assignment included:
+
+- Creating a weather forecast site using the weather API.
+- Implementing a search function for specific locations and toggling between Fahrenheit and Celsius.
+- Designing the page based on the weather data, such as changing background color or adding relevant images or GIFs.
+- Using promises or async/await in the code.
+- Ensuring API keys and secrets are managed securely.
+
+This project not only showcases the ability to integrate APIs and manage application state but also highlights the importance of security considerations in web development.
