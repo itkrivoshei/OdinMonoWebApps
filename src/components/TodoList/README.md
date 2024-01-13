@@ -1,10 +1,11 @@
-# Todo Management App
+# 📝 Todo Management App
 
-## Overview
+## 📖 Overview
+![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TodoList.gif?raw=true)
 
 The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp) is a comprehensive solution for organizing tasks and projects. Developed using React and TypeScript, it features a modern and interactive user interface, enhanced by Material UI components. The application allows users to create, edit, and manage tasks and projects efficiently, with an intuitive design and smooth user experience. The app's visually pleasing aesthetics are augmented by a lo-fi theme background and a monospace font, providing a unique user interface.
 
-## Key Features
+## 🔑 Key Features
 
 - **Project Management**: Users can create, edit, and manage multiple projects.
 - **Task Management**: Add, edit, and delete tasks within projects.
@@ -12,7 +13,7 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
 - **Redux State Management**: Utilizes Redux for efficient state management and seamless user interaction.
 - **Material UI Components**: A sleek, modern UI with Material UI components.
 
-## Technologies
+## 💻 Technologies
 
 - **React**: For building the dynamic user interface.
 - **TypeScript**: For type safety and better code maintainability.
@@ -20,13 +21,13 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
 - **Material UI**: For a modern, responsive component library.
 - **Custom Theming**: Utilizes a custom theme with a lo-fi aesthetic and monospace font.
 
-## Usage
+## 🚀 Usage 
 
 - **Project Creation**: Users can create new projects for task management.
 - **Task Addition and Management**: Add new tasks to projects and edit or delete them as needed.
 - **Interactivity**: Engage with an intuitive and user-friendly interface that enhances productivity.
 
-## Setup and Installation
+## 🔧 Setup and Installation 
 
 1. Clone the repository:
    ```bash
@@ -45,7 +46,7 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
    npm start
    ```
 
-## How to Contribute
+## 🤝 How to Contribute
 
 We welcome contributions to the Weather App. To contribute:
 
@@ -58,10 +59,10 @@ We welcome contributions to the Weather App. To contribute:
 
 For more details, see the [CONTRIBUTING.md](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/CONTRIBUTING.md) in the main repository.
 
-## License
+## 📜 License 
 
 This project is open source, available under the [MIT License](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/LICENSE).
 
-## Acknowledgments
+## 👏 Acknowledgments
 
-- Inspired by [The Odin Project's curriculum](https://www.theodinproject.com/lessons/node-path-javascript-weather-app).
+Inspired by [The Odin Project's curriculum](https://www.theodinproject.com/lessons/node-path-javascript-weather-app).
