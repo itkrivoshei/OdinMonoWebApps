@@ -77,5 +77,3 @@ This Calculator App is a reimagined version of the project from [The Odin Projec
 - Building a user interface that mimics the classic IBM keyboard numpad, including sound effects.
 - Ensuring the calculator can handle complex mathematical statements securely, without using the `eval()` function.
 - Designing responsive layouts and integrating keyboard support for enhanced user interaction.
-
-This project demonstrates advanced skills in web development, particularly in creating interactive and user-friendly web applications.
