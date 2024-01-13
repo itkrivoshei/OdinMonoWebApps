@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import Restaurant from './components/RestaurantPage/Restaurant';
 import TodoApp from './components/TodoList/TodoApp';
 import TicTacToe from './components/TicTacToe/TicTacToe';
-import BookLibrary from './components/Library/BookLibrary';
+import BookLibrary from './components/LibraryApp/BookLibrary';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import Calculator from './components/Calculator/Calculator';
 import EtchASketch from './components/EtchASketch/EtchASketch';
