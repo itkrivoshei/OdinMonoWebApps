@@ -35,7 +35,7 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
    ```
 2. Navigate to the App directory:
    ```bash
-   cd OdinMonoWebApps/dashboard
+   cd OdinMonoWebApps
    ```
 3. Install required dependencies:
    ```bash
