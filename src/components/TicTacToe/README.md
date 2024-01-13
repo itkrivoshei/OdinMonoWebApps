@@ -33,7 +33,7 @@ The [Tic Tac Toe](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) is 
    ```
 2. Navigate to the App directory:
    ```bash
-   cd OdinMonoWebApps/dashboard
+   cd OdinMonoWebApps
    ```
 3. Install the required dependencies:
    ```bash
