@@ -27,7 +27,7 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
 - **Task Addition and Management**: Add new tasks to projects and edit or delete them as needed.
 - **Interactivity**: Engage with an intuitive and user-friendly interface that enhances productivity.
 
-## 🔧 Setup and Installation 
+## ⚙️ Setup and Installation 
 
 1. Clone the repository:
    ```bash
