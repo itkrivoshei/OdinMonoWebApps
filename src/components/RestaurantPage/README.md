@@ -5,7 +5,6 @@ The Restaurant Page project, inspired by [The Odin Project's JavaScript course](
 
 - **Dynamic Content Rendering**: Each section of the restaurant - Home, Menu, and Contact - is rendered dynamically using React.
 - **Tabbed Navigation**: Users can easily navigate between the Home, Menu, and Contact tabs.
-- **Responsive Design**: The layout is responsive, providing a seamless experience across various devices.
 
 ## 💻 Technologies
 
