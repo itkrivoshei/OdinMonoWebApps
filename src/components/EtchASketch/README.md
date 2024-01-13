@@ -1,6 +1,7 @@
 # 🎨 Etch-A-Sketch App
 
 ## 📖 Overview
+
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/EtchASketch.gif?raw=true)
 
 The Etch-A-Sketch App is a creative and interactive web application inspired by the classic drawing toy. This project was developed as part of [The Odin Project's Foundations Course](https://www.theodinproject.com/lessons/foundations-etch-a-sketch), redesigned using React, TypeScript, and SCSS for a modern and responsive user experience. Users can create pixelated artwork by moving their mouse over a grid, with customizable grid sizes and colors, including a unique rainbow and shadow mode.

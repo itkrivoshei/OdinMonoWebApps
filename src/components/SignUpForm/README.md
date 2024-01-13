@@ -1,6 +1,7 @@
 # 📝 Sign-up Form App
 
 ## 📖 Overview
+
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/SignUpForm.gif?raw=true)
 
 The [Sign-up Form App](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) is a robust and interactive sign-up interface. It's a modern re-implementation of a project from [The Odin Project](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form), now developed using React and TypeScript. This app offers an immersive experience with dynamic form validation, a matrix-style background animation, and a clean, user-friendly layout. It's designed to handle user inputs efficiently, with detailed validation for each field, including custom phone number formatting and password strength checks.

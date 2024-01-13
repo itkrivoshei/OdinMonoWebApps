@@ -1,6 +1,7 @@
 # 📝 Todo Management App
 
 ## 📖 Overview
+
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TodoList.gif?raw=true)
 
 The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp), a comprehensive solution for task and project organization, is developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list). This application, created using React and TypeScript, features a modern and interactive user interface enhanced by Material UI components. It allows users to efficiently create, edit, and manage tasks and projects, offering an intuitive design and a smooth user experience. The app's aesthetics are uniquely complemented by a lo-fi theme background and a monospace font.
@@ -21,13 +22,13 @@ The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoAp
 - **Material UI**: Provides a modern, responsive component library.
 - **Custom Theming**: Features a custom theme with a lo-fi aesthetic and monospace font.
 
-## 🚀 Usage 
+## 🚀 Usage
 
 - **Project Creation**: Users can initiate new projects for managing tasks.
 - **Task Addition and Management**: Facilitates adding, editing, and deleting tasks in projects.
 - **Interactivity**: Offers an intuitive and user-friendly interface to boost productivity.
 
-## ⚙️ Setup and Installation 
+## ⚙️ Setup and Installation
 
 1. Clone the repository:
    ```bash
@@ -59,7 +60,7 @@ Contributions to the Todo Management App are welcomed:
 
 Refer to the [CONTRIBUTING.md](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/CONTRIBUTING.md) in the main repository for more details.
 
-## 📜 License 
+## 📜 License
 
 This project is open source, licensed under the [MIT License](https://github.com/itkrivoshei/OdinMonoWebApps/blob/master/LICENSE).
 
