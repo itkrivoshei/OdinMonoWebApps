@@ -84,5 +84,3 @@ As part of the assignment from [The Odin Project's JavaScript course](https://ww
 - Designing the page based on the weather data, such as changing background color or adding relevant images or GIFs.
 - Using promises or async/await in the code.
 - Ensuring API keys and secrets are managed securely.
-
-This project not only showcases the ability to integrate APIs and manage application state but also highlights the importance of security considerations in web development.
