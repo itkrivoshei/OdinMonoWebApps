@@ -13,7 +13,7 @@ import EtchASketch from './components/EtchASketch/EtchASketch';
 import DrumKit from './components/DrumKit/DrumKit';
 import RockPaperScissors from './components/RockPaperScissors/RockPaperScissors';
 import OdinRecipes from './components/Recipes/OdinRecipes';
-import Landing from './components/Landing Page/Landing';
+import Landing from './components/LandingPage/Landing';
 import DashLanding from './components/AdminDashboard/DashLanding';
 import WeatherApp from './components/WeatherApp/WeatherApp';
 
