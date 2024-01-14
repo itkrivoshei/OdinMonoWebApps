@@ -1,6 +1,7 @@
 # 🍽️ Restaurant Page
 
 ## 📖 Overview
+![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Restaurant.gif?raw=true)
 
 The Restaurant Page project, inspired by [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-todo-list), is a React-based web application showcasing a virtual restaurant. It features a simple, yet elegant landing page with navigation options to explore different sections of the restaurant, including Home, Menu, and Contact.
 
