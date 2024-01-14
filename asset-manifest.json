@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/OdinMonoWebApps/static/css/main.6276eb42.css",
-    "main.js": "/OdinMonoWebApps/static/js/main.d5bf965d.js",
+    "main.css": "/OdinMonoWebApps/static/css/main.a4e08516.css",
+    "main.js": "/OdinMonoWebApps/static/js/main.6a86d1ea.js",
     "static/js/496.fe77c922.chunk.js": "/OdinMonoWebApps/static/js/496.fe77c922.chunk.js",
     "static/media/background.jpg": "/OdinMonoWebApps/static/media/background.b6c880a4adaf4eb971a0.jpg",
     "static/media/ride.wav": "/OdinMonoWebApps/static/media/ride.44e6385400f6b7c38f7c.wav",
@@ -15,6 +15,10 @@
     "static/media/plus.svg": "/OdinMonoWebApps/static/media/plus.6003317e9e90f2906470ab50a2964a9e.svg",
     "static/media/hihat.wav": "/OdinMonoWebApps/static/media/hihat.0273528cafd1985aa0e4.wav",
     "static/media/snare.wav": "/OdinMonoWebApps/static/media/snare.3aa3f94341c18d1e00d1.wav",
+    "static/media/gideon-roman-latin-400-normal.woff": "/OdinMonoWebApps/static/media/gideon-roman-latin-400-normal.ff6e85d187b977e39589.woff",
+    "static/media/gideon-roman-latin-400-normal.woff2": "/OdinMonoWebApps/static/media/gideon-roman-latin-400-normal.dde36fe88dc1dd0d8c33.woff2",
+    "static/media/gideon-roman-latin-ext-400-normal.woff": "/OdinMonoWebApps/static/media/gideon-roman-latin-ext-400-normal.a98c3145211c6ade8ff1.woff",
+    "static/media/gideon-roman-latin-ext-400-normal.woff2": "/OdinMonoWebApps/static/media/gideon-roman-latin-ext-400-normal.ebb7d55b95017db26e53.woff2",
     "static/media/kick.wav": "/OdinMonoWebApps/static/media/kick.1d842c5565abcec54198.wav",
     "static/media/eight.svg": "/OdinMonoWebApps/static/media/eight.d88a32a77a0d46f0359d856b92bf4910.svg",
     "static/media/nine.svg": "/OdinMonoWebApps/static/media/nine.b750ea157fd588602c2477988d64bf00.svg",
@@ -27,8 +31,10 @@
     "static/media/four.svg": "/OdinMonoWebApps/static/media/four.172b877e5782a82e4e47811647547a0f.svg",
     "static/media/one.svg": "/OdinMonoWebApps/static/media/one.29a82467c3b68bd5c97a8669e5763e87.svg",
     "static/media/seven.svg": "/OdinMonoWebApps/static/media/seven.974020e36161a46404bf042187a53316.svg",
+    "static/media/gideon-roman-vietnamese-400-normal.woff": "/OdinMonoWebApps/static/media/gideon-roman-vietnamese-400-normal.7cd08f4a2f6bfcaadd1a.woff",
     "static/media/zero.svg": "/OdinMonoWebApps/static/media/zero.6d7485adf394f4a3bf7345a31b2d953d.svg",
     "static/media/numLock.svg": "/OdinMonoWebApps/static/media/numLock.2c06b92d77264230d39737a7f5d86d03.svg",
+    "static/media/gideon-roman-vietnamese-400-normal.woff2": "/OdinMonoWebApps/static/media/gideon-roman-vietnamese-400-normal.cc661819ac2917f3aeeb.woff2",
     "static/media/git.svg": "/OdinMonoWebApps/static/media/git.5cd815ed7df326cc58b599ca934841aa.svg",
     "static/media/ac.svg": "/OdinMonoWebApps/static/media/ac.49705ec6daaa6c41e49c8b2fe66788ce.svg",
     "static/media/c.svg": "/OdinMonoWebApps/static/media/c.5ecf2ad260756106f68da31d103d0ffd.svg",
@@ -41,12 +47,12 @@
     "static/media/minus.svg": "/OdinMonoWebApps/static/media/minus.6790b34348b6bd8be5f4235ce0f50def.svg",
     "static/media/releaseLongKey.mp3": "/OdinMonoWebApps/static/media/releaseLongKey.47cb76fb4083bbd8d952.mp3",
     "index.html": "/OdinMonoWebApps/index.html",
-    "main.6276eb42.css.map": "/OdinMonoWebApps/static/css/main.6276eb42.css.map",
-    "main.d5bf965d.js.map": "/OdinMonoWebApps/static/js/main.d5bf965d.js.map",
+    "main.a4e08516.css.map": "/OdinMonoWebApps/static/css/main.a4e08516.css.map",
+    "main.6a86d1ea.js.map": "/OdinMonoWebApps/static/js/main.6a86d1ea.js.map",
     "496.fe77c922.chunk.js.map": "/OdinMonoWebApps/static/js/496.fe77c922.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6276eb42.css",
-    "static/js/main.d5bf965d.js"
+    "static/css/main.a4e08516.css",
+    "static/js/main.6a86d1ea.js"
   ]
 }
