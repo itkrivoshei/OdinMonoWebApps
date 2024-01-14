@@ -1,5 +1,7 @@
 # 🪨✂️📜 Rock Paper Scissors
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/RockPaperScissors.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/RockPaperScissors.gif?raw=true" height="600">
+</p>
 
 The [Rock Paper Scissors](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) is a web-based adaptation of the classic game, developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors). This version is built with React, TypeScript, and SCSS, featuring a sleek and interactive user interface. The game pits the player against a computer opponent in a series of Rock, Paper, Scissors matches, with a live score tracker and playful icons representing game outcomes.
 
