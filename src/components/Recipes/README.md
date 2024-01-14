@@ -1,6 +1,4 @@
 # Odin Recipes App 🍲
-
-## 📖 Overview
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Recipes.gif?raw=true)
 
 The Odin Recipes App is a modern interpretation of the [Odin Project's Foundations Course Recipe Project](https://www.theodinproject.com/lessons/foundations-recipes). Originally designed to practice basic HTML skills, this version has been revamped using React, TypeScript, and Material UI.
