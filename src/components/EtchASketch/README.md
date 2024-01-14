@@ -1,4 +1,5 @@
 # 🎨 Etch-A-Sketch App
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/EtchASketch.gif?raw=true" height="600">
 </p>

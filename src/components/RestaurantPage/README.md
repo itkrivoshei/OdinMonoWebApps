@@ -1,4 +1,5 @@
 # 🍽️ Restaurant Page
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Restaurant.gif?raw=true" height="600">
 </p>

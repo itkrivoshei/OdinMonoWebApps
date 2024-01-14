@@ -1,4 +1,5 @@
 # 📝 Sign-up Form App
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/SignUpForm.gif?raw=true" height="600">
 </p>

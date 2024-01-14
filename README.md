@@ -1,4 +1,5 @@
 # 🌐 OdinMonoWebApps
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/OdinMonoWebApps.gif?raw=true" height="600">
 </p>
@@ -30,9 +31,9 @@ The repository is thoughtfully organized for easy navigation and development:
 - `📂media`: Contains all media files, including GIFs for each project.
 - `📂public`: Holds public assets, including HTML and favicon.
 - `📂src`: The source directory.
-   - `📂assets`: All static assets like images and sounds for projects.
-   - `📂components`: Individual project directories with their components.
-   - `📂redux`: Redux setup, including actions and reducers.
+  - `📂assets`: All static assets like images and sounds for projects.
+  - `📂components`: Individual project directories with their components.
+  - `📂redux`: Redux setup, including actions and reducers.
 
 ## 🚀 Getting Started
 

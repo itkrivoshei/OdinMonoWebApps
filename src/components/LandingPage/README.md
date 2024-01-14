@@ -1,4 +1,5 @@
 # 📄 Landing Page
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Landing.gif?raw=true" height="600">
 </p>

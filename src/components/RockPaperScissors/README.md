@@ -1,4 +1,5 @@
 # 🪨✂️📜 Rock Paper Scissors
+
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/RockPaperScissors.gif?raw=true" height="600">
 </p>
