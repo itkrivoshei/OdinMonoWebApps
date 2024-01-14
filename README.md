@@ -56,6 +56,30 @@ To dive into these projects:
    npm start
    ```
 
+## 💻 Development Tools and Scripts
+
+- **Prettier**: Enforces consistent code formatting (`.prettierrc`).
+- **ESLint**: Enhances code quality (`eslint-config-prettier`).
+- **TypeScript**: Strong typing with `tsconfig.json`.
+- **Scripts**:
+  - `start`: Development server.
+  - `build`: Production build.
+  - `test`: Test suite.
+  - `pretty`: Formats code.
+  - `lint`: Code linting.
+  - `deploy`: Deploys to GitHub Pages.
+  - `eject`: Custom build configuration.
+
+## 🔄 CI/CD
+
+GitHub Actions for continuous integration and deployment ensures reliability through automated build and test cycles.
+
+## ⚙️ Configuration Files
+
+- **Prettier** (`.prettierrc`): Code formatting rules.
+- **TypeScript** (`tsconfig.json`): Compiler options.
+- **ESLint** (`.eslintrc.json`): Linting rules.
+
 ## 🤝 Contributing
 
 Eager to contribute? Fantastic! Please follow our [Contribution Guidelines](CONTRIBUTING.md) for a smooth collaboration process.
