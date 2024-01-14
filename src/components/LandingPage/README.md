@@ -1,6 +1,7 @@
 # 📄 Landing Page
 
 ## 📖 Overview
+![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Landing.gif?raw=true)
 
 The [React/TypeScript Landing Page](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) is an elegant, modern web page built as part of the [Foundations Course from The Odin Project](https://www.theodinproject.com/lessons/foundations-landing-page). This project demonstrates the ability to translate a provided design into a functional website using React, TypeScript, and SCSS. The layout, styled using custom SCSS, and includes various sections such as a hero area, about us, services, and contact information.
 
