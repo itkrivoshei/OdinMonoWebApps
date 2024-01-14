@@ -1,11 +1,13 @@
 # 🌐 OdinMonoWebApps
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/OdinMonoWebApps.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/OdinMonoWebApps.gif?raw=true" height="600">
+</p>
 
-Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a vibrant collection of web-based projects demonstrating various front-end development techniques. Crafted with React, TypeScript, and Redux, each project in this monorepo offers a distinct insight into web app creation. These projects are crafted as part of the educational journey with [The Odin Project](https://www.theodinproject.com), a leading open-source coding curriculum.
+Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a collection of web-based projects. Crafted with React, TypeScript, and Redux, as part of the educational journey with [The Odin Project](https://www.theodinproject.com), a leading open-source coding curriculum.
 
 ## 📚 Project List
 
-Here are the projects, ranked from the most challenging to simpler ones:
+Here are the projects, ranked from the most challenging to simplest ones:
 
 1. **Weather App**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/WeatherApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/WeatherApp)
 2. **Todo List**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/TodoList)
@@ -29,7 +31,7 @@ The repository is thoughtfully organized for easy navigation and development:
 
 - `📂media`: Contains all media files, including GIFs for each project.
 - `📂public`: Holds public assets, including HTML and favicon.
-- `📂src`: The source directory, where the magic happens!
+- `📂src`: The source directory.
    - `📂assets`: All static assets like images and sounds for projects.
    - `📂components`: Individual project directories with their components.
    - `📂redux`: Redux setup, including actions and reducers.
