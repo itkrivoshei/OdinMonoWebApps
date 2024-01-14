@@ -1,7 +1,9 @@
 # 📝 Todo Management App
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TodoList.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TodoList.gif?raw=true" height="600">
+</p>
 
-The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp), a comprehensive solution for task and project organization, is developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list). This application, created using React and TypeScript, features a modern and interactive user interface enhanced by Material UI components. It allows users to efficiently create, edit, and manage tasks and projects, offering an intuitive design and a smooth user experience. The app's aesthetics are uniquely complemented by a lo-fi theme background and a monospace font.
+The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp), an app for task and project organization, is developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list). This application, created using React and TypeScript, features a modern and interactive user interface enhanced by Material UI components. It allows users to efficiently create, edit, and manage tasks and projects, offering an intuitive design and a smooth user experience. The app's aesthetics are uniquely complemented by a lo-fi theme background and a monospace font.
 
 ## 🌟 Key Features
 
@@ -70,8 +72,8 @@ This project is open source, licensed under the [MIT License](https://github.com
 
 As part of the assignment from [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-todo-list), this Todo Management App was crafted to demonstrate proficiency in various web development techniques. The assignment involved:
 
-- Creating a todo list with dynamically generated objects using factories or constructors/classes.
-- Incorporating features like title, description, due date, priority, notes, and checklists for todo items.
+- Creating a to-do list with dynamically generated objects using factories or constructors/classes.
+- Incorporating features like title, description, due date, priority, notes, and checklists for to-do items.
 - Implementing project-based organization of todos with default and user-created projects.
 - Separating application logic from DOM-related operations in different modules.
 - Designing a user interface capable of viewing and managing todos with various functionalities like viewing all projects, editing todo details, and deleting todos.
