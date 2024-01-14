@@ -1,7 +1,9 @@
 # Odin Recipes App 🍲
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Recipes.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Recipes.gif?raw=true" height="600">
+</p>
 
-The Odin Recipes App is a modern interpretation of the [Odin Project's Foundations Course Recipe Project](https://www.theodinproject.com/lessons/foundations-recipes). Originally designed to practice basic HTML skills, this version has been revamped using React, TypeScript, and Material UI.
+The [Odin Recipes App](https://itkrivoshei.github.io/OdinMonoWebApps/#/OdinRecipes) is a modern interpretation of the [Odin Project's Foundations Course Recipe Project](https://www.theodinproject.com/lessons/foundations-recipes). Originally designed to practice basic HTML skills, this version has been revamped using React, TypeScript, and Material UI.
 
 ## 🌟 Key Features
 
@@ -13,12 +15,6 @@ The Odin Recipes App is a modern interpretation of the [Odin Project's Foundatio
 - **React**: For creating an interactive user interface.
 - **TypeScript**: To ensure type safety and enhance code quality.
 - **Material UI**: A popular React UI framework for elegant and efficient component design.
-
-## 🚀 Usage
-
-- **Browse Recipes**: Explore a variety of recipes from the main menu.
-- **View Detailed Instructions**: Click on a recipe to view detailed cooking instructions, ingredients, and images.
-- **Interactive Experience**: Enjoy an intuitive and user-friendly navigation experience within the app.
 
 ## ⚙️ Setup and Installation
 
