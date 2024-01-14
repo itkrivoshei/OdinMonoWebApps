@@ -18,8 +18,6 @@ Here are the projects, ranked from the most challenging to simplest ones:
 7. **Rock Paper Scissors**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/RockPaperScissors) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RockPaperScissors)
 8. **Sign-up Form**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/SignUpForm) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/SignUpForm)
 9. **DrumKit**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DrumKit) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/DrumKit)
-
-### First Projects/Simple Landings
 10. **Admin Dashboard**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/AdminDashboard)
 11. **Landing Page**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Landing) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/LandingPage)
 12. **Restaurant Landing**: [Live Preview](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) | [Code](https://github.com/itkrivoshei/OdinMonoWebApps/tree/main/src/components/RestaurantPage)
