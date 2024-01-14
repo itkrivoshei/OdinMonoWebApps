@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, createTheme, ThemeProvider } from '@mui/material';
+import '@fontsource/orbitron';
 
 import cosmosImage from '../../assets/WeatherApp/images/cosmos_image.jpg';
 import MainWeatherDisplay from './MainWeatherDisplay';
