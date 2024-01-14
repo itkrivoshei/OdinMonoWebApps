@@ -1,4 +1,4 @@
-# Odin Recipes App 🍲
+# 🍲 Odin Recipes App
 
 <p align="center">
   <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Recipes.gif?raw=true" height="600">
