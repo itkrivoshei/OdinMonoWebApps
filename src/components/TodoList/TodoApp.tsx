@@ -7,6 +7,7 @@ import {
   createTheme,
   Paper,
 } from '@mui/material';
+import '@fontsource/space-mono';
 
 import { RootState } from '../../redux/store';
 
