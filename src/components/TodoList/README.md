@@ -1,7 +1,4 @@
 # 📝 Todo Management App
-
-## 📖 Overview
-
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TodoList.gif?raw=true)
 
 The [Todo Management App](https://itkrivoshei.github.io/OdinMonoWebApps/#/TodoApp), a comprehensive solution for task and project organization, is developed as part of an assignment for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list). This application, created using React and TypeScript, features a modern and interactive user interface enhanced by Material UI components. It allows users to efficiently create, edit, and manage tasks and projects, offering an intuitive design and a smooth user experience. The app's aesthetics are uniquely complemented by a lo-fi theme background and a monospace font.
