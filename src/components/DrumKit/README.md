@@ -1,6 +1,4 @@
 # 🥁 Drum Kit App
-
-## 📖 Overview
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/DrumKit.gif?raw=true)
 
 The Drum Kit App is a vibrant and interactive web application allowing users to create drum sounds using their keyboard. This project is a modern React/TypeScript/SCSS rendition of the Vanilla JavaScript tutorial ["Make a JavaScript Drum Kit in Vanilla JS! #JavaScript30 1/30"](https://www.youtube.com/watch?v=VuN8qwZoego) by Wes Bos. It's an excellent example of how to transform a JavaScript project into a more structured and scalable React application while maintaining the playful and engaging essence of the original idea.
