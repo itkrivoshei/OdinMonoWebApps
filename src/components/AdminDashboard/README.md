@@ -1,13 +1,15 @@
 # 📊 Admin Dashboard
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Dashboard.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Dashboard.gif?raw=true" height="600">
+</p>
 
-This React Admin Dashboard is a robust web application crafted as a part of the assignment from [The Odin Project](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-admin-dashboard). It leverages React for building dynamic user interfaces, SCSS for styling, and Material Icons with a Dracula color theme. The application showcases a sophisticated dashboard layout using React components, styled with a focus on grid layouts and responsive design, presenting a modern, intuitive user interface.
+This [React Admin Dashboard](https://itkrivoshei.github.io/OdinMonoWebApps/#/DashLanding) is a robust web application crafted as a part of the assignment from [The Odin Project](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-admin-dashboard). It leverages React for building dynamic user interfaces, SCSS for styling, and Material Icons with a Dracula color theme.
 
 ## 🌟 Key Features
 
 - **Grid-Based Layout**: Extensive use of CSS grid for a flexible and organized layout.
 - **React Components**: Dynamic UI built with React, enhancing user interaction.
-- **SCSS Styling**: Styled using SCSS with Dracula color theme for a modern look.
+- **SCSS Styling**: Styled using SCSS with a Dracula color theme for a modern look.
 - **Material Icons Integration**: Incorporates Material Icons for a sleek and user-friendly interface.
 
 ## 💻 Technologies
