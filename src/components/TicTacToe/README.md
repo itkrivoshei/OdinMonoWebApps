@@ -1,7 +1,9 @@
 # 🎮 Tic Tac Toe
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TicTacToe.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/TicTacToe.gif?raw=true" height="600">
+</p>
 
-The [Tic Tac Toe](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) is a classic game reimagined in a web browser, created as a React project for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe). This version of Tic Tac Toe is built using React, showcasing the ability to handle state and UI updates dynamically. Players can engage in a game against an AI opponent or opt for a traditional 2-player game. The game includes features like win detection, score tracking, and a reset function.
+The [Tic Tac Toe](https://itkrivoshei.github.io/OdinMonoWebApps/#/TicTacToe) is a classic game created as a React project for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe). This version of Tic Tac Toe is built using React, showcasing the ability to handle state and UI updates dynamically. Players can engage in a game against an AI opponent or opt for a traditional 2-player game. The game includes features like win detection, score tracking, and a reset function.
 
 ## 🌟 Key Features
 
