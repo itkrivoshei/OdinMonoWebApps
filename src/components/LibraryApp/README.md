@@ -1,7 +1,4 @@
 # 📚 Library App
-
-## 📖 Overview
-
 ![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Library.gif?raw=true)
 
 The [Library App](https://itkrivoshei.github.io/OdinMonoWebApps/#/LibraryApp) is a modern adaptation of a project from [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-library), redesigned using React. This application provides a user-friendly platform for managing a personal library collection. It utilizes Material UI for styling and offers features like adding, removing, and updating book information. Users can interact with a simple and intuitive interface to maintain their book collection.
