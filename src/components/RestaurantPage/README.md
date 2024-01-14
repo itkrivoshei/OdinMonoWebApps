@@ -1,7 +1,9 @@
 # 🍽️ Restaurant Page
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Restaurant.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Restaurant.gif?raw=true" height="600">
+</p>
 
-The Restaurant Page project, inspired by [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-todo-list), is a React-based web application showcasing a virtual restaurant. It features a simple, yet elegant landing page with navigation options to explore different sections of the restaurant, including Home, Menu, and Contact.
+The [Restaurant Page](https://itkrivoshei.github.io/OdinMonoWebApps/#/Restaurant) project, inspired by [The Odin Project's JavaScript course](https://www.theodinproject.com/lessons/node-path-javascript-todo-list), is a React-based web application showcasing a virtual restaurant. It features a simple landing page with navigation options to explore different sections of the restaurant, including Home, Menu, and Contact.
 
 - **Dynamic Content Rendering**: Each section of the restaurant - Home, Menu, and Contact - is rendered dynamically using React.
 - **Tabbed Navigation**: Users can easily navigate between the Home, Menu, and Contact tabs.
@@ -9,15 +11,6 @@ The Restaurant Page project, inspired by [The Odin Project's JavaScript course](
 ## 💻 Technologies
 
 - **React**: For building a dynamic and interactive user interface.
-- **Webpack**: Underlying bundling and development server.
-- **JavaScript**: Core programming language used.
-- **SCSS**: For styling components and enhancing the visual appeal.
-
-## 🚀 Usage
-
-- **Navigation**: Utilize the tabbed interface to switch between Home, Menu, and Contact pages.
-- **Menu Exploration**: View detailed descriptions and prices of various dishes.
-- **Contact Information**: Access contact details of the restaurant.
 
 ## ⚙️ Setup and Installation
 
