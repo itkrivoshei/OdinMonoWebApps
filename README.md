@@ -1,6 +1,7 @@
 # OdinMonoWebApps
 
 ## Welcome
+![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/OdinMonoWebApps.gif?raw=true)
 
 Welcome to [OdinMonoWebApps](https://itkrivoshei.github.io/OdinMonoWebApps), a diverse collection of web-based projects showcasing a spectrum of front-end development skills. Each project in this monorepo, developed with React, TypeScript, and Redux, offers a unique perspective on web development. These projects are part of the learning journey from [The Odin Project](https://www.theodinproject.com), an innovative open-source coding curriculum.
 
