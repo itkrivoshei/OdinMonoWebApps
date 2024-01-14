@@ -1,7 +1,9 @@
 # 🧮 Calculator App
-![](https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Calculator.gif?raw=true)
+<p align="center">
+  <img src="https://github.com/itkrivoshei/OdinMonoWebApps/blob/main/media/Calculator.gif?raw=true" height="600">
+</p>
 
-The [Calculator App](https://itkrivoshei.github.io/OdinMonoWebApps/#/CalculatorApp) is a sophisticated web application designed for mathematical computations, inspired by the iconic IBM keyboard. This project, a creative take on the [Foundations Calculator assignment](https://www.theodinproject.com/lessons/foundations-calculator) from The Odin Project, is developed using React, TypeScript, and SCSS. It mimics the style of an IBM keyboard numpad, including original sounds and colors, providing an engaging and nostalgic user experience. The app features a variety of functions and a unique design, making it a standout addition to any developer's portfolio.
+The [Calculator App](https://itkrivoshei.github.io/OdinMonoWebApps/#/Calculator) is a web application designed for mathematical computations, inspired by the iconic IBM keyboard. This project, a creative take on the [Foundations Calculator assignment](https://www.theodinproject.com/lessons/foundations-calculator) from The Odin Project, is developed using React, TypeScript, and SCSS. It mimics the style of an IBM keyboard numpad, including original sounds and colors, providing an engaging and nostalgic user experience.
 
 ## 🌟 Key Features
 
