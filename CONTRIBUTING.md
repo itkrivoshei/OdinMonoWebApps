@@ -2,7 +2,7 @@
 
 ## Welcome Contributors!
 
-Thank you for considering contributing to the OdinMonoWebApps projects! Your efforts help make this a more robust learning resource for everyone. This document provides guidelines for contributing to this repository, welcoming contributions from all skill levels, from beginners to experienced developers.
+Thank you for considering contributing to the OdinMonoWebApps! Your efforts help make this a more robust learning resource for everyone. This document provides guidelines for contributing to this repository, welcoming contributions from all skill levels, from beginners to experienced developers.
 
 ## How You Can Contribute
 
