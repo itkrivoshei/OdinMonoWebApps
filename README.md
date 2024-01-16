@@ -72,10 +72,6 @@ To dive into these projects:
   - `deploy`: Deploys to GitHub Pages.
   - `eject`: Custom build configuration.
 
-## 🔄 CI/CD
-
-GitHub Actions for continuous integration and deployment ensures reliability through automated build and test cycles.
-
 ## ⚙️ Configuration Files
 
 - **Prettier** (`.prettierrc`): Code formatting rules.
