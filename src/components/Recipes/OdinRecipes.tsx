@@ -47,21 +47,19 @@ function OdinRecipes() {
         </Typography>
         <List>
           <ListItem
-            button
+            component='li'
             onClick={() => setSelectedRecipe('HomemadeLasagna')}
             style={{ color: 'white' }}
           >
             Homemade Lasagna
           </ListItem>
           <ListItem
-            button
             onClick={() => setSelectedRecipe('AcornSquash')}
             style={{ color: 'white' }}
           >
             Acorn Squash
           </ListItem>
           <ListItem
-            button
             onClick={() => setSelectedRecipe('MicrowaveBakedPotato')}
             style={{ color: 'white' }}
           >
@@ -159,7 +157,7 @@ function OdinRecipes() {
           steps={[
             'Preheat the oven to 350 degrees F (175 degrees C).',
             'Place acorn squash halves cut-side down onto a cookie sheet. Bake in the preheated oven until flesh begins to soften, about 30 to 45 minutes.',
-            'Remove squash from the oven and transfer one squash half, cut-side up, to a deep baking dish. Spoon butter and brown sugar into the cavity. Place remaining squash half, cut-side down, over top to seal.',
+            'Remove squash from the oven and transfer one squash half, cut-side up, to a deep baking dish. Spo``on butter and brown sugar into the cavity. Place remaining squash half, cut-side down, over top to seal.',
             'Return to the oven and continue to bake until flesh is soft, 30 minutes.',
           ]}
         />
