@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "https://github.com/itkrivoshei/OdinMonoWebApps",
   "private": true,
-  "homepage": "https://itkrivoshei.github.io/OdinMonoWebApps/",
+  "homepage": "https://kriv.dev/OdinMonoWebApps/",
   "proxy": "http://api.weatherapi.com",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
