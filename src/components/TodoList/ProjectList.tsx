@@ -10,8 +10,8 @@ import {
   setActiveProject,
   deleteProject,
   editProject,
-} from '../../redux/slices/todoSlice';
-import { Project } from '../../redux/slices/todoSlice';
+} from '../../redux/slices/toDoSlice';
+import { Project } from '../../redux/slices/toDoSlice';
 
 const ProjectList: React.FC = () => {
   const [isEditing, setIsEditing] = useState<number | string | null>(null);

@@ -12,7 +12,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 
-import { deleteTodo, editTodo, toggleTodo } from '../../redux/slices/todoSlice';
+import { deleteTodo, editTodo, toggleTodo } from '../../redux/slices/toDoSlice';
 
 interface Todo {
   id: number;

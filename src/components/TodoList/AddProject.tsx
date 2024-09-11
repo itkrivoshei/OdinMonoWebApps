@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
-import { addProject } from '../../redux/slices/todoSlice';
+import { addProject } from '../../redux/slices/toDoSlice';
 
 const AddProject: React.FC = () => {
   const [title, setTitle] = useState('');

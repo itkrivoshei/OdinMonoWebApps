@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/slices/todoSlice';
+import { addTodo } from '../../redux/slices/toDoSlice';
 
 const AddTodo: React.FC = () => {
   const [input, setInput] = useState('');

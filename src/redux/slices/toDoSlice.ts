@@ -28,7 +28,7 @@ const initialState: TodoState = {
   activeProject: 'default',
 };
 
-const todoSlice = createSlice({
+const toDoSlice = createSlice({
   name: 'todo',
   initialState,
   reducers: {
@@ -121,6 +121,6 @@ export const {
   editProject,
   editTodo,
   toggleTodo,
-} = todoSlice.actions;
+} = toDoSlice.actions;
 
-export default todoSlice.reducer;
+export default toDoSlice.reducer;
