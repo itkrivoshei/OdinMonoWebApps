@@ -38,7 +38,7 @@ function App() {
           <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
           <Route path='/OdinRecipes' element={<OdinRecipes />} />
           <Route path='/WeatherApp' element={<WeatherApp />} />
-          <Route path='/Counter' element={<Counter />} />
+          <Route path='/Counter' element={<Counter />} />{' '}
         </Routes>
       </Router>
     </ChakraProvider>
