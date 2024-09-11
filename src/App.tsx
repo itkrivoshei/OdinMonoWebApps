@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './styles/main.scss';
@@ -16,27 +17,31 @@ import OdinRecipes from './components/Recipes/OdinRecipes';
 import Landing from './components/LandingPage/Landing';
 import DashLanding from './components/AdminDashboard/DashLanding';
 import WeatherApp from './components/WeatherApp/WeatherApp';
+import Counter from './components/Counter/Counter';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Dashboard />} />
-        <Route path='/Restaurant' element={<Restaurant />} />
-        <Route path='/TodoApp' element={<TodoApp />} />
-        <Route path='/TicTacToe' element={<TicTacToe />} />
-        <Route path='/BookLibrary' element={<BookLibrary />} />
-        <Route path='/SignUpForm' element={<SignUpForm />} />
-        <Route path='/Calculator' element={<Calculator />} />
-        <Route path='/EtchASketch' element={<EtchASketch />} />
-        <Route path='/DrumKit' element={<DrumKit />} />
-        <Route path='/Landing' element={<Landing />} />
-        <Route path='/DashLanding' element={<DashLanding />} />
-        <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
-        <Route path='/OdinRecipes' element={<OdinRecipes />} />
-        <Route path='/WeatherApp' element={<WeatherApp />} />
-      </Routes>
-    </Router>
+    <ChakraProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/Restaurant' element={<Restaurant />} />
+          <Route path='/TodoApp' element={<TodoApp />} />
+          <Route path='/TicTacToe' element={<TicTacToe />} />
+          <Route path='/BookLibrary' element={<BookLibrary />} />
+          <Route path='/SignUpForm' element={<SignUpForm />} />
+          <Route path='/Calculator' element={<Calculator />} />
+          <Route path='/EtchASketch' element={<EtchASketch />} />
+          <Route path='/DrumKit' element={<DrumKit />} />
+          <Route path='/Landing' element={<Landing />} />
+          <Route path='/DashLanding' element={<DashLanding />} />
+          <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
+          <Route path='/OdinRecipes' element={<OdinRecipes />} />
+          <Route path='/WeatherApp' element={<WeatherApp />} />
+          <Route path='/Counter' element={<Counter />} />
+        </Routes>
+      </Router>
+    </ChakraProvider>
   );
 }
 
