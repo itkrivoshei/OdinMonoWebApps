@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, ColorModeScript } from '@chakra-ui/react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './styles/main.scss';
@@ -19,9 +19,26 @@ import DashLanding from './components/AdminDashboard/DashLanding';
 import WeatherApp from './components/WeatherApp/WeatherApp';
 import Counter from './components/Counter/Counter';
 
+const config = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({
+  config,
+  styles: {
+    global: {
+      body: {
+        bg: '#111827',
+      },
+    },
+  },
+});
+
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Router>
         <Routes>
           <Route path='/' element={<Dashboard />} />
@@ -38,7 +55,7 @@ function App() {
           <Route path='/RockPaperScissors' element={<RockPaperScissors />} />
           <Route path='/OdinRecipes' element={<OdinRecipes />} />
           <Route path='/WeatherApp' element={<WeatherApp />} />
-          <Route path='/Counter' element={<Counter />} />{' '}
+          <Route path='/Counter' element={<Counter />} />
         </Routes>
       </Router>
     </ChakraProvider>
