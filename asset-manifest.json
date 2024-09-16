@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/OdinMonoWebApps/static/css/main.a878e6c2.css",
-    "main.js": "/OdinMonoWebApps/static/js/main.2684b809.js",
+    "main.js": "/OdinMonoWebApps/static/js/main.b29b201d.js",
     "static/media/background.jpg": "/OdinMonoWebApps/static/media/background.b6c880a4adaf4eb971a0.jpg",
     "static/media/ride.wav": "/OdinMonoWebApps/static/media/ride.44e6385400f6b7c38f7c.wav",
     "static/media/cosmos_image.jpg": "/OdinMonoWebApps/static/media/cosmos_image.9b1af5dec47938f4796e.jpg",
@@ -55,10 +55,10 @@
     "static/media/releaseLongKey.mp3": "/OdinMonoWebApps/static/media/releaseLongKey.47cb76fb4083bbd8d952.mp3",
     "index.html": "/OdinMonoWebApps/index.html",
     "main.a878e6c2.css.map": "/OdinMonoWebApps/static/css/main.a878e6c2.css.map",
-    "main.2684b809.js.map": "/OdinMonoWebApps/static/js/main.2684b809.js.map"
+    "main.b29b201d.js.map": "/OdinMonoWebApps/static/js/main.b29b201d.js.map"
   },
   "entrypoints": [
     "static/css/main.a878e6c2.css",
-    "static/js/main.2684b809.js"
+    "static/js/main.b29b201d.js"
   ]
 }
