@@ -9,7 +9,23 @@ import {
   CardContent,
   CardMedia,
   Box,
+  ThemeProvider,
+  createTheme,
 } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+interface RecipeCardProps {
+  title: string;
+  imageSrc: string;
+  description: string;
+  ingredients: string[];
+  steps: string[];
+}
 
 function OdinRecipes() {
   const [selectedRecipe, setSelectedRecipe] = useState('');
@@ -49,19 +65,19 @@ function OdinRecipes() {
           <ListItem
             component='li'
             onClick={() => setSelectedRecipe('HomemadeLasagna')}
-            style={{ color: 'white' }}
+            sx={{ color: 'white', cursor: 'pointer' }}
           >
             Homemade Lasagna
           </ListItem>
           <ListItem
             onClick={() => setSelectedRecipe('AcornSquash')}
-            style={{ color: 'white' }}
+            sx={{ color: 'white', cursor: 'pointer' }}
           >
             Acorn Squash
           </ListItem>
           <ListItem
             onClick={() => setSelectedRecipe('MicrowaveBakedPotato')}
-            style={{ color: 'white' }}
+            sx={{ color: 'white', cursor: 'pointer' }}
           >
             Microwave Baked Potato
           </ListItem>
@@ -74,21 +90,12 @@ function OdinRecipes() {
     return (
       <Button
         variant='outlined'
-        color='inherit'
         sx={{ color: 'white', borderColor: 'white', marginBottom: 2 }}
         onClick={goBack}
       >
         Back to Recipes
       </Button>
     );
-  }
-
-  interface RecipeCardProps {
-    title: string;
-    imageSrc: string;
-    description: string;
-    ingredients: string[];
-    steps: string[];
   }
 
   function RecipeCard({
@@ -124,13 +131,13 @@ function OdinRecipes() {
             </Typography>
             <Typography variant='h6'>Ingredients</Typography>
             <List>
-              {ingredients.map((ingredient, idx) => (
+              {ingredients.map((ingredient: string, idx: number) => (
                 <ListItem key={idx}>{ingredient}</ListItem>
               ))}
             </List>
             <Typography variant='h6'>Steps</Typography>
             <List>
-              {steps.map((step, idx) => (
+              {steps.map((step: string, idx: number) => (
                 <ListItem key={idx}>
                   <Typography>{step}</Typography>
                 </ListItem>
@@ -157,7 +164,7 @@ function OdinRecipes() {
           steps={[
             'Preheat the oven to 350 degrees F (175 degrees C).',
             'Place acorn squash halves cut-side down onto a cookie sheet. Bake in the preheated oven until flesh begins to soften, about 30 to 45 minutes.',
-            'Remove squash from the oven and transfer one squash half, cut-side up, to a deep baking dish. Spo``on butter and brown sugar into the cavity. Place remaining squash half, cut-side down, over top to seal.',
+            'Remove squash from the oven and transfer one squash half, cut-side up, to a deep baking dish. Spoon butter and brown sugar into the cavity. Place remaining squash half, cut-side down, over top to seal.',
             'Return to the oven and continue to bake until flesh is soft, 30 minutes.',
           ]}
         />
@@ -223,7 +230,11 @@ function OdinRecipes() {
     );
   }
 
-  return <Box>{renderRecipe()}</Box>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Box>{renderRecipe()}</Box>
+    </ThemeProvider>
+  );
 }
 
 export default OdinRecipes;
