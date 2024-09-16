@@ -1,22 +1,24 @@
 import React from 'react';
 import './DashLanding.scss';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import HomeIcon from '@mui/icons-material/Home';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MessageIcon from '@mui/icons-material/Message';
-import HistoryIcon from '@mui/icons-material/History';
-import GroupIcon from '@mui/icons-material/Group';
-import SettingsIcon from '@mui/icons-material/Settings';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import LockIcon from '@mui/icons-material/Lock';
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AddIcon from '@mui/icons-material/Add';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import ShareIcon from '@mui/icons-material/Share';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import StarIcon from '@mui/icons-material/Star';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import {
+  FaTachometerAlt,
+  FaHome,
+  FaUserCircle,
+  FaEnvelope,
+  FaHistory,
+  FaUsers,
+  FaCog,
+  FaQuestionCircle,
+  FaLock,
+  FaSearch,
+  FaBell,
+  FaPlus,
+  FaCloudUploadAlt,
+  FaShareAlt,
+  FaEye,
+  FaStar,
+  FaTasks,
+} from 'react-icons/fa';
 
 const DashLanding = () => {
   return (
@@ -40,7 +42,7 @@ const Sidebar = () => {
 const Logo = () => {
   return (
     <div className='logo'>
-      <DashboardIcon />
+      <FaTachometerAlt />
       <h2>Dashboard</h2>
     </div>
   );
@@ -50,12 +52,12 @@ const Navigation = () => {
   return (
     <nav className='nav'>
       <ul>
-        <MenuItem icon={<HomeIcon />} label='Home' />
-        <MenuItem icon={<AccountCircleIcon />} label='Profile' />
-        <MenuItem icon={<MessageIcon />} label='Messages' />
-        <MenuItem icon={<HistoryIcon />} label='History' />
-        <MenuItem icon={<AssignmentIcon />} label='Tasks' />
-        <MenuItem icon={<GroupIcon />} label='Communities' />
+        <MenuItem icon={<FaHome />} label='Home' />
+        <MenuItem icon={<FaUserCircle />} label='Profile' />
+        <MenuItem icon={<FaEnvelope />} label='Messages' />
+        <MenuItem icon={<FaHistory />} label='History' />
+        <MenuItem icon={<FaTasks />} label='Tasks' />
+        <MenuItem icon={<FaUsers />} label='Communities' />
       </ul>
     </nav>
   );
@@ -78,9 +80,9 @@ const Settings = () => {
   return (
     <div className='settings'>
       <ul>
-        <MenuItem icon={<SettingsIcon />} label='Settings' />
-        <MenuItem icon={<HelpOutlineIcon />} label='Support' />
-        <MenuItem icon={<LockIcon />} label='Privacy' />
+        <MenuItem icon={<FaCog />} label='Settings' />
+        <MenuItem icon={<FaQuestionCircle />} label='Support' />
+        <MenuItem icon={<FaLock />} label='Privacy' />
       </ul>
     </div>
   );
@@ -109,10 +111,10 @@ const TopBar = () => {
     <div className='top-bar'>
       <div className='search-bar'>
         <input id='search-input' type='text' />
-        <SearchIcon />
+        <FaSearch />
       </div>
       <div className='notifications'>
-        <NotificationsIcon />
+        <FaBell />
       </div>
       <div className='user-info'>
         <img
@@ -141,9 +143,9 @@ const LowerBar = () => {
         </div>
       </div>
       <div className='actions'>
-        <AddIcon />
-        <CloudUploadIcon />
-        <ShareIcon />
+        <FaPlus />
+        <FaCloudUploadAlt />
+        <FaShareAlt />
       </div>
     </div>
   );
@@ -178,9 +180,9 @@ const ProjectCard = () => {
     <div className='card'>
       <h3>Project Name</h3>
       <div className='card-actions'>
-        <ShareIcon />
-        <VisibilityIcon />
-        <StarIcon />
+        <FaShareAlt />
+        <FaEye />
+        <FaStar />
       </div>
     </div>
   );
