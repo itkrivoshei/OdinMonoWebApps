@@ -125,6 +125,9 @@
 
   .lower-bar {
     padding: 20px;
+    .actions {
+      display: flex;
+    }
   }
 
   /* Search Bar */
