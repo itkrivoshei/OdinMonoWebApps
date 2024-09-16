@@ -44,30 +44,23 @@ const initialState: WeatherState = {
   error: null,
 };
 
-export const fetchWeather = createAsyncThunk(
-  'weather/fetchWeather',
-  async (
-    location: {
-      city?: string;
-      latitude?: number;
-      longitude?: number;
-    },
-    { rejectWithValue }
-  ) => {
-    try {
-      const query =
-        location.city || `${location.latitude},${location.longitude}`;
-      const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`;
-      const response = await fetch(apiUrl);
+export const fetchWeather = createAsyncThunk<
+  WeatherData, // Success type (the data structure you'll return)
+  { city?: string; latitude?: number; longitude?: number }, // Input type
+  { rejectValue: string } // Error type for rejectWithValue
+>('weather/fetchWeather', async (location, { rejectWithValue }) => {
+  try {
+    const query = location.city || `${location.latitude},${location.longitude}`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${query}&aqi=yes`;
+    const response = await fetch(apiUrl);
 
-      if (!response.ok) throw new Error('Failed to fetch weather data');
+    if (!response.ok) throw new Error('Failed to fetch weather data');
 
-      return await response.json();
-    } catch (error) {
-      return rejectWithValue('Failed to fetch weather data');
-    }
+    return await response.json();
+  } catch {
+    return rejectWithValue('Failed to fetch weather data'); // Properly return rejected value as a string
   }
-);
+});
 
 export const fetchGif = createAsyncThunk(
   'weather/fetchGif',
@@ -81,7 +74,7 @@ export const fetchGif = createAsyncThunk(
 
       const data = await response.json();
       return data.data.length > 0 ? data.data[0].images.fixed_height.url : null;
-    } catch (error) {
+    } catch {
       return rejectWithValue('Failed to fetch GIF');
     }
   }
